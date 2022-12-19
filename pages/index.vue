@@ -1,0 +1,105 @@
+<template>
+  <div>
+
+    <section class="hero-wrapper">
+      <div class="hero-box hero-bg">
+        <span class="line-bg line-bg1"></span>
+        <span class="line-bg line-bg2"></span>
+        <span class="line-bg line-bg3"></span>
+        <span class="line-bg line-bg4"></span>
+        <span class="line-bg line-bg5"></span>
+        <span class="line-bg line-bg6"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 mx-auto responsive--column-l">
+              <SearchEngine />
+            </div>
+          </div>
+        </div>
+        <svg
+          class="hero-svg"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 10"
+          preserveAspectRatio="none"
+        >
+          <path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
+        </svg>
+      </div>
+    </section>
+    <!-- end hero-wrapper -->
+
+    <section
+      class="info-area info-bg pt-4 text-center d-none d-lg-flex"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <div class="info-icon">
+                <i class="la la-bullhorn"></i>
+              </div>
+              <!-- end info-icon-->
+              <div class="info-content">
+                <h4 class="info__title">{{ $t.slogans.section1_title }}</h4>
+                <p class="info__desc">
+                  {{ $t.slogans.section1_text }}
+                </p>
+              </div>
+              <!-- end info-content -->
+            </div>
+            <!-- end icon-box -->
+          </div>
+          <!-- end col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="icon-box margin-top-50px">
+              <div class="info-icon">
+                <i class="la la-globe"></i>
+              </div>
+              <!-- end info-icon-->
+              <div class="info-content">
+                <h4 class="info__title">{{ $t.slogans.section2_title }}</h4>
+                <p class="info__desc">
+                {{ $t.slogans.section2_text }}
+                </p>
+              </div>
+              <!-- end info-content -->
+            </div>
+            <!-- end icon-box -->
+          </div>
+          <!-- end col-lg-4 -->
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <div class="info-icon">
+                <i class="la la-thumbs-up"></i>
+              </div>
+              <!-- end info-icon-->
+              <div class="info-content">
+                <h4 class="info__title">{{  $t.slogans.section3_title }} </h4>
+                <p class="info__desc">
+                 {{ $t.slogans.section3_text }}
+                </p>
+              </div>
+              <!-- end info-content -->
+            </div>
+            <!-- end icon-box -->
+          </div>
+          <!-- end col-lg-4 -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+   <!-- <SectionPopularHotel />-->
+    <SectionHolidayTypes />
+    <!-- <SectionHomeSeoText />-->
+    <SectionLatestPost :posts="post.data" v-if="post" />
+  </div>
+</template>
+
+<script setup>
+    
+const { data: post } = await useFetch(`/api/content/post/post?limit=4`, {
+  pick: ["data"],
+});
+</script> 
