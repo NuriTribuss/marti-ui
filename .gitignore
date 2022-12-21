@@ -1,0 +1,7 @@
+node_modules
+*.log
+.nuxt
+.yarn
+nuxt.d.ts
+.output
+.env
