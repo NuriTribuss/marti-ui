@@ -344,38 +344,43 @@
                     <div class="col-12">
                         <label class="label-text font-size-12">{{ $t['tour.tour_date']}}</label>
                         <div class="form-group">
-                        <select class="form-control" >
-                            <option>1</option>
+                          <select class="form-control" v-model="selectedPeriod" >
+                              <option :value="period" v-for="(period,index) in record?.periods" :key="index">
+                                {{  period.start_date_pretty }}
+                              </option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-12" v-if="selectedPeriod">
+                        <label class="label-text font-size-12">{{ $t['tour.departure']}}</label>
+                        <div class="form-group">
+                        <select class="form-control" v-model="selectedStation">
+                            <option :value="station" v-for="(station,index) in selectedPeriod?.stations" :key="index">
+                                {{  station.station }}
+                            </option>
                         </select>
                         </div>
                     </div>
                     <div class="col-12">
-                        <label class="label-text font-size-12">{{ $t['tour.departure']}}</label>
-                        <div class="form-group">
-                        <select class="form-control" >
-                            <option>1</option>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="col-6">
                         <label class="label-text font-size-12">{{ $t['tour.adult_count']}}</label>
                         <div class="form-group">
-                        <select class="form-control" >
-                            <option>1</option>
+                        <select class="form-control" v-model="adultCount" >
+                            <option v-for="i in 20" :key="i">{{  i }}</option>
                         </select>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 d-none">
                         <label class="label-text font-size-12">{{ $t['tour.children_count']}}</label>
                         <div class="form-group">
                         <select class="form-control" >
-                            <option>1</option>
+                          <option v-for="i in 20" :key="i">{{  i }}</option>
                         </select>
                         </div>
                     </div>
                 </div>
                 <button class="btn btn-block w-100 btn-primary rounded-0">
-                  {{ $t["tour.make_a_reservation"] }}
+                  {{ $t["tour.make_a_reservation"] }} 
+                  <span v-if="price > 0">({{ (price * adultCount).toFixed(0) }} €)</span>
                 </button>
                 <div class="text-center my-2">{{ $t["tour.or"] }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
@@ -395,18 +400,33 @@ export default {
   props: [],
   data() {
     return {
+      adultCount : 1,
+      selectedPeriod : null,
+      selectedStation  : null,
       record: null,
       loader: true,
     };
   },
+
+  computed : {
+
+    price() {
+      if(!this.selectedStation){
+        return 0;
+      }
+      return parseInt(this.selectedStation.price);
+    }
+  },
   methods: {
     getData() {
+
       let vue = this;
       $fetch("/api/booking/tour/tour/fetch/"+this.$route.query.tid).then(function (result) {
         if (!result.status) {
           return false;
         }
         vue.record = result.data;
+        vue.selectedPeriod = vue.record.periods[0]
         vue.loader = false;
       });
     },
