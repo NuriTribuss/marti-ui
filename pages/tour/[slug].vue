@@ -326,9 +326,57 @@
                   <h3 class="title font-size-20">{{ $t["tour.map"] }}</h3>
                   <div class="gmaps padding-top-30px" v-html="record.map"></div>
                 </div>
+              </div>
+
+              <div id="photo" class="page-scroll">
+                <div
+                  class="
+                    single-content-item
+                    padding-bottom-40px
+                  "
+                >
+                  <h3 class="title font-size-20 mb-2">{{ $t["tour.pictures"] }}</h3>
+                  <div>
+                    <TourPhotoGallery v-if="record" :images="record.images"></TourPhotoGallery>
+                  </div>
+                </div>
+              </div>
+
+              <div id="video" class="page-scroll">
+                <div
+                  class="
+                    single-content-item
+                    padding-bottom-40px
+                  "
+                >
+                  <h3 class="title font-size-20 mb-3">{{ $t["tour.video"] }}</h3>
+                  <div v-if="record" class="row">
+                    <div class="col-12" v-for="(video,index) in record?.videos" :key="index" v-html="video.embed">
+
+                    </div>
+                  </div>
+                </div>
                 <!-- end single-content-item -->
                 <div class="section-block"></div>
               </div>
+
+              <div id="notes" class="page-scroll">
+                <div
+                  class="
+                    single-content-item
+                    padding-bottom-40px
+                  "
+                >
+                  <h3 class="title font-size-20 mb-3">{{ $t["tour.important_notes_and_warnings"] }}</h3>
+                  <div v-if="record" class="bg-light p-4 row text-break text-center" v-html="record.agreegment" style="white-space: pre-line;">
+                 
+                  </div>
+                </div>
+                <!-- end single-content-item -->
+                <div class="section-block"></div>
+              </div>
+
+              
               <!-- end location-map -->
             </div>
           </div>
@@ -361,7 +409,7 @@
                         </select>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-6" :class="{'col-6' : selectedStation?.child_price != '0.00' , 'col-12' :  selectedStation?.child_price == '0.00'}">
                         <label class="label-text font-size-12">{{ $t['tour.adult_count']}}</label>
                         <div class="form-group">
                         <select class="form-control" v-model="adultCount" >
@@ -369,16 +417,16 @@
                         </select>
                         </div>
                     </div>
-                    <div class="col-6 d-none">
+                    <div class="col-6" v-if="selectedStation?.child_price != '0.00'">
                         <label class="label-text font-size-12">{{ $t['tour.children_count']}}</label>
                         <div class="form-group">
                         <select class="form-control" >
-                          <option v-for="i in 20" :key="i">{{  i }}</option>
+                          <option v-for="i in 5" :key="i">{{  i }}</option>
                         </select>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-block w-100 btn-primary rounded-0">
+                <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
                   <span v-if="price > 0">({{ (price * adultCount).toFixed(0) }} €)</span>
                 </button>
@@ -427,6 +475,7 @@ export default {
         }
         vue.record = result.data;
         vue.selectedPeriod = vue.record.periods[0]
+        vue.selectedStation = vue.record.periods[0].stations[0]
         vue.loader = false;
       });
     },
@@ -442,6 +491,9 @@ export default {
     openWp(){
       let text = 'Merhaba, '+this.record.title+' hakkında bilgi almak istiyorum'
       window.open('https://api.whatsapp.com/send?phone=4312366060&text='+text);
+    },
+    checkout(){
+      location.href = '/booking/checkout';
     }
   },
   mounted() {
