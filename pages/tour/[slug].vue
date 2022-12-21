@@ -378,7 +378,7 @@
                   {{ $t["tour.make_a_reservation"] }}
                 </button>
                 <div class="text-center my-2">{{ $t["tour.or"] }}</div>
-                <button class="btn btn-block w-100 btn-success rounded-0">
+                <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
                   <i class="la la-whatsapp me-2"></i>{{ $t["tour.whatsapp"] }}
                 </button>
               </div>
@@ -419,6 +419,10 @@ export default {
 
       return data[0];
     },
+    openWp(){
+      let text = 'Merhaba, '+this.record.title+' hakkında bilgi almak istiyorum'
+      window.open('https://api.whatsapp.com/send?phone=4312366060&text='+text);
+    }
   },
   mounted() {
     this.getData();

@@ -78,7 +78,7 @@
       </div>
       <div class="text-center font-size-20 py-3">
         
-        <i class="la la-headset me-2"></i> +43 1 236 60 60 123
+        <i class="la la-headset me-2"></i> {{ $phone }}
       </div>
     </div>
   </div>

@@ -8,12 +8,12 @@
               <div class="header-left">
                 <ul class="list-items">
                   <li>
-                    <a href="#"
-                      ><i class="la la-phone mr-1"></i>+43 1 236 60 60 123</a
+                    <a :href="'tel:'+$phone"
+                      ><i class="la la-phone mr-1"></i>{{ $phone }}</a
                     >
                   </li>
                   <li>
-                    <a href="#"
+                    <a href="mailto:info@martireisen.at"
                       ><i class="la la-envelope mr-1"></i>info@martireisen.at</a
                     >
                   </li>
@@ -100,7 +100,7 @@
                 <div class="phone d-flex align-items-center justify-content-center">
                   <h5>{{ $t['header.contact_info'] }}</h5>
                   <p>
-                    <a class="text-white" href="tel:qweqw">+43 1 236 60 60 123</a>
+                    <a class="text-white" href="tel:qweqw">{{ $phone }}</a>
                   </p>
                 </div>
               </div>

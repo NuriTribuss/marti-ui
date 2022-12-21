@@ -154,7 +154,7 @@
                   <ul class="list-items">
                     <li>
                       <i class="la la-phone icon-element me-2"></i
-                      ><a href="#"> +43 1 236 60 60 123</a>
+                      ><a href="#"> {{ $phone }}</a>
                     </li>
                     <li>
                       <i class="la la-envelope icon-element me-2"></i

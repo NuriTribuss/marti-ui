@@ -37,13 +37,13 @@
                 >
               </li>
               <li>
-                <a href="tel:+43 1 236 60 60 123" title=""
+                <a href="tel:{{ $phone }}" title=""
                   ><img
                     src="~assets/images/flags/global-circle.svg"
                     alt="Marti Reisen Global"
                     width="25"
                   />
-                  <span class="mx-2">+43 1 236 60 60 123</span></a
+                  <span class="mx-2">{{ $phone }}</span></a
                 >
               </li>
             </ul>
