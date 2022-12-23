@@ -54,7 +54,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             Duration
                           </h3>
-                          <span class="font-size-13">3 Days</span>
+                          <span class="font-size-13">{{ record?.plans.length }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -83,7 +83,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t["tour.reservation_count"] }}
                           </h3>
-                          <span class="font-size-13">30 People</span>
+                          <span class="font-size-13">{{ record?.period.available_count }} / {{ record?.period.max_count }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -141,7 +141,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t["tour.date"] }}
                           </h3>
-                          <span class="font-size-13">Jan 19' - Dec 21'</span>
+                          <span class="font-size-13">{{ record?.period.start_date_pretty }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
