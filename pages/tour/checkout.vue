@@ -350,7 +350,7 @@
                   id="myTab"
                   role="tablist"
                 >
-                  <li class="col-12 col-lg-4 mb-2">
+                  <li class="col-12 col-lg-3 mb-2">
                     <a
                       :class="{'active' : bookingForm.payment.method == 1}"
                       @click="bookingForm.payment.method = 1"
@@ -369,7 +369,26 @@
                       }}</span>
                     </a>
                   </li>
-                  <li class="col-12 col-lg-4 mb-2">
+                  <li class="col-12 col-lg-3">
+                    <a
+                      class="nav-link"
+                      :class="{'active' : bookingForm.payment.method == 4}"
+                      @click="bookingForm.payment.method = 4"
+                      id="branch-tab"
+                      data-toggle="tab"
+                      href="#branch"
+                      role="tab"
+                      aria-controls="paypal"
+                      aria-selected="true"
+                    >
+                      <i class="la la-check icon-element"></i>
+                      <img width="32" src="~assets/images/buspay.png" alt="" />
+                      <span class="d-block pt-2">{{
+                        $t["offer.payment.bus_payment"]
+                      }}</span>
+                    </a>
+                  </li>
+                  <li class="col-12 col-lg-3 mb-2">
                     <a
                       class="nav-link"
                       :class="{'active' : bookingForm.payment.method == 3}"
@@ -388,7 +407,7 @@
                       </span>
                     </a>
                   </li>
-                  <li class="col-12 col-lg-4">
+                  <li class="col-12 col-lg-3">
                     <a
                       class="nav-link"
                       :class="{'active' : bookingForm.payment.method == 2}"
@@ -407,6 +426,8 @@
                       }}</span>
                     </a>
                   </li>
+                  
+
                 </ul>
               </div>
               <div class="my-4">

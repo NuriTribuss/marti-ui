@@ -226,6 +226,7 @@ export default {
     "offer.payment.creditcom": "Für die Zahlung per Kreditkarte erhebt der Veranstalter ein Serviceentgelt in Höhe von 0.96€",
     "offer.payment.offline": "Überweisung",
     "offer.payment.offline_text": "Gebührenfrei",
+    "offer.payment.bus_payment" : "in der Filiale",
     "offer.payment_error": "Zahlung fehlgeschlagen!",
     "offer.payment_error_desc": "Bitte kontaktieren Sie Ihren Berater oder unsere allgemeine Hotline!",
     "offer.flight_time": "Die angegebenen Flugzeiten sind voraussichtlich",

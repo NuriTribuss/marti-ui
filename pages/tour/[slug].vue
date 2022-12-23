@@ -421,6 +421,7 @@
                         <label class="label-text font-size-12">{{ $t['tour.children_count']}}</label>
                         <div class="form-group">
                         <select class="form-control" v-model="childrenCount">
+                          <option >0</option>
                           <option v-for="i in 5" :key="i">{{  i }}</option>
                         </select>
                         </div>
@@ -428,7 +429,7 @@
                 </div>
                 <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
-                  <span v-if="price > 0">({{ (price * adultCount).toFixed(0) }} €)</span>
+                  <span v-if="price > 0">({{ (price).toFixed(0) }} €)</span>
                 </button>
                 <div class="text-center my-2">{{ $t["tour.or"] }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
@@ -463,7 +464,7 @@ export default {
       if(!this.selectedStation){
         return 0;
       }
-      return parseInt(this.selectedStation.price);
+      return parseInt(this.selectedStation.price) *  this.adultCount + (parseInt(this.selectedStation.child_price) * this.childrenCount);
     }
   },
   methods: {
