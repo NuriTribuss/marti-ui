@@ -420,7 +420,7 @@
                     <div class="col-6" v-if="selectedStation?.child_price != '0.00'">
                         <label class="label-text font-size-12">{{ $t['tour.children_count']}}</label>
                         <div class="form-group">
-                        <select class="form-control" >
+                        <select class="form-control" v-model="childrenCount">
                           <option v-for="i in 5" :key="i">{{  i }}</option>
                         </select>
                         </div>
@@ -449,6 +449,7 @@ export default {
   data() {
     return {
       adultCount : 1,
+      childrenCount : 0,
       selectedPeriod : null,
       selectedStation  : null,
       record: null,
@@ -493,7 +494,16 @@ export default {
       window.open('https://api.whatsapp.com/send?phone=4312366060&text='+text);
     },
     checkout(){
-      location.href = '/booking/checkout';
+
+      let opts = {
+        tour_id : this.record.id,
+        period_id : this.selectedPeriod.id,
+        station_id : this.selectedStation.id,
+        adults : this.adultCount,
+        children : this.childrenCount
+      }
+
+      location.href = '/tour/checkout?opts='+JSON.stringify(opts);
     }
   },
   mounted() {

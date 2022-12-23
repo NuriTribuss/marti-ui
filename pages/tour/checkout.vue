@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumbSmall title="Hotel Detay" :step="step" v-if="offer"/>
+  <BreadCrumbSmall title="Hotel Detay" :step="step"/>
   
   <section class="booking-area padding-top-20px padding-bottom-70px">
     <div class="container">
@@ -13,7 +13,7 @@
       </button>
 
       <div class="row">
-        <div class="col-lg-12"   >
+        <div class="col-lg-12" v-if="loader"   >
           <div class="d-flex align-items-center justify-content-center form-box p-3"  style="min-height:500px">
               <div class="me-4">
                  <div class="marti-loader"></div>
@@ -472,7 +472,7 @@
           </button>
         </div>
         <!-- end col-lg-8 -->
-        <div class="col-lg-4 col-12 "  v-if="offer">
+        <div class="col-lg-4 col-12 "  v-if="tour">
           <div class="w-100 booking-detail-form form-box d-none d-lg-block">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
@@ -480,7 +480,7 @@
               </h3>
             </div>
             <!-- end form-title-wrap -->
-            <HotelBookingSummary  :offer="offer" />
+            <TourSummary  :tour="tour"  v-if="tour"/>
             <!-- end form-content -->
           </div>
            <div class="form-box p-3 position-sticky d-none d-lg-block" style="top:20px"  v-if="offer">
@@ -519,7 +519,7 @@
         ></a>
       </div>
       <div class="offcanvas-body">
-        <HotelBookingSummary :offer="offer" />
+        <TourSummary :tour="tour" v-if="tour" />
         <LoaderSummary v-if="loader"/>
         <div class="offcanvas-footer">
           <a
@@ -568,7 +568,7 @@ export default {
       is_available: true,
       error_message : '',
       loader : true,
-      hotel : {},
+      tour : null,
       step : [],
       search : null,
       bookingForm: {
@@ -631,35 +631,18 @@ export default {
     },
 
     getOffer() {
-      //this.loader = true;
-      let params = {
-        code: this.$route.query.code,
-        adults: this.search.adults,
-        children: this.search.children,
-      };
 
-      if (params.code == "") {
-        return false;
-      }
-
-      $fetch(`/api/engine/offer/checkoffer`, {
-        method: "POST",
-        body: params,
-      }).then((res) => {
-        if (res.status == false) {
-          this.is_available = false;
-          this.error_message = res.message;
+      let self = this;
+      $fetch("/api/booking/tour/tour/fetch/"+this.search.tour_id).then(function (result) {
+        if (!result.status) {
           return false;
         }
-        this.loader = false;
-        this.offer  = res.data.response;
-        this.hotel  = this.offer.commonOffer.hotelOffer.hotel;
-
-        this.step.push(this.hotel.location.region.name,this.hotel.location.name,this.hotel.name)
-        this.step.push('Bestätigung');
-        this.getBookingParams();
-
+        self.tour = result.data;
+        self.getBookingParams();
+      }).finally(()=> {
+        self.loader = false;
       });
+      
     },
 
     getBookingParams: function () {    
@@ -673,7 +656,7 @@ export default {
             });
         }
 
-        for (var i = 0; i < this.search.children.length; i++) {
+        for (var i = 0; i < parseInt(this.search.children); i++) {
             this.bookingForm.children.push({
                 'name': '',
                 'surname': '',
@@ -692,24 +675,6 @@ export default {
         }
     },
 
-    checkSearchData(){
-
-        if(!this.$route.query.code) {
-          return false;
-        }
-
-        let data = window.localStorage.getItem('m_'+this.$route.query.code);
-        try{
-          this.search = JSON.parse(data);
-        
-          return true;
-        }catch(e){
-          console.log(e);
-        }
-
-        return false;
-    },
-
     openError(){
       setTimeout(function(){
         var modal = new bootstrap.Modal(document.getElementById('error-modal'));
@@ -721,6 +686,7 @@ export default {
     closeError(){
       window.location.href = '/';
     },
+
     scrollToElement() {
 
       let item = this.v$.$errors[0]; 
@@ -741,7 +707,6 @@ export default {
       };
 
       this.saving = true;
-
       $fetch("/api/engine/tour/create",{ method: 'POST', body: {...this.bookingForm, ...{ ref : this.$route.query.code}}}).then(function(result){
        
           if(!result.status) {
@@ -754,9 +719,6 @@ export default {
               location.href = '/tour/complete?booking='+result.data.id;
             }
           }
-
-
-          
       }).finally(()=> {
         this.saving = false;
       })
@@ -765,12 +727,13 @@ export default {
 
   },
   mounted() {
-    if(this.checkSearchData()){
-      this.getCountries();
-      this.getOffer();
-    }else{
-      //this.openError();
+    let obj = this.$route.query.opts;
+    if(!obj){
+      return false;
     }
+    this.search = JSON.parse(obj);
+    this.getOffer();
+    this.getCountries();
   },
   setup: () => ({ v$: useVuelidate() }),
 };
