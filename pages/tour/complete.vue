@@ -41,8 +41,8 @@
                                 <div class="col-6 col-lg-3 border-end p-3">
                                     <h3 class="title text-color-6 font-weight-bold mb-3">Datum</h3>
                                     <div class="font-size-14">
-                                        <div>Von :  {{ $date(booking.data.start).format('DD.MM.YYYY') }} </div>
-                                        <div>Bis :   {{ $date(booking.data.end).format('DD.MM.YYYY') }}</div>     
+                                        <div>Von :  {{ booking.data.start }} </div>
+                                        <div>Bis :   {{  booking.data.end }}</div>     
                                         <div>Dauer :  {{ booking.data.duration }} {{ $t['common.days']}}</div>    
                                     </div>   
                                     <h3 class="title text-color-6 font-weight-bold mb-1 mt-4">Personal Info</h3>
