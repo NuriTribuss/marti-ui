@@ -707,7 +707,7 @@ export default {
       };
 
       this.saving = true;
-      $fetch("/api/engine/tour/create",{ method: 'POST', body: {...this.bookingForm, ...{ ref : this.$route.query.code}}}).then(function(result){
+      $fetch("/api/engine/tour/create",{ method: 'POST', body: {...this.bookingForm, ...this.search}}).then(function(result){
        
           if(!result.status) {
             this.saving = false;
@@ -716,7 +716,7 @@ export default {
             if(result.data && result.data.url){
               location.href = result.data.url
             }else {
-              location.href = '/tour/complete?booking='+result.data.id;
+             location.href = '/tour/complete?booking='+result.data.id;
             }
           }
       }).finally(()=> {
