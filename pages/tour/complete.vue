@@ -1,5 +1,5 @@
 <template>
-    <BreadCrumbStep step="3"  class="mt-4"/>
+    <BreadCrumbStep step="3" page="Tour"  class="mt-4"/>
 
     <section class="payment-area  padding-top-40px padding-bottom-70px" v-if="booking">
         <div class="container">

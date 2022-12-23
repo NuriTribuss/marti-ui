@@ -83,7 +83,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t["tour.reservation_count"] }}
                           </h3>
-                          <span class="font-size-13">{{ record?.period.available_count }} / {{ record?.period.max_count }}</span>
+                          <span class="font-size-13">{{ record?.period.max_count - record?.period.available_count }} / {{ record?.period.max_count }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -112,7 +112,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t["tour.tour_type"] }}
                           </h3>
-                          <span class="font-size-13">Adventures Tour</span>
+                          <span class="font-size-13">{{  record.type }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->

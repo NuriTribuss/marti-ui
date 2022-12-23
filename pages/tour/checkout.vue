@@ -501,7 +501,7 @@
               </h3>
             </div>
             <!-- end form-title-wrap -->
-            <TourSummary  :tour="tour"  v-if="tour"/>
+            <TourSummary  :tour="tour" :search="search" v-if="tour"/>
             <!-- end form-content -->
           </div>
            <div class="form-box p-3 position-sticky d-none d-lg-block" style="top:20px"  v-if="offer">
@@ -540,7 +540,7 @@
         ></a>
       </div>
       <div class="offcanvas-body">
-        <TourSummary :tour="tour" v-if="tour" />
+        <TourSummary :search="search" :tour="tour" v-if="tour" />
         <LoaderSummary v-if="loader"/>
         <div class="offcanvas-footer">
           <a
@@ -673,7 +673,7 @@ export default {
                 'name': '',
                 'surname': '',
                 'birthday': '',
-                'gender': ''
+                'gender': 1
             });
         }
 
@@ -692,7 +692,7 @@ export default {
         if (this.bookingForm.traveller_first === 1) {
             this.bookingForm.traveller[0].name = this.bookingForm.personal.name;
             this.bookingForm.traveller[0].surname = this.bookingForm.personal.surname;
-            this.bookingForm.traveller[0].gender = this.bookingForm.personal.gender;
+          //  this.bookingForm.traveller[0].gender = this.bookingForm.personal.gender;
         }
     },
 

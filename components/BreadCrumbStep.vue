@@ -7,7 +7,7 @@
         >
           <li class="step-bar flex-grow-1 " v-bind:class="{'step-bar-active' : step >= 1}">
             <span class="icon-element">1</span>
-            <p class="pt-2 color-text-2">Hotel Seite</p>
+            <p class="pt-2 color-text-2">{{ page }} Seite</p>
           </li>
           <li class="step-bar flex-grow-1 e" v-bind:class="{'step-bar-active' : step >= 2}">
             <span class="icon-element">2</span>
@@ -25,6 +25,14 @@
 
 <script>
 export default {
-    props : ["step"]
-}
+    props : {
+      step : {
+        type : Number
+      },
+      page : {
+        type : String,
+        default : 'Hotel'
+      }
+    }
+} 
 </script>
