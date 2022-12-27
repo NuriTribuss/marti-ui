@@ -50,6 +50,8 @@ export default {
     "menu.customer_service": "Kundenservice",
     "menu.rentacar": "Mietwagen",
     "menu.cruise": "Kreuzfahrt",
+    "footer.martigo.text":"Unser Partner für Flugtickets",
+    "footer.martigo.url":"https://www.martigo.at/",
     "footer.slogan_one_title": "Bestpreisgarantie",
     "footer.slogan_one_text": "Wir bieten Ihnen den besten Preis",
     "footer.slogan_two_title": "24h Kundenservice",
