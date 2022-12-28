@@ -62,8 +62,8 @@
                 <a href="/warum-martireisen/" title="">Warum Martireisen.at?</a>
               </li>
               <li>
-                <a href="www.martigo.at" title=""  target="_blank"
-                  >Unsere PCR Test Partner</a
+                <a v-bind:href=" this.$t('footer.martigo.url')" title=""
+                  >{{ this.$t('footer.martigo.text') }}</a
                 >
               </li>
             </ul>

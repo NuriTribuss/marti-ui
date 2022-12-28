@@ -83,7 +83,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t("tour.reservation_count") }}
                           </h3>
-                          <span class="font-size-13">{{ record?.period.available_count }} / {{ record?.period.max_count }}</span>
+                          <span class="font-size-13">{{ record?.period.max_count - record?.period.available_count }} / {{ record?.period.max_count }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -112,7 +112,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t("tour.tour_type") }}
                           </h3>
-                          <span class="font-size-13">Adventures Tour</span>
+                          <span class="font-size-13">{{  record.type }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -420,15 +420,16 @@
                     <div class="col-6" v-if="selectedStation?.child_price != '0.00'">
                         <label class="label-text font-size-12">{{ $t('tour.children_count')}}</label>
                         <div class="form-group">
-                        <select class="form-control" >
+                        <select class="form-control" v-model="childrenCount">
+                          <option >0</option>
                           <option v-for="i in 5" :key="i">{{  i }}</option>
                         </select>
                         </div>
                     </div>
                 </div>
                 <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
-                  {{ $t("tour.make_a_reservation") }} 
-                  <span v-if="price > 0">({{ (price * adultCount).toFixed(0) }} €)</span>
+                  {{ $t["tour.make_a_reservation"] }} 
+                  <span v-if="price > 0">({{ (price).toFixed(0) }} €)</span>
                 </button>
                 <div class="text-center my-2">{{ $t("tour.or") }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
@@ -449,6 +450,7 @@ export default {
   data() {
     return {
       adultCount : 1,
+      childrenCount : 0,
       selectedPeriod : null,
       selectedStation  : null,
       record: null,
@@ -462,7 +464,7 @@ export default {
       if(!this.selectedStation){
         return 0;
       }
-      return parseInt(this.selectedStation.price);
+      return parseInt(this.selectedStation.price) *  this.adultCount + (parseInt(this.selectedStation.child_price) * this.childrenCount);
     }
   },
   methods: {
@@ -493,7 +495,16 @@ export default {
       window.open('https://api.whatsapp.com/send?phone=4312366060&text='+text);
     },
     checkout(){
-      location.href = '/booking/checkout';
+
+      let opts = {
+        tour_id : this.record.id,
+        period_id : this.selectedPeriod.id,
+        station_id : this.selectedStation.id,
+        adults : this.adultCount,
+        children : this.childrenCount
+      }
+
+      location.href = '/tour/checkout?opts='+JSON.stringify(opts);
     }
   },
   mounted() {

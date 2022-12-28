@@ -1,5 +1,6 @@
 <template>
      <div class="row m-0">
+        
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
             <select @change="updateDate()" ref="dayPicker"  :class="inputClass"   class="form-select form-control ps-3" :value="splitDate.day">
                 <option value="">{{dayText}}</option>
@@ -7,7 +8,7 @@
             </select>
         </div>
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
-            <select @change="updateDate()" ref="monthPicker" :class="inputClass"  class="form-select form-control ps-3"  :value="splitDate.month">
+            <select @change="updateDate()" ref="monthPicker" :class="inputClass"  class="form-select form-control ps-3"  :value="splitDate.month" >
                 <option value="">{{monthText}}</option>
                 <option v-for="(month,index) in months" :key="index">{{month}}</option>
             </select>
@@ -30,11 +31,12 @@ export default ({
     data: function () {
         return {
             days : [],
-            dayText : 'day',// $t('user.profile.birthday.day'],
+
+            dayText : this.$t('user.profile.birthday.day'),
             years :[],
-            yearText : 'year', // $t('user.profile.birthday.year'],
+            yearText : this.$t('user.profile.birthday.year'),
             months: [],
-            monthText : 'month', // $t('user.profile.birthday.month'],
+            monthText : this.$t('user.profile.birthday.month'),
             seperator : '-',
             selectText : '',
             inputClass : 'form-control form-marti',
@@ -63,13 +65,12 @@ export default ({
      
     computed: {
         splitDate() {
-            console.log(this.value)
             const splitValueString = this.value.split(this.seperator);
           
             return {
-                day :   splitValueString[2] || 1,
-                month:  splitValueString[1] || 1,
-                year:   splitValueString[0] || 1999
+                day :   splitValueString[2] || "",
+                month:  splitValueString[1] || "",
+                year:   splitValueString[0] || ""
             }
         },
     },
