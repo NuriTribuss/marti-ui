@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown-menu dropdown-menu-wrap py-1 px-3" >
     <label  class="label-text text-color-12" v-show="source.regions.length == 0  && source.hotels.length == 0"
-      >{{$t['search.most_popular']}}</label
+      >{{$t('search.most_popular')}}</label
     >
     <div
       class="list-group list-group-flush"
@@ -24,7 +24,7 @@
       </a>
     </div>
     <label v-show="source.regions.length > 0" class="label-text text-color-12"
-      >{{ $t['search.regions']}}</label
+      >{{ $t('search.regions')}}</label
     >
     <div class="list-group list-group-flush">
       <a href="javascript:;" tabindex="0"
@@ -45,7 +45,7 @@
     </div>
     <hr class="my-2" v-show="source.regions.length > 0" />
     <label v-show="source.hotels.length > 0" class="label-text text-color-12"
-      >{{$t['search.hotels']}}</label
+      >{{$t('search.hotels')}}</label
     >
     <div class="list-group list-group-flush">
       <a href="javascript:;" tabindex="0"

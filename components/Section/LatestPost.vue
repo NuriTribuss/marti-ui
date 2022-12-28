@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading text-center">
-                    <h2 class="sec__title line-height-55">{{ $t['homepage.block.magazine']}} </h2>
+                    <h2 class="sec__title line-height-55">{{ $t('homepage.block.magazine')}} </h2>
                      <p class="sec__desc pt-3">
-                      {{ $t['homepage.block.magazine_desc']}}
+                      {{ $t('homepage.block.magazine_desc')}}
                     </p>
                 </div><!-- end section-heading -->
             </div><!-- end col-lg-12 -->
@@ -33,7 +33,7 @@
                         <div class="author-content d-flex align-items-center">
                           
                             <div class="author-bio">
-                                <a :href="'/'+item.translate.url" class="author__title">{{ $t['common.read_more'] }}</a>
+                                <a :href="'/'+item.translate.url" class="author__title">{{ $t('common.read_more') }}</a>
                             </div>
                         </div>
                         <div class="post-share">
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="btn-box text-center pt-4">
-                    <a href="/blog" class="theme-btn theme-btn-orange">{{ $t['common.read_more'] }}</a>
+                    <a href="/blog" class="theme-btn theme-btn-orange">{{ $t('common.read_more') }}</a>
                 </div>
             </div>
         </div>

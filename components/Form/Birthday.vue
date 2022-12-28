@@ -30,11 +30,11 @@ export default ({
     data: function () {
         return {
             days : [],
-            dayText : 'day',// $t['user.profile.birthday.day'],
+            dayText : 'day',// $t('user.profile.birthday.day'],
             years :[],
-            yearText : 'year', // $t['user.profile.birthday.year'],
+            yearText : 'year', // $t('user.profile.birthday.year'],
             months: [],
-            monthText : 'month', // $t['user.profile.birthday.month'],
+            monthText : 'month', // $t('user.profile.birthday.month'],
             seperator : '-',
             selectText : '',
             inputClass : 'form-control form-marti',

@@ -19,13 +19,13 @@
         
        
         <div class="ms-2 d-none d-lg-block">
-          <div class="">{{ $t['hotels.offer_info_price']}}</div>
+          <div class="">{{ $t('hotels.offer_info_price')}}</div>
           <div class="font-weight-bold font-size-20 my-2">€ {{ offer.price }}</div>
           <div>
             <button
             class="theme-btn theme-btn-blue rounded "
             @click="checkOffer(offer.confirmation)"
-          >{{ $t['hotels.offer_button'] }}</button
+          >{{ $t('hotels.offer_button') }}</button
         >
             
           </div>
@@ -34,13 +34,13 @@
       <hr class="mb-3 mt-1 d-block d-lg-none w-100 text-color-12" />
       <div class="d-flex justify-content-between d-lg-none">
         <div>
-          <div class="">{{ $t['hotels.offer_info_price']}}</div>
+          <div class="">{{ $t('hotels.offer_info_price')}}</div>
           <div class="font-weight-bold font-size-20 my-0">€ {{ offer.price }}</div>
         </div>
         <button
           class="theme-btn theme-btn-blue rounded text-center"
           @click="checkOffer(offer.confirmation)"
-          >{{ $t['hotels.offer_button'] }}</button
+          >{{ $t('hotels.offer_button') }}</button
         >
       </div>
     </div>

@@ -5,10 +5,10 @@
         <div class="col-lg-8">
           <div class="section-heading">
             <h2 class="sec__title">
-              {{ $t['homepage.block.header']}}
+              {{ $t('homepage.block.header')}}
             </h2>
             <p class="sec__desc pt-3">
-               {{ $t['homepage.block.header_desc']}}
+               {{ $t('homepage.block.header_desc')}}
             </p>
           </div>
 
@@ -17,7 +17,7 @@
         <!-- end col-lg-8 -->
         <div class="col-lg-4">
           <div class="btn-box btn--box float-end">
-            <a href="/pauschalreisen" class="theme-btn theme-btn-orange font-weight-bold d-none d-lg-inline-block">{{$t['common.more']}}</a>
+            <a href="/pauschalreisen" class="theme-btn theme-btn-orange font-weight-bold d-none d-lg-inline-block">{{$t('common.more')}}</a>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
                             <h3 class="card-title"><a :href="item.url">{{item.name}}</a></h3>
                         </div>
                         <div>
-                            <a :href="item.url" class="theme-btn theme-btn-small theme-btn-orange border-0">{{ $t['common.more']}}</a>
+                            <a :href="item.url" class="theme-btn theme-btn-small theme-btn-orange border-0">{{ $t('common.more')}}</a>
                         </div>
                     </div>
                 
@@ -69,7 +69,7 @@
               <div
                 class=" card-price mt-3  "
               >
-                 <a :href="banner.url" class="theme-btn text-center theme-btn-small  theme-btn-orange border-0 w-50">{{ $t['common.more']}}</a>
+                 <a :href="banner.url" class="theme-btn text-center theme-btn-small  theme-btn-orange border-0 w-50">{{ $t('common.more')}}</a>
               </div>
             </div>
           </div>

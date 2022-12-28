@@ -16,8 +16,8 @@
     </section>
     <section class="card-area py-4" >
       <div class="container">
-        <h3 class="title font-size-26">{{ $t['tours.title']}}</h3>
-        <p>{{ $t['tours.subtitle']}}</p>
+        <h3 class="title font-size-26">{{ $t('tours.title')}}</h3>
+        <p>{{ $t('tours.subtitle')}}</p>
         <hr/>
 
         <LoaderRegion v-if="loader"/>
@@ -35,7 +35,7 @@
                         <p class="card-meta font-size-12 line-height-20">{{ tour.departure_place }} > {{ tour.destination}}</p>
                         <div class="mt-0 mt-lg-4 pb-3 ">
                           <span class="price__num font-size-20 me-5 font-weight-bold text-color-9"> € {{  parseInt(tour.price).toFixed(0) }}  </span>
-                          <a :href="'/tour/'+tour.seo_url+'?tid='+tour.id" class="float-end btn theme-btn-blue rounded-0  px-5 text-white">{{ $t['tour.look']}}</a>
+                          <a :href="'/tour/'+tour.seo_url+'?tid='+tour.id" class="float-end btn theme-btn-blue rounded-0  px-5 text-white">{{ $t('tour.look')}}</a>
                         </div>
                     </div>
                 </div>

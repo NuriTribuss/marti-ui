@@ -81,7 +81,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            {{ $t["tour.reservation_count"] }}
+                            {{ $t("tour.reservation_count") }}
                           </h3>
                           <span class="font-size-13">{{ record?.period.available_count }} / {{ record?.period.max_count }}</span>
                         </div>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            {{ $t["tour.tour_type"] }}
+                            {{ $t("tour.tour_type") }}
                           </h3>
                           <span class="font-size-13">Adventures Tour</span>
                         </div>
@@ -139,7 +139,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            {{ $t["tour.date"] }}
+                            {{ $t("tour.date") }}
                           </h3>
                           <span class="font-size-13">{{ record?.period.start_date_pretty }}</span>
                         </div>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            {{ $t["tour.age_group"] }}
+                            {{ $t("tour.age_group") }}
                           </h3>
                           <span class="font-size-13">10+</span>
                         </div>
@@ -197,7 +197,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            {{ $t["tour.departure"] }}
+                            {{ $t("tour.departure") }}
                           </h3>
                           <span class="font-size-13">Airport</span>
                         </div>
@@ -265,7 +265,7 @@
                     padding-top-40px padding-bottom-40px
                   "
                 >
-                  <h3 class="title font-size-20">{{ $t["tour.tour_plan"] }}</h3>
+                  <h3 class="title font-size-20">{{ $t("tour.tour_plan") }}</h3>
                   <div
                     class="accordion accordion-item padding-top-20px border-0"
                     id="accordionExample"
@@ -323,7 +323,7 @@
                     padding-top-40px padding-bottom-40px
                   "
                 >
-                  <h3 class="title font-size-20">{{ $t["tour.map"] }}</h3>
+                  <h3 class="title font-size-20">{{ $t("tour.map") }}</h3>
                   <div class="gmaps padding-top-30px" v-html="record.map"></div>
                 </div>
               </div>
@@ -335,7 +335,7 @@
                     padding-bottom-40px
                   "
                 >
-                  <h3 class="title font-size-20 mb-2">{{ $t["tour.pictures"] }}</h3>
+                  <h3 class="title font-size-20 mb-2">{{ $t("tour.pictures") }}</h3>
                   <div>
                     <TourPhotoGallery v-if="record" :images="record.images"></TourPhotoGallery>
                   </div>
@@ -349,7 +349,7 @@
                     padding-bottom-40px
                   "
                 >
-                  <h3 class="title font-size-20 mb-3">{{ $t["tour.video"] }}</h3>
+                  <h3 class="title font-size-20 mb-3">{{ $t("tour.video") }}</h3>
                   <div v-if="record" class="row">
                     <div class="col-12" v-for="(video,index) in record?.videos" :key="index" v-html="video.embed">
 
@@ -367,7 +367,7 @@
                     padding-bottom-40px
                   "
                 >
-                  <h3 class="title font-size-20 mb-3">{{ $t["tour.important_notes_and_warnings"] }}</h3>
+                  <h3 class="title font-size-20 mb-3">{{ $t("tour.important_notes_and_warnings") }}</h3>
                   <div v-if="record" class="bg-light p-4 row text-break text-center" v-html="record.agreegment" style="white-space: pre-line;">
                  
                   </div>
@@ -390,7 +390,7 @@
               <div class="form-content">
                 <div class="row mb-4">
                     <div class="col-12">
-                        <label class="label-text font-size-12">{{ $t['tour.tour_date']}}</label>
+                        <label class="label-text font-size-12">{{ $t('tour.tour_date')}}</label>
                         <div class="form-group">
                           <select class="form-control" v-model="selectedPeriod" >
                               <option :value="period" v-for="(period,index) in record?.periods" :key="index">
@@ -400,7 +400,7 @@
                         </div>
                     </div>
                     <div class="col-12" v-if="selectedPeriod">
-                        <label class="label-text font-size-12">{{ $t['tour.departure']}}</label>
+                        <label class="label-text font-size-12">{{ $t('tour.departure')}}</label>
                         <div class="form-group">
                         <select class="form-control" v-model="selectedStation">
                             <option :value="station" v-for="(station,index) in selectedPeriod?.stations" :key="index">
@@ -410,7 +410,7 @@
                         </div>
                     </div>
                     <div class="col-6" :class="{'col-6' : selectedStation?.child_price != '0.00' , 'col-12' :  selectedStation?.child_price == '0.00'}">
-                        <label class="label-text font-size-12">{{ $t['tour.adult_count']}}</label>
+                        <label class="label-text font-size-12">{{ $t('tour.adult_count')}}</label>
                         <div class="form-group">
                         <select class="form-control" v-model="adultCount" >
                             <option v-for="i in 20" :key="i">{{  i }}</option>
@@ -418,7 +418,7 @@
                         </div>
                     </div>
                     <div class="col-6" v-if="selectedStation?.child_price != '0.00'">
-                        <label class="label-text font-size-12">{{ $t['tour.children_count']}}</label>
+                        <label class="label-text font-size-12">{{ $t('tour.children_count')}}</label>
                         <div class="form-group">
                         <select class="form-control" >
                           <option v-for="i in 5" :key="i">{{  i }}</option>
@@ -427,12 +427,12 @@
                     </div>
                 </div>
                 <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
-                  {{ $t["tour.make_a_reservation"] }} 
+                  {{ $t("tour.make_a_reservation") }} 
                   <span v-if="price > 0">({{ (price * adultCount).toFixed(0) }} €)</span>
                 </button>
-                <div class="text-center my-2">{{ $t["tour.or"] }}</div>
+                <div class="text-center my-2">{{ $t("tour.or") }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
-                  <i class="la la-whatsapp me-2"></i>{{ $t["tour.whatsapp"] }}
+                  <i class="la la-whatsapp me-2"></i>{{ $t("tour.whatsapp") }}
                 </button>
               </div>
             </div>

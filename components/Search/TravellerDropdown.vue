@@ -12,14 +12,14 @@
       >  
         <span
           class="adult "
-          >{{ filter.adults }} {{ $t['search.adult'].substr(0,3)}}</span
+          >{{ filter.adults }} {{ $t('search.adult').substr(0,3)}}</span
         >
         -
         <span
           class="children"
           data-text="Child"
           data-text-multi="Children"
-          >{{ filter.children.length }} {{ $t['search.children']}}</span
+          >{{ filter.children.length }} {{ $t('search.children')}}</span
         >
       </a>
       <div class="dropdown-menu dropdown-menu-wrap">
@@ -52,7 +52,7 @@
               justify-content-between
             "
           >
-            <label>{{ $t['search.children']}}</label>
+            <label>{{ $t('search.children')}}</label>
             <div class="qtyBtn d-flex align-items-center">
               <div class="qtyDec" @click="filter.children.pop()">
                 <i class="la la-minus"></i>
@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center d-flex d-lg-none">
-          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t['search.filter.accept']}}</button>
+          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter.accept')}}</button>
        </div>
     </div>
   </div>

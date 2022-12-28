@@ -35,10 +35,10 @@
           v-if="offer.commonOffer.flightOffer"
         >
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3">
-            {{ $t["offer.flight_info"] }}
+            {{ $t("offer.flight_info") }}
           </h3>
           <div class="font-weight-bold font-size-16">
-            {{ $t["offer.flight_point"] }} :
+            {{ $t("offer.flight_point") }} :
           </div>
           <div
             v-for="(flight, index) in offer.commonOffer.flightOffer.flight
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="font-weight-bold font-size-16 mt-3">
-            {{ $t["offer.flight_return"] }}:
+            {{ $t("offer.flight_return") }}:
           </div>
           <div
             v-for="(flight, index) in offer.commonOffer.flightOffer.flight
@@ -118,7 +118,7 @@
             </div>
           </div>
           <div class="my-2">
-            <small>{{ $t["offer.flight_time"] }}</small>
+            <small>{{ $t("offer.flight_time") }}</small>
           </div>
         </div>
         <ul class="list-items list-items-2 py-2 font-size-14"  v-if="!offer.commonOffer.flightOffer">
@@ -129,13 +129,13 @@
             <span>Check out:</span>{{ format(offer.commonOffer.travelDate.toDate)  }}
           </li>
           <li>
-            <span>{{ $t['search.duration']}}:</span>{{ offer.commonOffer.travelDate.duration }}
-            {{ $t["common.days"] }}
+            <span>{{ $t('search.duration')}}:</span>{{ offer.commonOffer.travelDate.duration }}
+            {{ $t("common.days") }}
           </li>
         </ul>
         <div class="section-block"></div>
         <h3 class="title text-color-6 font-weight-bold my-3">
-          {{ $t["offer.services"] }}
+          {{ $t("offer.services")}}
         </h3>
         <div v-if="offer" class="font-size-14">
           <i class="la la-check me-1"></i
@@ -150,7 +150,7 @@
           >{{ offer.commonOffer.hotelOffer.inclusiveList.join(",") }}
         </div>
         <h3 class="title text-color-6 font-weight-bold mb-2 mt-4">
-          {{ $t["offer.operators"] }}
+          {{ $t("offer.operators") }}
         </h3>
         <div class="">
           <div>{{ offer.commonOffer.tourOperator.name }}</div>

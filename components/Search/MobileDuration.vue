@@ -1,7 +1,7 @@
 <template>
     <div class="offcanvas offcanvas-end" id="duration-modal">
         <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">{{ $t['search.duration'] }}</h5>
+            <h5 id="offcanvasRightLabel">{{ $t('search.duration') }}</h5>
             <a class="btn" data-bs-dismiss="offcanvas" aria-label="Close"><i class="la la-close"></i></a>
         </div>
         <div class="offcanvas-body">
@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="text-center mt-2">{{ duration }} {{ $t['common.days'] }}</div>
+                            <div class="text-center mt-2">{{ duration }} {{ $t('common.days') }}</div>
                             <input type="range" min="1" max="28" v-model="duration" class="form-range">
                         </div>
                     </div>
@@ -29,13 +29,13 @@
                     class="btn btn-light"
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
-                >{{ $t['user.cancel']}}</a>
+                >{{ $t('user.cancel')}}</a>
                 <a
                     class="btn theme-btn theme-btn-orange line-height-28 "
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
                     @click="select()"
-                >{{ $t['search.filter.accept']}}</a>
+                >{{ $t('search.filter.accept')}}</a>
             </div>
         </div>
     </div>

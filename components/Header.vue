@@ -92,13 +92,13 @@
                 </div>
               </div>
               <div class="slogan text-white d-none d-lg-block " >
-                <h4>{{ $t['header.slogan_one'] }}</h4>
-                <p>{{ $t['header.slogan_two'] }}</p>
+                <h4>{{ $t('header.slogan_one') }}</h4>
+                <p>{{ $t('header.slogan_two') }}</p>
               </div>
 
               <div class="header-contact  align-items-center justify-content-center  d-none d-lg-flex">
                 <div class="phone d-flex align-items-center justify-content-center">
-                  <h5>{{ $t['header.contact_info'] }}</h5>
+                  <h5>{{ $t('header.contact_info') }}</h5>
                   <p>
                     <a class="text-white" href="tel:qweqw">{{ $phone }}</a>
                   </p>

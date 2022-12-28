@@ -62,7 +62,7 @@
                 <a href="/warum-martireisen/" title="">Warum Martireisen.at?</a>
               </li>
               <li>
-                <a href="https://www.pcrtestwien.at/" title=""
+                <a href="www.martigo.at" title=""  target="_blank"
                   >Unsere PCR Test Partner</a
                 >
               </li>

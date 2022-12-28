@@ -3,7 +3,7 @@
     
     <div class="sidebar-widget pb-1" >
       <h3 class="title stroke-shape mb-2">
-        <i class="la la-smile text-color-4 me-2"></i>{{ $t['search.filter_rating'] }}
+        <i class="la la-smile text-color-4 me-2"></i>{{ $t('search.filter_rating') }}
       </h3>
       <div class="sidebar-review">
         <div class="ratings">
@@ -17,7 +17,7 @@
     <!-- end sidebar-widget -->
     <div class="sidebar-widget" v-for="(group,index) in filters "  :key="index">
       <h3 class="title stroke-shape">
-        <i class="la la-concierge-bell text-color-4 me-2"></i>{{ $t['halalbooking.filter.'+group.code] }}
+        <i class="la la-concierge-bell text-color-4 me-2"></i>{{ $t('halalbooking.filter.'+group.code) }}
       </h3>
       <div class="sidebar-category" >
         <div
@@ -27,7 +27,7 @@
           v-show="index < (loadMore.boardType ? 15 : 5)"
         >
           <input type="checkbox" :id="'b' + group.code + index" v-model="filter[group.code]" :true-value="item.code" false-value="" v-on:change="set(group.code)"  />
-          <label :for="'b' +group.code + index">{{ item.name ||  $t['halalbooking.filter.'+group.code+'.'+item.code] }} </label>
+          <label :for="'b' +group.code + index">{{ item.name ||  $t('halalbooking.filter.'+group.code+'.'+item.code) }} </label>
         </div>
 
         <a class="btn-text" role="button">
@@ -35,13 +35,13 @@
             class="show-more"
             @click="loadMore[group.code] = true"
             v-show="!loadMore[group.code] && group.options.length > 5"
-            >{{ $t['common.show_more'] }} <i class="la la-angle-down"></i
+            >{{ $t('common.show_more') }} <i class="la la-angle-down"></i
           ></span>
           <span
             class="show-less"
             @click="loadMore[group.code] = false"
             v-show="loadMore[group.code]"
-            >{{ $t['common.show_less'] }} <i class="la la-angle-up"></i
+            >{{ $t('common.show_less') }} <i class="la la-angle-up"></i
           ></span>
         </a>
       </div>

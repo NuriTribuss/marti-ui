@@ -12,7 +12,7 @@
 >   <span
       class="la la-plane-departure form-icon text-color-12 "
     ></span>
-      <span class=" font-size-16 ms-3" v-if="selectedNames.length == 0">{{ $t['common.beliebig'] }}</span>
+      <span class=" font-size-16 ms-3" v-if="selectedNames.length == 0">{{ $t('common.beliebig') }}</span>
       <span class=" font-size-14 ms-3" v-if="selectedNames.length > 0 ">{{ selectedNames.join(',') }}</span>
     </a>
     <div
@@ -34,7 +34,7 @@
         </div>
       </div>
      <div class="modal-footer justify-content-center">
-          <button class="btn theme-btn-orange px-4" @click="closeDropdown">{{ $t['search.filter.accept']}}</button>
+          <button class="btn theme-btn-orange px-4" @click="closeDropdown">{{ $t('search.filter.accept')}}</button>
        </div>
     </div>
   </div>

@@ -26,13 +26,13 @@
       <div class="d-flex justify-content-between col-12 col-lg-8">
         
         <div class="mx-2">
-          <div class="font-weight-bold">{{ offer.travelDate.duration }} {{ $t['common.days']}}</div>
+          <div class="font-weight-bold">{{ offer.travelDate.duration }} {{ $t('common.days')}}</div>
           <div>{{ offer.hotelOffer.boardType.name}}</div>
           <div>{{ offer.hotelOffer.roomType.name}}</div>
         </div>
         
         <div class="mx-2">
-          <div class="d-none d-lg-block">{{$t['offer.operator']}}</div>
+          <div class="d-none d-lg-block">{{$t('offer.operator')}}</div>
           <div class="d-none d-lg-block">{{offer.tourOperator.name}}</div>
           <img
             class="mt-lg-3" width="72"
@@ -40,13 +40,13 @@
           />
         </div>
         <div class="ms-2 d-none d-lg-block">
-          <div class="">{{ $t['hotels.offer_info_price']}}</div>
+          <div class="">{{ $t('hotels.offer_info_price')}}</div>
           <div class="font-weight-bold font-size-20 my-2">€ {{ $n(offer.personPrice.value) }}</div>
           <div>
             <button
             class="theme-btn theme-btn-blue rounded "
             @click="checkOffer(offer.code)"
-          >{{ $t['hotels.offer_button'] }}</button
+          >{{ $t('hotels.offer_button') }}</button
         >
             
           </div>
@@ -55,13 +55,13 @@
       <hr class="mb-3 mt-1 d-block d-lg-none w-100 text-color-12" />
       <div class="d-flex justify-content-between d-lg-none">
         <div>
-          <div class="">{{ $t['hotels.offer_info_price']}}</div>
+          <div class="">{{ $t('hotels.offer_info_price')}}</div>
           <div class="font-weight-bold font-size-20 my-0">€ {{ $n(offer.personPrice.value) }}</div>
         </div>
         <button
           class="theme-btn theme-btn-blue rounded text-center"
           @click="checkOffer(offer.code)"
-          >{{ $t['hotels.offer_button'] }}</button
+          >{{ $t('hotels.offer_button') }}</button
         >
       </div>
     </div>

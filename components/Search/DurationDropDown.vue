@@ -10,7 +10,7 @@
       aria-expanded="false"
       id="duration-dropdown"
     >
-      <span class=" font-size-16">{{ modelValue }} {{ $t["common.days"] }}</span>
+      <span class=" font-size-16">{{ modelValue }} {{ $t("common.days") }}</span>
     </a>
     <div
       class="dropdown-menu dropdown-menu-wrap py-4 px-3"
@@ -29,12 +29,12 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="text-center mt-2">{{ duration }} {{ $t['common.days']}}</div>
+          <div class="text-center mt-2">{{ duration }} {{ $t('common.days')}}</div>
           <input type="range" min="1" max="28" v-model="duration" class="form-range" >
         </div>
       </div>
       <div class="modal-footer justify-content-center d-flex d-lg-none">
-          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t['search.filter.accept']}}</button>
+          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter.accept')}}</button>
        </div>
     </div>
   </div>

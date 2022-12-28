@@ -18,10 +18,10 @@
             class="btn btn-light"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-        >{{ $t['user.cancel']}}</a>
+        >{{ $t('user.cancel')}}</a>
         <a @click="setDate"
             class="btn theme-btn theme-btn-orange line-height-28 "
-        >{{ $t['search.take']}}</a>
+        >{{ $t('search.take')}}</a>
         </div>
 
        
@@ -30,11 +30,11 @@
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-body text-center">
-                {{ $t['search.duration.range_error']}}
+                {{ $t('search.duration.range_error')}}
               </div>
               <div class="modal-footer border-0 justify-content-center">
-                <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t['search.duration.set'].replace('{number}',diff)}}</button>
-                <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t['search.date.reset']}}</button>
+                <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t('search.duration.set').replace('{number}',diff)}}</button>
+                <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t('search.date.reset')}}</button>
               </div>
             </div>
           </div>

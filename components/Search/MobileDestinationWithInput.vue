@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">{{ $t['search.destination'] }}</h5>
+      <h5 id="offcanvasRightLabel">{{ $t('search.destination') }}</h5>
       <a
         class="btn"
         data-bs-dismiss="offcanvas"
@@ -11,14 +11,14 @@
       ></a>
     </div>
     <div class="offcanvas-body">
-        <input type="text" autocomplete="off"  class="form-control font-size-16 pl-0" id="destination_input_mobile" v-model="query" :placeholder="$t['common.beliebig']"  @keyup="setQuery" data-bs-toggle="dropdown" />
+        <input type="text" autocomplete="off"  class="form-control font-size-16 pl-0" id="destination_input_mobile" v-model="query" :placeholder="$t('common.beliebig')"  @keyup="setQuery" data-bs-toggle="dropdown" />
         <SearchDestinationDropdown :query="query" class="d-block" :source="source" @select="select"/>
         <div class="offcanvas-footer ">
              <a
             class="btn btn-light"
             @click="close"
             aria-label="Close"
-        >{{ $t['user.cancel']}}</a>
+        >{{ $t('user.cancel')}}</a>
         <a
             
             class="btn btn-lg theme-btn  theme-btn-orange line-height-28 "

@@ -10,11 +10,11 @@
             </div><!-- end col-lg-7 -->
             <div class="col-lg-6 col-12 align-self-center">
                 <div class="section-heading padding-top-35px">
-                    <h2 class="sec__title mb-0">{{ $t['404.title']}}</h2>
-                    <p class="sec__desc pt-3">{{ $t['404.subtitle']}}</p>
+                    <h2 class="sec__title mb-0">{{ $t('404.title')}}</h2>
+                    <p class="sec__desc pt-3">{{ $t('404.subtitle')}}</p>
                 </div>
                 <div class="btn-box padding-top-30px">
-                    <a href="/" class="theme-btn"><i class="la la-reply mr-1"></i> {{ $t['404.button']}}</a>
+                    <a href="/" class="theme-btn"><i class="la la-reply mr-1"></i> {{ $t('404.button')}}</a>
                 </div>
             </div>
         </div><!-- end row -->

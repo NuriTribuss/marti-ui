@@ -5,7 +5,7 @@
     <div class="filter-bar d-flex align-items-center justify-content-between">
       <div class="filter-bar-filter d-flex flex-wrap align-items-center">
         <div class="filter-option">
-          <h3 class="title font-size-16">{{ count}} {{ $t['search.results'] }}</h3>
+          <h3 class="title font-size-16">{{ count}} {{ $t('search.results') }}</h3>
         </div>
         <div class="filter-option  p-2 rounded-md " v-show="visible">
           <div class="dropdown dropdown-contain">
@@ -45,9 +45,9 @@ export default {
       searchData :{},
       sort : [
         {'code' : "" , 'label' : 'Beliebig'},
-        {'code' : "TOP" , 'label' : this.$t['search.sort.top']},
-        {'code' : "PRICE" , 'label' : this.$t['search.sort.price_asc']},
-        {'code' : "PRICE_ZA" , 'label' :  this.$t['search.sort.price_desc']},
+        {'code' : "TOP" , 'label' : this.$t('search.sort.top')},
+        {'code' : "PRICE" , 'label' : this.$t('search.sort.price_asc')},
+        {'code' : "PRICE_ZA" , 'label' :  this.$t('search.sort.price_desc')},
       ], 
       popular_filters : [
         {

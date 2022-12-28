@@ -1,16 +1,16 @@
 <template>
   <div class="card my-2 testimonial-card  border-success" >
     <div class="card-header bg-success text-white rounded-0 d-flex justify-content-between">
-      <div class="py-1"><i class="la la-check me-2"></i>{{ $t['offer.is_available']}}</div>
+      <div class="py-1"><i class="la la-check me-2"></i>{{ $t('offer.is_available')}}</div>
       <a class="btn btn-link btn-sm text-white " @click="close()"><i class="la la-close"></i></a>
       </div>
     <div class="card-body d-flex row" >
       <div class="py-0 py-lg-2 ps-lg-4 ps-3 col-12 col-lg-4 border-end border-info mb-3  mb-lg-0" v-if="offer.flightOffer">
          <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3">
-          {{ $t["offer.flight_info"] }}
+          {{ $t("offer.flight_info") }}
         </h3>
         <div class="font-weight-bold font-size-16 ">
-          {{ $t['offer.flight_point']}} : 
+          {{ $t('offer.flight_point')}} : 
         </div>
         <div v-for="(flight,index) in active_offer.commonOffer.flightOffer.flight.outbound.legList" :key="index" class="  ">
             <div class="d-flex justify-content-between">
@@ -34,7 +34,7 @@
             </div>
         </div>
          <div class="font-weight-bold font-size-16 mt-3">
-          {{ $t['offer.flight_return']}}:
+          {{ $t('offer.flight_return')}}:
         </div>
        <div v-for="(flight,index) in active_offer.commonOffer.flightOffer.flight.inbound.legList" :key="index" class="  ">
             <div class="d-flex justify-content-between">
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="my-2">
-        <small >{{ $t['offer.flight_time']}}</small>
+        <small >{{ $t('offer.flight_time')}}</small>
         </div>
       </div>
      
@@ -72,21 +72,21 @@
       <div class="col-12 col-lg-4 border-end border-info row mx-0 px-0">
         <div class="col-6 col-lg-12">
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3">
-            {{ $t["offer.services"] }}
+            {{ $t("offer.services") }}
           </h3>
           <div class="mx-2">
-            <div class="font-weight-bold"><i class="la la-check me-1"></i> {{ offer.travelDate.duration }} {{ $t['common.days']}}</div>
+            <div class="font-weight-bold"><i class="la la-check me-1"></i> {{ offer.travelDate.duration }} {{ $t('common.days')}}</div>
             <div> <i class="la la-check me-1"></i> {{ offer.hotelOffer.boardType.name}}</div>
             <div>  <i class="la la-check me-1"></i> {{ offer.hotelOffer.roomType.name}}</div>
           </div>
         </div>
         <div class="col-6 col-lg-12">
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-2 mt-0 mt-lg-4">
-            {{ $t["offer.operators"] }}
+            {{ $t("offer.operators") }}
           </h3>
         
           <div class="mx-2">
-            <div class="d-none d-lg-block">{{$t['offer.operator']}}</div>
+            <div class="d-none d-lg-block">{{$t('offer.operator')}}</div>
             <div class="d-none d-lg-block">{{offer.tourOperator.name}}</div>
             <img
               class="mt-lg-3" width="100"
@@ -97,19 +97,19 @@
       </div>
       <div class="col-12 col-lg-4">
          <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3  mt-lg-0 d-none d-lg-block">
-          {{ $t["offer.price_summary"] }}
+          {{ $t("offer.price_summary") }}
         </h3>
 
           <div>
             <div v-for="(person,index) in active_offer.travellerList" :key="index">
               <span class="font-weight-bold"> {{ index+1}}. </span> 
-              <span>{{ person.type == 'H' ?  $t['search.adult'] : ($t['search.children'] + '('+person.age+' jahre )')}}</span>
+              <span>{{ person.type == 'H' ?  $t('search.adult') : ($t('search.children') + '('+person.age+' jahre )')}}</span>
             </div>
             <hr>
           </div>
          <div class=" ">
            <div class="d-flex justify-content-between w-100 font-size-18  mt-3 mb-2 my-lg-4" >
-            <div class="">{{ $t['offer.amount']}}</div>
+            <div class="">{{ $t('offer.amount')}}</div>
             <div class="font-weight-bold">€ {{ $n(offer.totalPrice.value) }}</div>
            </div>
           <div>
@@ -117,7 +117,7 @@
           class="btn btn-success rounded w-100 text-center "
           @click="checkout(offer.code)"
           
-          >{{ $t['offer.take'] }}<i class="la la-angle-right ms-2"></i></a
+          >{{ $t('offer.take') }}<i class="la la-angle-right ms-2"></i></a
         >
             
           </div>

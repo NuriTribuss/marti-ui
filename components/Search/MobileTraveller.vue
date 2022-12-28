@@ -1,7 +1,7 @@
 <template>
   <div class="offcanvas offcanvas-end" id="traveller-modal">
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">{{ $t['search.traveller']}}</h5>
+      <h5 id="offcanvasRightLabel">{{ $t('search.traveller')}}</h5>
       <a
         class="btn"
         data-bs-dismiss="offcanvas"
@@ -41,7 +41,7 @@
               justify-content-between
             "
           >
-            <label>{{ $t['search.children']}}</label>
+            <label>{{ $t('search.children')}}</label>
             <div class="qtyBtn d-flex align-items-center">
               <div class="qtyDec" @click="filter.children.pop()">
                 <i class="la la-minus"></i>
@@ -67,13 +67,13 @@
             class="btn btn-light"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-        >{{ $t['user.cancel']}}</a>
+        >{{ $t('user.cancel')}}</a>
         <a
             class="btn theme-btn theme-btn-orange line-height-28 "
             data-bs-dismiss="offcanvas"
             aria-label="Close"
             @click="select()"
-        >{{ $t['search.filter.accept']}}</a>
+        >{{ $t('search.filter.accept')}}</a>
         </div>
     </div>
   </div>

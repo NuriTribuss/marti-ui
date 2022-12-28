@@ -1,7 +1,7 @@
 <template>
   <div class="offcanvas offcanvas-end" id="departure-modal">
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">{{ $t['search.departure']}}</h5>
+      <h5 id="offcanvasRightLabel">{{ $t('search.departure')}}</h5>
       <a
         class="btn"
         data-bs-dismiss="offcanvas"
@@ -21,7 +21,7 @@
             class="btn btn-light"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-        >{{ $t['user.cancel']}}</a>
+        >{{ $t('user.cancel')}}</a>
         <a
             class="btn theme-btn theme-btn-orange line-height-28 "
             data-bs-dismiss="offcanvas"

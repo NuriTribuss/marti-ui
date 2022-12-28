@@ -12,7 +12,7 @@
         <div class="col-lg-12">
           <div class="section-heading text-center">
             <h2 class="sec__title line-height-55">
-             {{ $t['search.most_popular'] }}
+             {{ $t('search.most_popular') }}
             </h2>
           </div>
           <!-- end section-heading -->
@@ -72,7 +72,7 @@
                       <span class="price__text">Per night</span>
                     </p>
                     <a :href="'/hotel/'+hotel.name_sef" class="btn-text"
-                      >{{$t['common.read_more']}}<i class="la la-angle-right"></i
+                      >{{$t('common.read_more')}}<i class="la la-angle-right"></i
                     ></a>
                   </div>
                 </div>

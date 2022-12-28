@@ -9,7 +9,7 @@
         data-bs-target="#summary-modal"
         class="btn btn-light w-100 rounded-0 my-2 d-block d-lg-none"
       >
-        <i class="la la-info-circle"></i> {{ $t["booking.title"] }}
+        <i class="la la-info-circle"></i> {{ $t("booking.title") }}
       </button>
 
       <div class="row">
@@ -19,8 +19,8 @@
                  <div class="marti-loader"></div>
               </div>
               <div class="ms-4">
-                <h4>{{ $t['common.loading']}}...</h4>
-                <p>{{ $t['common.loading.spinner']}}</p>
+                <h4>{{ $t('common.loading')}}...</h4>
+                <p>{{ $t('common.loading.spinner')}}</p>
               </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
                 <img  src="~assets/images/warning.png"/>
               </div>
               <div class="ms-4">
-                <p class="font-size-16">{{ $t['offer.hotel_error']}}...</p>
+                <p class="font-size-16">{{ $t('offer.hotel_error')}}...</p>
                 <p><a href="/" class="btn btn-light my-2"><i class="la la-angle-left"></i> Back</a></p>
               </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="form-box"  v-if="v$.bookingForm">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
-                {{ $t["user.profile.title"] }}
+                {{ $t("user.profile.title") }}
               </h3>
             </div>
             <!-- form-title-wrap -->
@@ -52,7 +52,7 @@
                     <div class="col-lg-6 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.name"]
+                          $t("user.profile.name")
                         }}</label>
                         <div class="form-group" >
                           <span class="la la-user form-icon"></span>
@@ -61,10 +61,10 @@
                             class="form-control"
                             :class="{ 'border-danger': v$.bookingForm.personal.name.$errors.length }"
                             type="text"
-                            :placeholder="$t['user.profile.name.placeholder']"
+                            :placeholder="$t('user.profile.name.placeholder')"
                           />
                            <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.name.$errors" :key="error.$uid">
-                              <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                              <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                             </div>
                         </div>
                       </div>
@@ -73,7 +73,7 @@
                     <div class="col-lg-6 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.surname"]
+                          $t("user.profile.surname")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
@@ -83,11 +83,11 @@
                             :class="{ 'border-danger': v$.bookingForm.personal.surname.$errors.length }"
                             type="text"
                             :placeholder="
-                              $t['user.profile.surname.placeholder']
+                              $t('user.profile.surname.placeholder')
                             "
                           />
                           <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.surname.$errors" :key="error.$uid">
-                              <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                              <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                             </div>
                         </div>
                       </div>
@@ -96,7 +96,7 @@
                     <div class="col-lg-6 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.mail"]
+                          $t("user.profile.mail")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-envelope-o form-icon"></span>
@@ -105,10 +105,10 @@
                             class="form-control"
                             :class="{ 'border-danger': v$.bookingForm.personal.email.$errors.length }"
                             type="email"
-                            :placeholder="$t['user.profile.mail.placeholder']"
+                            :placeholder="$t('user.profile.mail.placeholder')"
                           />
                             <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.email.$errors" :key="error.$uid">
-                              <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                              <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                             </div>
                         </div>
                       </div>
@@ -117,7 +117,7 @@
                     <div class="col-lg-6 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.phone"]
+                          $t("user.profile.phone")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-phone form-icon"></span>
@@ -126,10 +126,10 @@
                             class="form-control"
                             :class="{ 'border-danger': v$.bookingForm.personal.phone.$errors.length }"
                             type="text"
-                            :placeholder="$t['user.profile.phone.placeholder']"
+                            :placeholder="$t('user.profile.phone.placeholder')"
                           />
                             <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.phone.$errors" :key="error.$uid">
-                              <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                              <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                             </div>
                         </div>
                       </div>
@@ -138,7 +138,7 @@
                     <div class="col-lg-12">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.address"]
+                          $t("user.profile.address")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-map-marked form-icon"></span>
@@ -148,11 +148,11 @@
                             :class="{ 'border-danger': v$.bookingForm.personal.address.$errors.length }"
                             type="text"
                             :placeholder="
-                              $t['user.profile.address.placeholder']
+                              $t('user.profile.address.placeholder')
                             "
                           />
                             <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.address.$errors" :key="error.$uid">
-                              <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                              <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                             </div>
                         </div>
                       </div>
@@ -160,26 +160,26 @@
                     <div class="col-6 col-lg-3">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.state"]
+                          $t("user.profile.state")
                         }}</label>
                         <input type="text" 
                         ref='bookingForm.personal.state'
                         :class="{ 'border-danger': v$.bookingForm.personal.state.$errors.length }"  v-model="bookingForm.personal.state" class="ps-3 form-control" />
                          <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.state.$errors" :key="error.$uid">
-                            <div class="error-msg">* {{  $t[error.$propertyPath] }}</div>
+                            <div class="error-msg">* {{  $t(error.$propertyPath) }}</div>
                           </div>
                       </div>
                     </div>
                     <div class="col-6 col-lg-3">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.city"]
+                          $t("user.profile.city")
                         }}</label>
                         <input type="text" 
                         ref='bookingForm.personal.city'
                         :class="{ 'border-danger': v$.bookingForm.personal.city.$errors.length }" v-model="bookingForm.personal.city"  class="ps-3 form-control" />
                         <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.city.$errors" :key="error.$uid">
-                            <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                            <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                         </div>
                       </div>
                     </div>
@@ -187,13 +187,13 @@
                     <div class="col-lg-6 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.region"]
+                          $t("user.profile.region")
                         }}</label>
                         <select :class="{ 'border-danger': v$.bookingForm.personal.country.$errors.length }" class="form-control form-select ps-3" v-model="bookingForm.personal.country">
                           <option v-for="(country,index) in source.countries" :key="index" :value="country.iso2"> {{ country.name_de}}</option>
                         </select>
                           <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.country.$errors" :key="error.$uid">
-                            <div class="error-msg">*  {{  $t[error.$propertyPath] }}</div>
+                            <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
                           </div>
                       </div>
                     </div>
@@ -210,7 +210,7 @@
           <div class="form-box">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
-                {{ $t["search.traveller"] }}
+                {{ $t("search.traveller") }}
               </h3>
             </div>
             <!-- form-title-wrap -->
@@ -219,23 +219,23 @@
               <div class="contact-form-action">
                 <div class="form-group d-flex">
                     <input id="traveller_first" class="me-2 mt-2 "  type="checkbox" :true-value="1" :false-value="0" v-model="bookingForm.traveller_first" />
-                    <label for="traveller_first"> {{$t['booking.traveller.mine']}}</label>
+                    <label for="traveller_first"> {{$t('booking.traveller.mine')}}</label>
                 </div>
                 <div v-for="(traveller,index) in bookingForm.traveller"  :key="index" class="mb-2">
                   <span class="font-weight-bold "
-                    >{{ index+1 }}.{{ $t["search.adult"] }}</span
+                    >{{ index+1 }}.{{ $t("search.adult") }}</span
                   >
                   <div class="row mt-2">
                      <div class="col-lg-2 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.gender"]
+                          $t("user.profile.gender")
                         }}</label>
                         <div class="form-group">
                           <select v-model="traveller.gender"
                             class="form-control form-select ps-3"
                             :placeholder="
-                              $t['user.profile.surname.placeholder']
+                              $t('user.profile.surname.placeholder')
                             "
                           >
                             <option value="1">Herr</option>
@@ -247,7 +247,7 @@
                     <div class="col-lg-3 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.name"]
+                          $t("user.profile.name")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
@@ -262,7 +262,7 @@
                     <div class="col-lg-3 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.surname"]
+                          $t("user.profile.surname")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
@@ -275,7 +275,7 @@
                     </div>
                     <div class="col-lg-4 responsive-column">
                         <label class="label-text">{{
-                          $t["user.profile.birthday"]
+                          $t("user.profile.birthday")
                         }}</label>
                       <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
                     </div>
@@ -283,19 +283,19 @@
                 </div>
                  <div v-for="i in search.children.length" :key="i" class="mb-2">
                   <span class="font-weight-bold "
-                    >{{ i }}.{{ $t["search.children"] }}</span
+                    >{{ i }}.{{ $t("search.children") }}</span
                   >
                   <div class="row mt-2">
                      <div class="col-lg-2 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.gender"]
+                          $t("user.profile.gender")
                         }}</label>
                         <div class="form-group">
                           <select
                             class="form-control form-select ps-3"
                             :placeholder="
-                              $t['user.profile.surname.placeholder']
+                              $t('user.profile.surname.placeholder')
                             "
                           >
                             <option value="1">Herr</option>
@@ -307,7 +307,7 @@
                     <div class="col-lg-3 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.name"]
+                          $t("user.profile.name")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
@@ -322,7 +322,7 @@
                     <div class="col-lg-3 responsive-column">
                       <div class="input-box">
                         <label class="label-text">{{
-                          $t["user.profile.surname"]
+                          $t("user.profile.surname")
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
@@ -335,7 +335,7 @@
                     </div>
                     <div class="col-lg-4 responsive-column">
                         <label class="label-text">{{
-                          $t["user.profile.birthday"]
+                          $t("user.profile.birthday")
                         }}</label>
                       <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
                     </div>
@@ -350,7 +350,7 @@
           <div class="form-box">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
-                {{ $t["offer.payment.title"] }}
+                {{ $t("offer.payment.title") }}
               </h3>
             </div>
             <!-- form-title-wrap -->
@@ -376,7 +376,7 @@
                       <i class="la la-check icon-element"></i>
                       <img width="32" src="~assets/images/bank-transfer.png" alt="" />
                       <span class="d-block pt-2">{{
-                        $t["offer.payment.offline"]
+                        $t("offer.payment.offline")
                       }}</span>
                     </a>
                   </li>
@@ -395,7 +395,7 @@
                       <i class="la la-check icon-element"></i>
                       <img src="~assets/images/payment-img.png" alt="" />
                       <span class="d-block pt-2"
-                        >{{ $t["offer.payment.creditcart"] }}
+                        >{{ $t("offer.payment.creditcart") }}
                       </span>
                     </a>
                   </li>
@@ -414,7 +414,7 @@
                       <i class="la la-check icon-element"></i>
                       <img width="64" src="~assets/images/klarna.png" alt="" />
                       <span class="d-block pt-2">{{
-                        $t["offer.payment.onlinebanking"]
+                        $t("offer.payment.onlinebanking")
                       }}</span>
                     </a>
                   </li>
@@ -423,7 +423,7 @@
               <div class="my-4">
                 <div class="font-size-12">
                   <span class="font-weight-bold ">* </span
-                  >{{ $t["offer.payment.creditcom"] }}
+                  >{{ $t("offer.payment.creditcom") }}
                 </div>
               </div>
               <!-- end section-tab -->
@@ -436,7 +436,7 @@
           <div class="form-box">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
-                {{ $t["offer.conditions"] }}
+                {{ $t("offer.conditions") }}
               </h3>
             </div>
             <!-- form-title-wrap -->
@@ -444,18 +444,18 @@
               <div class="custom-checkbox">
                     <input id="aggregment" ref='bookingForm.aggregment' type="checkbox" v-model="bookingForm.aggregment" :true-value="1" :false-value="''">
                     <label for="aggregment" class="font-size-12">
-                      <div class="mb-2">{{ $t['offer.condition1']}}</div>
-                      <p class="mb-2"> {{ $t['offer.condition2']}}</p>
-                      <p> {{ $t['offer.condition3']}}</p>
+                      <div class="mb-2">{{ $t('offer.condition1')}}</div>
+                      <p class="mb-2"> {{ $t('offer.condition2')}}</p>
+                      <p> {{ $t('offer.condition3')}}</p>
                     </label>
               </div>
               <div class="text-danger font-size-14" v-for="error of v$.bookingForm.aggregment.$errors" :key="error.$uid">
-                  <div class="error-msg">* {{  $t['booking.form.req.aggregment'] }}</div>
+                  <div class="error-msg">* {{  $t('booking.form.req.aggregment') }}</div>
               </div>
                <div class="custom-checkbox mt-4">
                     <input id="tour_operator" type="checkbox"  :true-value="1" :false-value="0">
                     <label for="tour_operator" class="font-size-12">
-                      <p class="mb-2">{{ $t['offer.tourOperator.aggregment']}}</p>
+                      <p class="mb-2">{{ $t('offer.tourOperator.aggregment')}}</p>
                     </label>
               </div>
             </div>
@@ -463,14 +463,14 @@
            <div class="form-box p-3" v-if="offer">
               <div>
                 <h3 class="title text-color-6 font-weight-bold mb-2 mt-2">
-                  {{ $t["offer.is_available"] }}
+                  {{ $t("offer.is_available") }}
                 </h3>
                 <div>
-                    <div> {{ offer.travellerList.length }} {{ $t['search.adult']}} </div>
+                    <div> {{ offer.travellerList.length }} {{ $t('search.adult')}} </div>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between mt-3">
-                    <div> <span class="title">{{ $t['offer.amount'] }}</span> <br> <small> {{ $t['offer.amount_text'] }}</small></div>
+                    <div> <span class="title">{{ $t('offer.amount') }}</span> <br> <small> {{ $t('offer.amount_text') }}</small></div>
                     <div class="font-weight-bold font-size-24">{{ $n(offer.totalPrice.label) }} EUR</div>
                 </div>   
               </div>   
@@ -479,7 +479,7 @@
           <!-- end form-box -->
           <button @click="checkout" :disabled="saving" class="btn theme-btn theme-btn-orange font-size-18 px-5 float-end font-weight-bold">
                 <i class="la la-spinner" v-if="saving"></i>
-                {{ $t["offer.complete"] }}
+                {{ $t("offer.complete") }}
           </button>
         </div>
         <!-- end col-lg-8 -->
@@ -487,7 +487,7 @@
           <div class="w-100 booking-detail-form form-box d-none d-lg-block">
             <div class="form-title-wrap py-3">
               <h3 class="title text-color-6 font-weight-bold">
-                {{ $t["booking.title"] }}
+                {{ $t("booking.title") }}
               </h3>
             </div>
             <!-- end form-title-wrap -->
@@ -497,14 +497,14 @@
            <div class="form-box p-3 position-sticky d-none d-lg-block" style="top:20px"  v-if="offer">
               <div>
                 <h3 class="title text-color-6 font-weight-bold mb-2 mt-2">
-                  {{ $t["offer.is_available"] }}
+                  {{ $t("offer.is_available") }}
                 </h3>
                 <div>
-                    <div> {{ offer.travellerList.length }} {{ $t['search.adult']}} </div>
+                    <div> {{ offer.travellerList.length }} {{ $t('search.adult')}} </div>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between mt-3">
-                    <div> <span class="title">{{ $t['offer.amount'] }}</span> <br> <small> {{ $t['offer.amount_text'] }}</small></div>
+                    <div> <span class="title">{{ $t('offer.amount') }}</span> <br> <small> {{ $t('offer.amount_text') }}</small></div>
                     <div class="font-weight-bold font-size-24">{{ $n(offer.totalPrice.label) }} EUR</div>
                 </div>   
               </div>   
@@ -520,7 +520,7 @@
     </div>
     <div class="offcanvas offcanvas-end" id="summary-modal">
       <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">{{ $t["booking.title"] }}</h5>
+        <h5 id="offcanvasRightLabel">{{ $t("booking.title") }}</h5>
         <a
           type="button"
           class="btn"
@@ -551,7 +551,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            {{ $t['booking.unknown_error'] }}
+            {{ $t('booking.unknown_error') }}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" @click="closeError()">Close</button>

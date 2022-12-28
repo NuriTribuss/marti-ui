@@ -43,7 +43,7 @@
         <div class="col-lg-12">
           <div class="btn-box mt-3 text-end ">
             <button type="button" class="theme-btn theme-btn-orange w-25" v-if="total >   hotels.length" @click="loadMore">
-              <i class="la la-refresh me-2"></i>{{ $t['common.show_more']}}
+              <i class="la la-refresh me-2"></i>{{ $t('common.show_more')}}
             </button>
           
           </div>

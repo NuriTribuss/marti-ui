@@ -8,7 +8,7 @@
             class="nav-link d-flex align-items-center"
             v-bind:class="{ active: filters.sf == 2 }"
           >
-            <i class="la la-shopping-bag mx-1 d-none d-lg-block"></i>{{ $t['menu.pauschal']}}
+            <i class="la la-shopping-bag mx-1 d-none d-lg-block"></i>{{ $t('menu.pauschal')}}
           </button>
         </li>
 
@@ -17,7 +17,7 @@
             class="nav-link d-flex align-items-center"
             v-bind:class="{ active: filters.sf == 3 }"
           >
-            <i class="la la-hotel mx-1 d-none d-lg-block"></i>{{ $t['search.only_hotel']}}
+            <i class="la la-hotel mx-1 d-none d-lg-block"></i>{{ $t('search.only_hotel')}}
           </button>
         </li>
 
@@ -27,7 +27,7 @@
             to="/redirect/flight"
             v-bind:class="{ active: filters.sf == 4 }"
           >
-            <i class="la la-globe mx-1 d-none d-lg-block"></i>{{ $t['menu.flights']}}
+            <i class="la la-globe mx-1 d-none d-lg-block"></i>{{ $t('menu.flights')}}
           </NuxtLink>
         </li>
       </ul>
@@ -45,13 +45,13 @@
           <div class="row align-items-center">
             <div class="col-lg-3 pe-0">
               <div class="input-box">
-                <label class="label-text">{{ $t['search.destination'] }}</label>
+                <label class="label-text">{{ $t('search.destination')}}</label>
                 <div class="form-group">
                   <span
                     class="la la-map-marker form-icon text-color-12 z-index-1"
                   ></span>
-                    <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t['common.beliebig']">{{ query || $t['common.beliebig'] }}</button>
-                    <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" v-model="query" :placeholder="$t['common.beliebig']"  @keyup="loadSearchResults" data-bs-toggle="dropdown" />
+                    <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
+                    <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" v-model="query" :placeholder="$t('common.beliebig')"  @keyup="loadSearchResults" data-bs-toggle="dropdown" />
 
                     <SearchDestinationDropdown  class="desktop-dropdown" @select="select" :source="source"/>
                     
@@ -71,13 +71,13 @@
             </div>
             <div class="col-lg-2 pe-0" v-show="filters.sf == 2">
               <div class="input-box">
-                <label class="label-text">{{ $t['search.departure'] }}</label>
+                <label class="label-text">{{ $t('search.departure') }}</label>
                 <div class="form-group">
                   <span
                     class="la la-plane-departure form-icon text-color-12"
                   ></span>
                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#departure-modal" class="font-size-16 text-start form-control d-block d-lg-none"   >
-                    {{ filters.departure.name ||  $t['common.beliebig']}}
+                    {{ filters.departure.name ||  $t('common.beliebig')}}
                     </button>
                     <SearchMobileDeparture @setDeparture="setDeparture" class="mobile-date-picker" :airports="source.airports"/>
                     <SearchDepartureDropdown @setDeparture="setDeparture" :airports="source.airports" :value="filters.departure"/>
@@ -92,11 +92,11 @@
                       <!-- end col-lg-3 -->
                 <div class="col-lg-5 pe-0"  >
                     <div class="input-box">
-                      <label class="label-text">{{ $t['search.duration']}}</label>
+                      <label class="label-text">{{ $t('search.duration')}}</label>
                       <div class="form-group">
                         <span class="la la-calendar form-icon text-color-12 z-index-2 d-block d-lg-none"></span>
                         <button type="button" data-bs-toggle="offcanvas" data-bs-target="#duration-modal" class="font-size-16 text-start form-control d-block d-lg-none"   >
-                        {{ filters.duration }} {{ $t['common.days']}}
+                        {{ filters.duration }} {{ $t('common.days')}}
                         </button>
                         <SearchDurationDropDown  class="d-none d-lg-block"  v-model="filters.duration"/>
                         <SearchMobileDuration v-model="filters.duration"/>
@@ -105,11 +105,11 @@
                 </div>
                 <div class="col-lg-7 pe-0">
                   <div class="input-box">
-                    <label class="label-text">{{ $t['search.depart_on'] }}</label>
+                    <label class="label-text">{{ $t('search.depart_on') }}</label>
                     <div class="form-group">
                       <span class="la la-calendar form-icon text-color-12 z-index-2"></span>
                       <button type="button" data-bs-toggle="offcanvas" data-bs-target="#datepicker-modal" class=" font-size-16  text-start form-control d-block d-lg-none"   >
-                        {{ beautifyDate(filters.date.start) +' - ' + beautifyDate(filters.date.end) ||  $t['common.beliebig']}}
+                        {{ beautifyDate(filters.date.start) +' - ' + beautifyDate(filters.date.end) ||  $t('common.beliebig')}}
                       </button>
                       <SearchDatepickerDropdown @setDate="setDate" @setDuration="setDuration" :value="filters.date" class=" date-range"/>                 
                       <SearchMobileDatePicker @setDate="setDate" @setDuration="setDuration"  :date="filters.date" class="mobile-date-picker"/>
@@ -123,11 +123,11 @@
             <!-- end col-lg-3 -->
             <div class="col-lg-2" >
               <div class="input-box">
-                <label class="label-text">{{ $t['search.traveller']}}</label>
+                <label class="label-text">{{ $t('search.traveller')}}</label>
                 <div class="form-group">
                     <span class="la la-users form-icon text-color-12 z-index-2 d-block d-lg-none"></span>
                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#traveller-modal" class="font-size-16 text-start form-control d-block d-lg-none"   >
-                      {{ filters.adults }} {{ $t['search.adult'].substr(0,3)}}  {{ filters.children.length }} {{ $t['search.children']}}
+                      {{ filters.adults }} {{ $t('search.adult').substr(0,3)}}  {{ filters.children.length }} {{ $t('search.children')}}
                       </button>
                     <SearchTravellerDropdown class="d-none d-lg-block"  @select="setTraveller" :adults="filters.adults" :children="filters.children"/>
                     <SearchMobileTraveller @select="setTraveller" :adults="filters.adults" :children="filters.children" />
@@ -144,7 +144,7 @@
                   mt-4
                   d-none d-lg-flex
                 "
-                >{{ $t['search.search_offers']}}
+                >{{ $t('search.search_offers') }}
               </button>
               <button
                 @click="search"
@@ -157,7 +157,7 @@
                   text-center
                   d-lg-none
                 "
-                >{{ $t['search.search_offers']}}
+                >{{ $t('search.search_offers') }}
               </button>
             </div>
           </div>

@@ -28,7 +28,7 @@
                 </div>
               </div>
               <div class="d-flex">
-                  <div class="me-0 me-lg-3 text-color-9 py-1 font-weight-bold">{{ $t['common.share']}} : </div> 
+                  <div class="me-0 me-lg-3 text-color-9 py-1 font-weight-bold">{{ $t('common.share')}} : </div> 
                   <ul class="social-profile d-flex">
                       <li class="d-lg-flex d-none"><a :href="'https://www.facebook.com/sharer/sharer.php?u='+config.BASE_URL+$route.path" target="_blank"><i class="la la-facebook-f"></i></a></li>
                       <li class="d-lg-flex d-none"><a :href="'https://twitter.com/share?url='+config.BASE_URL+$route.path" target="_blank" ><i class="la la-twitter"></i></a></li>
@@ -186,7 +186,7 @@
                     aria-controls="offer"
                     aria-selected="false"
                   >
-                    <i class="la la-concierge-bell me-1"></i>{{ $t['hotels.tab_1']}}
+                    <i class="la la-concierge-bell me-1"></i>{{ $t('hotels.tab_1')}}
                   </a>
                 </li>
                 <li class="nav-item">
@@ -198,7 +198,7 @@
                     aria-controls="info"
                     aria-selected="false"
                   >
-                    <i class="la la-info me-1"></i>{{ $t['hotels.tab_3']}}
+                    <i class="la la-info me-1"></i>{{ $t('hotels.tab_3')}}
                   </a>
                 </li>
                 

@@ -21,20 +21,20 @@
             class="show-more"
             @click="loadMore.location = true"
             v-show="!loadMore.location"
-            >{{ $t['common.show_more'] }} <i class="la la-angle-down"></i
+            >{{ $t('common.show_more') }} <i class="la la-angle-down"></i
           ></span>
           <span
             class="show-less"
             @click="loadMore.location = false"
             v-show="loadMore.location" 
-            >{{ $t['common.show_less'] }} <i class="la la-angle-up"></i
+            >{{ $t('common.show_less') }} <i class="la la-angle-up"></i
           ></span>
         </a>
       </div>
     </div>
     <div class="sidebar-widget pb-1" v-if="!detail">
       <h3 class="title stroke-shape mb-2">
-        <i class="la la-smile text-color-4 me-2"></i>{{ $t['search.filter_rating'] }}
+        <i class="la la-smile text-color-4 me-2"></i>{{ $t('search.filter_rating') }}
       </h3>
       <div class="sidebar-review">
         <div class="ratings">
@@ -47,7 +47,7 @@
     </div>
      <div class="sidebar-widget " v-if="!detail">
       <h3 class="title stroke-shape ">
-        <i class="la la-smile text-color-4 me-2"></i>{{ $t['hotels.suggestion'] }}
+        <i class="la la-smile text-color-4 me-2"></i>{{ $t('hotels.suggestion') }}
       </h3>
       <div class="sidebar-review">
         <div class="ratings">
@@ -92,7 +92,7 @@
     <!-- end sidebar-widget -->
     <div class="sidebar-widget" >
       <h3 class="title stroke-shape">
-        <i class="la la-concierge-bell text-color-4 me-2"></i>{{ $t['search.filter_pansion'] }}
+        <i class="la la-concierge-bell text-color-4 me-2"></i>{{ $t('search.filter_pansion') }}
       </h3>
       <div class="sidebar-category" v-if="resource_data">
         <div
@@ -110,20 +110,20 @@
             class="show-more"
             @click="loadMore.boardType = true"
             v-show="!loadMore.boardType && resource_data.boardTypeList.length > 5"
-            >{{ $t['common.show_more'] }} <i class="la la-angle-down"></i
+            >{{ $t('common.show_more') }} <i class="la la-angle-down"></i
           ></span>
           <span
             class="show-less"
             @click="loadMore.boardType = false"
             v-show="loadMore.boardType"
-            >{{ $t['common.show_less'] }} <i class="la la-angle-up"></i
+            >{{ $t('common.show_less') }} <i class="la la-angle-up"></i
           ></span>
         </a>
       </div>
     </div>
     <div class="sidebar-widget" >
       <h3 class="title stroke-shape">
-        <i class="la la-bed text-color-4 me-2"></i>{{ $t['search.filter_room_type'] }}
+        <i class="la la-bed text-color-4 me-2"></i>{{ $t('search.filter_room_type') }}
       </h3>
       <div class="sidebar-category" v-if="resource_data">
         <div
@@ -141,20 +141,20 @@
             class="show-more"
             @click="loadMore.roomType = true"
             v-show="!loadMore.roomType && resource_data.roomTypeList.length > 5"
-            >{{ $t['common.show_more'] }} <i class="la la-angle-down"></i
+            >{{ $t('common.show_more') }} <i class="la la-angle-down"></i
           ></span>
           <span
             class="show-less"
             @click="loadMore.roomType = false"
             v-show="loadMore.roomType"
-            >{{ $t['common.show_less'] }} <i class="la la-angle-up"></i
+            >{{ $t('common.show_less') }} <i class="la la-angle-up"></i
           ></span>
         </a>
       </div>
     </div>
     <div class="sidebar-widget" v-if="detail">
       <h3 class="title stroke-shape">
-        <i class="la la-user-alt text-color-4 me-2"></i>{{ $t['search.operators'] }}
+        <i class="la la-user-alt text-color-4 me-2"></i>{{ $t('search.operators') }}
       </h3>
       <div class="sidebar-category" v-if="resource_data">
         <div
@@ -172,13 +172,13 @@
             class="show-more"
             @click="loadMore.operator = true"
             v-show="!loadMore.operator && resource_data.tourOperatorList.length > 5"
-            >{{ $t['common.show_more'] }} <i class="la la-angle-down"></i
+            >{{ $t('common.show_more') }} <i class="la la-angle-down"></i
           ></span>
           <span
             class="show-less"
             @click="loadMore.operator = false"
             v-show="loadMore.operator"
-            >{{ $t['common.show_less'] }} <i class="la la-angle-up"></i
+            >{{ $t('common.show_less') }} <i class="la la-angle-up"></i
           ></span>
         </a>
       </div>

@@ -19,17 +19,17 @@
     >
        <DatePicker v-model="dateRange" v-if="dateRange.start" is-range  :columns="2" :step="1"  color="orange" :firstDayOfWeek="2"  locale="de" class="px-5 border-0"></DatePicker>
        <div class="modal-footer justify-content-center">
-          <button class="btn theme-btn-orange px-4" @click="setDate">{{ $t['search.filter.accept']}}</button>
+          <button class="btn theme-btn-orange px-4" @click="setDate">{{ $t('search.filter.accept')}}</button>
        </div>
       <div class="modal fade" id="duration-error-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body text-center">
-              {{ $t['search.duration.range_error']}}
+              {{ $t('search.duration.range_error')}}
             </div>
             <div class="modal-footer border-0 justify-content-center">
-              <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t['search.duration.set'].replace('{number}',diff)}}</button>
-              <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t['search.date.reset']}}</button>
+              <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t('search.duration.set').replace('{number}',diff)}}</button>
+              <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t('search.date.reset')}}</button>
             </div>
           </div>
         </div>

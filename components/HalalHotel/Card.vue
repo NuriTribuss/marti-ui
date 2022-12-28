@@ -45,7 +45,7 @@
 
         <div class="mt-3 mt-lg-0">
           <div class="px-4 py-1 bg-rgb-3">
-            <p v-if="hotel.offerList" class="font-weight-bold my-2">{{ offer ?  offer.travelDate.duration : ''}} {{$t['common.days']}} , All İnclusive</p>
+            <p v-if="hotel.offerList" class="font-weight-bold my-2">{{ offer ?  offer.travelDate.duration : ''}} {{$t('common.days')}} , All İnclusive</p>
             <button
               @click="go(hotel.place.id)"
               class="rounded theme-btn theme-btn-blue text-white my-2 w-100 font-weight-bold"

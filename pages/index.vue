@@ -40,9 +40,9 @@
               </div>
               <!-- end info-icon-->
               <div class="info-content">
-                <h4 class="info__title">{{ $t.slogans.section1_title }}</h4>
+                <h4 class="info__title">{{ $t('slogans.section1_title')}}</h4>
                 <p class="info__desc">
-                  {{ $t.slogans.section1_text }}
+                  {{ $t('slogans.section1_text')}}
                 </p>
               </div>
               <!-- end info-content -->
@@ -57,9 +57,9 @@
               </div>
               <!-- end info-icon-->
               <div class="info-content">
-                <h4 class="info__title">{{ $t.slogans.section2_title }}</h4>
+                <h4 class="info__title">{{ $t('slogans.section2_title')}}</h4>
                 <p class="info__desc">
-                {{ $t.slogans.section2_text }}
+                {{ $t('slogans.section2_text') }}
                 </p>
               </div>
               <!-- end info-content -->
@@ -74,9 +74,9 @@
               </div>
               <!-- end info-icon-->
               <div class="info-content">
-                <h4 class="info__title">{{  $t.slogans.section3_title }} </h4>
+                <h4 class="info__title">{{ $t('slogans.section3_title')}}</h4>
                 <p class="info__desc">
-                 {{ $t.slogans.section3_text }}
+                  {{ $t('slogans.section3_text')}}
                 </p>
               </div>
               <!-- end info-content -->
