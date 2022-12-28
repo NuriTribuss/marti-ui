@@ -41,7 +41,7 @@
                     <p class="font-weight-bold  my-1">Beliebteste Merkmale</p>
                     <span class="d-block font-size-12 line-height-18" v-for="(fact,index) in firstOffer.hotelOffer.hotel.keywordList" :key="index"
                       >
-                      <span v-if="index < 3"><i class="la la-check text-success mx-2"></i> {{ $t.facility[fact] }}</span
+                      <span v-if="index < 3"><i class="la la-check text-success mx-2"></i>  {{ $t('facility.'+fact)}}</span
                     ></span>
                   
                   </div>

@@ -38,8 +38,8 @@
                         {{ $i18n.locale }}
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="language">
-                        <li><a class="dropdown-item" @click="change('de')">Deutsch</a></li>
-                        <li><a class="dropdown-item" @click="change('tr')">Türkçe</a></li>
+                        <li><a class="dropdown-item" @click="changeLanguage('de')">Deutsch</a></li>
+                        <li><a class="dropdown-item" @click="changeLanguage('tr')">Türkçe</a></li>
                       </ul>
                   </div>
                 </div>
@@ -184,7 +184,7 @@
 <script setup>
 
 const config = useRuntimeConfig();
-const language = useCookie("language");
+const language = useCookie("store-language");
 const currency = useCookie("currency");
 
 const changeLanguage = (param) => {
@@ -200,33 +200,15 @@ const { data: menu } = await useFetch(
   `/api/front/menu` , { pick : ["data"]}
 ); 
 
-</script>
- 
-<script>
-const cookie = useCookie('store-language');
-
-export default {
-
-  methods : {
-    change(item){
-      
-        cookie.value = item;
-        setTimeout(()=> {
-            location.reload();
-        },300)
-    },
-    url(url){
-      let map = {
-        'https://www.martigo.at/' : '/redirect/flight',
-        '/rent-car/' : '/redirect/rent'
-      }
-      if(map[url]){
-        return map[url];
-      }
-      return url;
-    }
-  },
-  
-}
+const url = (url) => {
+  let map = {
+    "https://www.martigo.at/" : "/redirect/flight",
+    "/rent-car/" : "/redirect/rent",
+  };
+  if (map[url]) {
+    return map[url];
+  }
+  return url;
+};
 
 </script>
