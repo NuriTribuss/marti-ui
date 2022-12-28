@@ -35,10 +35,11 @@
                 <div class="header-right-action">
                   <div class=" w-auto bg-white me-2">
                      <button class="btn btn-sm dropdown-toggle" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
-                        Deutsch
+                        {{ $i18n.locale }}
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="language">
-                        <li><a class="dropdown-item" href="#">Deutsch</a></li>
+                        <li><a class="dropdown-item" @click="change('de')">Deutsch</a></li>
+                        <li><a class="dropdown-item" @click="change('tr')">Türkçe</a></li>
                       </ul>
                   </div>
                 </div>
@@ -202,10 +203,18 @@ const { data: menu } = await useFetch(
 </script>
  
 <script>
+const cookie = useCookie('store-language');
 
 export default {
 
   methods : {
+    change(item){
+      
+        cookie.value = item;
+        setTimeout(()=> {
+            location.reload();
+        },300)
+    },
     url(url){
       let map = {
         'https://www.martigo.at/' : '/redirect/flight',
