@@ -62,8 +62,8 @@
                 <a href="/warum-martireisen/" title="">Warum Martireisen.at?</a>
               </li>
               <li>
-                <a v-bind:href=" $t('footer.martigo.url')" title=""
-                  >{{ $t('footer.martigo.text') }}</a
+                <a v-bind:href=" $t('footer.martigo_url')" title=""
+                  >{{ $t('footer.martigo_text') }}</a
                 >
               </li>
             </ul>

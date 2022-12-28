@@ -50,14 +50,20 @@
         "rentacar" : "Kiralık Araç",
         "cruise" : "Gemi"
     },  
-    "footer.slogan_one_title" : "En İyi Fiyat Garantisi",
-    "footer.slogan_one_text" : "Size En İyi Fiyatı Sunuyoruz",
-    "footer.slogan_two_title" : "7 / 24 Çağrı Merkezi",
-    "footer.slogan_two_text" : "Ücretsiz Çağrı Merkezi Hizmeti",
-    "footer.slogan_three_title" : "650.000 Otelde Rezervasyon İmkani",
-    "footer.slogan_three_text" : "E-mail ",
-    "footer.subscribe" : "Marti Reisen Bülten",
-    "footer.phone_numbers" : "Telefon Numaraları",
+    "footer" : {
+        "martigo_text":"Uçak Bileti Partnerimiz",
+        "martigo_url":"https://www.martigo.com/",
+        "slogan_one_title" : "En İyi Fiyat Garantisi",
+        "slogan_one_text" : "Size En İyi Fiyatı Sunuyoruz",
+        "slogan_two_title" : "7 / 24 Çağrı Merkezi",
+        "slogan_two_text" : "Ücretsiz Çağrı Merkezi Hizmeti",
+        "slogan_three_title" : "650.000 Otelde Rezervasyon İmkani",
+        "slogan_three_text" : "E-mail ",
+        "subscribe" : "Marti Reisen Bülten",
+        "phone_numbers" : "Telefon Numaraları"
+
+    },
+    
     "search" : {
         "travel_data" : "Uçuş Bilgileri",
         "hotels" : "Otel",

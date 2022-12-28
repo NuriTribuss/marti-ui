@@ -56,16 +56,19 @@
         "rentacar": "Mietwagen",
         "cruise": "Kreuzfahrt"
     },
-    "footer.martigo.text":"Unser Partner für Flugtickets",
-    "footer.martigo.url":"https://www.martigo.at/",
-    "footer.slogan_one_title": "Bestpreisgarantie",
-    "footer.slogan_one_text": "Wir bieten Ihnen den besten Preis",
-    "footer.slogan_two_title": "24h Kundenservice",
-    "footer.slogan_two_text": "Wir stehen Ihnen jederzeit kostenlos zur Verfügung",
-    "footer.slogan_three_title": "Große Auswahl",
-    "footer.slogan_three_text": "Wir bieten Ihnen über 65.000 Hotels zur Auswahl",
-    "footer.subscribe": "Marti Reisen Newsletter",
-    "footer.phone_numbers": "Kostenloser Kundensupport",
+    "footer" : {
+        "martigo_text":"Unser Partner für Flugtickets",
+        "martigo_url":"https://www.martigo.at/",
+        "slogan_one_title": "Bestpreisgarantie",
+        "slogan_one_text": "Wir bieten Ihnen den besten Preis",
+        "slogan_two_title": "24h Kundenservice",
+        "slogan_two_text": "Wir stehen Ihnen jederzeit kostenlos zur Verfügung",
+        "slogan_three_title": "Große Auswahl",
+        "slogan_three_text": "Wir bieten Ihnen über 65.000 Hotels zur Auswahl",
+        "subscribe": "Marti Reisen Newsletter",
+        "phone_numbers": "Kostenloser Kundensupport"
+    },
+    
     "search" : {
         "travel_data": "Reisedaten",
         "hotels": "Hotels",
