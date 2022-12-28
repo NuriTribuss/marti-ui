@@ -21,16 +21,15 @@ const { data: meta } = await useFetch(`/api/meta/fetch?q=`+params.join('/'), {
   pick: ["data"],
 });
 
-
-if(meta._rawValue.data.type == 'affilate'){
+if(meta?._rawValue?.data.type == 'affilate'){
     navigateTo('hotel/'+meta._rawValue.data.hotel.code+'?f='+(meta._rawValue.data.params));
 }
 
 useHead({
-  title : meta._rawValue.data.title,
+  title : meta._rawValue?.data.title,
   charset: 'utf-8',
   meta: [
-    { name: 'description', content: meta._rawValue.data.description, }
+    { name: 'description', content: meta._rawValue?.data.description, }
   ],
 })
 </script>
