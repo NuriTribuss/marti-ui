@@ -19,7 +19,7 @@
     >
        <DatePicker v-model="dateRange" v-if="dateRange.start" is-range  :columns="2" :step="1"  color="orange" :firstDayOfWeek="2"  locale="de" class="px-5 border-0"></DatePicker>
        <div class="modal-footer justify-content-center">
-          <button class="btn theme-btn-orange px-4" @click="setDate">{{ $t('search.filter.accept')}}</button>
+          <button class="btn theme-btn-orange px-4" @click="setDate">{{ $t('search.filter_accept')}}</button>
        </div>
       <div class="modal fade" id="duration-error-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">

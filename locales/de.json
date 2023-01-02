@@ -125,7 +125,7 @@
         "filter_keywords": "Other Filters",
         "filter.button": "Filter",
         "filter.change": "Filter ändern",
-        "filter.accept": "Übernehmen",
+        "filter_accept": "Übernehmen",
         "filter.transfer": "Transfer",
         "duration_error": "Zu lang für angegebenen Zeitraum",
         "duration.range_error" : "Wollen Sie die Reisedauer ändern?    ",

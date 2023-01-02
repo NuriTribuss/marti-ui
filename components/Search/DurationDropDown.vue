@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="modal-footer justify-content-center d-flex d-lg-none">
-          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter.accept')}}</button>
+          <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter_accept')}}</button>
        </div>
     </div>
   </div>

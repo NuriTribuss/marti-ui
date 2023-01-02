@@ -197,7 +197,7 @@ const changeCurrency = (param) => {
 };
 
 const { data: menu } = await useFetch(
-  `/api/front/menu` , { pick : ["data"]}
+  `/api/front/menu?hl=`+ (language.value || 'de' ), { pick : ["data"]}
 ); 
 
 const url = (url) => {

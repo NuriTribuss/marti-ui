@@ -119,7 +119,7 @@
         "filter_hotel_specials" : "Otel Özellikleri",
         "filter.button" : "Filtre",
         "filter.change" : "Filtre Değiştir",
-        "filter.accept" : "Uygula",
+        "filter_accept" : "Uygula",
         "filter.transfer" : "Transfer",
         "sort.by" : "Sıralama",
         "sort.asc" : "İsime Göre Ara",

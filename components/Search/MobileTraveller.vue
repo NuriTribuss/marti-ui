@@ -73,7 +73,7 @@
             data-bs-dismiss="offcanvas"
             aria-label="Close"
             @click="select()"
-        >{{ $t('search.filter.accept')}}</a>
+        >{{ $t('search.filter_accept')}}</a>
         </div>
     </div>
   </div>
