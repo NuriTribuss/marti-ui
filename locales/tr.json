@@ -230,12 +230,12 @@
     "offer.payment.offline" : "Havale",
     "offer.payment.offline_text" : "Ücretsiz",
     "slogans" : {
-        "section1_title"  : "Kostenlos jederzeit erreichbar! ",
-        "section1_text"  : "Kundenangelegenheiten sind uns wichtig! Egal wann und wo, unser Kundensupport steht dir 24 Stunden und an jedem Wochentag zur Verfügung. Zögere nicht bei Fragen bezüglich Reiseinformationen, Reservierungen, Fluggesellschaften oder Flugtickets. Wir sind gerne für dich da!",
-        "section2_title" : "Günstige Flüge auf einen Blick!        ",
-        "section2_text"  : "Mit martireisen.com findest du die billigsten Angebote im Handumdrehen! Unser Algorithmus vergleicht tausende Flüge von über 540 Fluggesellschaften und stellt dir die besten Ergebnisse dar.",
-        "section3_title" : "Sicher Bezahlen!",
-        "section3_text"  : "Unsere internationalen Geschäftszertifikate mit Visa, Mastercard, Sofortüberweisung und Paypal ermöglichen dir, deine Flugtickets auf sicherste Art und Weise zu bezahlen.     "
+        "section1_title"  : "7/24 Ücretsiz Çağrı Merkezi",
+        "section1_text"  : "Müşteri hizmetleri servisimiz 7 gün 24 saaat hizmetinizde. Seyahat bilgileri, rezarvasyonlar, havayolları veya uçak biletleri ile ilgili tüm seyahat planlamanızda bizlere ulaşabilirsiniz.",
+        "section2_title" : "Seyahatinize Dair Her Şey!",
+        "section2_text"  : "martıreisen.com en uygun tatil paketi, ucak bileti ve araba kiralama gibi tüm seyahat planlamalarınızda sizinle.",
+        "section3_title" : "Güvenli Alışveriş!",
+        "section3_text"  : "Visa, Mastercard ve Sofortüberweisung ile uluslararası işletme sertifikalarımız ile, güvenle alışveriş yapabilirsiniz."
     }
    
 }

@@ -2,7 +2,7 @@
 <div>
   <a  data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
     <span v-if="data">{{ data.destination.name }}<br><small>
-      {{ $date(data.date.start).format('DD.MM.YYYY') }} / {{ $date(data.date.END).format('DD.MM.YYYY') }}
+      {{ $date(data.date.start).format('DD.MM.YYYY') }} / {{ $date(data.date.end).format('DD.MM.YYYY') }}
       </small></span>
     <i class="la la-filter font-size-24 py-2"></i>
   </a>
