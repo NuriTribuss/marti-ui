@@ -48,8 +48,11 @@
           >
             <div class="d-flex justify-content-between">
               <div>
-                {{ flight.flightCarrierName }}
-                <small>{{ flight.flightNumber }}</small>
+                <div class="font-weight-bold">
+                  {{ formatFlightDate(flight.departureDate) }}
+                </div>
+                  {{ flight.flightCarrierName }}
+                  <small>{{ flight.flightNumber }}</small>
               </div>
               <div></div>
             </div>
@@ -88,8 +91,11 @@
           >
             <div class="d-flex justify-content-between">
               <div>
-                {{ flight.flightCarrierName }}
-                <small>{{ flight.flightNumber }}</small>
+                <div class="font-weight-bold">
+                  {{ formatFlightDate(flight.departureDate) }}
+                </div>
+                  {{ flight.flightCarrierName }}
+                  <small>{{ flight.flightNumber }}</small>
               </div>
               <div></div>
             </div>
@@ -171,6 +177,9 @@ export default {
   methods : {
     format(date){
         return dayjs(date).format('DD-MM-YYYY')
+    },
+    formatFlightDate(date){
+        return dayjs(date).format('DD.MM.YYYY')
     }
   }
 };
