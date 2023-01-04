@@ -41,11 +41,6 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-12">
-            <div class="content mt-5 mb-5">
-                <iframe src="https://maps.google.at/maps/ms?msid=202480250804355678001.0004c99314ffc4b0607a1&msa=0&ie=UTF8&t=m&ll=48.209803,16.352806&spn=0.102956,0.257149&z=12&output=embed" name="gmap" width="100%" height="450" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-            </div>
-        </div>
       </div>
     </div>
   </section>

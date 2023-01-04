@@ -125,7 +125,7 @@
         "filter_keywords": "Other Filters",
         "filter.button": "Filter",
         "filter.change": "Filter ändern",
-        "filter.accept": "Übernehmen",
+        "filter_accept": "Übernehmen",
         "filter.transfer": "Transfer",
         "duration_error": "Zu lang für angegebenen Zeitraum",
         "duration.range_error" : "Wollen Sie die Reisedauer ändern?    ",
@@ -290,6 +290,7 @@
     "booking.complete.step2": "Falls Rückfragen zu Ihrer Buchung unsererseits entstehen, so werden wir Sie unaufgefordert kontaktieren.",
     "booking.complete.step3": "Nachdem Ihre Reservierung bestätigt wird unsererseits, erhalten Sie Informationen über die Reise- und Zahlungsbedingungen.",
     "booking.complete.step4": "Nach Zahlungseingang erhalten Sie 1-2 Wochen vor Reiseantritt Ihre Reiseunterlagen per eMail zugesandt, bei kurzfristigen Buchungen innerhalb von 24 Stunden spätestens vor Abflug.",
+    "booking.complete.transfer": "Transfer vor Ort<br>Bei Pauschalreisen ist der Transfer vor Ort am Ankunftstag vom Flughafen zum Hotel und vom Hotel zum Flughafen am Abreisetag in der Regel inklusive und wird von Ihrem Reiseveranstalter durchgeführt. Sie erhalten darüber keine gesonderte Bestätigung. Informationen zum Treffpunkt vor Ort zum Transfer erhalten Sie mit den Reiseunterlagen.<br>Bei einigen Reiseangeboten ist der Transfer nicht inklusive. In diesem Fall finden Sie einen Hinweis in der Hotelbeschreibung des Veranstalters oder auf Ihrer Rechnung und Buchungsbestätigung, die Sie innerhalb der nächsten Tage erhalten.<br>Bei reinen Hotelbuchungen, Nur-Flug-Buchungen, Städtereisen oder Ferienwohnungen ist der Transfer normalerweise nicht inklusive.",
     "index.favourites_hotel": "Top Angebote",
     "form.email": "E-Mail Adresse",
     "user.mail_found_error": "Bitte überprüfen Sie nun Ihren Posteingang. ",
@@ -643,6 +644,6 @@
         "section2_title" : "Günstige Flüge auf einen Blick!        ",
         "section2_text"  : "Mit martireisen.com findest du die billigsten Angebote im Handumdrehen! Unser Algorithmus vergleicht tausende Flüge von über 540 Fluggesellschaften und stellt dir die besten Ergebnisse dar.",
         "section3_title" : "Sicher Bezahlen!        ",
-        "section3_text"  : "Unsere internationalen Geschäftszertifikate mit Visa, Mastercard, Sofortüberweisung und Paypal ermöglichen dir, deine Flugtickets auf sicherste Art und Weise zu bezahlen.     "
+        "section3_text"  : "Unsere internationalen Geschäftszertifikate mit Visa, Mastercard, Sofortüberweisung und Paypal ermöglichen dir, deine Flugtickets auf sicherste Art und Weise zu bezahlen."
     }
 }
