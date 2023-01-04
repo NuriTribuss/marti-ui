@@ -444,7 +444,7 @@
               <div class="custom-checkbox">
                     <input id="aggregment" ref='bookingForm.aggregment' type="checkbox" v-model="bookingForm.aggregment" :true-value="1" :false-value="''">
                     <label for="aggregment" class="font-size-12">
-                      <div class="mb-2">{{ $t('offer.condition1')}}</div>
+                      <div class="mb-2" v-html="$t('offer.condition1')"></div>
                       <p class="mb-2"> {{ $t('offer.condition2')}}</p>
                       <p> {{ $t('offer.condition3')}}</p>
                     </label>
