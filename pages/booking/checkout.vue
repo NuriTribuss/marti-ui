@@ -455,7 +455,7 @@
                <div class="custom-checkbox mt-4">
                     <input id="tour_operator" type="checkbox"  :true-value="1" :false-value="0">
                     <label for="tour_operator" class="font-size-12">
-                      <p class="mb-2">{{ $t('offer.tourOperator.aggregment')}}</p>
+                      <p class="mb-2" v-html="$t('offer.tourOperator.aggregment',{ url : offer.commonOffer.hotelOffer.hotel.tourOperator.agb })"></p>
                     </label>
               </div>
             </div>

@@ -25,7 +25,7 @@
              <div class="tour-card card-item card-item-list ">
                     <div class="card-img">
                         <a :href="'/tour/'+tour.seo_url+'?tid='+tour.id" class="d-block">
-                           <img :src="'https://martireisen.at/'+tour.image" alt="Destination-img">
+                           <img :src="'https://webapi.martireisen.at/'+tour.image" alt="Destination-img">
                         </a>
                     </div>
                     <div class="card-body ">

@@ -252,7 +252,7 @@
     "offer.login.account_text": "Ihre bereits hinterlegten Daten werden mit dem Login automatisch in das Buchungsformular übernommen.",
     "offer.price_change": "Der Reiseveranstalter meldet eine Preiserhöhung von ",
     "offer.price_down": "Der Reiseveranstalter meldet eine Preisreduzierung von ",
-    "offer.tourOperator.aggregment": "Hiermit akzeptiere ich die Allgemeinen Geschäftsbedingungen des Reiseveranstalters",
+    "offer.tourOperator.aggregment": "Hiermit akzeptiere ich die Allgemeinen Geschäftsbedingungen des <a href='{url}'>Reiseveranstalters</a>",
     "booking.title": "Buchungsauftrag",
     "booking.form.required": "Bitte geben Sie Ihren Nachnamen wie im Reisepass an.",
     "bookingForm.personal.error": "Bitte alle Felder ausfüllen",
