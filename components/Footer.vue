@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3 col--6 phone-numbers">
-            <h4 class="footer-top-title">Kostenloser Kundensupport</h4>
+            <h4 class="footer-top-title">{{ $t('footer.phone_numbers') }}</h4>
             <ul class="footer-top-list">
               <li>
                 <a href="tel:+43 1 90 94 500" title=""
@@ -49,17 +49,17 @@
             </ul>
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
-            <h4 class="footer-top-title">Über Uns</h4>
+            <h4 class="footer-top-title">{{ $t('footer.title_one') }}</h4>
             <ul class="footer-top-list">
               <li>
-                <a href="/ueber-martireisen/" title="">Über Marti Reisen </a>
+                <a href="/ueber-martireisen/" title="">{{ $t('footer.about_us') }}</a>
               </li>
-              <li><a href="/buchungsablauf/" title="">Buchungsablauf </a></li>
+              <li><a href="/buchungsablauf/" title="">{{ $t('footer.booking_process') }}</a></li>
               <li>
-                <a href="https://www.martireisen.at/" title="">Startseite </a>
+                <a href="https://www.martireisen.at/" title="">{{ $t('footer.homepage') }} </a>
               </li>
               <li>
-                <a href="/warum-martireisen/" title="">Warum Martireisen.at?</a>
+                <a href="/warum-martireisen/" title="">{{ $t('footer.why_us') }}</a>
               </li>
               <li>
                 <a v-bind:href=" $t('footer.martigo_url')" title=""
@@ -69,27 +69,27 @@
             </ul>
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
-            <h4 class="footer-top-title">Service &amp; Kontakt</h4>
+            <h4 class="footer-top-title">{{ $t('footer.title_two') }}</h4>
             <ul class="footer-top-list">
-              <li><a href="/kontakt/" title="">Kontakt</a></li>
+              <li><a href="/kontakt/" title="">{{ $t('footer.contact') }}</a></li>
               <li>
                 <a href="/haeufig-gestellte-fragen/" title=""
-                  >Häufig gestellte Fragen
+                  >{{ $t('footer.faq') }}
                 </a>
               </li>
               <li>
                 <a href="/allgmeine-geschaeftsbedingungen/" title=""
-                  >Allgmeine Geschäftsbedingungen
+                  >{{ $t('footer.terms_of_service') }}
                 </a>
               </li>
-              <li><a href="/impressum/" title="">Impressum</a></li>
+              <li><a href="/impressum/" title="">{{ $t('footer.imprint') }}</a></li>
               <li>
-                <a href="/datenschutz/" title="">Datenschutzbestimmung</a>
+                <a href="/datenschutz/" title="">{{ $t('footer.privacy_policy') }}</a>
               </li>
             </ul>
           </div>
           <div class="col-md-3 col--12">
-            <h4 class="footer-top-title light mb-4">Marti Reisen Newsletter</h4>
+            <h4 class="footer-top-title light mb-4">{{ $t('footer.subscribe') }}</h4>
             <div class="contact-form-action">
               <form action="#">
                 <div class="input-box">
@@ -100,17 +100,16 @@
                       class="form-control"
                       type="email"
                       name="email"
-                      placeholder="Email address"
+                      placeholder="E-Mail"
                     />
                     <button
                       class="theme-btn theme-btn-small submit-btn"
                       type="submit"
                     >
-                      Subscribe
+                      {{ $t('footer.subscribe_button') }}
                     </button>
                     <span class="font-size-14 pt-1 text-white-50"
-                      ><i class="la la-lock mr-1"></i>Don't worry your
-                      info is safe with us.</span
+                      ><i class="la la-lock mr-1"></i>{{ $t('footer.subscribe_info') }}</span
                     >
                   </div>
                 </div>
@@ -124,7 +123,7 @@
       <div class="container">
         <div class="footer-middle-container">
           <p class="footer-middle-copyright">
-            Copyright © 1999 - 2022 Marti Reisen. Alle Rechte vorbehalten
+            {{ $t('footer.copyright') }}
           </p>
           <div class="footer-middle-social">
             <a
@@ -156,7 +155,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 justify-content-center text-center">
-            <h4 class="footer-bottom-title">Ssl Zertifikat</h4>
+            <h4 class="footer-bottom-title">{{ $t('common.ssl_certificate') }}</h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"
@@ -166,7 +165,7 @@
             </div>
           </div>
           <div class="col-md-5 justify-content-center text-center">
-            <h4 class="footer-bottom-title">Zahlungsmöglichkeiten</h4>
+            <h4 class="footer-bottom-title">{{ $t('common.payment_methods') }}</h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"
@@ -191,7 +190,7 @@
             </div>
           </div>
           <div class="col-md-5 justify-content-center text-center">
-            <h4 class="footer-bottom-title">Mitgliedschaften</h4>
+            <h4 class="footer-bottom-title">{{ $t('common.security_certs') }}</h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"

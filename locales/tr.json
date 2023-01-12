@@ -3,7 +3,7 @@
 		"warning" : "Dikkat",
         "success" : "Başarılı!",
         "payment_methods" : "Ödeme Seçenekleri",
-        "ssl_certificate" : "Ssl Zertifikat",
+        "ssl_certificate" : "SSL Sertifikasi",
         "security_certs" : "Üyelikler",
         "day" : "Gün",
         "days" : "Gün",
@@ -66,7 +66,21 @@
         "slogan_three_title" : "650.000 Otelde Rezervasyon İmkani",
         "slogan_three_text" : "E-mail ",
         "subscribe" : "Marti Reisen Bülten",
-        "phone_numbers" : "Telefon Numaraları"
+        "subscribe_button": "Abone Ol",
+        "subscribe_info": "Verileriniz bizimle güvende.",
+        "phone_numbers" : "Telefon Numaraları",
+        "title_one": "Hakkımızda",
+        "about_us": "Martireisen Hakkında",
+        "booking_process": "Rezervasyon Prosedürü",
+        "homepage": "Anasayfa",
+        "why_us": "Neden Martireisen.at ?",
+        "title_two": "Servis & İletişim",
+        "contact": "İletişim",
+        "faq": "Sıkça sorulan sorular",       
+        "terms_of_service": "Genel Şartlar ve Koşullar",       
+        "imprint": "Künye",
+        "privacy_policy": "Gizlilik Politikası",
+        "copyright": "Copyright © 1999 - 2023 Marti Reisen. All rights reserved"
     },
     
     "search" : {	  				
@@ -641,7 +655,7 @@
     },
     "slogans" : {	  				 
         "section1_title" : "Ücretsiz Her Zaman Ulaşılabilir.",
-        "section1_text" : "Müşteri sorunları bizim için önemlidir! Müşteri desteğimiz haftanın her günü, günün 24 saati hizmetinizdedir. Seyahat bilgileri ve rezervasyonlar hakkında soru sormaktan çekinmeyin. Sizin için buradayız!",
+        "section1_text" : "Müşteri sorunları bizim için önemlidir! Müşteri desteğimiz haftanın her günü, günün 24 saati hizmetinizdedir. Seyahat bilgileri ve rezervasyonlar hakkında soru sormaktan çekinmeyin!",
         "section2_title" : "Bir bakışta ucuz teklifler!",
         "section2_text" : "martireisen.at ile en ucuz fırsatları anında bulabilirsiniz! Algoritmamız yüzlerce operatörün otellerini karşılaştırır ve size en iyi sonuçları sunar.",
         "section3_title" : "Güvenle ödeyin!",
