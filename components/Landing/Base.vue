@@ -50,7 +50,7 @@ export default {
             return false;
           }
           vue.record = result.data;
-          vue.content = vue.translate(vue.record.translate, vue.meta.language);
+          vue.content = vue.translate(vue.record.translate, vue.meta.data.locale);
           vue.loader = false;
         }
       );
