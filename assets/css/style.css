@@ -12048,3 +12048,297 @@ body {
   }
   
  
+
+
+/******newsletter START ********/
+
+.newsletter-wrapper {
+
+}
+
+.newsletter-wrapper .newsletter-image {
+    position: relative;
+}
+
+.newsletter-wrapper .newsletter-image img {
+    width: 100%;
+}
+
+.newsletter-wrapper .newsletter-image .newsletter-price {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #f7961d;
+    width: 140px;
+    height: 140px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    padding: 20px 0;
+}
+
+.newsletter-wrapper .newsletter-image .newsletter-price span {
+    display: block;
+}
+
+.newsletter-wrapper .newsletter-image .newsletter-price strong {
+    display: block;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 50px;
+}
+
+
+.newsletter-form-wrapper {
+
+}
+
+.newsletter-form-header {
+    margin-bottom: 15px;
+    font-size: 23px;
+}
+
+.newsletter-form-content {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.newsletter-form-content .newsletter-form {
+    flex-direction: column;
+    width: 55%;
+    padding-right: 20px;
+}
+
+.newsletter-form-content .newsletter-form .newsletter-form-item {
+    margin-bottom: 2px;
+}
+
+.newsletter-form-content .newsletter-form .newsletter-form-item, .newsletter-form-content .newsletter-form .newsletter-form-item .form-check label {
+    color: #293c83;
+}
+
+.newsletter-form-content .newsletter-form .newsletter-form-item .form-check label {
+    font-size: 13px;
+}
+
+.newsletter-form-content .newsletter-form .newsletter-form-item input[type=text] {
+    border: 1px solid gray;
+    /*color: lightgrey;*/
+    padding: 5px;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 2px;
+}
+
+.newsletter-form-content .newsletter-form .newsletter-form-button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.newsletter-form-content .newsletter-social-media {
+    flex-direction: column;
+    width: 45%;
+    padding-left: 20px;
+    position: relative;
+    font-size: 12px;
+}
+
+.newsletter-form-content .newsletter-social-media:before {
+    content: '';
+    width: 1px;
+    height: 99px;
+    background-color: #000;
+    position: absolute;
+    left: 0px;
+    top: 41px;
+}
+
+.newsletter-form-content .newsletter-social-media .newsletter-social-media-buttons {
+
+}
+
+.newsletter-form-content .newsletter-social-media .newsletter-social-media-buttons .btn span {
+    font-size: 11px;
+}
+
+.newsletter-form-content .newsletter-social-media .newsletter-social-media-buttons .btn i {
+    font-size: 25px;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+.newsletter-form-content .newsletter-social-media .newsletter-social-media-buttons .btn-facebook {
+    background-color: #4a64ae;
+    margin-bottom: 15px;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.newsletter-form-content .newsletter-social-media .newsletter-social-media-buttons .btn-google {
+    background-color: #ef4e44;
+    color: #fff;
+    border-radius: 2px;
+}
+
+
+.newsletter-proposal {
+    margin-top: 65px;
+    margin-bottom: 20px;
+}
+
+.newsletter-proposal-header {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 43px;
+}
+
+.newsletter-proposal .newsletter-proposal-image {
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+}
+
+.newsletter-proposal .newsletter-proposal-image img {
+    width: 100%;
+}
+
+.newsletter-proposal .newsletter-proposal-image .newsletter-proposal-image-description {
+    font-size: 19px;
+    text-align: center;
+    padding: 12px;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+.newsletter-proposal .newsletter-proposal-description {
+    font-size: 25px;
+}
+
+.newsletter-proposal .newsletter-proposal-description ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.newsletter-proposal .newsletter-proposal-description ul li {
+    font-size: 25px;
+}
+
+.newsletter-proposal .newsletter-proposal-description ul li i {
+    color: #f7961d;
+    font-size: 40px;
+}
+
+
+.newsletter-inspiration {
+    margin-top: 74px;
+}
+
+.newsletter-inspiration .newsletter-inspiration-header {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 43px;
+}
+
+.newsletter-inspiration .newsletter-inspiration-container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.newsletter-inspiration-container .newsletter-inspiration-item {
+    text-align: center;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.newsletter-description {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.newsletter-description strong {
+    font-size: 25px;
+}
+
+.newsletter-description {
+    margin-top: 70px;
+    font-size: 20px;
+}
+
+
+@media (max-width: 767px) {
+
+    .newsletter-wrapper h1 {
+        font-size: 20px;
+    }
+
+    .newsletter-form-wrapper {
+        padding: 15px;
+    }
+
+    .newsletter-form-header, .newsletter-proposal-header, .newsletter-inspiration-header {
+        font-size: 18px !important
+    }
+
+    .newsletter-form-content {
+        flex-direction: column;
+    }
+
+    .newsletter-form-content .newsletter-form {
+        width: 100%;
+        flex-direction: row;
+        padding-right: 0px;
+    }
+
+    .newsletter-form-content .newsletter-social-media {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    .newsletter-form-content .newsletter-social-media:before {
+        display: none;
+    }
+
+    .newsletter-proposal {
+        margin-top: 20px;
+    }
+
+    .newsletter-proposal-description {
+        font-size: 16px !important;
+        margin-top: 25px;
+    }
+
+    .newsletter-proposal-description ul {
+
+    }
+
+    .newsletter-proposal-description ul li {
+        font-size: 16px !important;
+        margin-bottom: 6px;
+    }
+
+    .newsletter-proposal-description ul li i {
+        font-size: 25px !important;
+        vertical-align: middle;
+    }
+
+
+    .newsletter-inspiration-container .newsletter-inspiration-item {
+        margin-bottom: 25px;
+    }
+
+    .newsletter-description {
+        font-size: 16px !important;
+    }
+
+    .newsletter-description strong {
+        font-size: 18px !important;
+    }
+
+}
+
+
+/******newsletter END ********/

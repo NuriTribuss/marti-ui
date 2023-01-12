@@ -4,9 +4,9 @@
       <div class="row align-items-center">
         <div class="col-lg-8">
           <div class="section-heading">
-            <h2 class="sec__title">
+            <h1 class="sec__title">
               {{ $t('homepage.block.header')}}
-            </h2>
+            </h1>
             <p class="sec__desc pt-3">
                {{ $t('homepage.block.header_desc')}}
             </p>

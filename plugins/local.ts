@@ -27,6 +27,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     return{
         provide:{
            rtl : cookie.value == 'ar',
+           language : cookie.value,
            n: (number) => {
             return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
           },
