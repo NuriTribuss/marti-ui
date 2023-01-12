@@ -32,7 +32,7 @@
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.boardType.name }}</div>
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.roomType.name }}</div>
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.inclusiveList.join(',') }}</div>
-                                    <h3 class="title text-color-6 font-weight-bold mb-2 mt-4 ">{{ $t('offer.operators')}}</h3>
+                                    <h3 class="title text-color-6 font-weight-bold mb-2 mt-4 ">{{ $t('offer.operator')}}</h3>
                                     <div class="d-flex"> 
                                         <img :src="'https://media.traffics-switch.de/vadata/logo/png/h50/'+booking.data.operator.toLowerCase()+'.png'"/>
                                         <div>{{ booking.data.operator}}</div>

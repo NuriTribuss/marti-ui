@@ -20,7 +20,7 @@
               </div>
               <div class="ms-4">
                 <h4>{{ $t('common.loading')}}...</h4>
-                <p>{{ $t('common.loading.spinner')}}</p>
+                <p>{{ $t('common.loading_spinner')}}</p>
               </div>
           </div>
         </div>

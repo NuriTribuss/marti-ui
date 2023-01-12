@@ -156,7 +156,7 @@
           >{{ offer.commonOffer.hotelOffer.inclusiveList.join(",") }}
         </div>
         <h3 class="title text-color-6 font-weight-bold mb-2 mt-4">
-          {{ $t("offer.operators") }}
+          {{ $t("offer.operator") }}
         </h3>
         <div class="">
           <div>{{ offer.commonOffer.tourOperator.name }}</div>

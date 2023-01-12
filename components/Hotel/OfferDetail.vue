@@ -82,11 +82,11 @@
         </div>
         <div class="col-6 col-lg-12">
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-2 mt-0 mt-lg-4">
-            {{ $t("offer.operators") }}
+            {{ $t("offer.operator") }}
           </h3>
         
           <div class="mx-2">
-            <div class="d-none d-lg-block">{{$t('offer.operator')}}</div>
+            <!-- <div class="d-none d-lg-block">{{$t('offer.operator')}}</div> -->
             <div class="d-none d-lg-block">{{offer.tourOperator.name}}</div>
             <img
               class="mt-lg-3" width="100"

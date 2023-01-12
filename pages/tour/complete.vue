@@ -32,7 +32,7 @@
                                     <h3 class="title text-color-6 font-weight-bold mb-3">{{ $t['offer.services']}}</h3>
                                     <div v-for="(property,index) in tour.properties" :key="index" v-show="property.is_free"><i class="la la-check me-1"></i>{{ property.title}}</div>
                                    
-                                    <h3 class="title text-color-6 font-weight-bold mb-2 mt-4 ">{{ $t['offer.operators']}}</h3>
+                                    <h3 class="title text-color-6 font-weight-bold mb-2 mt-4 ">{{ $t['offer.operator']}}</h3>
                                     <div class="d-flex"> 
                                         <div>{{ booking.data.operator}}</div>
                                     </div>
