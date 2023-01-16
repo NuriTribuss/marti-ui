@@ -13,7 +13,7 @@
         </div><!-- end row -->
         <div class="row padding-top-50px">
             <div class="col-6 col-lg-3" v-for="(item,index) in posts" v-bind:key="index">
-                <div class="card-item blog-card">
+                <div class="card-item blog-card" v-if="item.translate">
                     <div class="card-img">
                         <img :src="'https://martireisen.at/data/image/posts/'+item.id+'/'+item.id+'.jpg'" alt="blog-img">
                         <div class="post-format icon-element">

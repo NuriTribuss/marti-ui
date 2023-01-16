@@ -94,12 +94,13 @@
     <SectionHolidayTypes />
     <!-- <SectionHomeSeoText />-->
     <SectionLatestPost :posts="post.data" v-if="post" />
+
   </div>
 </template>
 
 <script setup>
-    
-const { data: post } = await useFetch(`/api/content/post/post?limit=4`, {
+const cookie = useCookie('store-language');
+const { data: post } = await useFetch(`/api/content/post/post?limit=4&hl=`+(cookie.value || ' de'), {
   pick: ["data"],
 });
 </script> 

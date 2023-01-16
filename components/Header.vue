@@ -176,7 +176,7 @@
       </div>
     </div>
   </header>
-  <MobileMenu :menu="menu" />
+  <MobileMenu :menu="menu"  v-if="menu"/>
   <UserLoginPopup/>
   <UserRegisterPopup/>
 </template>
