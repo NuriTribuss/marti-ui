@@ -36,7 +36,7 @@
                 </div>
                  <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
-                            <h3 class="card-title"><a :href="item.url">{{item.name}}</a></h3>
+                            <h3 class="card-title"><a :href="item.url" v-html="item.name"></a></h3>
                         </div>
                         <div>
                             <a :href="item.url" class="theme-btn theme-btn-small theme-btn-orange border-0">{{ $t('common.more')}}</a>
@@ -62,10 +62,10 @@
             </div>
             <div class="card-body" style="bottom:5px">
               <h3 class="card-title">
-                <a :href="banner.url">{{banner.name}}</a>
+                <a :href="banner.url" v-html="banner.name"></a>
                 
               </h3>
-              <p class="text-white">{{ banner.desc }}</p>
+              <p class="text-white" v-html="banner.desc"></p>
               <div
                 class=" card-price mt-3  "
               >
@@ -90,29 +90,29 @@ export default {
   data() {
     return {
       banner : {
-        name : 'Wellness Urlaub mit Marti Reisen',
-        desc : 'Sie suchen das passende Wellnesshotel für Ihren Wellnessurlaub?',
+        name :this.$t('homepage.card2_title'),
+        desc : this.$t('homepage.card2_description'),
         url : '/wellnesshotels/',
         image : 'https://www.martireisen.at/data/image/posts/7/7.jpg'
       },  
       items: [
         {
-            name : "Familienurlaub mit Marti Reisen",
+            name : this.$t('homepage.card1_title'),
             url  : "/pauschalreisen/familienurlaub/",
             image : "/images/homebanner/famillienhotels.jpg",
         },
         {
-            name : "Fernreisen mit Marti Reisen",
+            name : this.$t('homepage.card3_title'),
             url  : "/fernreisen/",
             image : "/images/homebanner/fernreisen.jpg",
         },
          {
-            name : "Aktivurlaub mit Marti Reisen",
+            name : this.$t('homepage.card4_title'),
             url  : "/sports-aktivurlaub/",
             image : "/images/homebanner/aktivurlaub.jpg",
         },
          {
-            name : "Strandurlaub mit Marti Reisen",
+            name : this.$t('homepage.card5_title'),
             url  : "/strandhotels/",
             image : "/images/homebanner/strandurlaub.jpg",
         },

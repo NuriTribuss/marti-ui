@@ -24,7 +24,7 @@
                                     <strong>20€</strong>
                                     <span>Reisegutschein!</span>
                                 </div>
-                                <img src="/themes/web/martireisen//assets/img/newsletter/1.jpg">
+                                <img src="//assets/img/newsletter/1.jpg">
                             </div>
                         </div>
                         <div class="col-lg-6" id="newsletter">
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="newsletter-proposal-image">
-                                <img src="/themes/web/martireisen//assets/img/newsletter/6.jpg">
+                                <img src="//assets/img/newsletter/6.jpg">
                                     <div class="newsletter-proposal-image-description">
                                         Registrieren und viele Vorteile sichern!
                                     </div>
@@ -170,7 +170,7 @@
                             <div class="col-lg-3">
                                 <div class="newsletter-inspiration-item">
                                     <div class="newsletter-inspiration-item-image">
-                                        <img src="/themes/web/martireisen//assets/img/newsletter/2.jpg">
+                                        <img src="//assets/img/newsletter/2.jpg">
                                     </div>
                                     <div class="newsletter-inspiration-item-description">
                                         Themen passend
@@ -182,7 +182,7 @@
                             <div class="col-lg-3">
                                 <div class="newsletter-inspiration-item">
                                     <div class="newsletter-inspiration-item-image">
-                                        <img src="/themes/web/martireisen//assets/img/newsletter/3.jpg">
+                                        <img src="//assets/img/newsletter/3.jpg">
                                     </div>
                                     <div class="newsletter-inspiration-item-description">
                                         Anregungen
@@ -193,7 +193,7 @@
                             <div class="col-lg-3">
                                 <div class="newsletter-inspiration-item">
                                     <div class="newsletter-inspiration-item-image">
-                                        <img src="/themes/web/martireisen//assets/img/newsletter/4.jpg">
+                                        <img src="//assets/img/newsletter/4.jpg">
                                     </div>
                                     <div class="newsletter-inspiration-item-description">
                                         Lassen Sie sich von
@@ -206,7 +206,7 @@
                             <div class="col-lg-3">
                                 <div class="newsletter-inspiration-item">
                                     <div class="newsletter-inspiration-item-image">
-                                        <img src="/themes/web/martireisen//assets/img/newsletter/5.jpg">
+                                        <img src="//assets/img/newsletter/5.jpg">
                                     </div>
                                     <div class="newsletter-inspiration-item-description">
                                         Keinen Trend
