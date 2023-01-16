@@ -28,7 +28,7 @@
         class="card-facility d-lg-flex align-items-center justify-content-between"
       >
         <div>
-          <p class="font-weight-bold  my-1">Beliebteste Merkmale</p>
+          <p class="font-weight-bold  my-1">{{$t('hotels.amenities')}}</p>
           <span class="d-lg-block d-inline-block" v-for="(fact,index) in hotel.keywordList" :key="index"
             >
             <span v-if="index < 4"><i class="la la-check text-success mx-2"></i> {{ $t('facility.'+fact)}}</span
@@ -37,11 +37,11 @@
         </div>
 
         <div class="text-center d-none d-lg-block" v-if="hotel.rating">
-          <p class="font-weight-bold text-center my-1">Gästebewertung</p>
+          <p class="font-weight-bold text-center my-1">{{$t('hotels.score')}}</p>
           <div class="">
             <h5><i class="la la-smile text-warning"></i>{{ hotel.rating.overall }}<span>/100</span></h5>
             <p>Exzellent</p>
-            <span>{{ hotel.rating.recommendation }} Bewertungen</span>
+            <span>{{ hotel.rating.recommendation }} {{$t('hotels.review')}}</span>
           </div>
         </div>
 

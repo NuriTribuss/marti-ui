@@ -44,7 +44,7 @@ export default {
       visible : false,
       searchData :{},
       sort : [
-        {'code' : "" , 'label' : 'Beliebig'},
+        {'code' : "" , 'label' : this.$t('common.beliebig')},
         {'code' : "TOP" , 'label' : this.$t('search.sort_top')},
         {'code' : "PRICE" , 'label' : this.$t('search.sort_price_asc')},
         {'code' : "PRICE_ZA" , 'label' :  this.$t('search.sort_price_desc')},

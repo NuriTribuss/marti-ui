@@ -60,22 +60,22 @@
     </div>
      <div class="sidebar-widget " v-if="!detail">
       <h3 class="title stroke-shape ">
-        <i class="la la-plane-arrival text-color-4 me-2"></i>{{ 'Flug & Transfer' }}
+        <i class="la la-plane-arrival text-color-4 me-2"></i>{{$t('search.filter_direct_title')}}
       </h3>
        <div class="sidebar-category">
         <div class="custom-checkbox">
           <input type="checkbox" :id="'fl'" v-model="filter.directness"  true-value="1" false-value="" v-on:change="set('directness')" />
-          <label :for="'fl' ">Direktflug</label>
+          <label :for="'fl' ">{{$t('search.filter_direct')}}</label>
         </div>
           <div class="custom-checkbox">
           <input type="checkbox" id="transfer" v-model="filter.transfer"  true-value="1" false-value="" v-on:change="set('transfer')" />
-          <label for="transfer">Mit Transfer</label>
+          <label for="transfer">{{$t('search.filter_transfer')}}</label>
         </div>
       </div>
     </div>
     <div class="sidebar-widget" v-if="!detail ">
       <h3 class="title stroke-shape">
-        <i class="la la-heart text-color-4 me-2"></i>Beliebteste Filter
+        <i class="la la-heart text-color-4 me-2"></i>{{$t('search.filter_amenities_title')}}
       </h3>
       <div class="sidebar-category">
         <div
@@ -230,23 +230,23 @@ export default {
       popular_filters : [
         {
           'code' : 'ado',
-          'name' : 'Nur für Erwachsene',
+          'name' : this.$t('facility.ado'),
         },
         {
           'code' : 'bea',
-          'name' : 'Direkte Strandlage',
+          'name' : this.$t('facility.bea'),
         },
         {
           'code' : 'ben',
-          'name' : 'Sandstrand',
+          'name' : this.$t('facility.ben'),
         },
         {
           'code' : 'pol',
-          'name' : 'Pool',
+          'name' : this.$t('facility.pol'),
         },
         {
           'code' : 'fwi',
-          'name' : 'WLAN',
+          'name' : this.$t('facility.fwi'),
         }
       ],
      

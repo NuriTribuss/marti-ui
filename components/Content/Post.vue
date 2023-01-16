@@ -13,7 +13,7 @@
             </div>
         </div>
     </section>
-  <SectionHelpBlock />
+  <!-- <SectionHelpBlock /> -->
 </template>
 
 <script>
