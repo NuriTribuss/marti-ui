@@ -68,13 +68,13 @@ export default ({
                 
                 this.months = this.range(1,currentMonth+1);
                 var currentDay = new Date().getDate();
-                     //console.log(currentDay);
-                     //console.log(currentMonth);
-                     //console.log(monthValue);
-                 if(monthValue === currentMonth)
+                    console.log(currentDay);
+                    console.log(currentMonth);
+                    console.log(monthValue);
+                 if(parseInt(monthValue) === parseInt(currentMonth))
                  {
                      
-                     this.days = this.range(1,currentDay+1);
+                     this.days = this.range(1,parseInt(currentDay)+1);
                  }
                  else
                  {
