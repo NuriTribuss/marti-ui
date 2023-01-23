@@ -31,7 +31,7 @@
                 <div v-if="item.old_address == ''">
                    Mo-Fr : {{ item.week_hours }}
                    Sams.  :{{ item.weekend_hours}}
-                   <span class="d-block" v-if="item.id == 3">So. : {{ item.weekend_hours}}</span>
+                   <!--<span class="d-block" v-if="item.id == 3">So. : {{ item.weekend_hours}}</span>-->
                 </div>
                  <div v-if="item.old_address != ''">
                  Umgesiedelt

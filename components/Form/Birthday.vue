@@ -2,19 +2,19 @@
      <div class="row m-0">
         
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
-            <select @change="updateDate()" ref="dayPicker"  :class="inputClass"   class="form-select form-control ps-3" :value="splitDate.day">
+            <select @change="updateDate()" v-model="selectedDay" ref="dayPicker"  :class="inputClass"   class="form-select form-control ps-3" :value="splitDate.day">
                 <option value="">{{dayText}}</option>
                 <option v-for="(day,index) in days" :key="index">{{day}}</option>
             </select>
         </div>
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
-            <select @change="updateDate()" ref="monthPicker" :class="inputClass"  class="form-select form-control ps-3"  :value="splitDate.month" >
+            <select @change="updateDate()" v-model="selectedMonth" ref="monthPicker" :class="inputClass"  class="form-select form-control ps-3"  :value="splitDate.month" >
                 <option value="">{{monthText}}</option>
                 <option v-for="(month,index) in months" :key="index">{{month}}</option>
             </select>
         </div>
         <div class="col-4 col-md-4 p-0 position-relative">
-            <select @change="updateDate()" ref="yearPicker" :class="inputClass" class="form-select form-control ps-3"  :value="splitDate.year">
+            <select @change="updateDate()" v-model="selectedYear" ref="yearPicker" :class="inputClass" class="form-select form-control ps-3"  :value="splitDate.year">
                 <option value="">{{yearText}}</option>
                 <option v-for="(year,index) in years" :key="index">{{year}}</option>
             </select>
@@ -40,6 +40,9 @@ export default ({
             seperator : '-',
             selectText : '',
             inputClass : 'form-control form-marti',
+            selectedDay:null,
+            selectedMonth:null,
+            selectedYear:null,
         }
     },
     methods : {
@@ -51,13 +54,44 @@ export default ({
          
          updateDate : function() {
              
-            const dayValue      = this.$refs.dayPicker.value;
-            const monthValue    = this.$refs.monthPicker.value;
-            const yearValue     = this.$refs.yearPicker.value;
+            // const dayValue      = this.$refs.dayPicker.value;
+            // const monthValue    = this.$refs.monthPicker.value;
+            // const yearValue     = this.$refs.yearPicker.value;
+            const dayValue      = this.selectedDay;
+            const monthValue    = this.selectedMonth;
+            const yearValue     = this.selectedYear;
+            var maxYaers = Math.max.apply(Math,this.years);
+            
+            if(yearValue==maxYaers)
+            {
+                var currentMonth = new Date().getMonth() + 1; //getMonth return 0-11
+                
+                this.months = this.range(1,currentMonth+1);
+                var currentDay = new Date().getDate();
+                     //console.log(currentDay);
+                     //console.log(currentMonth);
+                     //console.log(monthValue);
+                 if(monthValue === currentMonth)
+                 {
+                     
+                     this.days = this.range(1,currentDay+1);
+                 }
+                 else
+                 {
+                     this.days = this.range(1,32);
+                 }
+                 
+            }
+             else
+             {
+                 this.months = this.range(1,13);
+                 this.days = this.range(1,32);
+             }
+    
             
             if(dayValue != '' && yearValue != '' && monthValue != ''){
-               //  this.$emit('input', `${yearValue}${this.seperator}${monthValue}${this.seperator}${dayValue}`);
-              //   $("#"+this.item_id+'_message').hide();
+                this.$emit('input', `${yearValue}${this.seperator}${monthValue}${this.seperator}${dayValue}`);
+                //$("#"+this.item_id+'_message').hide();
             }
            
          }
@@ -75,11 +109,11 @@ export default ({
         },
     },
 
-    mounted : function(){
+    /*mounted : function(){
         
-         var maxYear    = new Date().getFullYear();
+         var maxYear    = new Date().getFullYear(); 
          
-         var year = this.children ? maxYear - 17 : 1940;
+         var year = this.children ? maxYear - 17 : 1940; //????????
          
          if(typeof this.max !== 'undefined' && this.max > 0 ){
              maxYear = maxYear - this.max +1;
@@ -89,7 +123,21 @@ export default ({
          this.days      = this.range(1,32);
          this.years     = this.range(year,maxYear);
          this.months    = this.range(1,13);
-     },
+     },*/
+     mounted : function(){
+        var maxYear = new Date().getFullYear(); 
+
+        var year = this.children ? maxYear - 17 : 1940; 
+
+        if(typeof this.max !== 'undefined' && this.max > 0 ){
+            maxYear = maxYear - this.max;
+            //year    = tmpMaxYear - 1 ;
+        }
+        
+        this.days      = this.range(1,32);
+        this.years     = this.range(year,maxYear+1);
+        this.months    = this.range(1,13);
+    },
      
  
 })

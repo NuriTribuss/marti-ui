@@ -277,13 +277,14 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
+                      <FormBirthday @input="e => traveller.birthday = e" :value="''"  :item_id="'traveller'+index+'_birthday'" :max="index===0?18:0"/> 
                     </div>
                   </div>
                 </div>
-                 <div v-for="i in search.children.length" :key="i" class="mb-2">
+                
+                 <div v-for="(child,i) in bookingForm.children" :key="i" class="mb-2">
                   <span class="font-weight-bold "
-                    >{{ i }}.{{ $t("search.children") }}</span
+                    >{{ i + 1 }}.{{ $t("search.children") }}</span
                   >
                   <div class="row mt-2">
                      <div class="col-lg-2 responsive-column">
@@ -293,6 +294,7 @@
                         }}</label>
                         <div class="form-group">
                           <select
+                            v-model="child.gender"
                             class="form-control form-select ps-3"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
@@ -312,6 +314,7 @@
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
                           <input
+                            v-model="child.name"
                             class="form-control"
                             type="text"
                           />
@@ -327,6 +330,7 @@
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
                           <input
+                            v-model="child.surname"
                             class="form-control"
                             type="text"
                           />
@@ -337,7 +341,7 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
+                      <FormBirthday @input="e => child.birthday=e" :value="''" :children="true" :item_id="'traveller'+i+'_birthday'" />
                     </div>
                   </div>
                 </div>
@@ -697,6 +701,7 @@ export default {
                 'name': '',
                 'surname': '',
                 'birthday': '',
+                'gender': ''
             });
         }
         
