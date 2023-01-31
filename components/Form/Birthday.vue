@@ -2,20 +2,27 @@
      <div class="row m-0">
         
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
-            <select @change="updateDate()" v-model="selectedDay" ref="dayPicker"  :class="inputClass"   class="form-select form-control ps-3" :value="splitDate.day">
-                <option value="">{{dayText}}</option>
+            <select @change="updateDate()" v-model="selectedDay" ref="dayPicker"  
+            :class="{ 'border-danger border-2': v$.selectedDay.$errors.length }"
+            class="form-control form-marti form-select form-control ps-3" 
+            :value="splitDate.day">
+                <option :value="null" disabled selected>{{dayText}}</option>
                 <option v-for="(day,index) in days" :key="index">{{day}}</option>
             </select>
         </div>
         <div class="col-4 col-md-4 p-0 pe-1 position-relative">
-            <select @change="updateDate()" v-model="selectedMonth" ref="monthPicker" :class="inputClass"  class="form-select form-control ps-3"  :value="splitDate.month" >
-                <option value="">{{monthText}}</option>
+            <select @change="updateDate()" v-model="selectedMonth" ref="monthPicker" 
+            :class="{ 'border-danger border-2': v$.selectedMonth.$errors.length }"
+            class="form-select form-control ps-3"  :value="splitDate.month" :placeholder="monthText">
+                <option :value="null" disabled selected>{{monthText}}</option>
                 <option v-for="(month,index) in months" :key="index">{{month}}</option>
             </select>
         </div>
         <div class="col-4 col-md-4 p-0 position-relative">
-            <select @change="updateDate()" v-model="selectedYear" ref="yearPicker" :class="inputClass" class="form-select form-control ps-3"  :value="splitDate.year">
-                <option value="">{{yearText}}</option>
+            <select @change="updateDate()" v-model="selectedYear" ref="yearPicker" 
+            :class="{ 'border-danger border-2': v$.selectedYear.$errors.length }"
+            class="form-select form-control ps-3"  :value="splitDate.year" :placeholder="yearText">
+                <option :value="null" disabled selected>{{yearText}}</option>
                 <option v-for="(year,index) in years" :key="index">{{year}}</option>
             </select>
         </div>
@@ -24,10 +31,11 @@
 
 
 <script> 
-
+import { useVuelidate } from '@vuelidate/core'
+import { required, numeric } from '@vuelidate/validators'
 export default ({
 
-    props: ['value','children','item_id','max'],
+    props: ['value','children','item_id','max','checkoutclicked'],
     data: function () {
         return {
             days : [],
@@ -45,6 +53,13 @@ export default ({
             selectedYear:null,
         }
     },
+    validations () {
+        return {
+            selectedDay     :  { required , numeric},
+            selectedMonth   :  { required , numeric},
+            selectedYear     :  { required , numeric},   
+        }
+  },
     methods : {
          range : function(start, end) {
              var count = end  - start;
@@ -53,7 +68,6 @@ export default ({
          }, 
          
          updateDate : function() {
-             
             // const dayValue      = this.$refs.dayPicker.value;
             // const monthValue    = this.$refs.monthPicker.value;
             // const yearValue     = this.$refs.yearPicker.value;
@@ -68,9 +82,6 @@ export default ({
                 
                 this.months = this.range(1,currentMonth+1);
                 var currentDay = new Date().getDate();
-                    console.log(currentDay);
-                    console.log(currentMonth);
-                    console.log(monthValue);
                  if(parseInt(monthValue) === parseInt(currentMonth))
                  {
                      
@@ -87,16 +98,27 @@ export default ({
                  this.months = this.range(1,13);
                  this.days = this.range(1,32);
              }
-    
             
             if(dayValue != '' && yearValue != '' && monthValue != ''){
                 this.$emit('input', `${yearValue}${this.seperator}${monthValue}${this.seperator}${dayValue}`);
                 //$("#"+this.item_id+'_message').hide();
             }
+            
            
          }
     },
-     
+    watch: {
+        checkoutclicked(val) {
+            console.log(this.checkoutclicked);
+            if(this.checkoutclicked === true)
+            {
+                this.v$.$validate().then(()=>{
+                    console.log(this.v$);
+                })
+            }
+
+        }
+    },
     computed: {
         splitDate() {
             const splitValueString = this.value.split(this.seperator);
@@ -138,7 +160,6 @@ export default ({
         this.years     = this.range(year,maxYear+1);
         this.months    = this.range(1,13);
     },
-     
- 
+    setup: () => ({ v$: useVuelidate() }),
 })
 </script>

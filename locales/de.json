@@ -23,7 +23,7 @@
         "show_less" : "Zeige weniger",
         "share" : "Teilen",
         "search_result" : "Suchergebnisse"
-    },
+    }, 
     "header" : {
         "about_us": "Über Uns",
         "our_branches": "Unsere Filialen",
@@ -101,6 +101,7 @@
         "note_message": "Das Alter der Kinder kann sich auf den Preis der Reise auswirken.",
         "children": "Kind",
         "adult": "Person",
+        "adults": "Personen",
         "last_minute": "Last Minute & Pauschal",
         "only_hotel": "Nur Hotel",
         "depart_on": "Reisedatum",
@@ -284,6 +285,15 @@
     "bookingForm.personal.state": "Postleitzahl eingeben",
     "bookingForm.personal.city": "Städtenamen eingeben",
     "bookingForm.personal.gender": "Geschlecht eingeben",
+    "bookingForm":{
+        "traveller_gender_required":"geder require de",
+        "traveller_name_required": "name require de",
+        "traveller_surname_required": "surname require de",
+        "traveller_birthday_required": "birthday rquire de",
+        "children_birthday_required" : "birthday rquire de",
+        "traveller_birthday_mustBeDate": "birthday is not valid de",
+        "children_birthday_mustBeDate": "birthday is not valid de"
+    },
     "booking.form.req.aggregment": "Bitte kreuzen Sie dieses Feld an",
     "booking.traveller.e_name": "Passagiernamen eingeben",
     "booking.traveller.e_surname": "Bitte geben Sie den Nachnamen des Reisenden an",

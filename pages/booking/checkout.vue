@@ -59,13 +59,13 @@
                           <input v-model="bookingForm.personal.name" @change="checkFirstTraveller"
                             ref='bookingForm.personal.name'
                             class="form-control"
-                            :class="{ 'border-danger': v$.bookingForm.personal.name.$errors.length }"
+                            :class="{ 'border-danger border-2': v$.bookingForm.personal.name.$errors.length }"
                             type="text"
                             :placeholder="$t('user.profile.name.placeholder')"
                           />
-                           <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.name.$errors" :key="error.$uid">
+                           <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.name.$errors" :key="error.$uid">
                               <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                     </div>
@@ -80,15 +80,15 @@
                           <input v-model="bookingForm.personal.surname" @change="checkFirstTraveller"
                             ref='bookingForm.personal.surname'
                             class="form-control"
-                            :class="{ 'border-danger': v$.bookingForm.personal.surname.$errors.length }"
+                            :class="{ 'border-danger border-2': v$.bookingForm.personal.surname.$errors.length }"
                             type="text"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
                             "
                           />
-                          <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.surname.$errors" :key="error.$uid">
+                          <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.surname.$errors" :key="error.$uid">
                               <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                     </div>
@@ -103,13 +103,13 @@
                           <input v-model="bookingForm.personal.email"
                             ref='bookingForm.personal.email'
                             class="form-control"
-                            :class="{ 'border-danger': v$.bookingForm.personal.email.$errors.length }"
+                            :class="{ 'border-danger border-2': v$.bookingForm.personal.email.$errors.length }"
                             type="email"
                             :placeholder="$t('user.profile.mail.placeholder')"
                           />
-                            <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.email.$errors" :key="error.$uid">
+                            <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.email.$errors" :key="error.$uid">
                               <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                     </div>
@@ -124,13 +124,13 @@
                           <input v-model="bookingForm.personal.phone"
                             ref='bookingForm.personal.phone'
                             class="form-control"
-                            :class="{ 'border-danger': v$.bookingForm.personal.phone.$errors.length }"
+                            :class="{ 'border-danger border-2': v$.bookingForm.personal.phone.$errors.length }"
                             type="text"
                             :placeholder="$t('user.profile.phone.placeholder')"
                           />
-                            <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.phone.$errors" :key="error.$uid">
+                            <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.phone.$errors" :key="error.$uid">
                               <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                     </div>
@@ -145,15 +145,15 @@
                           <input v-model="bookingForm.personal.address"
                             ref='bookingForm.personal.address'
                             class="form-control"     
-                            :class="{ 'border-danger': v$.bookingForm.personal.address.$errors.length }"
+                            :class="{ 'border-danger border-2': v$.bookingForm.personal.address.$errors.length }"
                             type="text"
                             :placeholder="
                               $t('user.profile.address.placeholder')
                             "
                           />
-                            <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.address.$errors" :key="error.$uid">
+                            <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.address.$errors" :key="error.$uid">
                               <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                     </div>
@@ -164,10 +164,10 @@
                         }}</label>
                         <input type="text" 
                         ref='bookingForm.personal.state'
-                        :class="{ 'border-danger': v$.bookingForm.personal.state.$errors.length }"  v-model="bookingForm.personal.state" class="ps-3 form-control" />
-                         <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.state.$errors" :key="error.$uid">
+                        :class="{ 'border-danger border-2': v$.bookingForm.personal.state.$errors.length }"  v-model="bookingForm.personal.state" class="ps-3 form-control" />
+                         <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.state.$errors" :key="error.$uid">
                             <div class="error-msg">* {{  $t(error.$propertyPath) }}</div>
-                          </div>
+                          </div> -->
                       </div>
                     </div>
                     <div class="col-6 col-lg-3">
@@ -177,10 +177,10 @@
                         }}</label>
                         <input type="text" 
                         ref='bookingForm.personal.city'
-                        :class="{ 'border-danger': v$.bookingForm.personal.city.$errors.length }" v-model="bookingForm.personal.city"  class="ps-3 form-control" />
-                        <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.city.$errors" :key="error.$uid">
+                        :class="{ 'border-danger border-2': v$.bookingForm.personal.city.$errors.length }" v-model="bookingForm.personal.city"  class="ps-3 form-control" />
+                        <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.city.$errors" :key="error.$uid">
                             <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                     <!-- end col-lg-12 -->
@@ -192,9 +192,9 @@
                         <select :class="{ 'border-danger': v$.bookingForm.personal.country.$errors.length }" class="form-control form-select ps-3" v-model="bookingForm.personal.country">
                           <option v-for="(country,index) in source.countries" :key="index" :value="country.iso2"> {{ country.name_de}}</option>
                         </select>
-                          <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.country.$errors" :key="error.$uid">
+                          <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.country.$errors" :key="error.$uid">
                             <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
-                          </div>
+                          </div> -->
                       </div>
                     </div>
                     <!-- end col-lg-6 -->
@@ -221,6 +221,9 @@
                     <input id="traveller_first" class="me-2 mt-2 "  type="checkbox" :true-value="1" :false-value="0" v-model="bookingForm.traveller_first" />
                     <label for="traveller_first"> {{$t('booking.traveller.mine')}}</label>
                 </div>
+
+
+
                 <div v-for="(traveller,index) in bookingForm.traveller"  :key="index" class="mb-2">
                   <span class="font-weight-bold "
                     >{{ index+1 }}.{{ $t("search.adult") }}</span
@@ -234,6 +237,7 @@
                         <div class="form-group">
                           <select v-model="traveller.gender"
                             class="form-control form-select ps-3"
+                            :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].gender.$error }"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
                             "
@@ -241,6 +245,9 @@
                             <option value="1">Herr</option>
                             <option value="2">Frau</option>
                           </select>
+                          <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].gender" :key="error.$uid">
+                              <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -252,9 +259,14 @@
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
                           <input  v-model="traveller.name"
+                            :placeholder="$t('user.profile.name')"
                             class="form-control"
+                            :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].name.$error }"
                             type="text"
                           />
+                          <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].name" :key="error.$uid">
+                              <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -268,8 +280,13 @@
                           <span class="la la-user form-icon"></span>
                           <input  v-model="traveller.surname"
                             class="form-control"
+                            :placeholder="$t('user.profile.surname')"
+                            :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].surname.$error }"
                             type="text"
                           />
+                          <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].surname" :key="error.$uid">
+                              <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -277,11 +294,18 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday @input="e => traveller.birthday = e" :value="''"  :item_id="'traveller'+index+'_birthday'" :max="index===0?18:0"/> 
+                      <FormBirthday @input="e => traveller.birthday = e" :value="''" :item_id="'traveller'+index+'_birthday'"
+                        :max="index===0?18:0" :checkoutclicked="checkout_clicked" /> 
+                        <!--<div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].birthday" :key="error.$uid">
+                              <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
+                        </div>-->
                     </div>
                   </div>
                 </div>
                 
+
+
+
                  <div v-for="(child,i) in bookingForm.children" :key="i" class="mb-2">
                   <span class="font-weight-bold "
                     >{{ i + 1 }}.{{ $t("search.children") }}</span
@@ -296,6 +320,7 @@
                           <select
                             v-model="child.gender"
                             class="form-control form-select ps-3"
+                            :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].gender.$error }"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
                             "
@@ -316,6 +341,8 @@
                           <input
                             v-model="child.name"
                             class="form-control"
+                            :placeholder="$t('user.profile.name')"
+                            :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].name.$error }"
                             type="text"
                           />
                         </div>
@@ -332,6 +359,8 @@
                           <input
                             v-model="child.surname"
                             class="form-control"
+                            :placeholder="$t('user.profile.surname')"
+                            :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].surname.$error }"
                             type="text"
                           />
                         </div>
@@ -341,7 +370,11 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday @input="e => child.birthday=e" :value="''" :children="true" :item_id="'traveller'+i+'_birthday'" />
+                      <FormBirthday @input="e => child.birthday=e" :value="''" :children="true" :item_id="'children'+i+'_birthday'" 
+                        :checkoutclicked="checkout_clicked"/>
+                        <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.children.$errors[0]?.$response.$errors[i].birthday" :key="error.$uid">
+                              <div class="error-msg">* {{ $t(v$.bookingForm.children.$path + '_' + error.$property + '_' + error.$validator) }}</div>
+                        </div> -->
                     </div>
                   </div>
                 </div>
@@ -470,8 +503,15 @@
                   {{ $t("offer.is_available") }}
                 </h3>
                 <div>
-                    <div> {{ offer.travellerList.length }} {{ $t('search.adult')}} </div>
+                    <div class="font-weight-bold" v-if="offer.travellerList.length > 1">{{ offer.travellerList.length }} {{  $t('search.adults') }}</div>
+                    <div class="font-weight-bold" v-else>{{ offer.travellerList.length }} {{  $t('search.adult') }}</div>
+                    <PriceDetail  
+                              :total_price="offer.totalPrice" 
+                              :price_per_person="offer.pricePerPerson"
+                              :price_per_person_diff="offer.pricePerPersonDifference"
+                              :traveller_list="offer.travellerList"/>
                 </div>
+
                 <hr>
                 <div class="d-flex justify-content-between mt-3">
                     <div> <span class="title">{{ $t('offer.amount') }}</span> <br> <small> {{ $t('offer.amount_text') }}</small></div>
@@ -504,7 +544,14 @@
                   {{ $t("offer.is_available") }}
                 </h3>
                 <div>
-                    <div> {{ offer.travellerList.length }} {{ $t('search.adult')}} </div>
+                    <div class="font-weight-bold" v-if="offer.travellerList.length > 1">{{ offer.travellerList.length }} {{  $t('search.adults') }}</div>
+                    <div class="font-weight-bold" v-else>{{ offer.travellerList.length }} {{  $t('search.adult') }}</div>
+
+                    <PriceDetail  
+                              :total_price="offer.totalPrice" 
+                              :price_per_person="offer.pricePerPerson"
+                              :price_per_person_diff="offer.pricePerPersonDifference"
+                              :traveller_list="offer.travellerList"/>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between mt-3">
@@ -570,11 +617,11 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
-
+import { helpers ,required, email } from '@vuelidate/validators'
 export default {
   data() {
     return {
+      checkout_clicked : false,
       saving : false,
       source: {
         countries: [],
@@ -597,8 +644,18 @@ export default {
             city : '',
             country : 'AT',
           },
-          traveller: [],
-          children: [],
+          traveller : [
+            { name : null, 
+              surname : '',
+              birthday : '', 
+              gender : ''
+            }],
+          children : [
+            { name : '', 
+              surname : '',
+              birthday : '', 
+              gender : ''
+            }],
           booking: {},
           payment: {
               method: 1
@@ -617,17 +674,34 @@ export default {
       },
   },
   validations () {
+    const mustBeDate = helpers.regex(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/)
     return {
       bookingForm: {
           personal: {
-            name     :  {required },
-            surname  :  {required },
-            email    :  {required , email },
-            phone    :  {required },
-            address  :  {required },
-            state    :  {required },
-            city     :  {required },
-            country  :  {required },
+            name     :  { required },
+            surname  :  { required },
+            email    :  { required , email },
+            phone    :  { required },
+            address  :  { required },
+            state    :  { required },
+            city     :  { required },
+            country  :  { required },
+          },
+          traveller :{
+            $each    : helpers.forEach({
+              name    : { required },
+              surname : { required },
+              birthday: { required , mustBeDate },
+              gender  : { required }
+            })
+          },
+          children :{
+            $each    : helpers.forEach({
+              name    : { required },
+              surname : { required },
+              birthday: { required    , mustBeDate },
+              gender  : { required }
+            }) 
           },
           aggregment : {required},
          
@@ -687,21 +761,22 @@ export default {
       this.bookingForm.personal.email = Marti.Member.username;
       this.bookingForm.personal.gender = 0;*/
 
+      this.bookingForm.traveller = []
         for (var i = 0; i < parseInt(this.search.adults); i++) {
             this.bookingForm.traveller.push({
-                'name': '',
-                'surname': '',
-                'birthday': '',
-                'gender': ''
+                name: '',
+                surname: '',
+                birthday: '',
+                gender: ''
             });
         }
-
+        this.bookingForm.children = []
         for (var i = 0; i < this.search.children.length; i++) {
             this.bookingForm.children.push({
-                'name': '',
-                'surname': '',
-                'birthday': '',
-                'gender': ''
+                name: '',
+                surname: '',
+                birthday: '',
+                gender: ''
             });
         }
         
@@ -756,8 +831,12 @@ export default {
 
     async checkout(){
 
-      const isFormCorrect = await this.v$.$validate()
+      this.checkout_clicked = false;//dont remove this line.
+      setTimeout(()=>{this.checkout_clicked = true;},50);
       
+
+      const isFormCorrect = await this.v$.$validate();
+      console.log(isFormCorrect);
       if (!isFormCorrect) {
         this.scrollToElement();
         return
@@ -795,6 +874,7 @@ export default {
     }else{
       this.openError();
     }
+    
   },
   setup: () => ({ v$: useVuelidate() }),
 };

@@ -101,6 +101,7 @@
         "note_message" : "Çocukların yaşı yolculuğun fiyatını etkileyebilir.",
         "children" : "Çocuk",
         "adult" : "Yetişkin",
+        "adults" : "Yetişkin",
         "last_minute": "Paket Turlar",												
         "only_hotel" : "Sadece Otel",
         "depart_on" : "Gidiş",
@@ -286,6 +287,15 @@
         "bookingForm.personal.state" : "Posta kodu girin",
         "bookingForm.personal.city" : "Şehir isimlerini girin",
         "bookingForm.personal.gender" : "Cinsiyet",
+        "bookingForm":{
+            "traveller_gender_required":"geder require tr",
+            "traveller_name_required": "name require tr",
+            "traveller_surname_required": "surname require tr",
+            "traveller_birthday_required": "birthday rquire tr",
+            "children_birthday_required" : "birthday rquire tr",
+            "traveller_birthday_mustBeDate": "birthday is not valid tr",
+            "children_birthday_mustBeDate": "birthday is not valid tr"
+        },
         "booking.form.req.aggregment" : "Lütfen bu alanı kontrol edin",
         "booking.traveller.e_name" : "Yolcu İsimleri girin",
         "booking.traveller.e_surname" : "Lütfen yolcu soyisimlerini girin",
