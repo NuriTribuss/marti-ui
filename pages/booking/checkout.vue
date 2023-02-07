@@ -750,6 +750,32 @@ export default {
         this.step.push('Bestätigung');
         this.getBookingParams();
 
+        // Facebook Pixel checkout
+        try {
+          this.$pixel.checkout({ id : this.hotel.giata.hotelId, price : this.offer.commonOffer.totalPrice.value, currency : 'EUR'})
+        }catch (e) {
+          console.log(e)
+        }
+
+          // Facebook Pixel checkout
+        try {
+          this.$dataLayer.checkout({
+            "name": this.hotel.giata.hotelName,
+            "id": this.hotel.giata.hotelId,
+            "price":this.offer.commonOffer.totalPrice.value,
+            "brand": this.offer.commonOffer.tourOperator.name,
+            "category": this.hotel.location.name,
+            "variant1": this.offer.commonOffer.hotelOffer.boardType.name,
+            "duration": this.offer.commonOffer.travelDate.duration,
+            "room_type": this.offer.commonOffer.hotelOffer.roomType.name,
+            "adult": this.bookingForm.traveller.length,
+            "children": this.bookingForm.children.length,
+            "departure_date": this.offer.commonOffer.travelDate.fromDate
+          })
+        }catch (e) {
+          console.log(e)
+        }
+
       });
       
      
@@ -803,7 +829,8 @@ export default {
         let data = window.localStorage.getItem('m_'+this.$route.query.code);
         try{
           this.search = JSON.parse(data);
-        
+          this.search.adults = this.search.adults || 2;
+          this.search.children = this.search.children || [];
           return true;
         }catch(e){
           console.log(e);

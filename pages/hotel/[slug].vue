@@ -327,6 +327,25 @@ export default {
           vue.hotel = result.data.response.hotel;
           vue.loaders.hotel = false;
           vue.step.push(vue.hotel.location.region.name,vue.hotel.location.name,vue.hotel.name)
+
+          // Facebook Pixel view content
+          try {
+            vue.$pixel.product(vue.hotel)
+          }catch (e) {
+            console.log(e)
+          }
+
+          try {
+            vue.$dataLayer.product({
+              id: vue.hotel.giata.hotelId,
+              name: vue.hotel.name,
+              category: vue.hotel.location.region.name,
+              brand: vue.hotel.location.name,
+            //  price: vue.hotel.price,
+            })
+          }catch (e) {
+            console.log(e)
+          }
       })
     },
 
