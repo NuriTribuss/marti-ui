@@ -749,6 +749,13 @@ export default {
         this.step.push('Bestätigung');
         this.getBookingParams();
 
+        // Facebook Pixel checkout
+        try {
+          this.$pixel.checkout({ id : this.hotel.giata.hotelId, price : this.offer.commonOffer.totalPrice.value, currency : 'EUR'})
+        }catch (e) {
+          console.log(e)
+        }
+
       });
     },
 

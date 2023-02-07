@@ -327,6 +327,13 @@ export default {
           vue.hotel = result.data.response.hotel;
           vue.loaders.hotel = false;
           vue.step.push(vue.hotel.location.region.name,vue.hotel.location.name,vue.hotel.name)
+
+          // Facebook Pixel view content
+          try {
+            vue.$pixel.product(vue.hotel)
+          }catch (e) {
+            console.log(e)
+          }
       })
     },
 

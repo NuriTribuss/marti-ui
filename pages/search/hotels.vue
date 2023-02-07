@@ -80,13 +80,13 @@ export default {
     getResult() {
 
        let vue = this;
-       
+       let searchData = search.get(); 
 
        vue.error = false;
        vue.loader.hotels = true;
        vue.breadcrumb = this.searchData.destination.name;
 
-       $fetch("/api/engine/hotel/get",{ method: 'POST', body: {page : this.current_page , ...search.get()} }).then(function(result){
+       $fetch("/api/engine/hotel/get",{ method: 'POST', body: {page : this.current_page , ...searchData} }).then(function(result){
 
           vue.loader.hotels = false;
           if(!result.status) {
@@ -101,7 +101,13 @@ export default {
           }else{
             vue.hotels = vue.hotels.concat(result.data.response.hotelList)
           }
-         
+
+          // Facebook Pixel search
+          try {
+            vue.$pixel.search(result.data.response.hotelList.map((item) => { return item.giata.hotelId}),searchData.destination.name)
+          }catch (e) {
+            console.log(e)
+          }
           
       })
     },

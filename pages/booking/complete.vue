@@ -111,9 +111,38 @@
 
 <script setup>
 const route  = useRoute();
+const { $pixel } = useNuxtApp();
 const { data: booking } = await useFetch(`/api/booking/booking/`+route.query.booking, {
   pick: ["data"],
 });
 
-console.log(booking)
+onMounted(() => {
+
+    let data = booking._rawValue.data;
+    console.log(data)
+    try {
+        let orderData = {
+            contents : [
+                {
+                    id : data.hotel_giata_code,
+                    quantity : 1,
+                    name : data.hotel_name,
+                    checkin_date : data.start,
+                    checkout_date : data.end,
+                    num_adults : data.adult_count,
+                    num_children : data.children_count
+                }],
+            currency : data.currency,
+            value : data.amount,
+        }
+        $pixel.complete(orderData);
+    }catch(e) {
+        console.log(e)
+    }
+})
+
+if(!process.server) {
+    console.log('##client')
+}
+
 </script> 
