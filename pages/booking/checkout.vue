@@ -756,6 +756,25 @@ export default {
           console.log(e)
         }
 
+          // Facebook Pixel checkout
+        try {
+          this.$dataLayer.checkout({
+            "name": this.hotel.giata.hotelName,
+            "id": this.hotel.giata.hotelId,
+            "price":this.offer.commonOffer.totalPrice.value,
+            "brand": this.offer.commonOffer.tourOperator.name,
+            "category": this.hotel.location.name,
+            "variant1": this.offer.commonOffer.hotelOffer.boardType.name,
+            "duration": this.offer.commonOffer.travelDate.duration,
+            "room_type": this.offer.commonOffer.hotelOffer.roomType.name,
+            "adult": this.bookingForm.traveller.length,
+            "children": this.bookingForm.children.length,
+            "departure_date": this.offer.commonOffer.travelDate.fromDate
+          })
+        }catch (e) {
+          console.log(e)
+        }
+
       });
     },
 

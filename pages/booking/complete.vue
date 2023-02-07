@@ -111,7 +111,7 @@
 
 <script setup>
 const route  = useRoute();
-const { $pixel } = useNuxtApp();
+const { $pixel , $dataLayer } = useNuxtApp();
 const { data: booking } = await useFetch(`/api/booking/booking/`+route.query.booking, {
   pick: ["data"],
 });
@@ -139,10 +139,12 @@ onMounted(() => {
     }catch(e) {
         console.log(e)
     }
-})
 
-if(!process.server) {
-    console.log('##client')
-}
+    try {
+        $dataLayer.complete(booking._rawValue.data);
+    }catch(e) {
+        console.log(e)
+    }
+})
 
 </script> 

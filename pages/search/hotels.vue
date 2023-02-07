@@ -108,7 +108,22 @@ export default {
           }catch (e) {
             console.log(e)
           }
-          
+
+          // dataLayer search
+          try {
+            let obj = result.data.response.hotelList.map((item,index) => {
+                return {
+                  id: item.giata.hotelId,
+                  name : item.giata.hotelName,
+                  brand : item.tourOperator.name,
+                  category : item.location.name,
+                  list_no : index +1
+                }
+            })
+            vue.$dataLayer.search(obj)
+          }catch (e) {
+            console.log(e)
+          }
       })
     },
 
