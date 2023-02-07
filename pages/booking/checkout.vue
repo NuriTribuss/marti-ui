@@ -826,7 +826,8 @@ export default {
         let data = window.localStorage.getItem('m_'+this.$route.query.code);
         try{
           this.search = JSON.parse(data);
-        
+          this.search.adults = this.search.adults || 2;
+          this.search.children = this.search.children || [];
           return true;
         }catch(e){
           console.log(e);
