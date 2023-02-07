@@ -27,13 +27,9 @@
       <div
         class="card-facility d-lg-flex align-items-center justify-content-between"
       >
+        
         <div>
-          <p class="font-weight-bold  my-1">{{$t('hotels.amenities')}}</p>
-          <span class="d-lg-block d-inline-block" v-for="(fact,index) in hotel.keywordList" :key="index"
-            >
-            <span v-if="index < 4"><i class="la la-check text-success mx-2"></i> {{ $t('facility.'+fact)}}</span
-          ></span>
-         
+          <HotelFacility :keyword_list="hotel.keywordList" :show_modal_button="true" :hotel_code="hotel.code"/>
         </div>
 
         <div class="text-center d-none d-lg-block" v-if="hotel.rating">

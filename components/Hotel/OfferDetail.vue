@@ -80,6 +80,11 @@
             <div>  <i class="la la-check me-1"></i> {{ offer.hotelOffer.roomType.name}}</div>
           </div>
         </div>
+        <HotelFacility 
+              :keyword_list="offer.hotelOffer.hotel.keywordList" 
+              :show_modal_button="true" 
+              :hotel_code="offer.hotelOffer.hotel.code"
+              label_class="title font-size-16 text-color-6 font-weight-bold mb-3"/>
         <div class="col-6 col-lg-12">
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-2 mt-0 mt-lg-4">
             {{ $t("offer.operator") }}

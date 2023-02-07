@@ -109,12 +109,9 @@ export default ({
     },
     watch: {
         checkoutclicked(val) {
-            console.log(this.checkoutclicked);
             if(this.checkoutclicked === true)
             {
-                this.v$.$validate().then(()=>{
-                    console.log(this.v$);
-                })
+                this.v$.$validate();
             }
 
         }

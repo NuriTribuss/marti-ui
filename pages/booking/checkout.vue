@@ -224,7 +224,7 @@
 
 
 
-                <div v-for="(traveller,index) in bookingForm.traveller"  :key="index" class="mb-2">
+                <div v-for="(traveller,index) in bookingForm.traveller" :key="index" class="mb-2">
                   <span class="font-weight-bold "
                     >{{ index+1 }}.{{ $t("search.adult") }}</span
                   >
@@ -238,9 +238,8 @@
                           <select v-model="traveller.gender"
                             class="form-control form-select ps-3"
                             :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].gender.$error }"
-                            :placeholder="
-                              $t('user.profile.surname.placeholder')
-                            "
+                            :placeholder="$t('user.profile.surname.placeholder')"
+                            :ref="`bookingForm.traveller[${index}].gender`"
                           >
                             <option value="1">Herr</option>
                             <option value="2">Frau</option>
@@ -263,6 +262,7 @@
                             class="form-control"
                             :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].name.$error }"
                             type="text"
+                            :ref="`bookingForm.traveller[${index}].name`"
                           />
                           <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].name" :key="error.$uid">
                               <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
@@ -283,6 +283,7 @@
                             :placeholder="$t('user.profile.surname')"
                             :class="{ 'border-danger border-2': v$.bookingForm.traveller.$errors[0]?.$response.$data[index].surname.$error }"
                             type="text"
+                            :ref="`bookingForm.traveller[${index}].surname`"
                           />
                           <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].surname" :key="error.$uid">
                               <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
@@ -291,11 +292,11 @@
                       </div>
                     </div>
                     <div class="col-lg-4 responsive-column">
-                        <label class="label-text">{{
+                        <label class="label-text" :ref="`bookingForm.traveller[${index}].birthday`">{{
                           $t("user.profile.birthday")
                         }}</label>
                       <FormBirthday @input="e => traveller.birthday = e" :value="''" :item_id="'traveller'+index+'_birthday'"
-                        :max="index===0?18:0" :checkoutclicked="checkout_clicked" /> 
+                        :max="index===0?18:0" :checkoutclicked="checkout_clicked"  /> 
                         <!--<div class="text-danger font-size-10" v-for="error of v$.bookingForm.traveller.$errors[0]?.$response.$errors[index].birthday" :key="error.$uid">
                               <div class="error-msg">* {{ $t(v$.bookingForm.traveller.$path + '_' + error.$property + '_' + error.$validator) }}</div>
                         </div>-->
@@ -321,9 +322,8 @@
                             v-model="child.gender"
                             class="form-control form-select ps-3"
                             :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].gender.$error }"
-                            :placeholder="
-                              $t('user.profile.surname.placeholder')
-                            "
+                            :placeholder="$t('user.profile.surname.placeholder')"
+                            :ref="`bookingForm.children[${i}].gender`"
                           >
                             <option value="1">Herr</option>
                             <option value="2">Frau</option>
@@ -344,6 +344,7 @@
                             :placeholder="$t('user.profile.name')"
                             :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].name.$error }"
                             type="text"
+                            :ref="`bookingForm.children[${i}].name`"
                           />
                         </div>
                       </div>
@@ -362,16 +363,17 @@
                             :placeholder="$t('user.profile.surname')"
                             :class="{ 'border-danger border-2': v$.bookingForm.children.$errors[0]?.$response.$data[i].surname.$error }"
                             type="text"
+                            :ref="`bookingForm.children[${i}].surname`"
                           />
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-4 responsive-column">
-                        <label class="label-text">{{
+                        <label class="label-text" :ref="`bookingForm.children[${i}].birthday`">{{
                           $t("user.profile.birthday")
                         }}</label>
                       <FormBirthday @input="e => child.birthday=e" :value="''" :children="true" :item_id="'children'+i+'_birthday'" 
-                        :checkoutclicked="checkout_clicked"/>
+                        :checkoutclicked="checkout_clicked" />
                         <!-- <div class="text-danger font-size-10" v-for="error of v$.bookingForm.children.$errors[0]?.$response.$errors[i].birthday" :key="error.$uid">
                               <div class="error-msg">* {{ $t(v$.bookingForm.children.$path + '_' + error.$property + '_' + error.$validator) }}</div>
                         </div> -->
@@ -645,7 +647,7 @@ export default {
             country : 'AT',
           },
           traveller : [
-            { name : null, 
+            { name : '', 
               surname : '',
               birthday : '', 
               gender : ''
@@ -689,18 +691,18 @@ export default {
           },
           traveller :{
             $each    : helpers.forEach({
+              gender  : { required },
               name    : { required },
               surname : { required },
-              birthday: { required , mustBeDate },
-              gender  : { required }
+              birthday: { required , mustBeDate }
             })
           },
           children :{
             $each    : helpers.forEach({
+              gender  : { required },
               name    : { required },
               surname : { required },
-              birthday: { required    , mustBeDate },
-              gender  : { required }
+              birthday: { required    , mustBeDate }
             }) 
           },
           aggregment : {required},
@@ -744,12 +746,13 @@ export default {
         this.loader = false;
         this.offer  = res.data.response;
         this.hotel  = this.offer.commonOffer.hotelOffer.hotel;
-
         this.step.push(this.hotel.location.region.name,this.hotel.location.name,this.hotel.name)
         this.step.push('Bestätigung');
         this.getBookingParams();
 
       });
+      
+     
     },
 
     getBookingParams: function () {
@@ -764,19 +767,19 @@ export default {
       this.bookingForm.traveller = []
         for (var i = 0; i < parseInt(this.search.adults); i++) {
             this.bookingForm.traveller.push({
+                gender: '',
                 name: '',
                 surname: '',
-                birthday: '',
-                gender: ''
+                birthday: ''
             });
         }
         this.bookingForm.children = []
         for (var i = 0; i < this.search.children.length; i++) {
             this.bookingForm.children.push({
+                gender: '',
                 name: '',
                 surname: '',
-                birthday: '',
-                gender: ''
+                birthday: ''
             });
         }
         
@@ -821,22 +824,33 @@ export default {
       window.location.href = '/';
     },
     scrollToElement() {
-
-      let item = this.v$.$errors[0]; 
-      let el  = this.$refs[item.$propertyPath];
+      let err = this.v$.$errors[0]; 
+      let path = err.$propertyPath;
+      let el  = this.$refs[path];
+      if(err.$validator==="$each"){
+        err.$response.$errors.find((item,index)=>{
+          let objProps = Object.getOwnPropertyNames(item);
+          //console.log(item,index,objProps);
+          return objProps.find((key)=>{
+            if(item[key].length > 0)
+            {
+              path += `[${index}].${item[key][0].$property}`;
+              el  = this.$refs[path][0];
+              return true;
+            }
+          })
+        })
+      }
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
     },
 
     async checkout(){
-
       this.checkout_clicked = false;//dont remove this line.
       setTimeout(()=>{this.checkout_clicked = true;},50);
-      
 
       const isFormCorrect = await this.v$.$validate();
-      console.log(isFormCorrect);
       if (!isFormCorrect) {
         this.scrollToElement();
         return

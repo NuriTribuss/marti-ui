@@ -155,6 +155,11 @@
           <i class="la la-check me-1"></i
           >{{ offer.commonOffer.hotelOffer.inclusiveList.join(",") }}
         </div>
+        <!-- <HotelFacility 
+              :keyword_list="offer.commonOffer.hotelOffer.hotel.keywordList" 
+              :show_modal_button="true" 
+              :hotel_code="offer.commonOffer.hotelOffer.hotel.code"
+              label_class="title font-size-16 text-color-6 font-weight-bold mb-3"/> -->
         <h3 class="title text-color-6 font-weight-bold mb-2 mt-4">
           {{ $t("offer.operator") }}
         </h3>
