@@ -9,6 +9,10 @@ export default defineNuxtConfig({
         '@/assets/css/line-awesome.css',
         '@/assets/css/style.css',
     ],
+    modules : [
+        '@nuxtjs/device',
+        'nuxt-schema-org',
+    ],
     app : {
         head : {
             title : 'Urlaub & Pauschal, Last Minute Urlaub, Reiseangebote Günstig Buchen!',

@@ -72,7 +72,6 @@ onMounted(() => {
       type : 'region', 
       name : ''
     }
-    console.log(hotelList)
     hotelList.value.getResult(query,content.value.third_title)
 })
 
