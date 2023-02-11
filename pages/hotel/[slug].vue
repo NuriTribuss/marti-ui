@@ -1,5 +1,6 @@
 <template>
-  <BreadCrumbSmall title="Hotel Detay" :step="step" v-if="hotel"/>
+  <!-- <BreadCrumbSmall title="Hotel Detay" :step="step" v-if="hotel"/> -->
+  <BreadCrumbNew title="Hotel Detay" :step="step_new" v-if="hotel"/>
   <div v-if="loaders.hotel" class="d-flex">
     <LoaderImage v-for="i in 5" :key="i" class="mb-1"/>
   </div>
@@ -308,7 +309,8 @@ export default {
         hotel : true,
         offer : true,
       },
-      step : []
+      step : [],
+      step_new : []
     };
   },
   components : {
@@ -327,6 +329,10 @@ export default {
           vue.hotel = result.data.response.hotel;
           vue.loaders.hotel = false;
           vue.step.push(vue.hotel.location.region.name,vue.hotel.location.name,vue.hotel.name)
+
+          vue.step_new.push(vue.getCrumbObject(vue.hotel,"region"));
+          vue.step_new.push(vue.getCrumbObject(vue.hotel,"location"));
+          vue.step_new.push(vue.getCrumbObject(vue.hotel,"hotel"));
 
           // Facebook Pixel view content
           try {
@@ -352,8 +358,35 @@ export default {
     loadMore(){
       this.current_page+=1;
       this.getOffer();
-    },  
+    }, 
+    getCrumbObject(hotelObj,crumbType)
+    {
 
+      let searchObj = JSON.parse(this.$route.query.f);
+      
+      switch(crumbType){
+        case "region":
+          searchObj.destination.code = hotelObj.location.region.code;
+          searchObj.destination.type = crumbType;
+          searchObj.destination.name = hotelObj.location.region.name;          
+          break;
+        case "location":
+          searchObj.destination.code = hotelObj.location.code;
+          searchObj.destination.type = crumbType;
+          searchObj.destination.name = hotelObj.location.name;          
+          break;
+        case "hotel":
+          searchObj.destination.code = hotelObj.giata.hotelId;
+          searchObj.destination.type = crumbType;
+          searchObj.destination.name = hotelObj.giata.hotelName;          
+          break;
+      }
+      let searchStr = JSON.stringify(searchObj); 
+      return {
+        name: searchObj.destination.name,
+        to: `/search/hotels?f=${searchStr}`
+      }
+    },
     getOffer() {
 
        let vue = this;
