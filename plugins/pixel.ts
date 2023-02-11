@@ -6,30 +6,27 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
 })
 
-
 const FbPixel = {
 	
 	send_member: false,
 	request: function (data, type)
 	{
-        data.event_id =  type+'_'+ (new Date()).getTime()
-       /* $.ajax(
-        {
-            type: "POST",
-            url: '/console/fbconversion.php',
-            data:{
-                track_data: data
-            },
-            dataType: 'json',
-            success: function (response)
-            {
-                if (typeof response.error !== 'undefined') {
-                    console.log('FB Conversion API: Error!');
-                } else {
-                    console.log('FB Conversion API: Worked For The ' + type + '.');
-                }
-            }
-        });*/
+
+        const { isIos } = useDevice();
+        data.event_id =  type+'_'+ (new Date()).getTime();
+        
+        if(isIos) {
+            $fetch('/console/fbconversion.php',{
+                method : 'POST',
+                body : {
+                    track_data: data
+                } 
+            }).then((r)=> {
+                console.log('FB Conversion API: Worked For The ' + type + '.');
+            }).catch((e)=> {
+                console.log('FB Conversion API: Error!');
+            });
+        }
         
         fbq('track', type , data.custom_data || {} , {eventID: data.event_id});
 	},

@@ -16,6 +16,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         legacy: false,
         globalInjection: true,
         locale: cookie.value || 'de',
+        warnHtmlMessage: false,
         fallbackLocale: 'de',
         messages: {
             tr,
