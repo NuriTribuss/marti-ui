@@ -51,7 +51,8 @@
           <div class="col-md-3 col--6 my-3 my-lg-0">
             <h4 class="footer-top-title">{{ $t('footer.title_one') }}</h4>
             <ul class="footer-top-list">
-              <li>
+              <li v-for="(item,index) in menu.data[0]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a></li>
+             <!-- <li>
                 <a href="/ueber-martireisen/" title="">{{ $t('footer.about_us') }}</a>
               </li>
               <li><a href="/buchungsablauf/" title="">{{ $t('footer.booking_process') }}</a></li>
@@ -60,7 +61,7 @@
               </li>
               <li>
                 <a href="/warum-martireisen/" title="">{{ $t('footer.why_us') }}</a>
-              </li>
+              </li>-->
               <li>
                 <a v-bind:href=" $t('footer.martigo_url')" title=""
                   >{{ $t('footer.martigo_text') }}</a
@@ -71,21 +72,8 @@
           <div class="col-md-3 col--6 my-3 my-lg-0">
             <h4 class="footer-top-title">{{ $t('footer.title_two') }}</h4>
             <ul class="footer-top-list">
-              <li><a href="/kontakt/" title="">{{ $t('footer.contact') }}</a></li>
-              <li>
-                <a href="/haeufig-gestellte-fragen/" title=""
-                  >{{ $t('footer.faq') }}
-                </a>
-              </li>
-              <li>
-                <a href="/allgmeine-geschaeftsbedingungen/" title=""
-                  >{{ $t('footer.terms_of_service') }}
-                </a>
-              </li>
-              <li><a href="/impressum/" title="">{{ $t('footer.imprint') }}</a></li>
-              <li>
-                <a href="/datenschutz/" title="">{{ $t('footer.privacy_policy') }}</a>
-              </li>
+              <li v-for="(item,index) in menu.data[1]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a> </li>
+             
             </ul>
           </div>
           <div class="col-md-3 col--12">
@@ -221,34 +209,41 @@
   </footer>
 </template>
 
-<script>
-export default {
+<script setup>
 
-  mounted(){
+const language = useCookie("store-language");
 
-      let mybutton = document.getElementById("btn-back-to-top");
 
-      window.onscroll = function () {
-        scrollFunction();
-      };
+const { data: menu } = await useFetch(
+  `/api/front/footer?hl=`+ (language.value || 'de' ), { pick : ["data"]}
+); 
 
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
+console.log(menu)
+
+onMounted(() => {
+
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
       }
-      // When the user clicks on the button, scroll to the top of the document
-      mybutton.addEventListener("click", backToTop);
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener("click", backToTop);
 
-      function backToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-  }
-};
+    function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+});
 </script>
