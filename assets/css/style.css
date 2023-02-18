@@ -3466,7 +3466,7 @@ body {
 
 .breadcrumb-top-bar {
 	padding-top: 14px;
-	padding-bottom: 14px;
+	padding-bottom: 0px;
 	border-top: 1px solid rgba(128, 137, 150, .1)
 }
 
