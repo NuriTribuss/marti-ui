@@ -11286,7 +11286,8 @@ body {
 }
 
 .single-content-sidebar {
-	margin-top: -115px;
+	/* margin-top: -115px; */
+	margin-top: 1.5rem!important;
 	position: relative;
 	z-index: 1;
 	background-color: transparent;
