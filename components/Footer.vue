@@ -50,7 +50,7 @@
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
             <h4 class="footer-top-title">{{ $t('footer.title_one') }}</h4>
-            <ul class="footer-top-list">
+            <ul class="footer-top-list" v-if="menu">
               <li v-for="(item,index) in menu.data[0]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a></li>
              <!-- <li>
                 <a href="/ueber-martireisen/" title="">{{ $t('footer.about_us') }}</a>
@@ -71,7 +71,7 @@
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
             <h4 class="footer-top-title">{{ $t('footer.title_two') }}</h4>
-            <ul class="footer-top-list">
+            <ul class="footer-top-list" v-if="menu">
               <li v-for="(item,index) in menu.data[1]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a> </li>
              
             </ul>
@@ -218,32 +218,30 @@ const { data: menu } = await useFetch(
   `/api/front/footer?hl=`+ (language.value || 'de' ), { pick : ["data"]}
 ); 
 
-console.log(menu)
-
 onMounted(() => {
 
-    let mybutton = document.getElementById("btn-back-to-top");
+  let mybutton = document.getElementById("btn-back-to-top");
 
-    window.onscroll = function () {
-      scrollFunction();
-    };
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
     }
-    // When the user clicks on the button, scroll to the top of the document
-    mybutton.addEventListener("click", backToTop);
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  mybutton.addEventListener("click", backToTop);
 
-    function backToTop() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
+  function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 });
 </script>
