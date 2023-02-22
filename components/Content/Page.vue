@@ -1,11 +1,11 @@
 <template>
-  <BreadCrumb v-if="record" :title="record.translate[0].name" :steps="['Page',record.translate[0].name]" />
+  <BreadCrumb v-if="record" :title="record.name" :steps="['Page',record.name]" />
   <section class="about-area padding-bottom-90px my-5 overflow-hidden">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="card form-box my-3">
-            <div class="card-body py-5"  v-if="record"   v-html="record.translate[0].content">
+            <div class="card-body py-5"  v-if="record"   v-html="record.content">
 
             </div>
           </div>
@@ -28,12 +28,14 @@ export default {
   methods : {
     getPage(){
        let vue = this;
-       $fetch("/api/content/page/"+this.id).then(function(result){
-         
+       $fetch("/api/content/page/"+this.id+'?hl='+this.locale).then(function(result){
           if(!result.status) {
             return false;
           }
-          vue.record = result.data;
+
+          vue.record = result.data.translate.filter(function(item){
+            return item.language == vue.locale;
+          })[0];
       })
     }
   },
