@@ -119,7 +119,6 @@ const { data: booking } = await useFetch(`/api/booking/booking/`+route.query.boo
 onMounted(() => {
 
     let data = booking._rawValue.data;
-    console.log(data)
     try {
         let orderData = {
             contents : [

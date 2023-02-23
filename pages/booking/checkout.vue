@@ -1079,7 +1079,6 @@ export default {
       if (err.$validator === "$each") {
         err.$response.$errors.find((item, index) => {
           let objProps = Object.getOwnPropertyNames(item);
-          //console.log(item,index,objProps);
           return objProps.find((key) => {
             if (item[key].length > 0) {
               path += `[${index}].${item[key][0].$property}`;

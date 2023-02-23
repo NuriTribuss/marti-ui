@@ -425,7 +425,6 @@ export default {
     this.searchData = search.get();
     this.getHotel()
     this.getOffer()
-    console.log(this)
   },
   setup(){
     const config = useRuntimeConfig();
