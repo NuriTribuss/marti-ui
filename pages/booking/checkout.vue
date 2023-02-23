@@ -721,7 +721,7 @@
               </h3>
             </div>
             <!-- end form-title-wrap -->
-            <HotelBookingSummary :offer="offer" :hotel="this.hotel_search" />
+            <HotelBookingSummary :offer="offer" :hotel="hotel_search" />
             <!-- end form-content -->
           </div>
           <div
@@ -783,7 +783,7 @@
         ></a>
       </div>
       <div class="offcanvas-body">
-        <HotelBookingSummary :offer="offer" :hotel="this.hotel_search"/>
+        <HotelBookingSummary :offer="offer" :hotel="hotel_search"/>
         <LoaderSummary v-if="loader" />
         <div class="offcanvas-footer">
           <a

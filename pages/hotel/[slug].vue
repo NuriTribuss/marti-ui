@@ -34,9 +34,9 @@
               <div class="d-flex">
                   <div class="me-0 me-lg-3 text-color-9 py-1 font-weight-bold d-lg-flex d-none">{{ $t('common.share')}} : </div> 
                   <ul class="social-profile d-flex">
-                      <li class="d-lg-flex d-none"><a :href="'https://www.facebook.com/sharer/sharer.php?u='+config.BASE_URL+$route.path" target="_blank"><i class="la la-facebook-f"></i></a></li>
-                      <li class="d-lg-flex d-none"><a :href="'https://twitter.com/share?url='+config.BASE_URL+$route.path" target="_blank" ><i class="la la-twitter"></i></a></li>
-                      <li class="d-lg-none d-block"><a :href="'https://api.whatsapp.com/send?text='+config.BASE_URL+$route.path" target="_blank"  ><i class="la la-whatsapp"></i></a></li>
+                      <li class="d-lg-flex d-none"><a :href="'https://www.facebook.com/sharer/sharer.php?u='+config.WEB_URL+$route.path" target="_blank"><i class="la la-facebook-f"></i></a></li>
+                      <li class="d-lg-flex d-none"><a :href="'https://twitter.com/share?url='+config.WEB_URL+$route.path" target="_blank" ><i class="la la-twitter"></i></a></li>
+                      <li class="d-block d-lg-none"><a :href="'https://api.whatsapp.com/send?text='+config.WEB_URL+$route.path" target="_blank"  ><i class="la la-whatsapp"></i></a></li>
                   </ul>
               </div>
             </div>
@@ -425,10 +425,13 @@ export default {
     this.searchData = search.get();
     this.getHotel()
     this.getOffer()
+    console.log(this)
   },
+  setup(){
+    const config = useRuntimeConfig();
+    return {
+      config
+    }
+  }
 };
-</script>
-
-<script setup>
-const config = useRuntimeConfig();
 </script>

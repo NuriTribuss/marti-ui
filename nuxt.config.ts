@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     runtimeConfig: {
         PANEL_URL: process.env.PANEL_URL,
         BASE_URL: process.env.MODE === 'dev' ? process.env.DEV_URL : process.env.PROD_URL,
+        public:{
+            WEB_URL: process.env.WEB_URL || 'https://www.martireisen.at',
+        }
     },
     css: [
         '@/assets/css/bootstrap.min.css',
