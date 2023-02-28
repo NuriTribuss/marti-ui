@@ -400,7 +400,7 @@
                         >{{ $t("user.profile.birthday") }}</label
                       >
                       <FormBirthday
-                        @input="(e) => (traveller.birthday = e)"
+                        @input-val="(e) => (traveller.birthday = e)"
                         :value="''"
                         :item_id="'traveller' + index + '_birthday'"
                         :max="index === 0 ? 18 : 0"
@@ -499,7 +499,7 @@
                         >{{ $t("user.profile.birthday") }}</label
                       >
                       <FormBirthday
-                        @input="(e) => (child.birthday = e)"
+                        @input-val="(e) => (child.birthday = e)"
                         :value="''"
                         :children="true"
                         :item_id="'children' + i + '_birthday'"

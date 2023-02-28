@@ -99,10 +99,11 @@ export default ({
                  this.days = this.range(1,32);
              }
             
-            if(dayValue != '' && yearValue != '' && monthValue != ''){
-                this.$emit('input', `${yearValue}${this.seperator}${monthValue}${this.seperator}${dayValue}`);
-                //$("#"+this.item_id+'_message').hide();
-            }
+            this.$emit('input-val', `${yearValue}${this.seperator}${monthValue}${this.seperator}${dayValue}`);
+            // if(dayValue != '' && yearValue != '' && monthValue != ''){
+                
+            //     //$("#"+this.item_id+'_message').hide();
+            // }
             
            
          }
