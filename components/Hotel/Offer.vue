@@ -25,7 +25,7 @@
       <hr class=" mb-3 mt-1 d-block d-lg-none w-100 text-color-12" >
       <div class="d-flex justify-content-between col-12 col-lg-8">
         
-        <div class="mx-2">
+        <div class="mx-2 width-100px-in-min-width-996">
           <div class="font-weight-bold">{{ offer.travelDate.duration }} {{ $t('common.days')}}</div>
           <div>{{ offer.hotelOffer.boardType.name}}</div>
           <div>{{ offer.hotelOffer.roomType.name}}</div>
@@ -35,7 +35,7 @@
           <div class="d-none d-lg-block">{{$t('offer.operator')}}</div>
           <div class="d-none d-lg-block">{{offer.tourOperator.name}}</div>
           <img
-            class="mt-lg-3" width="72"
+            class="mt-lg-3" style="max-width: 72px;min-width: 50px;"
             :src="offer.tourOperator.png"
           />
         </div>

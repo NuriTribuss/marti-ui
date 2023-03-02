@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumbSmall title="Hotel Detay" :step="[step]" />
+  <BreadCrumbSmall :step="[step]" />
 
   <section class="tour-detail-area padding-bottom-90px">
     <div class="" >

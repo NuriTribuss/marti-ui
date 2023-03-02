@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumbSmall title="Hotel Detay" :step="step" v-if="hotel"/>
+  <BreadCrumbSmall :step="step" v-if="hotel"/>
   <div v-if="loaders.hotel" class="d-flex">
     <LoaderImage v-for="i in 5" :key="i" class="mb-1"/>
   </div>

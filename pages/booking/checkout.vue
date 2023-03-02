@@ -1,6 +1,6 @@
 <template>
   <!-- <BreadCrumbSmall title="Hotel Detay" :step="step" v-if="offer" /> -->
-  <BreadCrumbNew title="Hotel Detay" :step="step_new" v-if="hotel" />
+  <BreadCrumbNew :step="step_new" v-if="hotel" />
   <section class="booking-area padding-top-20px padding-bottom-70px">
     <div class="container">
       <button

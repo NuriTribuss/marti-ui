@@ -70,8 +70,8 @@
       <hr class=" mb-3 mt-1 d-block d-lg-none w-100 text-color-12" >
       
       <div class="col-12 col-lg-4 border-end border-info row mx-0 px-0">
-        <div class="col-6 col-lg-12">
-          <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3">
+        <div class="col-6 col-lg-12 mb-3">
+          <h3 class="title font-size-16 text-color-6 font-weight-bold mb-1">
             {{ $t("offer.services") }}
           </h3>
           <div class="mx-2">
@@ -80,11 +80,13 @@
             <div>  <i class="la la-check me-1"></i> {{ offer.hotelOffer.roomType.name}}</div>
           </div>
         </div>
+        <div class="col-6 col-lg-12" >
         <HotelFacility 
               :keyword_list="offer.hotelOffer.hotel.keywordList" 
               :show_modal_button="true" 
               :hotel_code="offer.hotelOffer.hotel.code"
-              label_class="title font-size-16 text-color-6 font-weight-bold mb-3"/>
+              label_class="title font-size-16 text-color-6 font-weight-bold mb-1"/>
+        </div>
         <div class="col-6 col-lg-12">
           <h3 class="title font-size-16 text-color-6 font-weight-bold mb-2 mt-0 mt-lg-4">
             {{ $t("offer.operator") }}
@@ -94,14 +96,14 @@
             <!-- <div class="d-none d-lg-block">{{$t('offer.operator')}}</div> -->
             <div class="d-none d-lg-block">{{offer.tourOperator.name}}</div>
             <img
-              class="mt-lg-3" width="100"
+              class="mt-lg-3" style="max-width: 100px;min-width: 50px;"
               :src="offer.tourOperator.png"
             />
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-4">
-         <h3 class="title font-size-16 text-color-6 font-weight-bold mb-3  mt-lg-0 d-none d-lg-block">
+         <h3 class="title font-size-16 text-color-6 font-weight-bold mb-1  mt-lg-0 d-none d-lg-block">
           {{ $t("offer.price_summary") }}
         </h3>
 

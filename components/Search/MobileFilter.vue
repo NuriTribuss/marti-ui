@@ -7,22 +7,20 @@
     <i class="la la-filter font-size-24 py-2"></i>
   </a>
   <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
-  <div class="modal-dialog  modal-fullscreen ">
-    <div class="modal-content">
-      <div class="modal-header offcanvas-header">
-        <h5 class="modal-title">Reiseziel auswahlen</h5>
-        <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog  modal-fullscreen ">
+      <div class="modal-content">
+        <div class="modal-header offcanvas-header">
+          <h5 class="modal-title">Reiseziel auswahlen</h5>
+          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <SearchEngine :no_header="true"></SearchEngine>
+          <HotelFilter v-bind:filter_data="filter_data"  class="d- d-lg-none" />
+        </div>
+      
       </div>
-      <div class="modal-body">
-        <SearchEngine :no_header="true"></SearchEngine>
-        <HotelFilter v-bind:filter_data="filter_data"  class="d- d-lg-none" />
-      </div>
-     
     </div>
   </div>
-</div>
-
-
 </div>
 </template>
 

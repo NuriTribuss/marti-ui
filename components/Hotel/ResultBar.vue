@@ -2,7 +2,9 @@
   <div class="filter-wrap margin-bottom-20px mt-2">
    
     <!-- end filter-top -->
-    <div class="row filter-bar d-flex align-items-center justify-content-between">
+    
+    <!-- <div class="row filter-bar d-flex align-items-center justify-content-between"> -->
+    <div class="text-start btn border font-size-14 font-weight-bold line-height-20 d-lg-none justify-content-between w-100">
       <div class="col-8 filter-bar-filter d-flex flex-wrap align-items-center">
         <div class="filter-option">
           <h3 class="title font-size-16">{{ count}} {{ $t('search.results') }}</h3>
@@ -24,7 +26,7 @@
       </div>
       <div class="col-4 select-contain d-lg-block" style="width: auto;">
         <select class=" form-select" v-model="value" @change="set()">
-          <option :value="item.code" v-for="(item,index) in sort" :key="index"> {{item.label}}</option>
+          <option class="dropdown-content" :value="item.code" v-for="(item,index) in sort" :key="index"> {{item.label}}</option>
         </select>
       </div>
     </div>
