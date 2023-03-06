@@ -202,7 +202,7 @@
     </div>
     <span class="p-1"></span>
     <div class="col-lg-2" >
-        <button @click="do_filter" class="apply-filter-button theme-btn theme-btn-orange font-weight-bold d-lg-none d-none">Apply Filter</button>
+        <button @click="do_filter" class="apply-filter-button theme-btn theme-btn-orange font-weight-bold d-lg-none d-none">{{ $t('search.filter_accept') }}</button>
     </div>
     <!-- end sidebar -->
   </template>
