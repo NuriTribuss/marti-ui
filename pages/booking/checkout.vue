@@ -955,12 +955,12 @@ export default {
           this.hotel.location.name,
           this.hotel.name
         );
-        this.step.push("Bestätigung");
-        this.step_new.push(this.getCrumbObject(this.hotel, "region"));
-        this.step_new.push(this.getCrumbObject(this.hotel, "location"));
-        this.step_new.push(this.getCrumbObject(this.hotel, "hotel"));
+        // this.step.push("Bestätigung");
+        // this.step_new.push(this.getCrumbObject(this.hotel, "region"));
+        // this.step_new.push(this.getCrumbObject(this.hotel, "location"));
+        // this.step_new.push(this.getCrumbObject(this.hotel, "hotel"));
+        // this.step_new.push({ name: "Bestätigung" });
 
-        this.step_new.push({ name: "Bestätigung" });
         this.getBookingParams();
 
         let vue = this;
@@ -968,6 +968,11 @@ export default {
           try {
             if(result.status && result.code == '200') {
               vue.hotel_search = result?.data?.response?.hotelList[0];
+              vue.step.push("Bestätigung");
+              vue.step_new.push(vue.getCrumbObject(vue.hotel_search, "region"));
+              vue.step_new.push(vue.getCrumbObject(vue.hotel_search, "location"));
+              vue.step_new.push(vue.getCrumbObject(vue.hotel_search, "hotel"));
+              vue.step_new.push({ name: "Bestätigung" });
             } 
           }catch (e) {
             console.log(e)
@@ -1144,7 +1149,8 @@ export default {
         case "hotel":
           searchObj.destination.code = hotelObj.giata.hotelId;
           searchObj.destination.type = crumbType;
-          urlPrefix = `/hotel/${hotelObj.name_sef}?f=`
+          //urlPrefix = `/hotel/${hotelObj.name_sef}?f=`
+          urlPrefix = `/hotel/${hotelObj.giata.hotelName}?f=`
           let searchStr = JSON.stringify(searchObj);
           return {
             name: hotelObj.giata.hotelName,

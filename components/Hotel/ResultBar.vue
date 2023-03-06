@@ -2,14 +2,23 @@
   <div class="filter-wrap margin-bottom-20px mt-2">
    
     <!-- end filter-top -->
-    
-    <!-- <div class="row filter-bar d-flex align-items-center justify-content-between"> -->
-    <div class="text-start btn border font-size-14 font-weight-bold line-height-20 d-lg-none justify-content-between w-100">
+    <div class="input-group mb-3">
+      <select class="form-select p-1" v-model="value" @change="set()">
+            <option class="dropdown-content" :value="item.code" v-for="(item,index) in sort" :key="index"> {{item.label}}</option>
+          </select>
+      <span class="input-group-text">
+        <a @click="filter_clicked" data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border-none font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
+            <i class="la la-filter font-size-24 py-0"></i>
+        </a>
+      </span>
+      
+    </div>
+    <div>
       <div class="col-8 filter-bar-filter d-flex flex-wrap align-items-center">
         <div class="filter-option">
           <h3 class="title font-size-16">{{ count}} {{ $t('search.results') }}</h3>
         </div>
-        <div class="filter-option  p-2 rounded-md " v-show="visible">
+        <!-- <div class="filter-option  p-2 rounded-md " v-show="visible">
           <div class="dropdown dropdown-contain">
             <a class="rounded btn bg-3 text-white border  rounded me-2"  @click="reset('star')" v-if="searchData.star">Hotelkategorie <b>{{ searchData.star}}</b> <i class="la la-close"></i></a>
             <a class="rounded btn bg-3 text-white border  rounded me-2"  @click="reset('reviewRate')" v-if="searchData.reviewRate">Min <b>{{ searchData.reviewRate}} %</b> <i class="la la-close"></i></a>
@@ -22,12 +31,7 @@
 
             <a class="rounded btn btn-light rounded me-2 border"  v-show="visible" @click="reset()" >Alle Filter Löschen  <i class="la la-close"></i> </a>
           </div>
-        </div>
-      </div>
-      <div class="col-4 select-contain d-lg-block" style="width: auto;">
-        <select class=" form-select" v-model="value" @change="set()">
-          <option class="dropdown-content" :value="item.code" v-for="(item,index) in sort" :key="index"> {{item.label}}</option>
-        </select>
+        </div> -->
       </div>
     </div>
   </div>
@@ -119,11 +123,17 @@ export default {
       }
 
       return value.join(',');
+    },
+
+    filter_clicked(){
+      let modal_body= document.querySelectorAll('#filter-modal .modal-body')[0];
+      let top_of_filters= document.getElementById('top-of-filters');
+      modal_body.scrollTo(0,(top_of_filters.offsetTop - 10));
     }
   },
   computed:{
     visible(){
-        return this.searchData.pansion || this.searchData.star || this.searchData.room || this.searchData.city || this.searchData.reviewRate
+        return this.searchData.pansion || this.searchData.star || this.searchData.room || this.searchData.city || this.searchData.reviewRate || this.searchData.keywordList || this.searchData.directness || this.searchData.transfer
     }
   },
   watch: {

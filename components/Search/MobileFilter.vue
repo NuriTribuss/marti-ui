@@ -4,7 +4,7 @@
     <span v-if="data">{{ data.destination.name }}<br><small>
       {{ $date(data.date.start).format('DD.MM.YYYY') }} / {{ $date(data.date.end).format('DD.MM.YYYY') }}
       </small></span>
-    <i class="la la-filter font-size-24 py-2"></i>
+    <i class="la la-sliders-h font-size-24 py-2"></i>
   </a>
   <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
     <div class="modal-dialog  modal-fullscreen ">
@@ -15,7 +15,7 @@
         </div>
         <div class="modal-body">
           <SearchEngine :no_header="true"></SearchEngine>
-          <HotelFilter v-bind:filter_data="filter_data"  class="d- d-lg-none" />
+          <HotelFilterMobile v-bind:filter_data="filter_data" v-bind:count="0" class="d- d-lg-none" />
         </div>
       
       </div>
@@ -49,5 +49,30 @@ export default {
         this.$emit('load',this.query)
     }
   },
+  setup(){
+    try{
+      let modal_body= document.querySelectorAll('#filter-modal .modal-body')[0];
+      let apply_button = document.querySelectorAll('.apply-filter-button')[0];
+      let top_of_filters= document.getElementById('top-of-filters');
+      apply_button.classList.add('d-none');
+      apply_button.classList.remove('d-block');
+      modal_body.onscroll = (x)=>{
+        if(modal_body.scrollTop >= (top_of_filters.offsetTop - 10))
+        {
+          apply_button.classList.add('d-block');
+          apply_button.classList.remove('d-none');
+        }
+        else
+        {
+          apply_button.classList.add('d-none');
+          apply_button.classList.remove('d-block');
+        }
+      }
+    }
+    catch(e){
+      console.log(e);
+    }
+
+  }
 };
 </script>

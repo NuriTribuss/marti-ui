@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-lg-12">
          
-          <SearchMobileFilter v-if="$isMobile" :filter_data="filter_data" />
+          <SearchMobileFilter v-if="$isMobile" :filter_data="filter_data"  />
           <HotelResultBar v-if="filter_data" :count="filter_data.totalResultCount" :filter_data="filter_data" />
 
         </div>

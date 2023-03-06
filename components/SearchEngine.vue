@@ -56,12 +56,12 @@
                     <SearchDestinationDropdown  class="desktop-dropdown" @select="select" :source="source"/>
                     
                     <div v-if="isModal" class="autocomplete-popup" style="position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100%;
-      background: #fff;
-      z-index: 999;">
+                        top: 0;
+                        left: 0;
+                        width: 100vw;
+                        height: 100%;
+                        background: #fff;
+                        z-index: 999;">
                       <SearchMobileDestinationWithInput class="mobile-dropdown" @select="select" @load="setQuery" :source="source" @isModal="close()"/>
                     </div>
 
@@ -260,7 +260,6 @@ export default {
     },
 
     search(){
-      
        this.createFilter();
        location.href= this.url+'?f='+JSON.stringify(this.filters)
     },

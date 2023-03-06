@@ -258,7 +258,7 @@ export default {
       this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.filter)} })
     }
   },
-    watch: {
+  watch: {
     '$route.query'() {
         this.filter = search.get();
     },
