@@ -1,6 +1,6 @@
 <template>
     <span id="top-of-filters"></span>
-    <div class="filter-option  p-2 rounded-md " v-show="visible">
+    <div class="filter-option p-2 rounded-md d-lg-none d-xl-block" v-show="visible">
       <div class="dropdown dropdown-contain">
         <a class="rounded btn bg-3 text-white border btn-sm rounded me-2 mb-2"  @click="reset('reviewRate')" v-if="searchData.reviewRate">Min <b>{{ searchData.reviewRate}} %</b> <i class="la la-close"></i></a>
         <a class="rounded btn bg-3 text-white border btn-sm rounded me-2 mb-2"  @click="reset('pansion')" v-if="searchData.pansion "> {{ getLabel('boardTypeList',searchData.pansion)}}  <i class="la la-close"></i></a>
@@ -226,7 +226,6 @@
     },
     data() {
       return {
-        visible: false,
         resource_data : null,
         filter : {
           pansion : '',
@@ -276,17 +275,35 @@
       },
       reset(key){
         if(key){
-          delete this.searchData[key];
+          if(key == 'keywordList'){
+            this.searchData['keywordList'] = [];
+            this.filter['keywordList'] = [];
+          }
+          else{
+            delete this.searchData[key];
+            delete this.filter[key];
+          }
         }else {
+          delete this.searchData['reviewRate'];
           delete this.searchData['star'];
           delete this.searchData['pansion'];
           delete this.searchData['room'];
           delete this.searchData['city'];
           delete this.searchData['directness'];
           delete this.searchData['transfer'];
-          delete this.searchData['keywordList'];
+          this.searchData['keywordList'] = [];
+          
+          delete this.filter['reviewRate'];
+          delete this.filter['star'];
+          delete this.filter['pansion'];
+          delete this.filter['room'];
+          delete this.filter['city'];
+          delete this.filter['directness'];
+          delete this.filter['transfer'];
+          this.filter['keywordList'] = [];
         }
-        this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.searchData)} })
+        //this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.searchData)} })
+        this.do_filter()
       },
       getLabel(key,value){
         let a = this.filter_data[key].filter((item)=> {
@@ -308,7 +325,7 @@
         }
         return value.join(',');
       },
-      do_filter(e){
+      do_filter(){
           this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.filter)} });
           var myModalEl = document.getElementById('filter-modal')
           var modal = bootstrap.Modal.getInstance(myModalEl)
@@ -317,12 +334,13 @@
     },
     computed:{
       visible(){
-          return this.searchData && (this.searchData.pansion || this.searchData.star || this.searchData.room || this.searchData.city || this.searchData.reviewRate || (this.searchData.keywordList && this.searchData.keywordList.length > 0) || this.searchData.directness || this.searchData.transfer);
+          return (this.searchData.pansion || this.searchData.star || this.searchData.room || this.searchData.city || this.searchData.reviewRate || (this.searchData.keywordList && this.searchData.keywordList.length > 0) || this.searchData.directness || this.searchData.transfer)?true:false;
       }
     },
     watch: {
         '$route.query'() {
             this.filter = search.get();
+            this.searchData = this.filter;
         },
         filter_data(){
             this.resource_data = this.resource_data || this.filter_data

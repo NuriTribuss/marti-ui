@@ -31,8 +31,11 @@ export default {
         if(obj == null){
             return this.default
         }
-
-        return JSON.parse(obj);
+        let objJson = JSON.parse(obj);
+        if(!Array.isArray(objJson['keywordList'])){
+            objJson['keywordList'] = [];
+        }
+        return objJson
         
     }
 }
