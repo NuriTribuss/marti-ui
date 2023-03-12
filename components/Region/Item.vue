@@ -59,7 +59,7 @@
             >
             <span class="mx-2"
               ><i class="la la-plane text-success"></i
-              >{{ subregion.flight.estimatedTime }}</span
+              >{{ toHoursAndMinutes(subregion.flight.estimatedTime) }}</span
             >
           </div>
           <div class="col-lg-2 col-4 ">
@@ -82,6 +82,15 @@ export default {
   methods : {
     go(destination){
       this.$emit('search',destination)
+    },
+    toHoursAndMinutes(totalMinutes) {
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = totalMinutes % 60;
+
+      return `${hours}h ${this.padToTwoDigits(minutes)} m`;
+    },
+    padToTwoDigits(num) {
+      return num.toString().padStart(2, '0');
     }
   }
 };

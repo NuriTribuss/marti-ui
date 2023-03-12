@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar mt-0">
+  <div class="sidebar mt-0 d-none d-lg-block">
     
     <!-- end sidebar-widget -->
     <div class="sidebar-widget" v-if="!detail && resource_data && resource_data.locationList.length > 0 ">
