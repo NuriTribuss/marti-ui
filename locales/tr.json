@@ -114,6 +114,8 @@
         "most_popular_dest" : "Popüler Seyahat Yerleri",
         "results" : "Diğer Sonuçlar",
         "no_result" : "Seçtiğiniz filtrelerde sonuç bulunmadı",
+        "no_result_found_title": "Maalesef sonuç yok ...",
+        "no_result_found": "Lütfen diğer arama filtreleriyle tekrar deneyin.",
         "reset_filters" : "Filtreleri Temizle",
         "filters" : "Filtre",
         "rating" : "Yıldız",
