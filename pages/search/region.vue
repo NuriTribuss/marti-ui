@@ -36,6 +36,7 @@
            <div v-show="loader.region"> 
             <LoaderRegion class="mb-3" v-for="i in 5" v-bind:key="i"/>
           </div>
+          <SearchNotFound v-if="regions.length == 0"/>
           <div class="single-content-item" v-show="!loader.region">
             <div class="accordion"  id="accordionPanelsStayOpenExample">
                 <RegionItem @search="search" v-for="(region,index) in regions" :region="region" :key="index" :index="index"/>

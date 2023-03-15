@@ -25,11 +25,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body text-center">
-              {{ $t('search.duration.range_error')}}
+              {{ $t('search.duration_range_error')}}
             </div>
             <div class="modal-footer border-0 justify-content-center">
-              <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t('search.duration.set').replace('{number}',diff)}}</button>
-              <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t('search.date.reset')}}</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ $t('search.date_reset')}}</button>
+              <button type="button" class="btn theme-btn-orange" @click="setDuration">{{ $t('search.duration_set').replace('{number}',diff)}}</button>
             </div>
           </div>
         </div>
@@ -59,12 +59,15 @@ export default {
           start: null,
           end: null,
         },
+        new_duration: 0
       }
   },
   methods: {
     setDate(){
 
         let { duration } = search.get();
+        if(this.new_duration > 0)
+          duration = this.new_duration;
 
         let start = new Date(this.dateRange.start).getTime();
         let end  = new Date(this.dateRange.end).getTime();
@@ -85,7 +88,9 @@ export default {
 
     setDuration(){
       this.$emit('setDuration',this.diff)
+      this.new_duration = this.diff;
       this.modal.hide();
+      this.setDate();
     },  
    
     closeDropdown(){

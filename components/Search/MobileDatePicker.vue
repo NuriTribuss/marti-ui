@@ -30,11 +30,11 @@
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-body text-center">
-                {{ $t('search.duration.range_error')}}
+                {{ $t('search.duration_range_error')}}
               </div>
               <div class="modal-footer border-0 justify-content-center">
-                <button type="button" class="btn btn-secondary" @click="setDuration">{{ $t('search.duration.set').replace('{number}',diff)}}</button>
-                <button type="button" class="btn theme-btn-orange" data-bs-dismiss="modal">{{ $t('search.date.reset')}}</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ $t('search.date_reset')}}</button>
+                <button type="button" class="btn theme-btn-orange" @click="setDuration">{{ $t('search.duration_set').replace('{number}',diff)}}</button>
               </div>
             </div>
           </div>
@@ -61,6 +61,7 @@ export default {
           diff : null,
           query : '',
           range : { start : '' , end : ''},
+          new_duration: 0
       }
   },
   methods: {
@@ -68,6 +69,8 @@ export default {
     setDate(){
 
       let { duration } = search.get();
+      if(this.new_duration > 0)
+          duration = this.new_duration;
 
       let start = new Date(this.range.start).getTime();
       let end  = new Date(this.range.end).getTime();
@@ -75,6 +78,7 @@ export default {
 
       let diff = Math.round((end - start) / (1000 * 60 * 60 * 24));
       diff = diff +1;
+      console.log(diff,'---',duration,'---',end,'---',start,'---');
       if(Number.isInteger(diff) && diff < parseInt(duration)) {
         this.diff = diff;
         this.modal.show();
@@ -90,7 +94,9 @@ export default {
     
     setDuration(){
       this.$emit('setDuration',this.diff)
+      this.new_duration = this.diff;
       this.modal.hide();
+      this.setDate();
     },  
   },
   mounted(){

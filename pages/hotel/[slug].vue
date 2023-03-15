@@ -310,6 +310,7 @@
                   <div v-show="loaders.offer">
                     <LoaderOffer v-for="i in 10" :key="i" class="mb-1" />
                   </div>
+                  <SearchNotFound v-if="offerList.length == 0"/>
                   <HotelOffer
                     v-for="(offer, index) in offerList"
                     :key="index"
@@ -317,18 +318,22 @@
                     v-bind:offer="offer"
                     :search="searchData"
                   />
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="btn-box mt-3 text-end">
-                        <button
-                          type="button"
-                          class="theme-btn theme-btn-orange w-25"
-                          v-if="total > offerList.length"
-                          @click="loadMore"
-                        >
-                          <i class="la la-refresh me-2"></i
-                          >{{ $t("common.show_more") }}
-                        </button>
+                  <div class="container"> 
+                    <div class="row">
+                      <div class="col-lg-9 col-12 d-lg-block d-none">
+                      </div>
+                      <div class="col-lg-3 col-12 align-self-end">
+                        <div class="btn-box mt-3 text-end">
+                          <button
+                            type="button"
+                            class="theme-btn theme-btn-orange w-100"
+                            v-if="total > offerList.length"
+                            @click="loadMore"
+                          >
+                            <i class="la la-refresh me-2"></i
+                            >{{ $t("common.show_more") }}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
