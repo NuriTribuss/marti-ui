@@ -307,7 +307,7 @@
     "booking.unknown_error": "Unbekannter Fehler. Bitte kontaktieren Sie uns",
     "booking.print": "Seite drucken",
     "booking.thankyou": "Vielen Dank. Ihre Buchung wurde erfolgreich durchgeführt.<br>Wir wünschen Ihnen jetzt schon eine wunderbare Reise.",
-    "booking.thankyou.message": "Sie können die Details Ihrer Transaktion unten einsehen.",
+    "booking.thankyou_message": "Sie können die Details Ihrer Transaktion unten einsehen.",
     "booking.accommodation": "Unterkunft",
     "booking.code": "Ihre Buchungsnummer",
     "booking.code.text": "Mit Ihrer Buchungsnummer können Sie folgendes tun: Stornierung der PNR- oder E-Ticket-Nummer, Rückerstattung, Kontrolle der Reisedokumente sowie Kauf eines zusätzlichen Dienstes über die Ticket-Seite.",
