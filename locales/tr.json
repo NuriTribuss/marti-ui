@@ -309,7 +309,7 @@
         "booking.unknown_error" : "Bilinmeyen hata. Lütfen bizimle iletişime geçin",
         "booking.print" : "Sayfayı yazdır",
         "booking.thankyou" : "Çok Teşekkürler. Rezervasyonunuz başarıyla tamamlanmıştır. Size şimdiden harika bir yolculuk diliyoruz.",
-        "booking.thankyou.message" : "İşleminizin ayrıntılarını aşağıda görüntüleyebilirsiniz.",
+        "booking.thankyou_message" : "İşleminizin ayrıntılarını aşağıda görüntüleyebilirsiniz.",
         "booking.accommodation" : "Konaklama",
         "booking.code" : "Rezervasyon Numaranız",
         "booking.code.text" : "Rezervasyon numaranızla aşağıdakileri yapabilirsiniz: PNR veya E-bilet numarasının iptali, geri ödenmesi, seyahat belgelerinin kontrolü ve bilet sayfası aracılığıyla ek bir hizmetin satın alınması.",
