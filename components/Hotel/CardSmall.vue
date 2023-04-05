@@ -34,7 +34,12 @@
               @click="go(hotel.giata.hotelId,hotel.name_sef)"
               class="rounded theme-btn theme-btn-blue text-white my-2 w-100 font-weight-bold"
             >
-              <small>ab</small> € {{ $n(hotel.bestPricePerPerson.value) }}
+              <template v-if="hotel.bestPricePerPerson">
+                <small>ab</small> € {{ $n(hotel.bestPricePerPerson.value) }}
+              </template>
+              <template v-else>
+                <small>{{$t('search.to_offer')}}</small>
+              </template>
               <i class="la la-angle-right"></i>
             </button>
           </div>

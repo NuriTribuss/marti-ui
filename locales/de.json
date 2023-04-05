@@ -192,7 +192,8 @@
         "step4": "Bestätigung",
         "operators": "Reiseveranstalter",
         "hotel_name": "Hotel Name",
-        "clear": "Löschen"
+        "clear": "Löschen",
+        "to_offer": "Zum Angebot"
     },
 
     "hotels.ab": "ab",

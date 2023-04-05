@@ -8,6 +8,8 @@
                 <figcaption class="blockquote-footer">
                    <cite >{{$t('search.no_result_found')}}</cite>
                 </figcaption>
+                <a class="btn btn-primary stretched-link" href="/">{{ $t('menu.home') }}</a>
+                
             </figure>
         </div>
         <div class="card-img">

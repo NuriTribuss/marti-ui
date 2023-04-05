@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    
     <section class="hero-wrapper">
       <div class="hero-box hero-bg">
         <span class="line-bg line-bg1"></span>
@@ -90,11 +90,17 @@
       <!-- end container -->
     </section>
 
+
+    <LandingPopularHotelList ref="hotelList"/>
+
    <!-- <SectionPopularHotel />-->
     <SectionHolidayTypes />
+
+    
+
     <!-- <SectionHomeSeoText />-->
     <SectionLatestPost :posts="post.data" v-if="post" />
-
+    
   </div>
 </template>
 
