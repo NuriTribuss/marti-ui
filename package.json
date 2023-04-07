@@ -6,8 +6,8 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@nuxtjs/device": "^3.1.0",
-    "nuxt": "^3.1.2",
+    "@nuxtjs/device": "3.1.0",
+    "nuxt": "3.1.2",
     "nuxt-schema-org": "^2.1.1",
     "swiper": "8.4.4"
   },
