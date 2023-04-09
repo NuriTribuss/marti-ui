@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import search from '/modules/search';
+import search from '/utils/search';
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 

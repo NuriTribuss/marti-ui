@@ -52,8 +52,6 @@ const { pending, data: res } = await useFetch('/api/landing/zone/fetch/country/'
     body: props.meta.data
 })
 
-console.log(res.value.data);
-
 const translate = (data, language) => {
 
     for (var i = 0; i < data.length; i++) {
