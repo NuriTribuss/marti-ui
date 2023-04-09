@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import searchData from '/modules/search'
+import searchData from '/utils/search'
 
 export default {
   data() {

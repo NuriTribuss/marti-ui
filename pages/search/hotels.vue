@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import search from '/modules/search'
+import search from '/utils/search'
 
 export default {
   components:{

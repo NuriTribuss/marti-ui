@@ -47,7 +47,7 @@
 
 import { DatePicker }  from 'v-calendar';
 import 'v-calendar/dist/style.css';
-import search from '/modules/search';
+import search from '/utils/search';
 
 export default {
   props: ['date'],

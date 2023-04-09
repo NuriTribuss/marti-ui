@@ -40,7 +40,7 @@
 
 <script setup> 
 
-import search from '/modules/search';
+import search from '/utils/search';
 
 const content = ref({});
 const hotelList = ref(null);
@@ -51,6 +51,8 @@ const { pending, data: res } = await useFetch('/api/landing/zone/fetch/country/'
     method: 'POST',
     body: props.meta.data
 })
+
+console.log(res.value.data);
 
 const translate = (data, language) => {
 

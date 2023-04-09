@@ -40,7 +40,7 @@
 
 <script setup> 
 
-import search from '/modules/search';
+import search from '/utils/search';
 
 const content = ref({});
 const hotelList = ref(null);
