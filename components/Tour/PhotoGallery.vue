@@ -19,7 +19,7 @@
           <div
             @click="showImg(index)"
             style="height:200px; background-size:cover;"
-            v-bind:style="{ backgroundImage: 'url(' + $url+image.medium + ')' }"
+            v-bind:style="{ backgroundImage: 'url(' + ($url+image.medium?.length > 0 ? $url+image.medium : $url+image.image) + ')' }"
           ></div>
         </swiper-slide>
       </swiper>

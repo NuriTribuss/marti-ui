@@ -52,13 +52,10 @@ export default {
     },
     methods: {
 
-        getResult(query,title) {
-            console.log(title)
+        getResult(query,title,related_ids) {
             let vue = this;
             vue.loader.hotels = true;
-
-            query['star'] = 4;
-
+            query['giataIdList']= related_ids;
             $fetch("/api/engine/hotel/get", { method: 'POST', body: query }).then(function (result) {
 
                 vue.loader.hotels = false;

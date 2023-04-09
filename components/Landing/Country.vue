@@ -74,7 +74,8 @@ onMounted(() => {
       type : 'country', 
       name : ''
     }
-    hotelList.value.getResult(query,content.value.third_title)
+    hotelList.value.getResult(query,content.value.third_title,res.value.data.related_ids);
+
 })
 
 useHead({

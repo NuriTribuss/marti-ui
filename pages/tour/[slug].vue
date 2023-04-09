@@ -193,13 +193,15 @@
                             flex-shrink-0
                           "
                         >
-                          <i class="la la-plane"></i>
+                        <i v-if="isAirplane" class="la la-plane"></i>
+                        <i v-else class="la la-bus"></i>
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t("tour.departure") }}
                           </h3>
-                          <span class="font-size-13">Airport</span>
+                          <span v-if="isAirplane" class="font-size-13">Airport</span>
+                          <span v-else class="font-size-13">Schwedenplatz</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -510,6 +512,14 @@ export default {
   mounted() {
     this.getData();
   },
+  computed:{
+    isAirplane(){
+      if(this.record?.departure_place == "Wien")
+        return true;
+      else
+        return false;
+    }
+  }
 };
 </script>
 

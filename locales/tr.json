@@ -193,8 +193,8 @@
         "step4" : "Onayla",
         "operators" : "Tur Operatörü",
         "hotel_name" : "Otel adı",
-        "clear" : "Temizle"
-
+        "clear" : "Temizle",
+        "to_offer" : "teklif etmek"
     },	  
 					  
         "hotels.ab" : "uzak",
@@ -548,7 +548,7 @@
         "landing.prefix.hotel" : "Otel",
         "landing.related_otels" : "Popüler oteller",
         "landing.related_otels_text" : "Popüler oteller metin",
-        "tour.reservation_count" : "Rezervasyona devam edin",
+        "tour.reservation_count" : "Kontenjan",
         "tour.tour_list" : "Tur listesi",
         "tour.tour_review" : "Tur Açıklaması",
         "tour.reservation" : "Rezervasyon",
@@ -594,7 +594,7 @@
         "tour.tour_view" : "Tur görünümü",
         "tour.category" : "Kategoriler",
         "tour.age_group" : "Yaş grubu",
-        "tour.look" : "Tur bakisi",
+        "tour.look" : "Tur Detayı",
         "tour.rotate_and_city_select" : "Rota / Şehir Seçin",
         "tour.station_select" : "Tur istasyonu sec",
         "tour.date_select" : "Tarihi renklendir",
