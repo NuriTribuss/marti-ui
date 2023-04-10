@@ -604,6 +604,7 @@
     "tour.available_error_title": "Tour Kontingente ausverkauft",
     "tour.available_error_desc": "Nicht genügend Plätze auf dieser Tour verfügbar, alternative Touren kannst du hier einsehen",
     "tour.available_count": "Boş Yer",
+    "tour.duration" : "Dauer",
     "404.title": "Seite nicht gefunden",
     "404.subtitle": "Die aufgerufene Seite konnten wir nicht finden.",
     "404.button": "Zur Startseite",

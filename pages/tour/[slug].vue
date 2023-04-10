@@ -52,7 +52,7 @@
                         </div>
                         <div class="single-feature-titles">
                           <h3 class="title font-size-15 font-weight-medium">
-                            Duration
+                            {{ $t("tour.duration") }}
                           </h3>
                           <span class="font-size-13">{{ record?.plans.length }}</span>
                         </div>
@@ -431,7 +431,8 @@
                 </div>
                 <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
-                  <span v-if="price > 0">({{ (price).toFixed(0) }} €)</span>
+                  <span v-if="record?.price > 0">{{ (Number.parseFloat(record?.price).toFixed(2)) }} €</span>
+                  <span v-else>{{ $t('booking.title') }}</span>
                 </button>
                 <div class="text-center my-2">{{ $t("tour.or") }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">

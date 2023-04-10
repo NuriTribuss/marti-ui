@@ -605,6 +605,7 @@
         "tour.available_error_title" : "Tur kotası doldu",
         "tour.available_error_desc" : "Bu turda yeterli yer yok, alternatif turları buradan görebilirsiniz",
         "tour.available_count" : "Ücretsiz noktalar",
+        "tour.duration" : "Süre",
         "404.title" : "Sayfa bulunamadı",
         "404.subtitle" : "Aranan sayfayı bulamadık.",
         "404.button" : "Ana sayfaya",
