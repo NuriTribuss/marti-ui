@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BreadCrumbSmall step="Blog"  />
+    <BreadCrumbSmall :step="['Blog']"  />
     <section class="breadcrumb-area py-2 d-none d-lg-block">
       <div class="breadcrumb-wrap">
         <div class="container">

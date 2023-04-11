@@ -53,7 +53,6 @@ const { pending, data: res } = await useFetch('/api/landing/zone/fetch/country/'
 })
 
 const translate = (data, language) => {
-
     for (var i = 0; i < data.length; i++) {
         if (language == data[i].language) {
             return data[i];
@@ -62,7 +61,7 @@ const translate = (data, language) => {
     return data[0];
 }
 
-content.value = translate(res.value.data.translate, props.meta.data.locale)
+content.value = translate(res.value.data.translate, useCookie("store-language").value)
 
 onMounted(() => {
 

@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     let data = {};
     const cookies = parseCookies(event)
     
-    let language = cookies.language || 'tr';
+    let language = cookies['store-language'] || 'de';
     let currency = cookies.currency|| 'TRY';
 
     const headers = {
