@@ -102,10 +102,15 @@ export default {
   mounted(){
 
     this.range = this.date;
-    this.modal = new bootstrap.Modal('#mobile-duration-error-modal', {
+    try {
+      this.modal = new bootstrap.Modal('#mobile-duration-error-modal', {
         keyboard: false,
         backdrop:false
-    })
+      })
+    } catch (error) {
+      console.log(error);
+    }
+    
   },
  
 };
