@@ -1,14 +1,14 @@
 <template>
 <div>
   <div class="card my-2 testimonial-card"  v-if="!detail && loader == false">
-    <div class="card-body d-flex row" >
-     
+    <div class="card-body d-flex row" >     
       <div class="py-0 py-lg-2 ps-4 col-6 col-lg-2 border-end border-info mb-3 mb-lg-4 mb-lg-0" v-if="offer.flightOffer">
         <div class="font-weight-bold font-size-16 mb-3">
           <i class="la la-plane-departure me-2"></i> {{ $date(offer.flightOffer.travelDate.fromDate).format('DD.MM.YYYY') }}
         </div>
         <div><span class="font-weight-bold">{{offer.flightOffer.flight.departureAirport.name }}</span> ({{offer.flightOffer.flight.departureAirport.code }})</div>
         <div>{{offer.flightOffer.flight.inboundDirectFlight ? 'Direktflug' : ''}}</div>
+        <HotelLegList :leg_list="offer.flightOffer.flight?.inboundLegList" />
       </div>
       <div class="py-0 py-lg-2 ps-4 col-6 col-lg-2 border-end border-info mb-3 mb-lg-4 mb-lg-0" v-if="offer.flightOffer">
         <div class="font-weight-bold font-size-16 mb-3">
@@ -16,9 +16,9 @@
         </div>
         <div><span class="font-weight-bold">{{offer.flightOffer.flight.arrivalAirport.name }}</span> ({{offer.flightOffer.flight.arrivalAirport.code }})</div>
         <div>{{offer.flightOffer.flight.outboundDirectFlight ? 'Direktflug' : ''}}</div>
+        <HotelLegList :leg_list="offer.flightOffer.flight?.outboundLegList" />
       </div>
        <div class="py-0 py-lg-2 ps-4 col-6 col-lg-4 border-end border-info mb-3 mb-lg-4 mb-lg-0" v-if="!offer.flightOffer">
-    
         <div>From : <span class="font-weight-bold"> {{ $date(offer.travelDate.fromDate).format('DD.MM.YYYY') }}</span> </div>
         <div>To : <span class="font-weight-bold">{{ $date(offer.travelDate.toDate).format('DD.MM.YYYY') }} </span> </div>
       </div>
