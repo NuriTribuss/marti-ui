@@ -12,7 +12,8 @@
                                 <h3 class="title pb-1">{{ booking.data.code }}</h3>
                                 <p class="pb-1" v-html="$t('booking.thankyou')"></p>
                                 <p>{{$t('booking.thankyou_message')}}</p>
-                                
+                                <p class="pb-1" v-html="$t('booking.complete_bankdetails')"></p>
+                                {{ booking.data.code }}                            
                             </div>
                         </div>
                     
@@ -28,7 +29,7 @@
                                     
                                 </div>
                                 <div class="col-6 col-lg-3 border-end p-3">
-                                    <h3 class="title text-color-6 font-weight-bold mb-3">{{ $t('offer.services')}}}</h3>
+                                    <h3 class="title text-color-6 font-weight-bold mb-3">{{ $t('offer.services')}}</h3>
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.boardType.name }}</div>
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.roomType.name }}</div>
                                     <div v-if="booking.data.offer"><i class="la la-check me-1"></i>{{booking.data.offer.commonOffer.hotelOffer.inclusiveList.join(',') }}</div>
@@ -40,19 +41,19 @@
 
                                 </div>
                                 <div class="col-6 col-lg-3 border-end p-3">
-                                    <h3 class="title text-color-6 font-weight-bold mb-3">Datum</h3>
+                                    <h3 class="title text-color-6 font-weight-bold mb-3">{{ $t('booking.complete_date')}}</h3>
                                     <div class="font-size-14">
                                         <div>Von :  {{ $date(booking.data.start).format('DD.MM.YYYY') }} </div>
                                         <div>Bis :   {{ $date(booking.data.end).format('DD.MM.YYYY') }}</div>     
                                         <div>Dauer :  {{ booking.data.duration }} {{ $t('common.days')}}</div>    
                                     </div>   
-                                    <h3 class="title text-color-6 font-weight-bold mb-1 mt-4">Personal Info</h3>
+                                    <h3 class="title text-color-6 font-weight-bold mb-1 mt-4">{{ $t('booking.complete_personal')}}</h3>
                                     <div>{{ booking.data.name}} {{ booking.data.surname}}</div> 
                                     <div>{{ booking.data.email}}</div>   
                                     <div>{{ booking.data.phone}}</div>                                
                                 </div>
                                 <div class="col-6 col-lg-3 p-3">
-                                    <h3 class="title text-color-6 font-weight-bold pb-2 mb-3">{{ $t('offer.is_available')}}</h3>
+                                    <h3 class="title text-color-6 font-weight-bold pb-2 mb-3">{{ $t('booking.complete_travellers')}}</h3>
                                     <ul class="font-size-14">
                                         <li v-for="(person,index) in booking.data.travellers" :key="index">{{index+1}}.{{person.name}} {{ person.surname }}</li>
                                     </ul>
