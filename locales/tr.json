@@ -151,7 +151,7 @@
         "duration_error" : "Belirtilen dönem için çok uzun",
         "duration_range_error" : "Seyahat süresini değiştirmek ister misiniz?",
         "date_reset" : "Başka bir tarih seçin",
-        "duration_set" : "Evet, {sayı} günlerini değiştir",
+        "duration_set" : "Evet, {number} günlerini değiştir",
         "sort.by" : "Sıralayın",
         "sort.asc" : "Alfabe",
         "sort.tempature" : "Hava Sıcaklığı",

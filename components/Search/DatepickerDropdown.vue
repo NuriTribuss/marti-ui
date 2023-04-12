@@ -103,10 +103,15 @@ export default {
     if(this.value != ''){
       this.dateRange = this.value;
     }
-    this.modal = new bootstrap.Modal('#duration-error-modal', {
+    try {
+      this.modal = new bootstrap.Modal('#duration-error-modal', {
           keyboard: false,
           backdrop : false,
-    })
+      })
+    } catch (error) {
+      console.log(error);
+    }
+   
      
   }
 };
