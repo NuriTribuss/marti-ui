@@ -300,13 +300,13 @@
               </ul>
             </div>
 
-            <div class="single-content-wrap">
-              <div class="tab-content margin-bottom-40px" id="myTabcontent">
-                <div
-                  class="tab-pane fade fade active show"
-                  id="offer"
-                  role="tabpanel"
-                >
+              <div class="single-content-wrap">
+                <div class="tab-content margin-bottom-40px" id="myTabcontent">
+                  <div
+                    class="tab-pane fade fade active show"
+                    id="offer"
+                    role="tabpanel"
+                  >
                   <div v-show="loaders.offer">
                     <LoaderOffer v-for="i in 10" :key="i" class="mb-1" />
                   </div>
