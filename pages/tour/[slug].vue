@@ -486,8 +486,7 @@
                 </div>
                 <button @click="checkout" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
-                  <span v-if="record?.price > 0">{{ (Number.parseFloat(record?.price).toFixed(2)) }} €</span>
-                  <span v-else>{{ $t('booking.title') }}</span>
+                  <span >{{ $t('booking.title') }} <span v-if="price > 0">{{  price  }} </span> € </span>
                 </button>
                 <div class="text-center my-2">{{ $t("tour.or") }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
@@ -523,6 +522,12 @@ export default {
         return 0;
       }
       return parseInt(this.selectedStation.price) *  this.adultCount + (parseInt(this.selectedStation.child_price) * this.childrenCount);
+    },
+    isAirplane(){
+      if(this.record?.departure_place == "Wien")
+        return true;
+      else
+        return false;
     }
   },
   methods: {
@@ -568,14 +573,7 @@ export default {
   mounted() {
     this.getData();
   },
-  computed:{
-    isAirplane(){
-      if(this.record?.departure_place == "Wien")
-        return true;
-      else
-        return false;
-    }
-  }
+
 };
 </script>
 
