@@ -300,17 +300,17 @@
               </ul>
             </div>
 
-            <div class="single-content-wrap">
-              <div class="tab-content margin-bottom-40px" id="myTabcontent">
-                <div
-                  class="tab-pane fade fade active show"
-                  id="offer"
-                  role="tabpanel"
-                >
+              <div class="single-content-wrap">
+                <div class="tab-content margin-bottom-40px" id="myTabcontent">
+                  <div
+                    class="tab-pane fade fade active show"
+                    id="offer"
+                    role="tabpanel"
+                  >
                   <div v-show="loaders.offer">
                     <LoaderOffer v-for="i in 10" :key="i" class="mb-1" />
                   </div>
-                  <SearchNotFound v-if="offerList.length == 0"/>
+                  <SearchNotFound v-if="offerList?.length == 0"/>
                   <HotelOffer
                     v-for="(offer, index) in offerList"
                     :key="index"
@@ -327,7 +327,7 @@
                           <button
                             type="button"
                             class="theme-btn theme-btn-orange w-100"
-                            v-if="total > offerList.length"
+                            v-if="total > offerList?.length"
                             @click="loadMore"
                           >
                             <i class="la la-refresh me-2"></i
@@ -493,7 +493,7 @@ export default {
         }
         if (vue.current_page == 1) {
           vue.offerList = result.data.response.offerList;
-          if (vue.offerList.length > 0) {
+          if (vue.offerList?.length > 0) {
             vue.firstOffer = vue.offerList[0];
           }
           vue.filter_data = result.data.response;
