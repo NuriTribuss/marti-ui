@@ -16,7 +16,7 @@
     "@vuelidate/core": "^2.0.0-alpha.40",
     "@vuelidate/validators": "^2.0.0-alpha.28",
     "dayjs": "^1.11.0",
-    "v-calendar": "^3.0.3",
+    "v-calendar": "v3.0.0-alpha.8",
     "vue-content-loader": "^2.0.1",
     "vue-easy-lightbox": "^1.4.1",
     "vue-i18n": "9.2.2"
