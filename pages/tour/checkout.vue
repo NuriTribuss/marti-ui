@@ -266,11 +266,21 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
+                      <FormBirthday
+                        @input-val="(e) => (traveller.birthday = e)"
+                        :value="''"
+                        :item_id="'traveller' + index + '_birthday'"
+                        :max="index === 0 ? 18 : 0"
+                        :checkoutclicked="checkout_clicked"
+                      />
                     </div>
                   </div>
                 </div>
-                 <div v-for="i in search.children.length" :key="i" class="mb-2">
+                <div
+                  v-for="(child, i) in bookingForm.children"
+                  :key="i"
+                  class="mb-2"
+                >
                   <span class="font-weight-bold "
                     >{{ i }}.{{ $t("search.children") }}</span
                   >
@@ -282,6 +292,7 @@
                         }}</label>
                         <div class="form-group">
                           <select
+                            v-model="child.gender"
                             class="form-control form-select ps-3"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
@@ -301,6 +312,7 @@
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
                           <input
+                            v-model="child.name"
                             class="form-control"
                             type="text"
                           />
@@ -316,6 +328,7 @@
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
                           <input
+                            v-model="child.surname"
                             class="form-control"
                             type="text"
                           />
@@ -326,7 +339,14 @@
                         <label class="label-text">{{
                           $t("user.profile.birthday")
                         }}</label>
-                      <FormBirthday :value="''"  :item_id="'traveller'+i+'_birthday'" />
+                      
+                      <FormBirthday
+                        @input-val="(e) => (child.birthday = e)"
+                        :value="''"
+                        :children="true"
+                        :item_id="'children' + i + '_birthday'"
+                        :checkoutclicked="checkout_clicked"
+                      />
                     </div>
                   </div>
                 </div>
@@ -581,6 +601,7 @@ import { required, email } from '@vuelidate/validators'
 export default {
   data() {
     return {
+      checkout_clicked: false,
       saving : false,
       source: {
         countries: [],
@@ -593,6 +614,7 @@ export default {
       step : [],
       search : null,
       bookingForm: {
+          tour_id: '',
           personal: {
             name : '',
             surname : '',
@@ -603,8 +625,8 @@ export default {
             city : '',
             country : 'AT',
           },
-          traveller: [],
-          children: [],
+          traveller: [{ name: "", surname: "", birthday: "", gender: "" }],
+          children: [{ name: "", surname: "", birthday: "", gender: "" }],
           booking: {},
           payment: {
               method: 1
@@ -666,35 +688,43 @@ export default {
       
     },
 
-    getBookingParams: function () {    
+    getBookingParams: function () {
+      var _this = this;
+      /*this.bookingForm.personal = this.bookingForm.personal || {};
+      this.bookingForm.personal.name = Marti.Member.name;
+      this.bookingForm.personal.surname = Marti.Member.surname;
+      this.bookingForm.personal.email = Marti.Member.username;
+      this.bookingForm.personal.gender = 0;*/
 
-        for (var i = 0; i < parseInt(this.search.adults); i++) {
-            this.bookingForm.traveller.push({
-                'name': '',
-                'surname': '',
-                'birthday': '',
-                'gender': 1
-            });
-        }
-
-        for (var i = 0; i < parseInt(this.search.children); i++) {
-            this.bookingForm.children.push({
-                'name': '',
-                'surname': '',
-                'birthday': '',
-            });
-        }
-        
+      this.bookingForm.traveller = [];
+      for (var i = 0; i < parseInt(this.search.adults); i++) {
+        this.bookingForm.traveller.push({
+          gender: "",
+          name: "",
+          surname: "",
+          birthday: "",
+        });
+      }
+      this.bookingForm.children = [];
+      for (var i = 0; i < parseInt(this.search.children); i++) {
+        this.bookingForm.children.push({
+          gender: "",
+          name: "",
+          surname: "",
+          birthday: "",
+        });
+      }
     },
 
-    checkFirstTraveller(){
-                
-        if (this.bookingForm.traveller_first === 1) {
-            this.bookingForm.traveller[0].name = this.bookingForm.personal.name;
-            this.bookingForm.traveller[0].surname = this.bookingForm.personal.surname;
-          //  this.bookingForm.traveller[0].gender = this.bookingForm.personal.gender;
-        }
+    checkFirstTraveller() {
+      if (this.bookingForm.traveller_first === 1) {
+        this.bookingForm.traveller[0].name = this.bookingForm.personal.name;
+        this.bookingForm.traveller[0].surname =
+          this.bookingForm.personal.surname;
+        this.bookingForm.traveller[0].gender = this.bookingForm.personal.gender;
+      }
     },
+
 
     openError(){
       setTimeout(function(){
@@ -718,7 +748,10 @@ export default {
     },
 
     async checkout(){
-
+      this.checkout_clicked = false; //dont remove this line.
+      setTimeout(() => {
+        this.checkout_clicked = true;
+      }, 50);
       const isFormCorrect = await this.v$.$validate()
       
       if (!isFormCorrect) {
@@ -728,6 +761,9 @@ export default {
       };
 
       this.saving = true;
+      console.log(this.bookingForm);
+      this.search.child_count = this.search.children;
+      delete this.search.children;
       $fetch("/api/engine/tour/create",{ method: 'POST', body: {...this.bookingForm, ...this.search}}).then(function(result){
        
           if(!result.status) {
