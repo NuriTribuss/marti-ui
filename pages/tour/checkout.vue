@@ -282,7 +282,7 @@
                   class="mb-2"
                 >
                   <span class="font-weight-bold "
-                    >{{ i }}.{{ $t("search.children") }}</span
+                    >{{ i + 1}}.{{ $t("search.children") }}</span
                   >
                   <div class="row mt-2">
                      <div class="col-lg-2 responsive-column">
@@ -404,7 +404,7 @@
                       <i class="la la-check icon-element"></i>
                       <img width="32" src="~assets/images/buspay.png" alt="" />
                       <span class="d-block pt-2">{{
-                        $t["offer.payment.bus_payment"]
+                        $t("offer.payment.bus_payment")
                       }}</span>
                     </a>
                   </li>

@@ -30,22 +30,22 @@
   
           <div class="section-block"></div>
           <h3 class="title text-color-6 font-weight-bold my-3">
-            {{ $t["tour.reservation_information"] }}
+            {{ $t("tour.reservation_information") }}
           </h3>
        <ul class="list-items list-items-2 py-2 font-size-14"  >
             <li>
-              <span><i class="la la-calendar"></i>{{  $t['tour.departure_date'] }}:</span>{{ (tour.period.start_date_pretty) }}
+              <span><i class="la la-calendar"></i>{{  $t('tour.departure_date') }}:</span>{{ (tour.period.start_date_pretty) }}
             </li>
             <li><i class="la la-calendar"></i>
-              <span>{{ $t['search.duration']}}:</span>{{ tour.plans.length }}
-              {{ $t["common.days"] }}
+              <span>{{ $t('search.duration')}}:</span>{{ tour.plans.length }}
+              {{ $t("common.days") }}
             </li>
            
           </ul>
            
           <div class="section-block"></div>
           <h3 class="title text-color-6 font-weight-bold my-3">
-            {{ $t["offer.services"] }}
+            {{ $t("offer.services") }}
           </h3>
        
           <div class="font-size-14" v-show="property.is_free == 1" v-for="(property,index) in tour.properties" :key="index">
@@ -54,17 +54,17 @@
           </div>    
           <div class="section-block"></div>
           <h3 class="title text-color-6 font-weight-bold my-3">
-            {{ $t["tour.payment_information"] }}
+            {{ $t("tour.payment_information") }}
           </h3>
        
           <div class="font-size-14" >
-            <div> {{  search.adults  }} {{  $t['search.adult'] }}</div>
-            <div> {{  search.children }} {{  $t['search.children'] }}</div>
+            <div> {{  search.adults  }} {{  $t('search.adult') }}</div>
+            <div> {{  search.children }} {{  $t('search.children') }}</div>
           </div>
           <div class="section-block"></div>
           <div class="d-flex justify-content-between mt-4">
             <h3 class="title font-weight-bold">
-            {{ $t["offer.amount"] }}<br> <small>{{  $t['offer.amount_text'] }}</small>
+            {{ $t("offer.amount") }}<br> <small>{{  $t('offer.amount_text') }}</small>
           </h3>
           <div class="font-size-24 font-weight-bold">
             € {{ price }}
