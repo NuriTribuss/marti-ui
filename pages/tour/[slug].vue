@@ -212,174 +212,229 @@
                 </div>
                 <!-- end single-content-item -->
                 <div class="section-block"></div>
-                <div
-                  class="
-                    single-content-item
-                    padding-top-20px padding-bottom-20px
-                  "
-                >
-                  <h3 class="title font-size-20 mb-3">Description</h3>
-                  <div v-html="record.content" class="mb-4 font-size-14"></div>
-
-                  <!-- end row -->
                   <div class="row">
-                    <div class="col-lg-6 responsive-column">
-                      <h3 class="title font-size-15 font-weight-medium pb-3">
-                        Included
-                      </h3>
-                      <ul class="list-items">
-                        <li
-                          v-for="(property, index) in record.properties"
-                          :key="index"
-                          v-show="property.is_free"
-                        >
-                          <i class="la la-check text-success me-2"></i
-                          >{{ property.title }}
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-6 responsive-column">
-                      <h3 class="title font-size-15 font-weight-medium pb-3">
-                        Not Included
-                      </h3>
-                      <ul class="list-items">
-                        <li
-                          v-for="(property, index) in record.properties"
-                          :key="index"
-                          v-show="property.is_free == 0"
-                        >
-                          <i class="la la-times text-danger me-2"></i
-                          >{{ property.title }}
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- end row -->
-                </div>
-                <!-- end single-content-item -->
-                <div class="section-block"></div>
-              </div>
-              <!-- end description -->
-              <div id="itinerary" class="page-scroll">
-                <div
-                  class="
-                    single-content-item
-                    padding-top-40px padding-bottom-40px
-                  "
-                >
-                  <h3 class="title font-size-20">{{ $t("tour.tour_plan") }}</h3>
-                  <div
-                    class="accordion accordion-item padding-top-20px border-0"
-                    id="accordionExample"
-                  >
-                    <div
-                      class="card"
-                      v-for="(day, index) in record.plans"
-                      :key="index"
-                    >
-                      <div class="card-header" :id="'day' + index">
-                        <h2 class="mb-0">
-                          <a
-                            class="
-                              btn btn-link
-                              d-flex
-                              align-items-center
-                              justify-content-between
-                              font-size-16
-                            "
-                            type="button"
-                            data-bs-toggle="collapse"
-                            :data-bs-target="'#dayCollapse' + index"
-                            aria-expanded="true"
-                            aria-controls="faqCollapseOne"
-                          >
-                            <span>{{ day.title }}</span>
+                    <div class="section-tab section-tab-3 pt-0 pt-lg-4">
+                      <ul class="nav nav-tabs hotel-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#tourdiscription" role="tab" aria-controls="tourdiscription" aria-selected="false">
+                            <i class="la la-info me-1"></i>
+                              Description
                           </a>
-                        </h2>
-                      </div>
-                      <div
-                        :id="'dayCollapse' + index"
-                        class="collapse" :class="{'show' : index == 0}"
-                        aria-labelledby="faqHeadingOne"
-                        data-parent="#accordionExample"
-                      >
-                        <div class="card-body d-flex align-items-center">
-                          <p>
-                            {{ day.content }}
-                          </p>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourplan" role="tab" aria-controls="tourplan" aria-selected="false">
+                            <i class="la la-route me-1"></i>
+                              plan
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourmaps" role="tab" aria-controls="tourmaps" aria-selected="false">
+                            <i class="la la-map me-1"></i>
+                              map
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourmedia" role="tab" aria-controls="tourmedia" aria-selected="false">
+                            <i class="la la-photo-video me-1"></i>
+                              media
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tournote" role="tab" aria-controls="tournote" aria-selected="false">
+                            <i class="la la-quote-left me-1"></i>
+                              note
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="single-content-wrap">
+                      <div class="tab-content margin-bottom-40px" id="myTabcontent">
+                        <!-- tourdiscription -->
+                        <div class="tab-pane fade fade active show" id="tourdiscription" role="tabpanel">
+                          <div  class="page-scroll card bg-white p-4">
+                            <div class="single-content-item padding-bottom-40px">
+                              <div class=" single-content-item padding-top-20px padding-bottom-20px ">
+                                <h3 class="title font-size-20 mb-3">Description</h3>
+                                <div v-html="record.content" class="mb-4 font-size-14"></div>
+
+                                <!-- end row -->
+                                <div class="row">
+                                  <div class="col-lg-6 responsive-column">
+                                    <h3 class="title font-size-15 font-weight-medium pb-3">
+                                      Included
+                                    </h3>
+                                    <ul class="list-items">
+                                      <li
+                                        v-for="(property, index) in record.properties"
+                                        :key="index"
+                                        v-show="property.is_free"
+                                      >
+                                        <i class="la la-check text-success me-2"></i
+                                        >{{ property.title }}
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-lg-6 responsive-column">
+                                    <h3 class="title font-size-15 font-weight-medium pb-3">
+                                      Not Included
+                                    </h3>
+                                    <ul class="list-items">
+                                      <li
+                                        v-for="(property, index) in record.properties"
+                                        :key="index"
+                                        v-show="property.is_free == 0"
+                                      >
+                                        <i class="la la-times text-danger me-2"></i
+                                        >{{ property.title }}
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <!-- end row -->
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- end tourdiscription -->
+                        <!-- tourplan -->
+                        <div class="tab-pane fade" id="tourplan" role="tabpanel">
+                          <div  class="page-scroll card bg-white p-4">
+                            <div class="single-content-item padding-bottom-40px">
+                              <div id="itinerary">
+                                <div class=" single-content-item padding-top-40px padding-bottom-40px">
+                                  <h3 class="title font-size-20">{{ $t("tour.tour_plan") }}</h3>
+                                  <div
+                                    class="accordion accordion-item padding-top-20px border-0"
+                                    id="accordionExample"
+                                  >
+                                    <div
+                                      class="card"
+                                      v-for="(day, index) in record.plans"
+                                      :key="index"
+                                    >
+                                      <div class="card-header" :id="'day' + index">
+                                        <h2 class="mb-0">
+                                          <a
+                                            class="
+                                              btn btn-link
+                                              d-flex
+                                              align-items-center
+                                              justify-content-between
+                                              font-size-16
+                                            "
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            :data-bs-target="'#dayCollapse' + index"
+                                            aria-expanded="true"
+                                            aria-controls="faqCollapseOne"
+                                          >
+                                            <span>{{ day.title }}</span>
+                                          </a>
+                                        </h2>
+                                      </div>
+                                      <div
+                                        :id="'dayCollapse' + index"
+                                        class="collapse" :class="{'show' : index == 0}"
+                                        aria-labelledby="faqHeadingOne"
+                                        data-parent="#accordionExample"
+                                      >
+                                        <div class="card-body d-flex align-items-center">
+                                          <p>
+                                            {{ day.content }}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- end single-content-item -->
+                                <div class="section-block"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end tourplan -->
+                        <!-- tourmaps -->
+                        <div class="tab-pane fade" id="tourmaps" role="tabpanel">
+                          <div  class="page-scroll card bg-white p-4">
+                            <div class="single-content-item padding-bottom-40px">
+                              <div id="location-map">
+                                <div class=" single-content-item padding-top-40px padding-bottom-40px">
+                                  <h3 class="title font-size-20">{{ $t("tour.map") }}</h3>
+                                  <div class="gmaps padding-top-30px" v-html="record.map"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end tourmaps -->
+                        <!-- tourmedia -->
+                        <div class="tab-pane fade" id="tourmedia" role="tabpanel">
+                          <div  class="page-scroll card bg-white p-4 mt-2">
+                            <div class="single-content-item padding-bottom-40px">
+                              <div id="photo">
+                                <div
+                                  class="
+                                    single-content-item
+                                    padding-bottom-40px
+                                  "
+                                >
+                                  <h3 class="title font-size-20 mb-2">{{ $t("tour.pictures") }}</h3>
+                                  <div>
+                                    <TourPhotoGallery v-if="record" :images="record.images"></TourPhotoGallery>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="video">
+                                <div
+                                  class="
+                                    single-content-item
+                                    padding-bottom-40px
+                                  "
+                                >
+                                  <h3 class="title font-size-20 mb-3">{{ $t("tour.video") }}</h3>
+                                  <div v-if="record" class="row">
+                                    <div class="embed-responsive embed-responsive-16by9" v-for="(video,index) in record?.videos" :key="index" v-html="video.embed">
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- end single-content-item -->
+                                <div class="section-block"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end tourmedia -->
+                        <!-- touralert -->
+                        <div class="tab-pane fade" id="tournote" role="tabpanel">
+                          <div  class="page-scroll card bg-white p-4 mt-2">
+                            <div class="single-content-item padding-bottom-40px">
+                              <div id="notes">
+                                <div
+                                  class="
+                                    single-content-item
+                                    padding-bottom-40px
+                                  "
+                                >
+                                  <h3 class="title font-size-20 mb-3">{{ $t("tour.important_notes_and_warnings") }}</h3>
+                                  <div v-if="record" class="bg-light p-4 row text-break text-center" v-html="record.agreegment" style="white-space: pre-line;">
+                                
+                                  </div>
+                                </div>
+                                <!-- end single-content-item -->
+                                <div class="section-block"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end touralert -->
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- end single-content-item -->
-                <div class="section-block"></div>
               </div>
-              <!-- end itinerary -->
-        
-              <!-- end faq -->
-              <div id="location-map" class="page-scroll">
-                <div
-                  class="
-                    single-content-item
-                    padding-top-40px padding-bottom-40px
-                  "
-                >
-                  <h3 class="title font-size-20">{{ $t("tour.map") }}</h3>
-                  <div class="gmaps padding-top-30px" v-html="record.map"></div>
-                </div>
-              </div>
-
-              <div id="photo" class="page-scroll">
-                <div
-                  class="
-                    single-content-item
-                    padding-bottom-40px
-                  "
-                >
-                  <h3 class="title font-size-20 mb-2">{{ $t("tour.pictures") }}</h3>
-                  <div>
-                    <TourPhotoGallery v-if="record" :images="record.images"></TourPhotoGallery>
-                  </div>
-                </div>
-              </div>
-
-              <div id="video" class="page-scroll">
-                <div
-                  class="
-                    single-content-item
-                    padding-bottom-40px
-                  "
-                >
-                  <h3 class="title font-size-20 mb-3">{{ $t("tour.video") }}</h3>
-                  <div v-if="record" class="row">
-                    <div class="col-12" v-for="(video,index) in record?.videos" :key="index" v-html="video.embed">
-
-                    </div>
-                  </div>
-                </div>
-                <!-- end single-content-item -->
-                <div class="section-block"></div>
-              </div>
-
-              <div id="notes" class="page-scroll">
-                <div
-                  class="
-                    single-content-item
-                    padding-bottom-40px
-                  "
-                >
-                  <h3 class="title font-size-20 mb-3">{{ $t("tour.important_notes_and_warnings") }}</h3>
-                  <div v-if="record" class="bg-light p-4 row text-break text-center" v-html="record.agreegment" style="white-space: pre-line;">
-                 
-                  </div>
-                </div>
-                <!-- end single-content-item -->
-                <div class="section-block"></div>
-              </div>
-
-              
-              <!-- end location-map -->
             </div>
           </div>
           <div class="col-lg-4">

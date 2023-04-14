@@ -13,20 +13,26 @@
           {{ $t('offer.flight_point')}} : 
         </div>
         <div v-for="(flight,index) in active_offer.commonOffer.flightOffer.flight.outbound.legList" :key="index" class="  ">
+            
             <div class="d-flex justify-content-between">
                 <div>{{flight.flightCarrierName}} <small>{{flight.flightNumber}}</small></div>
                 <div></div>
             </div>
+            <div class="d-flex justify-content-center bg-rgb-6">
+              <div class="col-1 mx-2 pt-2">
+                <i class="la la-plane-departure font-size-24"></i>
+              </div>
+              <div class="col-9 pt-2">
+                <b >{{ $date(flight.arrivalDate).format('DD.MM.YYYY') }}</b>
+              </div>
+            </div>
             <div class="d-flex justify-content-between bg-rgb-6 px-4 py-2  font-size-12 line-height-20" >
-              <div class="col-5">
+              <div class="col-6">
                 <div class="font-weight-bold">{{flight.departureAirportCode}}</div>
                 <div>{{flight.departureAirportName}}</div>
                 <div class="text-color-12 font-weight-bold">{{flight.departureTime}}</div>
               </div>
-              <div class="col-2">
-                <i class="la la-plane-departure font-size-24"></i>
-              </div>
-              <div class="col-5">
+              <div class="col-6">
                 <div class="font-weight-bold">{{flight.arrivalAirportCode}}</div>
                 <div>{{flight.arrivalAirportName}}</div>
                 <div class="text-color-12 font-weight-bold">{{flight.arrivalTime}}</div>
@@ -41,16 +47,21 @@
                 <div>{{flight.flightCarrierName}} <small>{{flight.flightNumber}}</small></div>
                 <div></div>
             </div>
+            <div class="d-flex justify-content-center bg-rgb-6">
+              <div class="col-1 mx-2 pt-2">
+                <i class="la la-plane-departure font-size-24"></i>
+              </div>
+              <div class="col-9 pt-2">
+                <b >{{ $date(flight.arrivalDate).format('DD.MM.YYYY') }}</b>
+              </div>
+            </div>
             <div class="d-flex justify-content-between bg-rgb-6 px-4 py-2 font-size-12 line-height-20 " >
-              <div class="col-5">
+              <div class="col-6">
                 <div class="font-weight-bold">{{flight.departureAirportCode}}</div>
                 <div>{{flight.departureAirportName}}</div>
                 <div class="text-color-12 font-weight-bold">{{flight.departureTime}}</div>
               </div>
-              <div class="col-2">
-                <i class="la la-plane-departure font-size-24"></i>
-              </div>
-              <div class="col-5">
+              <div class="col-6">
                 <div class="font-weight-bold">{{flight.arrivalAirportCode}}</div>
                 <div>{{flight.arrivalAirportName}}</div>
                 <div class="text-color-12 font-weight-bold">{{flight.arrivalTime}}</div>
