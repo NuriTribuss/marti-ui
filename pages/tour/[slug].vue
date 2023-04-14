@@ -218,31 +218,31 @@
                         <li class="nav-item">
                           <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#tourdiscription" role="tab" aria-controls="tourdiscription" aria-selected="false">
                             <i class="la la-info me-1"></i>
-                              Description
+                              {{ $t("tour.description") }}
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourplan" role="tab" aria-controls="tourplan" aria-selected="false">
                             <i class="la la-route me-1"></i>
-                              plan
+                            {{ $t("tour.tour_plan") }}
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourmaps" role="tab" aria-controls="tourmaps" aria-selected="false">
                             <i class="la la-map me-1"></i>
-                              map
+                            {{ $t("tour.map") }}
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tourmedia" role="tab" aria-controls="tourmedia" aria-selected="false">
                             <i class="la la-photo-video me-1"></i>
-                              media
+                            {{ $t("tour.pictures") }}
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tournote" role="tab" aria-controls="tournote" aria-selected="false">
                             <i class="la la-quote-left me-1"></i>
-                              note
+                            {{ $t("tour.notice") }}
                           </a>
                         </li>
                       </ul>
@@ -255,14 +255,14 @@
                           <div  class="page-scroll card bg-white p-4">
                             <div class="single-content-item padding-bottom-40px">
                               <div class=" single-content-item padding-top-20px padding-bottom-20px ">
-                                <h3 class="title font-size-20 mb-3">Description</h3>
+                                <h3 class="title font-size-20 mb-3"> {{ $t("tour.description") }} </h3>
                                 <div v-html="record.content" class="mb-4 font-size-14"></div>
 
                                 <!-- end row -->
                                 <div class="row">
                                   <div class="col-lg-6 responsive-column">
                                     <h3 class="title font-size-15 font-weight-medium pb-3">
-                                      Included
+                                      {{ $t("tour.included") }} 
                                     </h3>
                                     <ul class="list-items">
                                       <li
@@ -277,7 +277,7 @@
                                   </div>
                                   <div class="col-lg-6 responsive-column">
                                     <h3 class="title font-size-15 font-weight-medium pb-3">
-                                      Not Included
+                                      {{ $t("tour.not_included") }} 
                                     </h3>
                                     <ul class="list-items">
                                       <li
