@@ -1,4 +1,5 @@
 <template>
+   <Teleport to="body">
   <div class="offcanvas offcanvas-end" id="departure-modal">
     <div class="offcanvas-header">
       <h5 id="offcanvasRightLabel">{{ $t('search.departure')}}</h5>
@@ -31,6 +32,7 @@
         </div>
     </div>
   </div>
+  </Teleport>
 </template>
 
 <script>

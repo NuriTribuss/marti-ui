@@ -1,45 +1,47 @@
 <template>
-  <div class="offcanvas offcanvas-end" id="datepicker-modal">
-    <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Reisedatum</h5>
-      <a
-        type="button"
-        class="btn"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-        ><i class="la la-close"></i
-      ></a>
-    </div>
-    <div class="offcanvas-body mobile-datepicker">
-        <DatePicker v-model="range" is-range  :rows="2" :step="1"  color="orange"  class="px-5 border-0"></DatePicker>
-       
-        <div class="offcanvas-footer ">
-             <a
-            class="btn btn-light"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-        >{{ $t('user.cancel')}}</a>
-        <a @click="setDate"
-            class="btn theme-btn theme-btn-orange line-height-28 "
-        >{{ $t('search.take')}}</a>
-        </div>
+   <Teleport to="body">
+    <div class="offcanvas offcanvas-end" id="datepicker-modal">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Reisedatum</h5>
+        <a
+          type="button"
+          class="btn"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+          ><i class="la la-close"></i
+        ></a>
+      </div>
+      <div class="offcanvas-body mobile-datepicker">
+          <DatePicker v-model="range" is-range  :rows="2" :step="1"  color="orange"  class="px-5 border-0"></DatePicker>
+        
+          <div class="offcanvas-footer sticky-bottom pb-4">
+              <a
+              class="btn btn-light"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+          >{{ $t('user.cancel')}}</a>
+          <a @click="setDate"
+              class="btn theme-btn theme-btn-orange line-height-28 "
+          >{{ $t('search.take')}}</a>
+          </div>
 
-       
-    </div>
-    <div class="modal fade" id="mobile-duration-error-modal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body text-center">
-                {{ $t('search.duration_range_error')}}
-              </div>
-              <div class="modal-footer border-0 justify-content-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ $t('search.date_reset')}}</button>
-                <button type="button" class="btn theme-btn-orange" @click="setDuration">{{ $t('search.duration_set').replace('{number}',diff)}}</button>
+        
+      </div>
+      <div class="modal fade" id="mobile-duration-error-modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body text-center">
+                  {{ $t('search.duration_range_error')}}
+                </div>
+                <div class="modal-footer border-0 justify-content-center pb-4">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ $t('search.date_reset')}}</button>
+                  <button type="button" class="btn theme-btn-orange" @click="setDuration">{{ $t('search.duration_set').replace('{number}',diff)}}</button>
+                </div>
               </div>
             </div>
-          </div>
-      </div>
-  </div>
+        </div>
+    </div>
+</Teleport>
 </template>
 
 

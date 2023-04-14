@@ -1,5 +1,5 @@
 <template>
-  <header class="header-area sticky-top">
+  <header class="header-area "><!-- sticky-top-->
     <div class="header-top-bar padding-right-100px padding-left-100px">
       <div class="container">
         <div class="row align-items-center">
