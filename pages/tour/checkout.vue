@@ -474,9 +474,9 @@
               <div class="custom-checkbox">
                     <input id="aggregment" ref='bookingForm.aggregment' type="checkbox" v-model="bookingForm.aggregment" :true-value="1" :false-value="''">
                     <label for="aggregment" class="font-size-12">
-                      <div class="mb-2">{{ $t('offer.condition1')}}</div>
-                      <p class="mb-2"> {{ $t('offer.condition2')}}</p>
-                      <p> {{ $t('offer.condition3')}}</p>
+                      <div class="mb-2" v-html="$t('offer.condition1')"></div>
+                      <p class="mb-2" v-html="$t('offer.condition2')"></p>
+                      <p v-html="$t('offer.condition3')"></p>
                     </label>
               </div>
               <div class="text-danger font-size-14" v-for="error of v$.bookingForm.aggregment.$errors" :key="error.$uid">
@@ -485,7 +485,7 @@
                <div class="custom-checkbox mt-4">
                     <input id="tour_operator" type="checkbox"  :true-value="1" :false-value="0">
                     <label for="tour_operator" class="font-size-12">
-                      <p class="mb-2">{{ $t('offer.tourOperator.aggregment')}}</p>
+                      <p class="mb-2" v-html="$t('offer.tourOperator.aggregment')"></p>
                     </label>
               </div>
             </div>

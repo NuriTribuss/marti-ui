@@ -33,8 +33,8 @@
                             <!-- <swiper-slide v-show="hotel.hotel.mediaData" v-for="(hotel, i) in hotels" v-bind:key="i">
                                 {{ hotel.hotel.mediaData }}
                             </swiper-slide> -->
-                            <swiper-slide v-show="hotel.hotel.mediaData" v-for="(hotel, i) in hotels" v-bind:key="i">
-                                <HotelCardSmall @searchHotel="searchHotel" v-bind:hotel="hotel.hotel" v-if="hotel.hotel.mediaData"></HotelCardSmall>
+                            <swiper-slide v-show="hotel.mediaData" v-for="(hotel, i) in hotels" v-bind:key="i">
+                                <HotelCardSmall @searchHotel="searchHotel" v-bind:hotel="hotel" v-if="hotel.mediaData"></HotelCardSmall>
                             </swiper-slide>
                         </swiper>
                     </div>
@@ -69,22 +69,24 @@ export default {
     methods: {
 
         getResult() {
+            let query  = search.get();
             let vue = this;
             vue.loader.hotels = true;
             
             $fetch('/api/engine/Favourite/get').then((r) => {
                 vue.favourites = r.data;
                 let favourites_gids = vue.favourites.map(x => x.gid_id);
-                let giata_list = {
-                    codes : favourites_gids
-                };
-                $fetch("/api/engine/hotel/listByGiata", { method: 'POST', body: giata_list }).then(function (result) {
+                query['giataIdList']= favourites_gids;
+                query['destination'] = [];
+                $fetch("/api/engine/hotel/get", { method: 'POST', body: query }).then(function (result) {
+                    console.log(result.data.response.hotelList);
                     vue.loader.hotels = false;
                     if (!result.status) {
                         vue.error = true;
+
                         return false;
                     }
-                    vue.hotels = result.data.response;
+                    vue.hotels = result.data.response.hotelList;
 
                 })
             })
