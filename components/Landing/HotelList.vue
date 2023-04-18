@@ -47,7 +47,7 @@ export default {
                 hotels: false,
             },
             hotels: [],
-            searchData: {}
+            searchData: {},
         }
     },
     methods: {
@@ -56,6 +56,7 @@ export default {
             let vue = this;
             vue.loader.hotels = true;
             query['giataIdList']= related_ids;
+            query['departure']= {"code": "VIE", "name": "Wien" };
             $fetch("/api/engine/hotel/get", { method: 'POST', body: query }).then(function (result) {
 
                 vue.loader.hotels = false;

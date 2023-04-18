@@ -78,6 +78,7 @@ export default {
                 let favourites_gids = vue.favourites.map(x => x.gid_id);
                 query['giataIdList']= favourites_gids;
                 query['destination'] = [];
+                query['departure']= {"code": "VIE", "name": "Wien" };
                 $fetch("/api/engine/hotel/get", { method: 'POST', body: query }).then(function (result) {
                     console.log(result.data.response.hotelList);
                     vue.loader.hotels = false;

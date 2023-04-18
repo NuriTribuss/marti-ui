@@ -29,7 +29,11 @@
       >
         <div class="mt-3 mt-lg-0 w-100">
           <div class="px-4 py-1 bg-rgb-3 ">
-            <p v-if="hotel.offerList" class="font-weight-bold my-2">{{ offer ?  offer.travelDate.duration : ''}} {{$t('common.days')}} , All İnclusive</p>
+            <p v-if="hotel.offerList" class="font-weight-bold my-2">
+              <span v-if="offer">{{ offer.travelDate.duration }} {{$t('common.days')}}, </span> 
+              <span v-if="offer">{{ offer.boardType.name }}, </span>
+              <span v-if="offer">{{ localize_date(offer.travelDate.fromDate) }}</span>
+            </p>
             <button
               @click="go(hotel.giata.hotelId,hotel.name_sef)"
               class="rounded theme-btn theme-btn-blue text-white my-2 w-100 font-weight-bold"
@@ -50,9 +54,12 @@
   <!-- end card-item -->
 </template>
 <script>
-
+import dayjs from 'dayjs'
+import { LocalData } from 'dayjs/locale/de'
+dayjs.locale('de');
+dayjs().locale('de').format();
 export default {
-  
+  components : {dayjs},
   props: ['hotel'],
   data() {
     return {}
@@ -60,6 +67,10 @@ export default {
   methods : {
     go(id,sef){
       this.$emit('searchHotel',id,sef)
+    },
+    localize_date(dt)
+    {
+      return dayjs(dt).format('ddd DD. MMM')
     }
   },
   computed: {
