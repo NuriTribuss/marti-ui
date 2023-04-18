@@ -80,7 +80,6 @@ export default {
                 query['destination'] = [];
                 query['departure']= {"code": "VIE", "name": "Wien" };
                 $fetch("/api/engine/hotel/get", { method: 'POST', body: query }).then(function (result) {
-                    console.log(result.data.response.hotelList);
                     vue.loader.hotels = false;
                     if (!result.status) {
                         vue.error = true;

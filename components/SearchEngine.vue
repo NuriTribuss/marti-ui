@@ -292,7 +292,6 @@ export default {
     },
 
     setDuration(duration){
-      console.log(this.filters);
       this.filters.duration = duration;
       //this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.filters)} });
     },

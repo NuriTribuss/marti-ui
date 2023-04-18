@@ -109,7 +109,6 @@ export default {
             return false;
           }
           vue.filter_data = result.data.response;
-          console.log(vue.filter_data)
       })
     }
   },

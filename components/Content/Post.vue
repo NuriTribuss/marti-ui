@@ -34,7 +34,6 @@ export default {
             return false;
           }
 
-          console.log(result.data);
           vue.record = result.data.translate.filter(function(item){
             return item.language == vue.locale;
           })[0];
