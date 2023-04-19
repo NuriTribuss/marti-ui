@@ -138,6 +138,7 @@ export default {
         'code' : id ,
         'type' : 'hotel'
       };
+
       location.href = '/hotel/'+sef+'?f='+ JSON.stringify(this.searchData)
      // this.$router.push({ path: '/hotel/'+sef, query: { f: JSON.stringify(this.searchData)} })
     },

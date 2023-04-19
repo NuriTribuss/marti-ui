@@ -97,6 +97,10 @@ export default {
                 'code': id,
                 'type': 'hotel'
             };
+            this.searchData['departure']= {
+                'code': 'VIE', 
+                'name': 'Wien'
+            };
             location.href = '/hotel/' + sef + '?f=' + JSON.stringify(this.searchData)
         },
     },
