@@ -69,6 +69,8 @@ export default {
                 vue.title = title;
 
             })
+            query['giataIdList']= [];
+            query['departure']= {"code": "", "name": "Beliebig" };
         },
         searchHotel(id, sef) {
 

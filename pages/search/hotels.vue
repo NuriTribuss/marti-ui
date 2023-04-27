@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumbSmall :step="[breadcrumb]" />
+  <!-- <BreadCrumbSmall :step="[breadcrumb]" /> -->
   <section class="breadcrumb-area py-2 d-none d-lg-block">
     <div class="breadcrumb-wrap">
       <div class="container">

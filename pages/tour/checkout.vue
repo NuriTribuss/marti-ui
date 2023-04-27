@@ -761,7 +761,6 @@ export default {
       };
 
       this.saving = true;
-      console.log(this.bookingForm);
       this.search.child_count = this.search.children;
       delete this.search.children;
       $fetch("/api/engine/tour/create",{ method: 'POST', body: {...this.bookingForm, ...this.search}}).then(function(result){

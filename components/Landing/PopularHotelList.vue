@@ -89,19 +89,34 @@ export default {
                     vue.hotels = result.data.response.hotelList;
 
                 })
+                query['giataIdList']= [];
+                query['departure']= {"code": "", "name": "Beliebig" };
             })
         },
-        searchHotel(id, sef) {
+        // searchHotel(id, sef) {
 
-            this.searchData['destination'] = {
+        //     this.searchData['destination'] = {
+        //         'code': id,
+        //         'type': 'hotel'
+        //     };
+        //     this.searchData['departure']= {
+        //         'code': 'VIE', 
+        //         'name': 'Wien'
+        //     };
+        //     location.href = '/hotel/' + sef + '?f=' + JSON.stringify(this.searchData)
+        // },
+        searchHotel(id, sef) {
+            let query2  = search.get();
+            query2['destination'] = {
                 'code': id,
                 'type': 'hotel'
             };
-            this.searchData['departure']= {
+            query2['departure']= {
                 'code': 'VIE', 
                 'name': 'Wien'
             };
-            location.href = '/hotel/' + sef + '?f=' + JSON.stringify(this.searchData)
+            query2['giataIdList']=[id];
+            location.href = '/search/hotels/' + '?f=' + JSON.stringify(query2)
         },
     },
     mounted(){
