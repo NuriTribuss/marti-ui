@@ -116,7 +116,7 @@ export default {
                 'name': 'Wien'
             };
             query2['giataIdList']=[id];
-            location.href = '/search/hotels/' + '?f=' + JSON.stringify(query2)
+            location.href = '/search/hotels' + '?f=' + JSON.stringify(query2)
         },
     },
     mounted(){

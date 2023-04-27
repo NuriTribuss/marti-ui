@@ -484,9 +484,12 @@ export default {
     getOffer() {
       let vue = this;
       vue.loaders.offer = true;
+      let query = search.get();
+      if(query.destination?.code)
+        query['giataIdList']=[query.destination.code];
       $fetch("/api/engine/offer/get", {
         method: "POST",
-        body: { page: this.current_page, ...search.get() },
+        body: { page: this.current_page, ...query },
       }).then(function (result) {
         if (!result.status) {
           return false;

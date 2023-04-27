@@ -964,6 +964,8 @@ export default {
         this.getBookingParams();
 
         let vue = this;
+        if(this.search.destination?.code)
+          this.search['giataIdList']=[this.search.destination.code];
         $fetch("/api/engine/hotel/get",{ method: 'POST', body: {...this.search} }).then(function(result){
           try {
             if(result.status && result.code == '200') {

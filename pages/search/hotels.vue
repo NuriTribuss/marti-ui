@@ -1,5 +1,5 @@
 <template>
-  <!-- <BreadCrumbSmall :step="[breadcrumb]" /> -->
+  <BreadCrumbSmall :step="[breadcrumb]" />
   <section class="breadcrumb-area py-2 d-none d-lg-block">
     <div class="breadcrumb-wrap">
       <div class="container">
@@ -85,7 +85,10 @@ export default {
 
        vue.error = false;
        vue.loader.hotels = true;
-       vue.breadcrumb = this.searchData.destination.name;
+       vue.breadcrumb = this.searchData.destination?.name;
+       if(vue.hotels[0]?.giata?.hotelName){
+          vue.breadcrumb = vue.hotels[0].giata.hotelName;
+       }
 
        $fetch("/api/engine/hotel/get",{ method: 'POST', body: {page : this.current_page , ...searchData} }).then(function(result){
 
