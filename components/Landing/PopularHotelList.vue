@@ -117,6 +117,7 @@ export default {
             };
             query2['giataIdList']=[id];
             location.href = '/search/hotels' + '?f=' + JSON.stringify(query2)
+            query2['giataIdList']=[];
         },
     },
     mounted(){

@@ -1142,11 +1142,13 @@ export default {
           searchObj.destination.code = hotelObj.location.region.code;
           searchObj.destination.type = crumbType;
           searchObj.destination.name = hotelObj.location.region.name;
+          searchObj.giataIdList = [];
           break;
         case "location":
           searchObj.destination.code = hotelObj.location.code;
           searchObj.destination.type = crumbType;
           searchObj.destination.name = hotelObj.location.name;
+          searchObj.giataIdList = [];
           break;
         case "hotel":
           searchObj.destination.code = hotelObj.giata.hotelId;

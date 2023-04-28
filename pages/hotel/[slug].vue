@@ -506,6 +506,7 @@ export default {
         }
 
         vue.loaders.offer = false;
+        query['giataIdList']=[];
       });
     },
   },
