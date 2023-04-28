@@ -681,7 +681,7 @@ export default {
           return false;
         }
         self.tour = result.data;
-        self.getBookingParams();
+        self.getBookingParams(); 
       }).finally(()=> {
         self.loader = false;
       });

@@ -83,7 +83,7 @@
                           <h3 class="title font-size-15 font-weight-medium">
                             {{ $t("tour.reservation_count") }}
                           </h3>
-                          <span class="font-size-13">{{ record?.period.max_count - record?.period.available_count }} / {{ record?.period.max_count }}</span>
+                          <span class="font-size-13">{{ reserved_count }} / {{ (record?.period.max_count ? record?.period.max_count : '0') }}</span>
                         </div>
                       </div>
                       <!-- end single-tour-feature -->
@@ -513,6 +513,7 @@ export default {
       selectedStation  : null,
       record: null,
       loader: true,
+      reserved_count: 0,
     };
   },
 
@@ -531,6 +532,9 @@ export default {
         return false;
     },
     isDisabled(){
+      let available = (this.record?.period.max_count ? this.record?.period.max_count : 0)
+      if(this.reserved_count >= available)
+        return true;
       return false;
     },
   },
@@ -545,6 +549,17 @@ export default {
         vue.record = result.data;
         vue.selectedPeriod = vue.record.periods[0]
         vue.selectedStation = vue.record.periods[0].stations[0]
+        vue.loader = false;
+      });
+      $fetch("/api/engine/tour/fetch/"+this.$route.query.tid).then(function (result) {
+        if (!result.status) {
+          return false;
+        }
+        var reserved = result.data.filter(function(item) { return item.status == 1; });
+        if(reserved.length > 0)
+        {
+            vue.reserved_count = reserved[0]?.cnt;
+        }        
         vue.loader = false;
       });
     },
