@@ -1,6 +1,5 @@
 <template>
-  <BreadCrumbSmall :step="step"/>
-  
+  <BreadCrumbNew :step="step" v-if="tour" />
   <section class="booking-area padding-top-20px padding-bottom-70px">
     <div class="container">
       <button
@@ -682,6 +681,8 @@ export default {
         }
         self.tour = result.data;
         self.getBookingParams(); 
+        self.step.push(self.getCrumbObject(self.tour, "tour"));
+        self.step.push({ name: "Bestätigung" });
       }).finally(()=> {
         self.loader = false;
       });
@@ -746,7 +747,15 @@ export default {
         el.scrollIntoView({ behavior: "smooth" });
       }
     },
-
+    getCrumbObject(tourObj, crumbType) {
+      switch (crumbType) {
+        case "tour":
+          return {
+            name: tourObj.title,
+            to: `/tour/${tourObj.seo_url}?tid=${tourObj.id}`
+          };
+      }
+    },
     async checkout(){
       this.checkout_clicked = false; //dont remove this line.
       setTimeout(() => {
