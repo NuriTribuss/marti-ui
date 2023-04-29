@@ -484,8 +484,8 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="isDisabled" class="text-center my-2 text-danger"><b>{{ $t("tour.available_error_title") }}</b></div>
-                <button @click="checkout" :disabled="isDisabled" class="btn btn-block w-100 btn-primary rounded-0">
+                <div v-if="isDisabled == true" class="text-center my-2 text-danger"><b>{{ $t("tour.available_error_title") }}</b></div>
+                <button @click="checkout" :disabled="isDisabled == true" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
                   <span >{{ $t('booking.title') }} <span v-if="price > 0">{{  price  }} </span> € </span>
                 </button>
@@ -533,7 +533,8 @@ export default {
     },
     isDisabled(){
       let available = (this.record?.period.max_count ? this.record?.period.max_count : 0)
-      if(this.reserved_count >= available)
+      let reserved_selected =  parseInt(this.reserved_count)+ parseInt(this.adultCount)+ parseInt(this.childrenCount);
+      if(reserved_selected > parseInt(available))
         return true;
       return false;
     },
@@ -555,11 +556,7 @@ export default {
         if (!result.status) {
           return false;
         }
-        var reserved = result.data.filter(function(item) { return item.status == 1; });
-        if(reserved.length > 0)
-        {
-            vue.reserved_count = reserved[0]?.cnt;
-        }        
+        vue.reserved_count = result.data.successReservesCount;      
         vue.loader = false;
       });
     },
