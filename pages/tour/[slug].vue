@@ -550,15 +550,20 @@ export default {
         vue.record = result.data;
         vue.selectedPeriod = vue.record.periods[0]
         vue.selectedStation = vue.record.periods[0].stations[0]
+        let params = {
+          'tour_id': vue.$route.query.tid,
+          'period_id' : vue.record?.periods[0]?.id
+        };
+        //$fetch("/api/engine/tour/fetch/"+JSON.stringify(params)).then(function (result2) {
+        $fetch("/api/engine/tour/getTourInfo",{ method: 'POST', body: {...params}}).then(function(result2){
+          if (!result2.status) {
+            return false;
+          }
+          vue.reserved_count = result2.data.successReservesCount;      
+        });
         vue.loader = false;
       });
-      $fetch("/api/engine/tour/fetch/"+this.$route.query.tid).then(function (result) {
-        if (!result.status) {
-          return false;
-        }
-        vue.reserved_count = result.data.successReservesCount;      
-        vue.loader = false;
-      });
+      
     },
     translate(data, language) {
       for (var i = 0; i < data.length; i++) {

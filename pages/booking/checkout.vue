@@ -511,6 +511,28 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-12 responsive-column">
+                    <div class="input-box">
+                      <label class="label-text">{{$t("bookingForm.comment")}}</label>
+                      <div class="form-group">
+                        <span class="la la-comment form-icon"></span>
+                        <textarea 
+                          v-model="bookingForm.comment"
+                          ref="bookingForm.comment"
+                          class="form-control"
+                          type="text"
+                          :placeholder="$t('bookingForm.comment')"
+                        ></textarea>
+                        <!-- <div class="text-danger font-size-14" v-for="error of v$.bookingForm.personal.name.$errors" :key="error.$uid">
+                            <div class="error-msg">*  {{  $t(error.$propertyPath) }}</div>
+                          </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end col-lg-6 -->
+                  <!-- end col-lg-6 -->
+                </div>
               </div>
               <!-- end contact-form-action -->
             </div>
@@ -763,7 +785,6 @@
               </div>
             </div>
           </div>
-
           <!-- end form-box -->
         </div>
 
@@ -868,6 +889,7 @@ export default {
         payment: {
           method: 1,
         },
+        comment: "",
         coupon: "",
         aggregment: "",
         traveller_first: 1,

@@ -288,6 +288,7 @@
     "bookingForm.personal.state": "Postleitzahl eingeben",
     "bookingForm.personal.city": "Städtenamen eingeben",
     "bookingForm.personal.gender": "Geschlecht eingeben",
+    "bookingForm.comment": "Kommentar",
     "bookingForm":{
         "traveller_gender_required":"geder require de",
         "traveller_name_required": "name require de",
