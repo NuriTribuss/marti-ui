@@ -32,7 +32,7 @@
               justify-content-between
             "
           >
-            <label>Erwach.</label>
+            <label>{{ $t('search.adult_dropdown')}}</label>
             <div class="qtyBtn d-flex align-items-center">
               <div class="qtyDec" @click="filter.adults--">
                 <i class="la la-minus"></i>
@@ -66,7 +66,7 @@
           </div>
           <div class="my-4" >     
               <div v-for="(children,index) in filter.children" :key="index" >
-                <div> {{ index+1}}.Kind <span class="float-end">{{ children.jahre }} Jahre </span></div>
+                <div> {{ index+1}}.{{ $t('search.children')}} <span class="float-end">{{ children.jahre }} {{ $t('common.age')}} </span></div>
                 <input type="range" min="1" max="12" v-model="children.jahre" class="form-range" >
               </div>
           </div>
