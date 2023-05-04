@@ -704,6 +704,7 @@ export default {
         }
         self.tour = result.data;
         self.getBookingParams(); 
+        self.step.push({name: 'tur',to: '/tour'});
         self.step.push(self.getCrumbObject(self.tour, "tour"));
         self.step.push({ name: "Bestätigung" });
       }).finally(()=> {

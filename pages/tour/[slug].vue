@@ -1,6 +1,7 @@
 <template>
   <div>
-    <BreadCrumbSmall  v-if="record" :step="[record.title]" />
+    <!-- <BreadCrumbSmall  v-if="record" :step="[record.title]" /> -->
+    <BreadCrumbNew :step="step_new" />
     <section class="breadcrumb-area py-2 d-none d-lg-block">
       <div class="breadcrumb-wrap">
         <div class="container">
@@ -514,6 +515,7 @@ export default {
       record: null,
       loader: true,
       reserved_count: 0,
+      step_new: [],
     };
   },
 
@@ -561,6 +563,8 @@ export default {
           }
           vue.reserved_count = result2.data.successReservesCount;      
         });
+        vue.step_new.push({name: 'tur',to: '/tour'});
+        vue.step_new.push({name: vue.record.title});
         vue.loader = false;
       });
       
