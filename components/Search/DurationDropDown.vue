@@ -47,12 +47,12 @@ export default {
     return {
       duration: 7,
       options: [
-        { label: "7 Tage", value: 7 },
-        { label: "14 Tage", value: 14 },
-        { label: "1-4 Tage", value: 1 },
-        { label: "5-8 Tage", value: 5 },
-        { label: "9-12 Tage", value: 9 },
-        { label: "Beliebig", value: 0 },
+        { label: "7 "+this.$t('common.days'), value: 7 },
+        { label: "14 "+this.$t('common.days'), value: 14 },
+        { label: "1-4 "+this.$t('common.days'), value: 1 },
+        { label: "5-8 "+this.$t('common.days'), value: 5 },
+        { label: "9-12 "+this.$t('common.days'), value: 9 },
+        { label: this.$t('common.beliebig'), value: 0 },
       ],
     };
   },
