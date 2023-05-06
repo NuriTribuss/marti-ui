@@ -84,21 +84,16 @@
                   
                   <div class="form-group mb-0">
                     <span class="la la-envelope form-icon"></span>
-                    <input
+                    <input v-model="subcriber_email" id="emailinput"
                       class="form-control"
                       type="email"
                       name="email"
                       placeholder="E-Mail"
                     />
-                    <button
-                      class="theme-btn theme-btn-small submit-btn"
-                      type="submit"
-                    >
-                      {{ $t('footer.subscribe_button') }}
+                    <button @click="submit_email" class="theme-btn theme-btn-small submit-btn" type="button">{{ $t('footer.subscribe_button') }}
                     </button>
-                    <span class="font-size-14 pt-1 text-white-50"
-                      ><i class="la la-lock mr-1"></i>{{ $t('footer.subscribe_info') }}</span
-                    >
+                    <span class="font-size-14 pt-1 text-white-50"><i class="la la-lock mr-1"></i>{{ $t('footer.subscribe_info') }}</span>
+                    <!-- inja bayad message nemayesh dahad. agar success bood payam successe sabz va agar nabood, payame khataye ghermez -->
                   </div>
                 </div>
               </form>
@@ -210,13 +205,30 @@
 </template>
 
 <script setup>
-
+let subcriber_email = '';
 const language = useCookie("store-language");
 
 
 const { data: menu } = await useFetch(
   `/api/front/footer?hl=`+ (language.value || 'de' ), { pick : ["data"]}
 ); 
+
+function submit_email(){
+  $fetch("/api/engine/subscribers/addSubscriber",{ 
+      method: 'POST', 
+      body: {email: subcriber_email}}).then(function(result){
+       if(result.status) {
+          document.getElementById("emailinput").value = "";
+          subcriber_email = ''
+          //inja message success nemayesh dadeh shavad
+       }
+       else
+       {
+          //inja message khata nemayesh dadeh shavad
+       }
+   })
+
+}
 
 onMounted(() => {
 
