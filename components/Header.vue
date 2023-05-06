@@ -38,8 +38,8 @@
                         {{ $i18n.locale }}
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="language">
-                        <li><a class="dropdown-item" @click="changeLanguage('de')">Deutsch</a></li>
-                        <li><a class="dropdown-item" @click="changeLanguage('tr')">Türkçe</a></li>
+                        <li><a class="dropdown-item" @click="changeLanguage('de')"><img src="~/assets/images/flags/de.svg" alt="de" width="20"/> Deutsch</a></li>
+                        <li><a class="dropdown-item" @click="changeLanguage('tr')"><img src="~/assets/images/flags/tr.svg" alt="de" width="20"/> Türkçe</a></li>
                       </ul>
                   </div>
                 </div>

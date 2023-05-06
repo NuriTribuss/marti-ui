@@ -236,6 +236,11 @@
 <script setup>
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+const subscriber_successfull = computed(() => t("user.subscriber_successfull"));
+const subscriber_exists = computed(() => t("user.subscriber_exists"));
+const { t } = useI18n();
 let subcriber_email = "";
 const language = useCookie("store-language");
 
@@ -252,10 +257,9 @@ function submit_email() {
     if (result.status) {
       document.getElementById("emailinput").value = "";
       subcriber_email = "";
-      toast.success("success message", { autoClose: 5000 });
+      toast.success(subscriber_successfull, { autoClose: 5000 });
     } else {
-      toast.error("error message", { autoClose: 5000 });
-      //inja message khata nemayesh dadeh shavad
+      toast.error(subscriber_exists, { autoClose: 5000 });
     }
   });
 }
