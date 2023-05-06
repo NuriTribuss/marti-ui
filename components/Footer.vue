@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3 col--6 phone-numbers">
-            <h4 class="footer-top-title">{{ $t('footer.phone_numbers') }}</h4>
+            <h4 class="footer-top-title">{{ $t("footer.phone_numbers") }}</h4>
             <ul class="footer-top-list">
               <li>
                 <a href="tel:+43 1 90 94 500" title=""
@@ -49,10 +49,14 @@
             </ul>
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
-            <h4 class="footer-top-title">{{ $t('footer.title_one') }}</h4>
+            <h4 class="footer-top-title">{{ $t("footer.title_one") }}</h4>
             <ul class="footer-top-list" v-if="menu">
-              <li v-for="(item,index) in menu.data[0]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a></li>
-             <!-- <li>
+              <li v-for="(item, index) in menu.data[0]" :key="index">
+                <a :href="item.translate.url" title="">
+                  {{ item.translate.name }}</a
+                >
+              </li>
+              <!-- <li>
                 <a href="/ueber-martireisen/" title="">{{ $t('footer.about_us') }}</a>
               </li>
               <li><a href="/buchungsablauf/" title="">{{ $t('footer.booking_process') }}</a></li>
@@ -63,36 +67,50 @@
                 <a href="/warum-martireisen/" title="">{{ $t('footer.why_us') }}</a>
               </li>-->
               <li>
-                <a v-bind:href=" $t('footer.martigo_url')" title=""
-                  >{{ $t('footer.martigo_text') }}</a
-                >
+                <a v-bind:href="$t('footer.martigo_url')" title="">{{
+                  $t("footer.martigo_text")
+                }}</a>
               </li>
             </ul>
           </div>
           <div class="col-md-3 col--6 my-3 my-lg-0">
-            <h4 class="footer-top-title">{{ $t('footer.title_two') }}</h4>
+            <h4 class="footer-top-title">{{ $t("footer.title_two") }}</h4>
             <ul class="footer-top-list" v-if="menu">
-              <li v-for="(item,index) in menu.data[1]" :key="index"><a :href="item.translate.url" title=""> {{ item.translate.name }}</a> </li>
-             
+              <li v-for="(item, index) in menu.data[1]" :key="index">
+                <a :href="item.translate.url" title="">
+                  {{ item.translate.name }}</a
+                >
+              </li>
             </ul>
           </div>
           <div class="col-md-3 col--12">
-            <h4 class="footer-top-title light mb-4">{{ $t('footer.subscribe') }}</h4>
+            <h4 class="footer-top-title light mb-4">
+              {{ $t("footer.subscribe") }}
+            </h4>
             <div class="contact-form-action">
               <form action="#">
                 <div class="input-box">
-                  
                   <div class="form-group mb-0">
                     <span class="la la-envelope form-icon"></span>
-                    <input v-model="subcriber_email" id="emailinput"
+                    <input
+                      v-model="subcriber_email"
+                      id="emailinput"
                       class="form-control"
                       type="email"
                       name="email"
                       placeholder="E-Mail"
                     />
-                    <button @click="submit_email" class="theme-btn theme-btn-small submit-btn" type="button">{{ $t('footer.subscribe_button') }}
+                    <button
+                      @click="submit_email"
+                      class="theme-btn theme-btn-small submit-btn"
+                      type="button"
+                    >
+                      {{ $t("footer.subscribe_button") }}
                     </button>
-                    <span class="font-size-14 pt-1 text-white-50"><i class="la la-lock mr-1"></i>{{ $t('footer.subscribe_info') }}</span>
+                    <span class="font-size-14 pt-1 text-white-50"
+                      ><i class="la la-lock mr-1"></i
+                      >{{ $t("footer.subscribe_info") }}</span
+                    >
                     <!-- inja bayad message nemayesh dahad. agar success bood payam successe sabz va agar nabood, payame khataye ghermez -->
                   </div>
                 </div>
@@ -106,7 +124,7 @@
       <div class="container">
         <div class="footer-middle-container">
           <p class="footer-middle-copyright">
-            {{ $t('footer.copyright') }}
+            {{ $t("footer.copyright") }}
           </p>
           <div class="footer-middle-social">
             <a
@@ -138,7 +156,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 justify-content-center text-center">
-            <h4 class="footer-bottom-title">{{ $t('common.ssl_certificate') }}</h4>
+            <h4 class="footer-bottom-title">
+              {{ $t("common.ssl_certificate") }}
+            </h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"
@@ -148,7 +168,9 @@
             </div>
           </div>
           <div class="col-md-5 justify-content-center text-center">
-            <h4 class="footer-bottom-title">{{ $t('common.payment_methods') }}</h4>
+            <h4 class="footer-bottom-title">
+              {{ $t("common.payment_methods") }}
+            </h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"
@@ -173,7 +195,9 @@
             </div>
           </div>
           <div class="col-md-5 justify-content-center text-center">
-            <h4 class="footer-bottom-title">{{ $t('common.security_certs') }}</h4>
+            <h4 class="footer-bottom-title">
+              {{ $t("common.security_certs") }}
+            </h4>
             <div class="img-div d-flex justify-content-center">
               <img
                 class="img-fluid"
@@ -191,47 +215,52 @@
         </div>
       </div>
     </div>
-    <a class="position-fixed whatsapp-button" href="https://wa.me/4312366060?text=Hallo" target="_blank">
-        <i class="la la-whatsapp my-2"></i>
+    <a
+      class="position-fixed whatsapp-button"
+      href="https://wa.me/4312366060?text=Hallo"
+      target="_blank"
+    >
+      <i class="la la-whatsapp my-2"></i>
     </a>
     <button
-        type="button"
-        class=" position-fixed border-0 shadow-0 top-button " style="right:85px;"
-        id="btn-back-to-top"
-        >
-        <i class="la la-arrow-up"></i>
-      </button>
+      type="button"
+      class="position-fixed border-0 shadow-0 top-button"
+      style="right: 85px"
+      id="btn-back-to-top"
+    >
+      <i class="la la-arrow-up"></i>
+    </button>
   </footer>
 </template>
 
 <script setup>
-let subcriber_email = '';
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+let subcriber_email = "";
 const language = useCookie("store-language");
 
-
 const { data: menu } = await useFetch(
-  `/api/front/footer?hl=`+ (language.value || 'de' ), { pick : ["data"]}
-); 
+  `/api/front/footer?hl=` + (language.value || "de"),
+  { pick: ["data"] }
+);
 
-function submit_email(){
-  $fetch("/api/engine/subscribers/addSubscriber",{ 
-      method: 'POST', 
-      body: {email: subcriber_email}}).then(function(result){
-       if(result.status) {
-          document.getElementById("emailinput").value = "";
-          subcriber_email = ''
-          //inja message success nemayesh dadeh shavad
-       }
-       else
-       {
-          //inja message khata nemayesh dadeh shavad
-       }
-   })
-
+function submit_email() {
+  $fetch("/api/engine/subscribers/addSubscriber", {
+    method: "POST",
+    body: { email: subcriber_email },
+  }).then(function (result) {
+    if (result.status) {
+      document.getElementById("emailinput").value = "";
+      subcriber_email = "";
+      toast.success("success message", { autoClose: 5000 });
+    } else {
+      toast.error("error message", { autoClose: 5000 });
+      //inja message khata nemayesh dadeh shavad
+    }
+  });
 }
 
 onMounted(() => {
-
   let mybutton = document.getElementById("btn-back-to-top");
 
   window.onscroll = function () {
