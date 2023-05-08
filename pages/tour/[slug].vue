@@ -563,7 +563,7 @@ export default {
           }
           vue.reserved_count = result2.data.successReservesCount;      
         });
-        vue.step_new.push({name: 'tur',to: '/tour'});
+        vue.step_new.push({name: vue.$t('tour.breadcrumb'),to: '/tour'});
         vue.step_new.push({name: vue.record.title});
         vue.loader = false;
       });

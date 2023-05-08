@@ -1,14 +1,7 @@
 <template>
-  <div>
-    
+  <div> 
     <section class="hero-wrapper">
       <div class="hero-box hero-bg">
-        <span class="line-bg line-bg1"></span>
-        <span class="line-bg line-bg2"></span>
-        <span class="line-bg line-bg3"></span>
-        <span class="line-bg line-bg4"></span>
-        <span class="line-bg line-bg5"></span>
-        <span class="line-bg line-bg6"></span>
         <div class="container">
           <div class="row">
             <div class="col-lg-12 mx-auto responsive--column-l">
@@ -89,7 +82,6 @@
       </div>
       <!-- end container -->
     </section>
-
 
     <LandingPopularHotelList ref="hotelList"/>
 

@@ -614,6 +614,7 @@
         "tour.available_error_desc" : "Bu turda Kontenjan doldu, alternatif turları buradan görebilirsiniz",
         "tour.available_count" : "Ücretsiz noktalar",
         "tour.duration" : "Süre",
+        "tour.breadcrumb" : "Turlar",
         "404.title" : "Sayfa bulunamadı",
         "404.subtitle" : "Aranan sayfayı bulamadık.",
         "404.button" : "Ana sayfaya",
