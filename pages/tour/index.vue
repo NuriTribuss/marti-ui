@@ -7,6 +7,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="my-5">
+                <!-- <TourSearchEngine :filterList="searchData"/> -->
                 <SearchEngine />
               </div>
             </div>
@@ -43,6 +44,16 @@
                 </div>
            </div>
         </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="btn-box mt-3 text-end ">
+              <button type="button" class="theme-btn theme-btn-orange w-25" v-if="total > tours?.length" @click="loadMore">
+                <i class="la la-refresh me-2"></i>{{ $t('common.show_more')}}
+              </button>
+            
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -54,8 +65,19 @@ export default {
   props: [],
   data() {
     return {
+      total : 0,
+      limit : 10,
       tours: null,
       loader: true,
+      current_page : 1,
+      searchData : {
+        source: null,
+        distnation: null,
+        date: null,
+        sourceList: null,
+        distnationList: null,
+        dateList: null
+      },
     };
   },
   methods: {
@@ -69,10 +91,37 @@ export default {
         vue.loader = false;
       });
     },
+    getResult() {
+      let vue = this;
+
+      $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : this.current_page, ...vue.searchData} 
+          }).then(function(result){
+        vue.loader = false;
+        if(!result.status) {
+          vue.error = true;
+          return false;
+        }
+        vue.searchData.sourceList= result.data.sources;
+        vue.searchData.distnationList= result.data.distnations;
+        vue.searchData.dateList= result.data.dates;
+
+        if(vue.current_page == 1){
+          vue.tours = result.data.tours;
+          vue.total = result.meta?.total;
+        }else{
+          vue.tours = vue.tours.concat(result.data.tours)
+          vue.total = result.meta?.total;
+        }
+      })
+    },
+    loadMore(){
+      this.current_page+=1;
+      this.getResult();
+    }, 
     
   },
   mounted() {
-    this.getData();
+    this.getResult();
   },
  
 };
