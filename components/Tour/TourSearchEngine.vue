@@ -12,50 +12,42 @@
             <div class="input-box">
               <label class="label-text">{{ $t('search.destination')}}</label>
               <div class="form-group">
-                <span
-                  class="la la-map-marker form-icon text-color-12 z-index-1"
-                ></span>
                   <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
-                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" v-model="query" :placeholder="$t('common.beliebig')"  @keyup="loadSearchResults" data-bs-toggle="dropdown" />
-
-                  <SearchCommonDropDown class="desktop-dropdown"/>
-                  
-                  <div v-if="isModal" class="autocomplete-popup" style="position: fixed;
-                      top: 0;
-                      left: 0;
-                      width: 100vw;
-                      height: 100%;
-                      background: #fff;
-                      z-index: 999;">
-                    <SearchMobileDestinationWithInput class="mobile-dropdown" />
-                  </div>
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="source_show" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
+                  <SearchCommonDropDown class="desktop-dropdown" @select="select_source" :data="source_list_data"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 pe-0">
+            <div class="input-box">
+              <label class="label-text">{{ $t('search.destination')}}</label>
+              <div class="form-group">
+                  <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="filterList.distnation" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
+                  <SearchCommonDropDown class="desktop-dropdown" @select="select_distnation" :data="distnation_list_data"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 pe-0">
+            <div class="input-box">
+              <label class="label-text">{{ $t('search.destination')}}</label>
+              <div class="form-group">
+                  <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="filterList.date" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
+                  <SearchCommonDropDown class="desktop-dropdown" @select="select_date" :data="date_list_data"/>
               </div>
             </div>
           </div>
           <div class="col-lg-2 btn-box">
             <button
-            @click="loadSearchResults"
+            @click="clear"
               class="
                 theme-btn theme-btn-orange
                 font-weight-bold
                 px-3
-                mt-4
-                d-none d-lg-flex
+                mt-4 d-lg-flex
               "
-              >{{ $t('search.search_offers') }}
-            </button>
-            <button
-              @click="loadSearchResults"
-              class="
-                theme-btn theme-btn-orange
-                font-weight-bold
-                px-3
-                mt-4
-                w-100
-                text-center
-                d-lg-none
-              "
-              >{{ $t('search.search_offers') }}
+              >{{ $t('search.clear') }}
             </button>
           </div>
         </div>
@@ -72,16 +64,50 @@ export default {
   props : [ 'filterList' ],
   data() {
     return {
+      source_show:null
     };
   },
   methods: {
-    loadSearchParams(){
-
+    select_source(obj){
+        this.source_show = obj.title
+        this.filterList.source = obj.value; // obj = {title,value}
+        this.loadSearchResults()
+    },
+    select_distnation(obj){
+        this.filterList.distnation = obj.value; // obj = {title,value}
+        this.loadSearchResults()
+    },
+    select_date(obj){
+        this.filterList.date = obj.value; // obj = {title,value}
+        this.loadSearchResults()
     },
     loadSearchResults() {
-      
+      this.$emit('change',this.filterList)
     },
-
+    clear(){
+      this.filterList.source = null
+      this.filterList.distnation = null
+      this.filterList.date = null
+      this.source_show = null
+      this.loadSearchResults()
+    }
+  },
+  computed:{
+    source_list_data(){
+      if(!this.filterList.sourceList)
+        return []
+      return this.filterList.sourceList.map((item)=>{return {title:item.station,value:item.id}})
+    },
+    distnation_list_data(){
+      if(!this.filterList.distnationList)
+        return []
+      return this.filterList.distnationList.map((item)=>{return {title:item,value:item}})
+    },
+    date_list_data(){
+      if(!this.filterList.dateList)
+        return []
+      return this.filterList.dateList.map((item)=>{return {title:item,value:item}})
+    }
   },
   created(){
 
