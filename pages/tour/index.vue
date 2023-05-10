@@ -7,8 +7,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="my-5">
-                <!-- <TourSearchEngine :filterList="searchData"/> -->
-                <SearchEngine />
+                <TourSearchEngine :filterList="searchData" @change="loadSearchResoult"/>
+                <!-- <SearchEngine /> -->
               </div>
             </div>
           </div>
@@ -90,6 +90,10 @@ export default {
         vue.tours = result.data;
         vue.loader = false;
       });
+    },
+    loadSearchResoult(searchData){
+      this.searchData = searchData
+      this.getResult()
     },
     getResult() {
       let vue = this;
