@@ -551,7 +551,18 @@ export default {
         }
         vue.record = result.data;
         vue.selectedPeriod = vue.record.periods[0]
-        vue.selectedStation = vue.record.periods[0].stations[0]
+        //vue.selectedStation = vue.record.periods[0].stations[0]
+        let defaultStation = 'Wien';
+        if(vue.$route.query.station != null)
+        {
+          defaultStation = vue.$route.query.station;
+        }
+        vue.selectedStation = vue.selectedPeriod.stations.filter(x=> x.station == defaultStation)[0];
+        if(vue.selectedStation == null)
+        {
+          vue.selectedStation = vue.record.periods[0].stations[0];
+        }
+
         let params = {
           'tour_id': vue.$route.query.tid,
           'period_id' : vue.record?.periods[0]?.id
