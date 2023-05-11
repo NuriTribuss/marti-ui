@@ -10,36 +10,42 @@
         <div class="row align-items-center">
           <div class="col-lg-3 pe-0">
             <div class="input-box">
-              <label class="label-text">{{ $t('search.destination')}}</label>
+              <label class="label-text">{{ $t('tour.station_select')}}</label>
               <div class="form-group">
-                  <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
-                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="source_show" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
+                  <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.station_select')">{{ filterList.source || $t('tour.station_select') }}</button> -->
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="source_input" :value="filterList.source" :placeholder="$t('tour.station_select')" data-bs-toggle="dropdown" />
                   <SearchCommonDropDown class="desktop-dropdown" @select="select_source" :data="source_list_data"/>
               </div>
+              <!-- <SearchCommonDropDownMobile 
+              :selectedval="filterList.source" 
+              :itemlist="filterList.sourceList"
+              name='source'
+              :objplaceholder="$t('tour.station_select')"
+              /> -->
             </div>
           </div>
           <div class="col-lg-3 pe-0">
             <div class="input-box">
-              <label class="label-text">{{ $t('search.destination')}}</label>
+              <label class="label-text">{{ $t('tour.rotate_and_city_select')}}</label>
               <div class="form-group">
-                  <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
-                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="filterList.distnation" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
-                  <SearchCommonDropDown class="desktop-dropdown" @select="select_distnation" :data="distnation_list_data"/>
+                  <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.rotate_and_city_select')">{{ filterList.destination || $t('tour.rotate_and_city_select') }}</button> -->
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="filterList.destination" :placeholder="$t('tour.rotate_and_city_select')" data-bs-toggle="dropdown" />
+                  <SearchCommonDropDown class="desktop-dropdown" @select="select_destination" :data="destination_list_data"/>
               </div>
             </div>
           </div>
           <div class="col-lg-3 pe-0">
             <div class="input-box">
-              <label class="label-text">{{ $t('search.destination')}}</label>
+              <label class="label-text">{{ $t('tour.date_select')}}</label>
               <div class="form-group">
-                  <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('common.beliebig')">{{ query || $t('common.beliebig') }}</button>
-                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="destination_input" :value="filterList.date" :placeholder="$t('common.beliebig')" data-bs-toggle="dropdown" />
+                  <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.date_select')">{{ filterList.date || $t('tour.date_select') }}</button> -->
+                  <input type="text" autocomplete="off"  autofocus class="form-control d-none d-lg-block font-size-16" id="date_input" :value="filterList.date" :placeholder="$t('tour.date_select')" data-bs-toggle="dropdown" />
                   <SearchCommonDropDown class="desktop-dropdown" @select="select_date" :data="date_list_data"/>
               </div>
             </div>
           </div>
           <div class="col-lg-2 btn-box">
-            <button
+            <button v-if="isTour"
             @click="clear"
               class="
                 theme-btn theme-btn-orange
@@ -49,6 +55,18 @@
               "
               >{{ $t('search.clear') }}
             </button>
+            <button v-if="isTour_slug"
+                @click="doSearchTour"
+                class="
+                  theme-btn theme-btn-orange
+                  font-weight-bold
+                  px-3
+                  mt-4
+                  w-100
+                  text-center
+                "
+                >{{ $t('tour.search_offers') }}
+              </button>
           </div>
         </div>
       </div>
@@ -64,17 +82,17 @@ export default {
   props : [ 'filterList' ],
   data() {
     return {
-      source_show:null
+      isTour: false,
+      isTour_slug: false
     };
   },
   methods: {
     select_source(obj){
-        this.source_show = obj.title
         this.filterList.source = obj.value; // obj = {title,value}
         this.loadSearchResults()
     },
-    select_distnation(obj){
-        this.filterList.distnation = obj.value; // obj = {title,value}
+    select_destination(obj){
+        this.filterList.destination = obj.value; // obj = {title,value}
         this.loadSearchResults()
     },
     select_date(obj){
@@ -86,22 +104,42 @@ export default {
     },
     clear(){
       this.filterList.source = null
-      this.filterList.distnation = null
+      this.filterList.destination = null
       this.filterList.date = null
       this.source_show = null
+      this.$router.replace({'query': null});
       this.loadSearchResults()
+    },
+    doSearchTour(){
+      let query = '';
+      if(this.filterList.source != null){
+        query = query + 'source=' + this.filterList.source;
+      }
+      if(this.filterList.destination != null){
+        if(query != ''){
+          query = query + '&';
+        }
+        query = query + 'destination=' + this.filterList.destination;
+      }
+      if(this.filterList.date != null){
+        if(query != ''){
+          query = query + '&';
+        }
+        query = query + 'date=' + this.filterList.date;
+      }
+      location.href= '/tour/?' + query;
     }
   },
   computed:{
     source_list_data(){
       if(!this.filterList.sourceList)
         return []
-      return this.filterList.sourceList.map((item)=>{return {title:item.station,value:item.id}})
+      return this.filterList.sourceList.map((item)=>{return {title:item,value:item}})
     },
-    distnation_list_data(){
-      if(!this.filterList.distnationList)
+    destination_list_data(){
+      if(!this.filterList.destinationList)
         return []
-      return this.filterList.distnationList.map((item)=>{return {title:item,value:item}})
+      return this.filterList.destinationList.map((item)=>{return {title:item,value:item}})
     },
     date_list_data(){
       if(!this.filterList.dateList)
@@ -109,8 +147,15 @@ export default {
       return this.filterList.dateList.map((item)=>{return {title:item,value:item}})
     }
   },
-  created(){
-
+  mounted() {
+    if(this.$route.name == 'tour')
+    {
+      this.isTour = true;
+    }
+    if(this.$route.name == 'tour-slug')
+    {
+      this.isTour_slug = true;
+    }
   },
   
 };

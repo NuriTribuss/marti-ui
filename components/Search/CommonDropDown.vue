@@ -11,7 +11,7 @@
           border-0
         "
       >
-        {{ $t('search.clear') }}
+        <b>{{ $t('search.clear') }}</b>
       </a>
       <a href="javascript:;" tabindex="0"
         @click="select(d)"

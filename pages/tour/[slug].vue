@@ -8,7 +8,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="my-5">
-                <SearchEngine />
+                <!-- <SearchEngine /> -->
+                <TourSearchEngine :filterList="searchData"/>
               </div>
             </div>
           </div>
@@ -516,6 +517,14 @@ export default {
       loader: true,
       reserved_count: 0,
       step_new: [],
+      searchData : {
+        source: null,
+        destination: null,
+        date: null,
+        sourceList: null,
+        destinationList: null,
+        dateList: null
+      },
     };
   },
 
@@ -543,7 +552,6 @@ export default {
   },
   methods: {
     getData() {
-
       let vue = this;
       $fetch("/api/booking/tour/tour/fetch/"+this.$route.query.tid).then(function (result) {
         if (!result.status) {
@@ -578,6 +586,15 @@ export default {
         vue.step_new.push({name: vue.record.title});
         vue.loader = false;
       });
+      $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : 1} 
+          }).then(function(result){
+        if(!result.status) {
+          return false;
+        }
+        vue.searchData.sourceList= result.data.sources;
+        vue.searchData.destinationList= result.data.destination;
+        vue.searchData.dateList= result.data.dates;
+      })
       
     },
     translate(data, language) {
