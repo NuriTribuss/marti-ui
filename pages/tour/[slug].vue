@@ -19,6 +19,33 @@
     <section class="card-area py-3">
       <div class="container">
         <div class="row">
+            <template v-if="$isMobile" >
+              <div class="col-lg-12">
+                <div>
+                  <a  data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
+                    <!-- <span>{{$t('tour.search_offers') }}<br><small>
+                      bbbbbbbbbbbbbbbbbbbbbbb
+                      </small></span> -->
+                    <i class="la la-sliders-h font-size-24 py-2"></i>
+                  </a>
+                  <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
+                    <div class="modal-dialog  modal-fullscreen ">
+                      <div class="modal-content">
+                        <div class="modal-header offcanvas-header">
+                          <h5 class="modal-title">Reiseziel auswahlen</h5>
+                          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <TourSearchEngine :filterList="searchData" @change="loadSearchResult"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+        </div>
+        <div class="row">
           <div class="col-lg-8">
             <LoaderHotel v-if="loader" class="my-5" />
             <div v-if="record" class="single-content-wrap form-box p-3 p-lg-4">

@@ -64,8 +64,6 @@
                         z-index: 999;">
                       <SearchMobileDestinationWithInput class="mobile-dropdown" @select="select" @load="setQuery" :source="source" @isModal="close()"/>
                     </div>
-
-                    
                 </div>
               </div>
             </div>

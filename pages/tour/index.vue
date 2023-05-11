@@ -18,31 +18,31 @@
     <section class="card-area py-4" >
       <div class="container">
         <div class="row">
-          <!-- <template v-if="$isMobile" >
-            <div class="col-lg-12">
-              <div>
-                <a  data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
-                  <span>{{$t('tour.search_offers') }}<br><small>
-                    bbbbbbbbbbbbbbbbbbbbbbb
-                    </small></span>
-                  <i class="la la-sliders-h font-size-24 py-2"></i>
-                </a>
-                <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
-                  <div class="modal-dialog  modal-fullscreen ">
-                    <div class="modal-content">
-                      <div class="modal-header offcanvas-header">
-                        <h5 class="modal-title">Reiseziel auswahlen</h5>
-                        <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <TourSearchEngine :filterList="searchData" @change="loadSearchResult"/>
+            <template v-if="$isMobile" >
+              <div class="col-lg-12">
+                <div>
+                  <a  data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
+                    <!-- <span>{{$t('tour.search_offers') }}<br><small>
+                      bbbbbbbbbbbbbbbbbbbbbbb
+                      </small></span> -->
+                    <i class="la la-sliders-h font-size-24 py-2"></i>
+                  </a>
+                  <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
+                    <div class="modal-dialog  modal-fullscreen ">
+                      <div class="modal-content">
+                        <div class="modal-header offcanvas-header">
+                          <h5 class="modal-title">Reiseziel auswahlen</h5>
+                          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <TourSearchEngine :filterList="searchData" @change="loadSearchResult"/>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </template> -->
+            </template>
         </div>
         <h3 class="title font-size-26">{{ $t('tours.title')}}</h3>
         <p>{{ $t('tours.subtitle')}}</p>
