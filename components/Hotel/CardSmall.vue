@@ -13,7 +13,9 @@
       >
         <i class="la la-heart-o"></i>
       </div>
-    </div>
+      <HotelRating :rate="hotel.rating.overall"/>
+      </div>
+      
     <div class="card-body p-3 p-lg-4">
       <h3 class="card-title font-size-18">
         <a href="javascript:;"  @click="go(hotel.giata.hotelId,hotel.name_sef)">{{hotel.name}}</a>

@@ -38,6 +38,7 @@
             </a>
           
           </div>
+          <!-- footer menu must add here -->
           <div class="border-bottom">
             <a
               class="btn text-start w-100"
@@ -78,7 +79,6 @@
             </ul>
         </div>
         <div class="text-center font-size-20 py-3">
-          
           <i class="la la-headset me-2"></i> {{ $phone }}
         </div>
       </div>
