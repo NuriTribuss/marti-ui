@@ -38,7 +38,16 @@
             </a>
           
           </div>
-          <!-- footer menu must add here -->
+          <div class="border-bottom">
+            <a class="btn text-start w-100" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu-footer0">
+              <i class="la me-2"></i>{{ $t("footer.title_one") }}<i class="la la-angle-down float-end"></i>
+            </a>
+          </div>
+          <div class="border-bottom">
+            <a class="btn text-start w-100" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu-footer1">
+              <i class="la me-2"></i>{{ $t("footer.title_two") }}<i class="la la-angle-down float-end"></i>
+            </a>
+          </div>
           <div class="border-bottom">
             <a
               class="btn text-start w-100"
@@ -123,6 +132,52 @@
         </div>
       </div>
     </div>
+    <div class="offcanvas offcanvas-end" id="mobile-menu-footer0">
+      <div class="offcanvas-header">
+        <a type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu" aria-controls="mobile-menu">
+          <i class="la la-angle-left"></i>
+        </a>
+        <h5 id="offcanvasRightLabel">{{ $t("footer.title_one") }}</h5>
+        <a type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="la la-close"></i>
+        </a>
+      </div>
+      <div class="offcanvas-body">
+        <div class="list-group">
+          <a v-for="(children, subindex) in menuFooter.data[0]"
+            v-bind:key="subindex"
+            :href="children.translate.url"
+            class="btn text-start"
+          >
+            {{ children.translate.name }}
+            <i class="la la-angle-right me-2 float-end"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-end" id="mobile-menu-footer1">
+      <div class="offcanvas-header">
+        <a type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#mobile-menu" aria-controls="mobile-menu">
+          <i class="la la-angle-left"></i>
+        </a>
+        <h5 id="offcanvasRightLabel">{{ $t("footer.title_one") }}</h5>
+        <a type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="la la-close"></i>
+        </a>
+      </div>
+      <div class="offcanvas-body">
+        <div class="list-group">
+          <a v-for="(children, subindex) in menuFooter.data[0]"
+            v-bind:key="subindex"
+            :href="children.translate.url"
+            class="btn text-start"
+          >
+            {{ children.translate.name }}
+            <i class="la la-angle-right me-2 float-end"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -136,6 +191,11 @@ const changeLanguage = (param) => {
   language.value = param;
   location.reload();
 };
+
+const { data: menuFooter } = await useFetch(
+  `/api/front/footer?hl=` + (language.value || "de"),
+  { pick: ["data"] }
+);
 
 const url = (url) => {
     let map = {
