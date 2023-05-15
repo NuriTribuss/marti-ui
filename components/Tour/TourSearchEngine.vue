@@ -8,57 +8,59 @@
         aria-labelledby="hotel-tab"
       >
         <div class="row align-items-center">
-          <div class="col-lg-3 pe-0">
+          <div class="col-lg-3 pe-lg-0">
             <div class="input-box">
               <label class="label-text">{{ $t('tour.station_select')}}</label>
-              <div class="form-group">
+              <div class="form-group relative">
                   <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.station_select')">{{ filterList.source || $t('tour.station_select') }}</button> -->
                   <input type="text" autocomplete="off"  autofocus class="form-control d-block d-lg-block font-size-16" id="source_input" :value="filterList.source" :placeholder="$t('tour.station_select')" data-bs-toggle="dropdown" />
                   <SearchCommonDropDown v-if="!$isMobile" class="desktop-dropdown" @select="select_source" :data="source_list_data"/>
-                  <SearchCommonDropDown v-if="$isMobile" class="mobile-dropdown" @select="select_source" :data="source_list_data"/>
+                  <SearchCommonDropDownMobile v-if="$isMobile" class="mobile-dropdown" @select="select_source" :data="source_list_data"/>
               </div>
-              <!-- <SearchCommonDropDownMobile 
-              :selectedval="filterList.source" 
-              :itemlist="filterList.sourceList"
-              name='source'
-              :objplaceholder="$t('tour.station_select')"
-              /> -->
             </div>
           </div>
-          <div class="col-lg-3 pe-0">
+          <div class="col-lg-3 pe-lg-0">
             <div class="input-box">
               <label class="label-text">{{ $t('tour.rotate_and_city_select')}}</label>
-              <div class="form-group">
+              <div class="form-group relative">
                   <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.rotate_and_city_select')">{{ filterList.destination || $t('tour.rotate_and_city_select') }}</button> -->
                   <input type="text" autocomplete="off"  autofocus class="form-control d-block d-lg-block font-size-16" id="destination_input" :value="filterList.destination" :placeholder="$t('tour.rotate_and_city_select')" data-bs-toggle="dropdown" />
                   <SearchCommonDropDown v-if="!$isMobile" class="desktop-dropdown" @select="select_destination" :data="destination_list_data"/>
-                  <SearchCommonDropDown v-if="$isMobile" class="mobile-dropdown" @select="select_destination" :data="destination_list_data"/>
+                  <SearchCommonDropDownMobile v-if="$isMobile" class="mobile-dropdown" @select="select_destination" :data="destination_list_data"/>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 pe-0">
+          <div class="col-lg-3 pe-lg-0">
             <div class="input-box">
               <label class="label-text">{{ $t('tour.date_select')}}</label>
-              <div class="form-group">
+              <div class="form-group relative">
                   <!-- <button type="button" @click="isModal=!isModal" data-bs-target="#destination-modal" class="text-start form-control d-block d-lg-none font-size-16"   :placeholder="$t('tour.date_select')">{{ filterList.date || $t('tour.date_select') }}</button> -->
                   <input type="text" autocomplete="off"  autofocus class="form-control d-block d-lg-block font-size-16" id="date_input" :value="filterList.date" :placeholder="$t('tour.date_select')" data-bs-toggle="dropdown" />
                   <SearchCommonDropDown v-if="!$isMobile" class="desktop-dropdown" @select="select_date" :data="date_list_data"/>
-                  <SearchCommonDropDown v-if="$isMobile" class="mobile-dropdown" @select="select_date" :data="date_list_data"/>
+                  <SearchCommonDropDownMobile v-if="$isMobile" class="mobile-dropdown" @select="select_date" :data="date_list_data"/>
               </div>
             </div>
           </div>
           <div class="col-lg-2 btn-box">
-            <button v-if="isTour_slug || $isMobile"
-                @click="doSearchTour"
+              <button v-if="isTour"
+              @click="clear"
                 class="
                   theme-btn theme-btn-orange
                   font-weight-bold
                   px-3
-                  mt-4
-                  w-100
-                  text-center
+                  mt-4 d-lg-flex d-none
                 "
-                >{{ $t('tour.search_offers') }}
+                >{{ $t('search.clear') }}
+              </button>
+              <button v-if="isTour"
+              @click="search_mobile"
+                class="
+                  theme-btn theme-btn-orange
+                  font-weight-bold
+                  px-3
+                  mt-4 d-lg-none d-block w-100
+                "
+                >{{ $t('search.search') }}
               </button>
               <button v-if="isTour"
               @click="clear"
@@ -66,7 +68,7 @@
                   theme-btn theme-btn-orange
                   font-weight-bold
                   px-3
-                  mt-4 d-lg-flex
+                  mt-4 d-lg-none d-block w-100
                 "
                 >{{ $t('search.clear') }}
               </button>
@@ -111,6 +113,10 @@ export default {
       this.filterList.date = null
       this.source_show = null
       this.$router.replace({'query': null});
+      this.loadSearchResults()
+    },
+    search_mobile(){
+      // do emit mobile search
       this.loadSearchResults()
     },
     doSearchTour(){
