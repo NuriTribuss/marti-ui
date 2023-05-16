@@ -22,9 +22,8 @@
               <div class="col-lg-12">
                 <div>
                   <a  data-bs-toggle="modal" data-bs-target="#filter-modal" class="text-start btn border font-size-14 font-weight-bold line-height-20  d-lg-none justify-content-between w-100 d-flex " >
-                    <!-- <span>{{$t('tour.search_offers') }}<br><small>
-                      bbbbbbbbbbbbbbbbbbbbbbb
-                      </small></span> -->
+                    <span v-if="filterCount == 0">{{$t('search.no_filter') }}</span>
+                    <span v-if="filterCount > 0">{{ filterCount + $t('search.filter_selected')  }}</span>
                     <i class="la la-sliders-h font-size-24 py-2"></i>
                   </a>
                   <div class="modal" tabindex="-1" id="filter-modal" data-bs-backdrop="static">
@@ -107,6 +106,18 @@ export default {
         dateList: null
       },
     };
+  },
+  computed:{
+    filterCount(){
+      let cnt = 0;
+      if(this.searchData.source != null){
+        cnt = cnt+1;}
+      if(this.searchData.destination != null){
+        cnt = cnt+1;}
+      if(this.searchData.date != null){
+        cnt = cnt+1;}
+      return cnt;
+    }
   },
   methods: {
     getData() {

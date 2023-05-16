@@ -118,6 +118,8 @@
         "no_result_found_title": "Maalesef sonuç yok ...",
         "no_result_found": "Lütfen diğer arama filtreleriyle tekrar deneyin.",
         "reset_filters" : "Filtreleri Temizle",
+        "no_filter": "filtresiz",
+        "filter_selected": " filtre seçildi",
         "filters" : "Filtre",
         "rating" : "Yıldız",
         "filter_family" : "Aile",

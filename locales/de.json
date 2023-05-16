@@ -118,6 +118,8 @@
         "no_result_found_title": "Leider keine Treffer ...",
         "no_result_found": "Bitte versuchen Sie es mit anderen Suchfiltern noch einmal.",
         "reset_filters": "Filter löschen",
+        "no_filter": "kein Filter",
+        "filter_selected": " Filter ausgewählt",
         "filters": "Weitere Kriterien",
         "rating": "Sterne",
         "filter_family": "Familie",

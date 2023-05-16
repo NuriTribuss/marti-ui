@@ -42,6 +42,16 @@
             </div>
           </div>
           <div class="col-lg-2 btn-box">
+              <button v-if="isTour_slug"
+                @click="doSearchTour"
+                class="
+                  theme-btn theme-btn-orange
+                  font-weight-bold
+                  px-3
+                  mt-4 d-lg-none d-block w-100
+                "
+                >{{ $t('tour.search_offers') }}
+              </button>
               <button v-if="isTour"
               @click="clear"
                 class="
@@ -60,7 +70,7 @@
                   px-3
                   mt-4 d-lg-none d-block w-100
                 "
-                >{{ $t('search.search') }}
+                >{{ $t('tour.search_offers') }}
               </button>
               <button v-if="isTour"
               @click="clear"
@@ -117,6 +127,9 @@ export default {
     },
     search_mobile(){
       // do emit mobile search
+      var myModalEl = document.getElementById('filter-modal')
+      var modal = bootstrap.Modal.getInstance(myModalEl)
+      modal.hide();
       this.loadSearchResults()
     },
     doSearchTour(){
