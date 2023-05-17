@@ -1,6 +1,5 @@
 <template>
 <div>
-  
     <div class="section-tab text-center pl-0 pl-lg-4" v-show="!no_header">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" v-on:click="filters.sf = 2">
@@ -30,11 +29,19 @@
             <i class="la la-globe mx-1 d-none d-lg-block"></i>{{ $t('menu.flights')}}
           </NuxtLink>
         </li>
+        <li class="nav-item" v-on:click="filters.sf = 5">
+          <button
+            class="nav-link d-flex align-items-center"
+            v-bind:class="{ active: filters.sf == 5 }"
+          >
+            <i class="la la-route mx-1 d-none d-lg-block"></i>{{ $t('tour.breadcrumb')}}
+          </button>
+        </li>
       </ul>
     </div>
     <div></div>
     <!-- end section-tab -->
-    <div class="tab-content search-fields-container" id="myTabContent">
+    <div v-show="filters.sf != 5" class="tab-content search-fields-container" id="myTabContent">
       <div
         class="tab-pane fade show active"
         id="hotel"
@@ -161,7 +168,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+    <TourSearchEngine :filterList="tourSearchData" v-show="filters.sf == 5"/>
 
 </div>
 </template>
@@ -206,7 +214,8 @@ export default {
         children : []
       },
       url : '/search/region',
-      isModal: false
+      isModal: false,
+      tourSearchData: {},
     };
   },
   methods: {

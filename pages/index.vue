@@ -97,6 +97,7 @@
 </template>
 
 <script setup>
+
 const cookie = useCookie('store-language');
 const { data: post } = await useFetch(`/api/content/post/post?limit=4&hl=`+(cookie.value || ' de'), {
   pick: ["data"],

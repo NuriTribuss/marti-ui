@@ -1,6 +1,7 @@
 <template>
 <div>
-    <div class="tab-content search-fields-container" id="myTabContent">
+    <div class="tab-content search-fields-container" id="tourSearchEnginT
+    ab">
       <div
         class="tab-pane fade show active"
         id="hotel"
@@ -42,13 +43,23 @@
             </div>
           </div>
           <div class="col-lg-2 btn-box">
-              <button v-if="isTour_slug"
+              <button v-if="isTour_slug || isIndex"
                 @click="doSearchTour"
                 class="
                   theme-btn theme-btn-orange
                   font-weight-bold
                   px-3
                   mt-4 d-lg-none d-block w-100
+                "
+                >{{ $t('tour.search_offers') }}
+              </button>
+              <button v-if="isTour_slug || isIndex"
+              @click="doSearchTour"
+                class="
+                  theme-btn theme-btn-orange
+                  font-weight-bold
+                  px-3
+                  mt-4 d-lg-flex d-none
                 "
                 >{{ $t('tour.search_offers') }}
               </button>
@@ -98,7 +109,8 @@ export default {
   data() {
     return {
       isTour: false,
-      isTour_slug: false
+      isTour_slug: false,
+      isIndex: false,
     };
   },
   methods: {
@@ -170,6 +182,16 @@ export default {
     }
   },
   mounted() {
+    let vue = this;
+    $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : 1} 
+          }).then(function(result){
+        if(!result.status) {
+          return false;
+        }
+        vue.filterList.sourceList= result.data.sources;
+        vue.filterList.destinationList= result.data.destination;
+        vue.filterList.dateList= result.data.dates;
+      })
     if(this.$route.name == 'tour')
     {
       this.isTour = true;
@@ -177,6 +199,10 @@ export default {
     if(this.$route.name == 'tour-slug')
     {
       this.isTour_slug = true;
+    }
+    if(this.$route.name == 'index')
+    {
+      this.isIndex = true;
     }
   },
   

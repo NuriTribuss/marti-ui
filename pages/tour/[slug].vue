@@ -613,15 +613,15 @@ export default {
         vue.step_new.push({name: vue.record.title});
         vue.loader = false;
       });
-      $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : 1} 
-          }).then(function(result){
-        if(!result.status) {
-          return false;
-        }
-        vue.searchData.sourceList= result.data.sources;
-        vue.searchData.destinationList= result.data.destination;
-        vue.searchData.dateList= result.data.dates;
-      })
+      // $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : 1} 
+      //     }).then(function(result){
+      //   if(!result.status) {
+      //     return false;
+      //   }
+      //   vue.searchData.sourceList= result.data.sources;
+      //   vue.searchData.destinationList= result.data.destination;
+      //   vue.searchData.dateList= result.data.dates;
+      // })
       
     },
     translate(data, language) {
