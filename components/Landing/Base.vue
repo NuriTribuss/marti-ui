@@ -14,7 +14,6 @@
               <div>{{ content.subtitle }}</div>
             </div>
             <div class="mt-4 mb-5">
-              {{ meta }}
               <SearchEngine :no_header="true" />
             </div>
           </div>
