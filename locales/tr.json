@@ -391,6 +391,7 @@
         "user.menu.reservations" : "Rezervasyonlar",
         "user.subscribe" : "Bülten için Kaydolun",
         "user.subscriber_exists" : "Bu e-posta adresi zaten var",
+        "user.subscriber_email_not_valid": "E-posta geçerli değil",
         "user.subscriber_successfull" : "Bülten kaydınız başarılı",
         "user.subscribe_text" : "En Güncel Seyahat Fırsatlarını Almak İçin Abone Olun!",
         "user.subscribe_title" : "Martireisen Bülten",

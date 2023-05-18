@@ -390,6 +390,7 @@
     "user.menu.reservations": "Buchungen",
     "user.subscribe": "Newsletter anmelden",
     "user.subscriber_exists": "Diese E-Mail-Adresse existiert bereits",
+    "user.subscriber_email_not_valid": "Email ist ungültig",
     "user.subscriber_successfull": "Ihre Newsletter Anmeldung ist erfolgreich",
     "user.subscribe_text": "Subscribe to get the latest <span>news &amp; updates</span>.",
     "user.subscribe_title": "Martireisen Newsletter",

@@ -240,6 +240,8 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 const subscriber_successfull = computed(() => t("user.subscriber_successfull"));
 const subscriber_exists = computed(() => t("user.subscriber_exists"));
+const email_is_not_valid = computed(() => t("user.subscriber_email_not_valid"));
+
 const { t } = useI18n();
 let subcriber_email = "";
 const language = useCookie("store-language");
@@ -250,6 +252,12 @@ const { data: menu } = await useFetch(
 );
 
 function submit_email() {
+  let email_is_valid = /^[^@]+@\w+(\.\w+)+\w$/.test(subcriber_email);
+  if(!email_is_valid)
+  {
+    toast.error(email_is_not_valid, { autoClose: 5000 });
+    return;
+  }
   $fetch("/api/engine/subscribers/addSubscriber", {
     method: "POST",
     body: { email: subcriber_email },
