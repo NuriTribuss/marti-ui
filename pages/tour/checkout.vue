@@ -222,9 +222,15 @@
                         <div class="form-group">
                           <select v-model="traveller.gender"
                             class="form-control form-select ps-3"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.traveller.$errors[0]?.$response
+                                  .$data[index].gender.$error,
+                            }"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
                             "
+                            :ref="`bookingForm.traveller[${index}].gender`"
                           >
                             <option value="1">Herr</option>
                             <option value="2">Frau</option>
@@ -239,9 +245,17 @@
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
-                          <input  v-model="traveller.name"
+                          <input
+                            v-model="traveller.name"
+                            :placeholder="$t('user.profile.name')"
                             class="form-control"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.traveller.$errors[0]?.$response
+                                  .$data[index].name.$error,
+                            }"
                             type="text"
+                            :ref="`bookingForm.traveller[${index}].name`"
                           />
                         </div>
                       </div>
@@ -254,9 +268,17 @@
                         }}</label>
                         <div class="form-group">
                           <span class="la la-user form-icon"></span>
-                          <input  v-model="traveller.surname"
+                          <input
+                            v-model="traveller.surname"
                             class="form-control"
+                            :placeholder="$t('user.profile.surname')"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.traveller.$errors[0]?.$response
+                                  .$data[index].surname.$error,
+                            }"
                             type="text"
+                            :ref="`bookingForm.traveller[${index}].surname`"
                           />
                         </div>
                       </div>
@@ -293,9 +315,15 @@
                           <select
                             v-model="child.gender"
                             class="form-control form-select ps-3"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.children.$errors[0]?.$response
+                                  .$data[i].gender.$error,
+                            }"
                             :placeholder="
                               $t('user.profile.surname.placeholder')
                             "
+                            :ref="`bookingForm.children[${i}].gender`"
                           >
                             <option value="1">Herr</option>
                             <option value="2">Frau</option>
@@ -313,7 +341,14 @@
                           <input
                             v-model="child.name"
                             class="form-control"
+                            :placeholder="$t('user.profile.name')"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.children.$errors[0]?.$response
+                                  .$data[i].name.$error,
+                            }"
                             type="text"
+                            :ref="`bookingForm.children[${i}].name`"
                           />
                         </div>
                       </div>
@@ -329,7 +364,14 @@
                           <input
                             v-model="child.surname"
                             class="form-control"
+                            :placeholder="$t('user.profile.surname')"
+                            :class="{
+                              'border-danger border-2':
+                                v$.bookingForm.children.$errors[0]?.$response
+                                  .$data[i].surname.$error,
+                            }"
                             type="text"
+                            :ref="`bookingForm.children[${i}].surname`"
                           />
                         </div>
                       </div>
@@ -616,8 +658,8 @@
 </template>
 
 <script>
-import { useVuelidate } from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
+import { useVuelidate } from "@vuelidate/core";
+import { helpers, required, email } from "@vuelidate/validators";
 
 export default {
   data() {
@@ -666,23 +708,44 @@ export default {
           }, deep: true
       },
   },
-  validations () {
+  validations() {
+    const mustBeDate = helpers.regex(
+      /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
+    );
+    const phoneNumber = helpers.regex(
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
+    )
     return {
       bookingForm: {
-          personal: {
-            name     :  {required },
-            surname  :  {required },
-            email    :  {required , email },
-            phone    :  {required },
-            address  :  {required },
-            state    :  {required },
-            city     :  {required },
-            country  :  {required },
-          },
-          aggregment : {required},
-         
+        personal: {
+          name: { required },
+          surname: { required },
+          email: { required, email },
+          phone: { required , phoneNumber },
+          address: { required },
+          state: { required },
+          city: { required },
+          country: { required },
+        },
+        traveller: {
+          $each: helpers.forEach({
+            gender: { required },
+            name: { required },
+            surname: { required },
+            birthday: { required, mustBeDate },
+          }),
+        },
+        children: {
+          $each: helpers.forEach({
+            gender: { required },
+            name: { required },
+            surname: { required },
+            birthday: { required, mustBeDate },
+          }),
+        },
+        aggregment: { required },
       },
-    }
+    };
   },
 
   methods: {
@@ -764,9 +827,21 @@ export default {
     },
 
     scrollToElement() {
-
-      let item = this.v$.$errors[0]; 
-      let el  = this.$refs[item.$propertyPath];
+      let err = this.v$.$errors[0];
+      let path = err.$propertyPath;
+      let el = this.$refs[path];
+      if (err.$validator === "$each") {
+        err.$response.$errors.find((item, index) => {
+          let objProps = Object.getOwnPropertyNames(item);
+          return objProps.find((key) => {
+            if (item[key].length > 0) {
+              path += `[${index}].${item[key][0].$property}`;
+              el = this.$refs[path][0];
+              return true;
+            }
+          });
+        });
+      }
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }

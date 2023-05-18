@@ -908,13 +908,16 @@ export default {
     const mustBeDate = helpers.regex(
       /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
     );
+    const phoneNumber = helpers.regex(
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
+    )
     return {
       bookingForm: {
         personal: {
           name: { required },
           surname: { required },
           email: { required, email },
-          phone: { required },
+          phone: { required , phoneNumber },
           address: { required },
           state: { required },
           city: { required },
