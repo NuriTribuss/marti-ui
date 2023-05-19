@@ -27,8 +27,7 @@
               class="single-content-item pb-4 d-flex justify-content-between"
             >
               <div>
-                <h3 class="title font-size-24">
-                  {{ hotel.name }}
+                <h3 class="title font-size-24" v-html="hotel.name">
                 </h3>
                 <div class="d-block d-lg-flex">
                   <p class="ratings me-2" v-if="hotel.category">
