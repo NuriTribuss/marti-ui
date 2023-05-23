@@ -59,7 +59,8 @@
           </div>
         </div>
         <div class="d-flex justify-content-center my-5">
-            <img width="32" src="~assets/images/flags/de.svg"/>
+            <img v-if="language == 'de'" width="32" src="~assets/images/flags/de.svg"/>
+            <img v-if="language == 'tr'" width="32" src="~assets/images/flags/tr.svg"/>
             <button
               class="btn btn-sm dropdown-toggle  me-3"
               type="button"
@@ -167,7 +168,7 @@
       </div>
       <div class="offcanvas-body">
         <div class="list-group">
-          <a v-for="(children, subindex) in menuFooter.data[0]"
+          <a v-for="(children, subindex) in menuFooter.data[1]"
             v-bind:key="subindex"
             :href="children.translate.url"
             class="btn text-start"
