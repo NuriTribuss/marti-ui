@@ -15,7 +15,6 @@
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
-          <path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path>
         </svg>
       </div>
     </section>
