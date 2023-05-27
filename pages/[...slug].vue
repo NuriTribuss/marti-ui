@@ -22,7 +22,11 @@ const { data: meta } = await useFetch(`/api/meta/fetch?q=`+params.join('/'), {
 });
 
 if(meta?._rawValue?.data.type == 'affilate'){
-    navigateTo('hotel/'+meta._rawValue.data.hotel.code+'?f='+(meta._rawValue.data.params));
+    if(meta?._rawValue?.data.route.startsWith('/tour')){
+      navigateTo(meta?._rawValue?.data.route);
+    }else{
+      navigateTo('hotel/'+meta._rawValue.data.hotel.code+'?f='+(meta._rawValue.data.params));
+    }
 }
 
 // iç sayfalarda tanımlandı.
@@ -35,7 +39,6 @@ if(['landing_country','landing_state'].indexOf(meta.value.type) == 1 ) {
     ],
   })
 }
-
 </script>
 
 

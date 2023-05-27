@@ -532,6 +532,7 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 export default {
   props: [],
   data() {
@@ -586,6 +587,9 @@ export default {
         }
         vue.record = result.data;
         vue.selectedPeriod = vue.record.periods[0]
+        if(vue.$route.query.date){
+          vue.selectedPeriod = vue.record?.periods.filter(obj => obj.start_date_pretty == dayjs(vue.$route.query.date).format('DD.MM.YYYY'))[0];
+        }
         //vue.selectedStation = vue.record.periods[0].stations[0]
         let defaultStation = 'Wien';
         if(vue.$route.query.station != null)

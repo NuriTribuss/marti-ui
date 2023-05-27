@@ -103,7 +103,8 @@ export default {
         date: null,
         sourceList: null,
         destinationList: null,
-        dateList: null
+        dateList: null,
+        showAll: false
       },
     };
   },
@@ -137,6 +138,7 @@ export default {
     },
     getResult() {
       let vue = this;
+      vue.searchData.showAll = false;
       $fetch("/api/booking/tour/tour/search?active=1&ssr=1",{ method: 'POST', body: {page : this.current_page, ...vue.searchData} 
           }).then(function(result){
         vue.loader = false;
