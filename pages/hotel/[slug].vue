@@ -456,7 +456,6 @@ export default {
     },
     getCrumbObject(hotelObj, crumbType) {
       let searchObj = JSON.parse(this.$route.query.f);
-
       switch (crumbType) {
         case "region":
           searchObj.destination.code = hotelObj.location.region.code;

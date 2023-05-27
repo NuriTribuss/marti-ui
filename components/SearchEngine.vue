@@ -268,6 +268,7 @@ export default {
 
     search(){
        this.createFilter();
+       this.filters.destination.name = encodeURIComponent(this.filters.destination.name);
        location.href= this.url+'?f='+JSON.stringify(this.filters)
     },
     close(){
