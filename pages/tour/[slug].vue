@@ -470,7 +470,7 @@
             <div class="form-box">
               <div class="form-title-wrap py-3">
                 <h3 class="title text-color-6 font-weight-bold">
-                  Buchungsauftrag
+                  {{ $t('header.booking')}}
                 </h3>
               </div>
               <div class="form-content">

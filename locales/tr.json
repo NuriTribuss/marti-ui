@@ -597,6 +597,8 @@
         "tour.map" : "Harita",
         "tour.pictures" : "Resimler",
         "tour.video" : "Video",
+        "tour.included": "Dahil",
+        "tour.not_included": "Dahil değildir",
         "tour.or" : "veya",
         "tour.whatsapp" : "WhatsApp'tan Yaz",
         "tour.important_notes_and_warnings" : "Önemli ipuçları ve uyarılar",
