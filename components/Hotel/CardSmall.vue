@@ -10,8 +10,11 @@
         data-toggle="tooltip"
         data-placement="top"
         title="Bookmark"
+        @click="likeHotel"
       >
-        <i class="la la-heart-o"></i>
+      <i v-if="this.likedHotels.includes(this.hotel.giata.hotelId)" class="la la-heart"></i>
+      <i v-else class="la la-heart-o"></i>
+
       </div>
       <HotelRating :rate="hotel.rating.overall"/>
       </div>
@@ -58,13 +61,16 @@
 <script>
 import dayjs from 'dayjs'
 import { LocalData } from 'dayjs/locale/de'
+import VueCookies from 'vue-cookies';
 dayjs.locale('de');
 dayjs().locale('de').format();
 export default {
   components : {dayjs},
   props: ['hotel'],
   data() {
-    return {}
+    return {
+      likedHotels: []
+    }
   },
   methods : {
     go(id,sef){
@@ -73,6 +79,23 @@ export default {
     localize_date(dt)
     {
       return dayjs(dt).format('ddd DD. MMM')
+    },
+    likeHotel(){
+      if(this.likedHotels == null){
+         this.likedHotels = [];
+      }
+      this.likedHotels = VueCookies.get('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6');
+      if(this.likedHotels.includes(this.hotel.giata.hotelId)){
+        for( var i = 0; i < this.likedHotels.length; i++){ 
+          if (this.likedHotels[i] === this.hotel.giata.hotelId) { 
+            this.likedHotels.splice(i, 1); 
+          }
+        }
+      }else{
+        this.likedHotels.push(this.hotel.giata.hotelId);
+      }
+      VueCookies.set('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6' , this.likedHotels, "1y") 
+      console.log(this.likedHotels);
     }
   },
   computed: {
@@ -82,6 +105,9 @@ export default {
     image(){
       return this.hotel.mediaData.pictureUrl.replace('150','400');
     }
+  },
+  mounted(){
+    this.likedHotels = VueCookies.get('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6');
   }
 }
 </script>
