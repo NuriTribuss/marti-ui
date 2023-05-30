@@ -516,7 +516,7 @@
                 <div v-if="isDisabled == true" class="text-center my-2 text-danger"><b>{{ $t("tour.available_error_title") }}</b></div>
                 <button @click="checkout" :disabled="isDisabled == true" class="btn btn-block w-100 btn-primary rounded-0">
                   {{ $t["tour.make_a_reservation"] }} 
-                  <span >{{ $t('booking.title') }} <span v-if="price > 0">{{  price  }} </span> € </span>
+                  <span >{{ $t('booking.button') }} <span v-if="price > 0">{{  price  }} </span> € </span>
                 </button>
                 <div class="text-center my-2">{{ $t("tour.or") }}</div>
                 <button @click="openWp" class="btn btn-block w-100 btn-success rounded-0">
