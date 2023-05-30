@@ -285,7 +285,7 @@
         "offer.price_change" : "Tur operatörü bir fiyat artışı",
         "offer.price_down" : "Tur operatörü, fiyat azaltma",
         "offer.tourOperator.aggregment" : "Tur operatörünün genel hüküm ve koşullarını kabul ediyorum",
-        "booking.title" : "Rezervasyon siparişi",
+        "booking.title" : "Satın al",
         "booking.form.required" : "Lütfen pasaportta olduğu gibi soyadınızı girin.",
         "bookingForm.personal.error" : "Lütfen tüm alanları doldurun",
         "bookingForm.personal.name" : "İsim Girin",
