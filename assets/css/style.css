@@ -10833,7 +10833,8 @@ body {
 
 .section-tab .nav-tabs .nav-item {
 	margin-bottom: 0;
-	margin-right: 6px
+	margin-right: 6px;
+	cursor: pointer;
 }
 
 @media only screen and (min-width:768px) and (max-width:991px) {
@@ -10870,7 +10871,7 @@ body {
 	-ms-transition: all .3s;
 	-o-transition: all .3s;
 	transition: all .3s;
-	font-weight: 500
+	font-weight: 500;
 }
 
 .section-tab .nav-tabs .nav-link i {
