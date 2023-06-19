@@ -974,17 +974,7 @@ export default {
         }
         this.loader = false;
         this.offer = res.data.response;
-        this.hotel = this.offer.commonOffer.hotelOffer.hotel;
-        this.step.push(
-          this.hotel.location.region.name,
-          this.hotel.location.name,
-          this.hotel.name
-        );
-        // this.step.push("Bestätigung");
-        // this.step_new.push(this.getCrumbObject(this.hotel, "region"));
-        // this.step_new.push(this.getCrumbObject(this.hotel, "location"));
-        // this.step_new.push(this.getCrumbObject(this.hotel, "hotel"));
-        // this.step_new.push({ name: "Bestätigung" });
+      //  this.hotel = this.offer.commonOffer.hotelOffer.hotel;
 
         this.getBookingParams();
 
@@ -1005,7 +995,6 @@ export default {
             console.log(e)
           }
       })
-
 
         // Facebook Pixel checkout
         try {
