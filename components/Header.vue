@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="col-lg-6">
-           
+            
             <div class="header-top-content">
               <div
                 class="
@@ -32,6 +32,12 @@
                   justify-content-end
                 "
               >
+                <div class="header-right-action me-2">
+                  <button type="button" class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
+                    <i v-if="likedHotels.length > 0" class="la la-heart"></i>
+                    <i v-else class="la la-heart-o"></i>
+                  </button>
+                </div>
                 <div class="header-right-action">
                   <div class=" w-auto bg-white me-2">
                      <button class="btn btn-sm dropdown-toggle" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,6 +90,10 @@
                 /></a>
               </div>
               <div class="d-flex">
+                <a class="text-white btn d-lg-none me-1" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal" aria-controls="loginRight"> 
+                    <i v-if="likedHotels.length > 0" class="la la-heart"></i>
+                    <i v-else class="la la-heart-o"></i>
+                </a>
                 <a class="text-white btn d-lg-none me-1" data-bs-toggle="offcanvas" data-bs-target="#login-modal" aria-controls="loginRight"> 
                     <i class="la la-user font-size-26"></i>
                 </a>
@@ -179,14 +189,28 @@
   <MobileMenu :menu="menu"  v-if="menu"/>
   <UserLoginPopup/>
   <UserRegisterPopup/>
+  <!-- Scrollable modal -->
+  <div class="modal fade" id="favouriteHotelsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <favourite-hotel-list v-if="renderFavouriteHotelList" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-
+import { ref , watchEffect } from 'vue'
 const config = useRuntimeConfig();
 const language = useCookie("store-language");
 const currency = useCookie("currency");
-
+const renderFavouriteHotelList = ref(false);
+const likedHotels = useCookie('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6',{watch: true});
 const changeLanguage = (param) => {
   language.value = param;
   location.reload();
@@ -210,5 +234,15 @@ const url = (url) => {
   }
   return url;
 };
+
+onMounted(() => {
+  let favModal = document.getElementById('favouriteHotelsModal');
+  favModal.addEventListener('shown.bs.modal', function () {
+    renderFavouriteHotelList.value = true; 
+  });
+  favModal.addEventListener('hidden.bs.modal', function () {
+    renderFavouriteHotelList.value = false;
+  });
+});
 
 </script>

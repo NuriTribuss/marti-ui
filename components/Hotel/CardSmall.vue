@@ -61,7 +61,6 @@
 <script>
 import dayjs from 'dayjs'
 import { LocalData } from 'dayjs/locale/de'
-import VueCookies from 'vue-cookies';
 dayjs.locale('de');
 dayjs().locale('de').format();
 export default {
@@ -81,8 +80,6 @@ export default {
       return dayjs(dt).format('ddd DD. MMM')
     },
     likeHotel(){
-      
-      this.likedHotels = VueCookies.get('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6');
       if(this.likedHotels == null){
          this.likedHotels = [];
       }
@@ -95,8 +92,6 @@ export default {
       }else{
         this.likedHotels.push(this.hotel.giata.hotelId);
       }
-      VueCookies.set('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6' , this.likedHotels, "1y") 
-      console.log(this.likedHotels);
     }
   },
   computed: {
@@ -108,7 +103,7 @@ export default {
     }
   },
   mounted(){
-    this.likedHotels = VueCookies.get('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6');
+    this.likedHotels = useCookie('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6',{watch: true});
   }
 }
 </script>
