@@ -975,7 +975,11 @@ export default {
         this.loader = false;
         this.offer = res.data.response;
       //  this.hotel = this.offer.commonOffer.hotelOffer.hotel;
-
+        // this.step.push(
+        //   this.hotel.location.region.name,
+        //   this.hotel.location.name,
+        //   this.hotel.name
+        // );
         this.getBookingParams();
 
         let vue = this;
