@@ -10,8 +10,10 @@
         data-toggle="tooltip"
         data-placement="top"
         title="Bookmark"
+        @click="likeHotel"
       >
-        <i class="la la-heart-o"></i>
+        <i v-if="this.likedHotels?.includes(this.hotel.giata.hotelId)" class="la la-heart"></i>
+        <i v-else class="la la-heart-o"></i>
       </div>
     </div>
     <div class="card-body p-3 p-lg-4">
@@ -64,11 +66,27 @@ export default {
   
   props: ['hotel'],
   data() {
-    return {}
+    return {
+      likedHotels: []
+    }
   },
   methods : {
     go(id,sef){
       this.$emit('searchHotel',id,sef)
+    },
+    likeHotel(){
+      if(this.likedHotels == null){
+         this.likedHotels = [];
+      }
+      if(this.likedHotels?.includes(this.hotel.giata.hotelId)){
+        for( var i = 0; i < this.likedHotels.length; i++){ 
+          if (this.likedHotels[i] === this.hotel.giata.hotelId) { 
+            this.likedHotels.splice(i, 1); 
+          }
+        }
+      }else{
+        this.likedHotels.push(this.hotel.giata.hotelId);
+      }
     }
   },
   computed: {
@@ -78,6 +96,9 @@ export default {
     image(){
       return this.hotel.mediaData.pictureUrl.replace('150','400');
     }
+  },
+  mounted(){
+    this.likedHotels = useCookie('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6',{watch: true});
   }
 }
 </script>

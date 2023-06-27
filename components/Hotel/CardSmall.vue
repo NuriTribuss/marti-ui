@@ -12,8 +12,8 @@
         title="Bookmark"
         @click="likeHotel"
       >
-      <i v-if="this.likedHotels?.includes(this.hotel.giata.hotelId)" class="la la-heart"></i>
-      <i v-else class="la la-heart-o"></i>
+        <i v-if="this.likedHotels?.includes(this.hotel.giata.hotelId)" class="la la-heart"></i>
+        <i v-else class="la la-heart-o"></i>
 
       </div>
       <HotelRating :rate="hotel.rating.overall"/>
