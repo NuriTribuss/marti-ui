@@ -8,9 +8,9 @@
         
         <div class="card-body">
           <h6 class="card-title">
-            <a href="javascript:;"  @click="searchHotel(hotel.giata.hotelId,hotel.name_sef)">{{hotel.name}}</a>            
+            <a href="javascript:;"  @click="searchHotel(hotel.hotelId,hotel.name_sef)">{{hotel.name}}</a>            
           </h6>
-          <p class="card-meta">{{ hotel.location.name }}, ({{ hotel.location.region.name}})</p>
+          <p class="card-meta">{{ hotel.region_name }}, ({{ hotel.region_name}})</p>
           <div class="card-rating pt-1">
             <span class="ratings d-flex align-items-center">
               <i class="la la-star" v-for="i in parseInt(hotel.category) || 0" :key="i"></i>
@@ -29,7 +29,7 @@ export default {
   props: ["hotel"],
   methods:{
     removeFav(){
-      this.$emit("removeFav",this.hotel.giata.hotelId);
+      this.$emit("removeFav",this.hotel.hotelId);
     },
     searchHotel(id, sef) {
         let query2  = search.get();
@@ -42,7 +42,6 @@ export default {
             'name': 'Wien'
         };
         query2['giataIdList']=[id];
-        //location.href = '/search/hotels' + '?f=' + JSON.stringify(query2)
         location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2)
         query2['giataIdList']= [];
 
@@ -50,11 +49,8 @@ export default {
     },
   },
   computed: {
-    offer(){
-      return this.hotel.offerList ? this.hotel.offerList[0] : null;
-    },
     image(){
-      return this.hotel.mediaData.pictureUrl.replace('100','100');
+      return this.hotel.pictureUrl.replace('100','100');
     }
   },
 };

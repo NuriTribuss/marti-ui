@@ -12,7 +12,7 @@
         title="Bookmark"
         @click="likeHotel"
       >
-        <i v-if="this.likedHotels?.includes(this.hotel.giata.hotelId)" class="la la-heart"></i>
+        <i v-if="likedHotels?.find((h) => h.hotelId==hotel.giata.hotelId) != null" class="la la-heart"></i>
         <i v-else class="la la-heart-o"></i>
       </div>
     </div>
@@ -67,7 +67,16 @@ export default {
   props: ['hotel'],
   data() {
     return {
-      likedHotels: []
+      likedHotels: [],
+      cookieHotelObj: {
+        name: null,
+        category: null,
+        hotelId: null,
+        name_sef: null,
+        region_name: null,
+        location_name: null,
+        pictureUrl: null
+      }
     }
   },
   methods : {
@@ -78,14 +87,14 @@ export default {
       if(this.likedHotels == null){
          this.likedHotels = [];
       }
-      if(this.likedHotels?.includes(this.hotel.giata.hotelId)){
+      if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId)){
         for( var i = 0; i < this.likedHotels.length; i++){ 
-          if (this.likedHotels[i] === this.hotel.giata.hotelId) { 
+          if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
             this.likedHotels.splice(i, 1); 
           }
         }
       }else{
-        this.likedHotels.push(this.hotel.giata.hotelId);
+        this.likedHotels.push(this.cookieHotelObj);
       }
     }
   },
@@ -98,7 +107,15 @@ export default {
     }
   },
   mounted(){
-    this.likedHotels = useCookie('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6',{watch: true});
+    this.cookieHotelObj.name = this.hotel.name;
+    this.cookieHotelObj.category = this.hotel.category;
+    this.cookieHotelObj.hotelId = this.hotel.giata.hotelId;
+    this.cookieHotelObj.name_sef = this.hotel.name_sef;
+    this.cookieHotelObj.region_name = this.hotel.location.region.name;
+    this.cookieHotelObj.location_name = this.hotel.location.name;
+    this.cookieHotelObj.pictureUrl = this.hotel.mediaData.pictureUrl;
+
+    this.likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
   }
 }
 </script>

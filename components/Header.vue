@@ -34,7 +34,7 @@
               >
                 <div class="header-right-action me-2">
                   <button type="button" class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
-                    <i v-if="likedHotels.length > 0" class="la la-heart"></i>
+                    <i v-if="likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
                   </button>
                 </div>
@@ -91,7 +91,7 @@
               </div>
               <div class="d-flex">
                 <a class="text-white btn d-lg-none me-1" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal" aria-controls="loginRight"> 
-                    <i v-if="likedHotels.length > 0" class="la la-heart"></i>
+                    <i v-if="likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
                 </a>
                 <a class="text-white btn d-lg-none me-1" data-bs-toggle="offcanvas" data-bs-target="#login-modal" aria-controls="loginRight"> 
@@ -210,7 +210,7 @@ const config = useRuntimeConfig();
 const language = useCookie("store-language");
 const currency = useCookie("currency");
 const renderFavouriteHotelList = ref(false);
-const likedHotels = useCookie('martiLikedHotels-cf4a3ede05fce4138ec89688f04754f6',{watch: true});
+const likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
 const changeLanguage = (param) => {
   language.value = param;
   location.reload();
