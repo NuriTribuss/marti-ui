@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-show="loader">
         <!-- <LoaderLanding v-if="likedHotels?.length > 0"/> -->
-        <span v-if="likedHotels?.length == 0">empty</span>
+        <span v-if="likedHotels?.length == 0">{{ $t('hotels.liked_empty') }}</span>
     </div>
     <client-only>
         <ul>    

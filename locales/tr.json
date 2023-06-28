@@ -228,6 +228,7 @@
         "hotels.rating_fair": "Zayıf",
         "hotels.rating_poor": "Zayıf",
         "hotels.rating_verypoor": "Çok zayıf",
+        "hotels.liked_empty": "Not defterine henüz hiçbir şey kaydetmediniz.",
         "offer.hotel_error" : "Bir Hata Oluştu. Otel ve Teklif bilgisi Alınamadı. Anasayfaya Yönlendiriliyorsunuz",
         "offer.no_result" : "Teklif bulunamadı",
         "offer.not_available" : "Üzgünüz bu fiyatta yer bulunmamaktadır. Yeniden deneyiniz.",
