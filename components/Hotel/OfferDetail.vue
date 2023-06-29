@@ -128,7 +128,7 @@
          <div class=" ">
            <div class="d-flex justify-content-between w-100 font-size-18  mt-3 mb-2 my-lg-4" >
             <div class="">{{ $t('offer.amount')}}</div>
-            <div class="font-weight-bold">€ {{ $n(offer.totalPrice.value) }}</div>
+            <div class="font-weight-bold">€ {{ $n(active_offer.totalPrice.value) }}</div>
            </div>
           <div>
             <a
