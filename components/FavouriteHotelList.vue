@@ -17,7 +17,7 @@ export default {
     return {
         likedHotels: [],
         loader: true,
-        likedHotelsObj: []
+        //likedHotelsObj: []
     }
   },
   methods:{
@@ -25,13 +25,14 @@ export default {
         for( var i = 0; i < this.likedHotels.length; i++){ 
           if (this.likedHotels[i].hotelId === id) { 
             this.likedHotels.splice(i, 1); 
+            break;
           }
         }
-        for( var i = 0; i < this.likedHotelsObj.length; i++){ 
-          if (this.likedHotelsObj[i].giata.hotelId === id) { 
-            this.likedHotelsObj.splice(i, 1); 
-          }
-        }
+        //for( var i = 0; i < this.likedHotelsObj.length; i++){ 
+          //if (this.likedHotelsObj[i].giata.hotelId === id) { 
+            //this.likedHotelsObj.splice(i, 1); 
+          //}
+        //}
     },
     // getResult() {
     //         let query  = search.get();

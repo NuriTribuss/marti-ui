@@ -34,7 +34,7 @@
               >
                 <div class="header-right-action me-2">
                   <button type="button" class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
-                    <i v-if="likedHotels?.length > 0" class="la la-heart"></i>
+                    <i v-if="!likedHotels || likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
                   </button>
                 </div>
@@ -209,7 +209,7 @@ import { ref , watchEffect } from 'vue'
 const config = useRuntimeConfig();
 const language = useCookie("store-language");
 const currency = useCookie("currency");
-const renderFavouriteHotelList = ref(false);
+let renderFavouriteHotelList = ref(false);
 const likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
 const changeLanguage = (param) => {
   language.value = param;
@@ -237,10 +237,10 @@ const url = (url) => {
 
 onMounted(() => {
   let favModal = document.getElementById('favouriteHotelsModal');
-  favModal.addEventListener('shown.bs.modal', function () {
+  favModal.addEventListener('shown.bs.modal', function () {    
     renderFavouriteHotelList.value = true; 
   });
-  favModal.addEventListener('hidden.bs.modal', function () {
+  favModal.addEventListener('hidden.bs.modal', function () {    
     renderFavouriteHotelList.value = false;
   });
 });
