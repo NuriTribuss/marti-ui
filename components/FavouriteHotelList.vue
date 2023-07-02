@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-show="loader">
         <!-- <LoaderLanding v-if="likedHotels?.length > 0"/> -->
-        <span v-if="likedHotels?.length == 0">{{ $t('hotels.liked_empty') }}</span>
+        <span v-if="!likedHotels || likedHotels?.length == 0">{{ $t('hotels.liked_empty') }}</span>
     </div>
     <client-only>
         <ul>    
@@ -12,6 +12,7 @@
     </client-only>  
 </template>
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -21,19 +22,24 @@ export default {
     }
   },
   methods:{
-    removeFav(id){        
-        for( var i = 0; i < this.likedHotels.length; i++){ 
-          if (this.likedHotels[i].hotelId === id) { 
-            this.likedHotels.splice(i, 1); 
-            break;
-          }
-        }
+    removeFav(hotel){        
+      this.doLikeHotel(hotel);
+      this.likedHotels = this.favHotels;
+        // for( var i = 0; i < this.likedHotels.length; i++){ 
+        //   if (this.likedHotels[i].hotelId === id) { 
+        //     this.likedHotels.splice(i, 1); 
+        //     break;
+        //   }
+        // }
         //for( var i = 0; i < this.likedHotelsObj.length; i++){ 
           //if (this.likedHotelsObj[i].giata.hotelId === id) { 
             //this.likedHotelsObj.splice(i, 1); 
           //}
         //}
     },
+    ...mapActions({
+      doLikeHotel: 'doLikeHotel',
+    }),
     // getResult() {
     //         let query  = search.get();
     //         let vue = this;
@@ -56,9 +62,23 @@ export default {
     //         query['departure']= {"code": "", "name": "Beliebig" };
     //     },
   },
+  computed: {
+    favHotels: {
+      get() {
+        return this.$store.getters["likedHotelsList"];
+      }
+    },
+  },
   mounted(){    
-    this.likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
+    //this.likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
     //this.getResult();
-  }
+    this.$store.dispatch("setLikedHotels");
+    this.likedHotels = this.favHotels;
+  },
+  watch:{
+    favHotels (newValue, oldValue) {
+      this.likedHotels = this.favHotels;
+    }
+  },
 };
 </script>

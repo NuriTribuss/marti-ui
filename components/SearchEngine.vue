@@ -132,7 +132,7 @@
                 <div class="form-group">
                     <span class="la la-users form-icon text-color-12 z-index-2 d-block d-lg-none"></span>
                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#traveller-modal" class="font-size-16 text-start form-control d-block d-lg-none"   >
-                      {{ filters.adults }} {{ $t('search.adult').substr(0,3)}}  {{ filters.children.length }} {{ $t('search.children')}}
+                      {{ filters.adults }} {{ $t('search.adult').substr(0,3)}}  {{ filters.children?.length }} {{ $t('search.children')}}
                       </button>
                     <SearchTravellerDropdown class="d-none d-lg-block"  @select="setTraveller" :adults="filters.adults" :children="filters.children"/>
                     <SearchMobileTraveller @select="setTraveller" :adults="filters.adults" :children="filters.children" />
@@ -225,7 +225,7 @@ export default {
       let input =  new bootstrap.Dropdown(document.getElementById('destination_input'))
       input.show();
 
-      if(this.query.length < 2){
+      if(this.query?.length < 2){
         this.source.hotels = [];
         this.source.regions = [];
          return false;
@@ -259,7 +259,7 @@ export default {
       ).then((res) => {
 
         let airports = [];
-        for(var i = 0; i < res.data.length; i++){
+        for(var i = 0; i < res.data?.length; i++){
           //airports = airports.concat(res.data[i].items)
         }
         this.source.airports = res.data;

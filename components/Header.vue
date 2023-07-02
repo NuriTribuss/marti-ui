@@ -34,7 +34,7 @@
               >
                 <div class="header-right-action me-2">
                   <button type="button" class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
-                    <i v-if="!likedHotels || likedHotels?.length > 0" class="la la-heart"></i>
+                    <i v-if="likedHotels || likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
                   </button>
                 </div>
@@ -205,12 +205,14 @@
 </template>
 
 <script setup>
-import { ref , watchEffect } from 'vue'
+import { ref , computed , watch } from 'vue'
+import { useStore } from 'vuex'
 const config = useRuntimeConfig();
 const language = useCookie("store-language");
 const currency = useCookie("currency");
+const store = useStore();
 let renderFavouriteHotelList = ref(false);
-const likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
+const likedHotels = computed(() => store.getters.likedHotelsList)
 const changeLanguage = (param) => {
   language.value = param;
   location.reload();
@@ -243,6 +245,10 @@ onMounted(() => {
   favModal.addEventListener('hidden.bs.modal', function () {    
     renderFavouriteHotelList.value = false;
   });
+});
+
+watch(likedHotels, ( newValue, oldValue ) => {
+  //console.log("liked hotel changed header")
 });
 
 </script>

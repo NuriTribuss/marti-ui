@@ -29,7 +29,7 @@ export default {
   props: ["hotel"],
   methods:{
     removeFav(){
-      this.$emit("removeFav",this.hotel.hotelId);
+      this.$emit("removeFav",this.hotel);
     },
     searchHotel(id, sef) {
         let query2  = search.get();

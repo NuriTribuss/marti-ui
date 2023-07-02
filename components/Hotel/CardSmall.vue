@@ -12,7 +12,7 @@
         title="Bookmark"
         @click="likeHotel"
       >
-        <i v-if="likedHotels?.find((h) => h.hotelId==hotel.giata.hotelId) != null" class="la la-heart"></i>
+        <i v-if="liked" class="la la-heart"></i>
         <i v-else class="la la-heart-o"></i>
 
       </div>
@@ -61,6 +61,7 @@
 <script>
 import dayjs from 'dayjs'
 import { LocalData } from 'dayjs/locale/de'
+import { mapActions } from 'vuex';
 dayjs.locale('de');
 dayjs().locale('de').format();
 export default {
@@ -77,7 +78,8 @@ export default {
         region_name: null,
         location_name: null,
         pictureUrl: null
-      }
+      },
+      liked: false,
     }
   },
   methods : {
@@ -89,26 +91,79 @@ export default {
       return dayjs(dt).format('ddd DD. MMM')
     },
     likeHotel(){
-      if(this.likedHotels == null){
-         this.likedHotels = [];
-      }
+      this.doLikeHotel(this.cookieHotelObj);
+      this.likedHotels = this.favHotels;
       if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
-        for( var i = 0; i < this.likedHotels.length; i++){ 
-          if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
-            this.likedHotels.splice(i, 1); 
-          }
-        }
+        this.liked = true;
       }else{
-        this.likedHotels.push(this.cookieHotelObj);
+        this.liked = false;
       }
-    }
+      //this.likedHotels = this.favHotels;
+      // this.likedHotels = this.favHotels;
+      // console.log(this.likedHotels);
+      // // if(this.likedHotels === null){
+      // //    this.likedHotels = [];
+      // // }
+      // if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
+      //   for( var i = 0; i < this.likedHotels.length; i++){ 
+      //     if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
+      //       this.likedHotels.splice(i, 1); 
+      //     }
+      //   }
+      // }else{
+      //   this.likedHotels.push(this.cookieHotelObj);
+      // }
+
+      // this.favHotels = this.likedHotels;
+
+      //let vue = this;      
+      //this.$store.dispatch('likehotel/doLikeHotel', vue.hotel, { root: true })
+      //this.doLikeHotel(vue.hotel);
+      // if(this.likedHotels == null){
+      //    this.likedHotels = [];
+      // }
+      // if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
+      //   for( var i = 0; i < this.likedHotels.length; i++){ 
+      //     if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
+      //       this.likedHotels.splice(i, 1); 
+      //     }
+      //   }
+      // }else{
+      //   this.likedHotels.push(this.cookieHotelObj);
+      // }
+      //console.log('cardsmall-'+this.$store.state.likehotel.LikedHotels);
+    },
+    ...mapActions({
+      doLikeHotel: 'doLikeHotel',
+    }),
   },
   computed: {
     offer(){
       return this.hotel.offerList ? this.hotel.offerList[0] : null;
     },
     image(){
-      return this.hotel.mediaData.pictureUrl.replace('150','400');
+      return this.hotel.mediaData.pictureUrl?.replace('150','400');
+    },
+    favHotels: {
+      get() {
+        return this.$store.getters["likedHotelsList"];
+      }
+    },
+  },
+  watch:{
+    // 'this.$store.state.likehotel.LikedHotels': function() {
+    //   console.log(this.$store.state.likehotel.LikedHotels);
+    // },
+    // 'this.favHotels': function(){
+    //   console.log(this.favHotels);
+    // },
+    favHotels (newValue, oldValue) {
+      this.likedHotels = this.favHotels;
+      if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
+        this.liked = true;
+      }else{
+        this.liked = false;
+      }
     }
   },
   mounted(){
@@ -118,9 +173,15 @@ export default {
     this.cookieHotelObj.name_sef = this.hotel.name_sef;
     this.cookieHotelObj.region_name = this.hotel.location.region.name;
     this.cookieHotelObj.location_name = this.hotel.location.name;
-    this.cookieHotelObj.pictureUrl = this.hotel.mediaData.pictureUrl;
+    this.cookieHotelObj.pictureUrl = this.hotel.mediaData?.pictureUrl;
 
-    this.likedHotels = useCookie('martiLikedHotels-73d538338f654eabbf488b88aa9c8150',{watch: true});
+    this.$store.dispatch("setLikedHotels");
+    this.likedHotels = this.favHotels;
+    if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
+      this.liked = true;
+    }else{
+      this.liked = false;
+    }
   }
 }
 </script>
