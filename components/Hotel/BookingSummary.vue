@@ -3,7 +3,7 @@
     <div class="card-item shadow-none radius-none mb-0" v-if="offer">
       <div class="card-img pb-4">
         <a href="#" class="d-block">
-          <img src="~assets/images/img1.jpg" alt="tour-img" />
+          <img v-bind:src="hotelImage" alt="tour-img" />
         </a>
       </div>
       <div class="card-body p-0">
@@ -186,7 +186,16 @@ export default {
     },
     formatFlightDate(date){
         return dayjs(date).format('DD.MM.YYYY')
-    }
-  }
+    },
+  },
+  computed: {
+    hotelImage(){
+      if(this.hotel.catalogData?.imageList != null && this.hotel.catalogData?.imageList.length > 0){
+        return this.hotel.catalogData?.imageList[0];}
+      if(this.hotel.mediaData != null && this.hotel.mediaData.pictureUrl != null){
+        return this.hotel.mediaData.pictureUrl;}
+      return "~assets/images/img1.jpg"
+    },
+  },
 };
 </script>

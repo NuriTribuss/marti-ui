@@ -27,6 +27,7 @@
   </a>
 </template>
 <script>
+import dayjs from 'dayjs'
 export default {
   props: ["hotel"],
   data() {
@@ -53,10 +54,16 @@ export default {
             'name': 'Wien'
         };
         query2['giataIdList']=[id];
+        query2['date']={ 
+            "start": dayjs().add(5, 'day').format('YYYY-MM-DD'),
+            "end": dayjs().add(65, 'day').format('YYYY-MM-DD')
+        };
         location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2)
         query2['giataIdList']= [];
-
-      
+        query2['date']={ 
+            "start": dayjs().add(5, 'day').format('YYYY-MM-DD'),
+            "end": dayjs().add(30, 'day').format('YYYY-MM-DD')
+        };
     },
   },
   computed: {
