@@ -247,8 +247,8 @@ onMounted(() => {
   });
 });
 
-watch(likedHotels, ( newValue, oldValue ) => {
-  //console.log("liked hotel changed header")
-});
+// watch(likedHotels, ( newValue, oldValue ) => {
+//   //console.log("liked hotel changed header")
+// });
 
 </script>

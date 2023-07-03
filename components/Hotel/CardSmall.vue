@@ -98,40 +98,6 @@ export default {
       }else{
         this.liked = false;
       }
-      //this.likedHotels = this.favHotels;
-      // this.likedHotels = this.favHotels;
-      // console.log(this.likedHotels);
-      // // if(this.likedHotels === null){
-      // //    this.likedHotels = [];
-      // // }
-      // if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
-      //   for( var i = 0; i < this.likedHotels.length; i++){ 
-      //     if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
-      //       this.likedHotels.splice(i, 1); 
-      //     }
-      //   }
-      // }else{
-      //   this.likedHotels.push(this.cookieHotelObj);
-      // }
-
-      // this.favHotels = this.likedHotels;
-
-      //let vue = this;      
-      //this.$store.dispatch('likehotel/doLikeHotel', vue.hotel, { root: true })
-      //this.doLikeHotel(vue.hotel);
-      // if(this.likedHotels == null){
-      //    this.likedHotels = [];
-      // }
-      // if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
-      //   for( var i = 0; i < this.likedHotels.length; i++){ 
-      //     if (this.likedHotels[i].hotelId === this.hotel.giata.hotelId) { 
-      //       this.likedHotels.splice(i, 1); 
-      //     }
-      //   }
-      // }else{
-      //   this.likedHotels.push(this.cookieHotelObj);
-      // }
-      //console.log('cardsmall-'+this.$store.state.likehotel.LikedHotels);
     },
     ...mapActions({
       doLikeHotel: 'doLikeHotel',
@@ -151,12 +117,6 @@ export default {
     },
   },
   watch:{
-    // 'this.$store.state.likehotel.LikedHotels': function() {
-    //   console.log(this.$store.state.likehotel.LikedHotels);
-    // },
-    // 'this.favHotels': function(){
-    //   console.log(this.favHotels);
-    // },
     favHotels (newValue, oldValue) {
       this.likedHotels = this.favHotels;
       if(this.likedHotels?.find((h) => h.hotelId==this.hotel.giata.hotelId) != null){
