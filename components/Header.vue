@@ -33,9 +33,13 @@
                 "
               >
                 <div class="header-right-action me-2">
-                  <button type="button" class="btn btn-primary btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
-                    <i v-if="likedHotels || likedHotels?.length > 0" class="la la-heart"></i>
+                  <button type="button" class="btn btn-primary position-relative btn-sm rounded-0 transparent" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
+                    <i v-if="likedHotels && likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
+                    <span v-if="likedHotels && likedHotels?.length > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {{likedHotels?.length}}
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
                   </button>
                 </div>
                 <div class="header-right-action">
@@ -247,8 +251,8 @@ onMounted(() => {
   });
 });
 
-// watch(likedHotels, ( newValue, oldValue ) => {
-//   //console.log("liked hotel changed header")
-// });
+watch(likedHotels, ( newValue, oldValue ) => {
+  //console.log("liked hotel changed header")
+});
 
 </script>
