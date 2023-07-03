@@ -33,7 +33,7 @@
                 "
               >
                 <div class="header-right-action me-2">
-                  <button type="button" class="btn btn-primary position-relative btn-sm rounded-0 transparent" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
+                  <button type="button" class="btn btn-primary position-relative btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal">
                     <i v-if="likedHotels && likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
                     <span v-if="likedHotels && likedHotels?.length > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -94,9 +94,13 @@
                 /></a>
               </div>
               <div class="d-flex">
-                <a class="text-white btn d-lg-none me-1" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal" aria-controls="loginRight"> 
-                    <i v-if="likedHotels?.length > 0" class="la la-heart"></i>
+                <a class="text-white btn d-lg-none me-1 position-relative" data-bs-toggle="modal" data-bs-target="#favouriteHotelsModal" aria-controls="loginRight" style="font-size: larger;"> 
+                    <i v-if="likedHotels && likedHotels?.length > 0" class="la la-heart"></i>
                     <i v-else class="la la-heart-o"></i>
+                    <span v-if="likedHotels && likedHotels?.length > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: small;">
+                      {{likedHotels?.length}}
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
                 </a>
                 <a class="text-white btn d-lg-none me-1" data-bs-toggle="offcanvas" data-bs-target="#login-modal" aria-controls="loginRight"> 
                     <i class="la la-user font-size-26"></i>
