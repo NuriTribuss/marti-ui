@@ -36,7 +36,7 @@
           <div v-show="loader.hotels"> 
             <LoaderHotel class="mb-3" v-for="i in 5" v-bind:key="i"/>
           </div>
-          <SearchNotFound v-if="hotels.length == 0"/>
+          <SearchNotFound v-if="hotels?.length == 0 && loader.hotels == false"/>
           <HotelCard @searchHotel="searchHotel" v-for="(hotel,i) in hotels"  v-bind:hotel="hotel" v-bind:key="i"></HotelCard>
         </div>
       </div>
@@ -95,7 +95,11 @@ export default {
           vue.loader.hotels = false;
           if(!result.status) {
             vue.error = true;
-
+            return false;
+          }
+          if(result.data.response.hasOwnProperty('api_error'))
+          {
+            vue.error = true;
             return false;
           }
           if(vue.current_page == 1){

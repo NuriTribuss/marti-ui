@@ -67,7 +67,7 @@
     </div>
   </div>
   <LoaderOffer v-if="loader"/>
-  <HotelOfferDetail :offer="offer" :active_offer="activeOffer" v-if="detail" @close="close" @go="go"/>
+  <HotelOfferDetail :offer="offer" :active_offer="activeOffer" :check_offer_result="check_offer_result" v-if="detail" @close="close" @go="go"/>
 </div>
 </template>
 <script>
@@ -81,6 +81,10 @@ export default {
       detail : false,
       activeOffer : null,
       is_available  : null,
+      check_offer_result: {
+        error: false,
+        message: "",
+      }
     }
   },
   methods : {
@@ -109,6 +113,8 @@ export default {
         this.loader = false;
         this.detail = true;
         this.activeOffer = res.data.response;
+        this.check_offer_result.error = res.data.error;
+        this.check_offer_result.message = res.data.message;
         //          :href="'/booking/checkout?code='+offer.code"
        
       });

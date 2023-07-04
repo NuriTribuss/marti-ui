@@ -309,7 +309,7 @@
                   <div v-show="loaders.offer">
                     <LoaderOffer v-for="i in 10" :key="i" class="mb-1" />
                   </div>
-                  <SearchNotFound v-if="offerList?.length == 0"/>
+                  <SearchNotFound v-if="offerList?.length == 0 && loaders.offer == false"/>
                   <HotelOffer
                     v-for="(offer, index) in offerList"
                     :key="index"

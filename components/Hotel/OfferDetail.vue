@@ -1,6 +1,6 @@
 <template>
-  <div class="card my-2 testimonial-card  border-success" >
-    <div class="card-header bg-success text-white rounded-0 d-flex justify-content-between">
+  <div class="card my-2 testimonial-card" :class="borderClass">
+    <div class="card-header text-white rounded-0 d-flex justify-content-between" :class="headerClass">
       <div class="py-1"><i class="la la-check me-2"></i>{{ $t('offer.is_available')}}</div>
       <a class="btn btn-link btn-sm text-white " @click="close()"><i class="la la-close"></i></a>
       </div>
@@ -128,10 +128,11 @@
          <div class=" ">
            <div class="d-flex justify-content-between w-100 font-size-18  mt-3 mb-2 my-lg-4" >
             <div class="">{{ $t('offer.amount')}}</div>
-            <div class="font-weight-bold">€ {{ $n(active_offer.totalPrice.value) }}</div>
+            <div v-if="!check_offer_result.error" class="font-weight-bold">€ {{ $n(active_offer.totalPrice.value) }}</div>
            </div>
           <div>
-            <a
+            <div v-if="check_offer_result.error" class="alert alert-danger" role="alert">{{ check_offer_result.message }}</div>
+            <a v-else
           class="btn btn-success rounded w-100 text-center "
           @click="checkout(offer.code)"
           
@@ -150,7 +151,7 @@ import dayjs from 'dayjs'
 
 export default {
   components : {dayjs},
-  props: ['offer','active_offer'],
+  props: ['offer','active_offer','check_offer_result'],
   data() {
     return {
       loader : true
@@ -168,7 +169,18 @@ export default {
       }
   },
   computed: {
-    
+    borderClass(){
+      if(this.check_offer_result.error){
+        return "border-danger";
+      }
+      return "border-success";
+    },
+    headerClass(){
+      if(this.check_offer_result.error){
+        return "bg-danger";
+      }
+      return "bg-success";
+    }
   }
 }
 </script>
