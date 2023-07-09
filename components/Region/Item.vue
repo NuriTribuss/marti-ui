@@ -84,6 +84,7 @@ export default {
       this.$emit('search',destination)
     },
     toHoursAndMinutes(totalMinutes) {
+      if(totalMinutes == null || totalMinutes == 0){return "3h 30 m";}
       const hours = Math.floor(totalMinutes / 60);
       const minutes = totalMinutes % 60;
 

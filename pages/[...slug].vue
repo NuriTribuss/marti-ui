@@ -4,6 +4,7 @@
      <ContentPage    v-if="meta.data.type == 'content/page'"    :id="meta.data.table_id" :locale="meta.data.locale"/>
      <ContentPost    v-if="meta.data.type == 'content/post'"    :id="meta.data.table_id" :locale="meta.data.locale"/>
      <LandingCountry v-if="meta.data.type == 'landing_country'" :meta="meta" :config="config"/>
+     <LandingCity v-if="meta.data.type == 'landing_city'" :meta="meta" :config="config"/>
      <LandingState   v-if="meta.data.type == 'landing_state'" :meta="meta" :config="config"/>
      <LandingBase    v-if="meta.data.type == 'landing'"         :meta="meta" :config="config"/>
      

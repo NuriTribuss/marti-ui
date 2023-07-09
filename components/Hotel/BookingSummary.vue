@@ -176,7 +176,7 @@
 
 <script>
 import dayjs from 'dayjs'
-
+import imgresizer from '/utils/trafficImageResize';
 export default {
   components : { dayjs },
   props: ["offer","hotel"],
@@ -193,7 +193,8 @@ export default {
       if(this.hotel.catalogData?.imageList != null && this.hotel.catalogData?.imageList.length > 0){
         return this.hotel.catalogData?.imageList[0];}
       if(this.hotel.mediaData != null && this.hotel.mediaData.pictureUrl != null){
-        return this.hotel.mediaData.pictureUrl;}
+        return imgresizer.resize(this.hotel.mediaData.pictureUrl,'500');
+      }
       return "~assets/images/img1.jpg"
     },
   },
