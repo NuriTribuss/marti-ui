@@ -1,7 +1,8 @@
 <template>
   <div class="card my-2 testimonial-card" :class="borderClass">
     <div class="card-header text-white rounded-0 d-flex justify-content-between" :class="headerClass">
-      <div class="py-1"><i class="la la-check me-2"></i>{{ $t('offer.is_available')}}</div>
+      <div v-if="!check_offer_result.error" class="py-1"><i class="la la-check me-2"></i>{{ $t('offer.is_available')}}</div>
+      <div v-else class="py-1"><i class="la la-remove me-2"></i>{{ $t('offer.is_not_available')}}</div>
       <a class="btn btn-link btn-sm text-white " @click="close()"><i class="la la-close"></i></a>
       </div>
     <div class="card-body d-flex row" >

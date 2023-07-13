@@ -237,6 +237,7 @@
         "offer.check_title" : "Kampanya tükenmiştir",
 		"offer.check_message" : "Paket turlarımız, otel konaklamalarından, belirli sınıflarda uçak biletlerinden ve transferden oluşur. Bu bileşenlerden biri rezerve edilmişse, bu teklifin geçerliliğini yitirmesine neden olabilir. Bu bilgiler şu anda güncellenmemiş olabilir dolayısıyla sitede görüntülenemiyor olabilir.",
         "offer.is_available" : "Kampanya hala mevcut",
+        "offer.is_not_available": "Kampanya artık mevcut değil",
         "offer.is_invalid" : "Bu kampanya geçerli değil",
         "offer.amount" : "Toplam Tutar",
         "offer.amount_text" : "Miktar",

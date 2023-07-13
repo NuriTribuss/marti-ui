@@ -236,6 +236,7 @@
     "offer.check_title": "Angebot ausgebucht",
     "offer.check_message": "Eine Pauschalreise besteht aus vielen Einzelleistungen wie z.B. den einzelnen Hotelübernachtungen, mindestens zwei Flügen in einer bestimmten Buchungsklasse und ggf. einem Transfer. Wenn schon eine dieser Komponenten ausgebucht ist, kann dies dazu führen, dass ein Angebot nicht mehr verfügbar ist.<br>Aus technischen Gründen können wir diese Info leider nicht vorher auf der Webseite anzeigen. Wir finden das genauso schade wie Sie und hoffen, dass Sie ein anderes Angebot für Ihren Traumurlaub bei uns finden.",
     "offer.is_available": "Angebot noch verfügbar",
+    "offer.is_not_available": "Angebot nicht mehr verfügbar",
     "offer.is_invalid": "Dieses Angebot ist nicht gültig",
     "offer.amount": "Gesamtpreis",
     "offer.amount_text": "inkl. aller Zuschläge",
