@@ -66,7 +66,7 @@ content.value = translate(res.value.data.translate, props.meta.data.locale)
 
 onMounted(() => {
 
-    let query  = search.get();
+    let query  = search.getSearchObj();
     query['destination'] = {
       code : res.value.data.zone_code,
       type : 'region', 

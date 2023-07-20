@@ -85,7 +85,7 @@ export default {
         //     location.href = '/hotel/' + sef + '?f=' + JSON.stringify(this.searchData)
         // },
         searchHotel(id, sef) {
-            let query2  = search.get();
+            let query2  = search.getSearchObj();
             query2['destination'] = {
                 'code': id,
                 'type': 'hotel'
@@ -96,7 +96,8 @@ export default {
             };
             query2['giataIdList']=[id];
             //location.href = '/search/hotels' + '?f=' + JSON.stringify(query2)
-            location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2);
+            //location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2);
+            location.href = '/hotel/'+sef+'?'+ search.jsonToUrl(query2);
             query2['giataIdList']= [];
         },
     },

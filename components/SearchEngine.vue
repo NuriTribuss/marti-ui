@@ -269,7 +269,9 @@ export default {
     search(){
        this.createFilter();
        this.filters.destination.name = encodeURIComponent(this.filters.destination.name);
-       location.href= this.url+'?f='+JSON.stringify(this.filters)
+       const searchQuery = search.jsonToUrl(this.filters);
+       //location.href= this.url+'?f='+JSON.stringify(this.filters)
+       location.href= this.url+'?'+searchQuery
     },
     close(){
       this.isModal = !this.isModal;
@@ -361,7 +363,7 @@ export default {
     this.loadAirports()
     this.loadFavourites()
     try {
-       this.filters = search.get();
+       this.filters = search.getSearchObj();
        this.query = this.filters.destination.name != '' ? this.filters.destination.name : ''
     }catch(e){
 

@@ -455,7 +455,8 @@ export default {
       this.getOffer();
     },
     getCrumbObject(hotelObj, crumbType) {
-      let searchObj = JSON.parse(this.$route.query.f);
+      //let searchObj = JSON.parse(this.$route.query.f);
+      let searchObj = search.getSearchObj();
       switch (crumbType) {
         case "region":
           searchObj.destination.code = hotelObj.location.region.code;
@@ -473,16 +474,17 @@ export default {
           searchObj.destination.name = hotelObj.giata.hotelName;
           break;
       }
-      let searchStr = JSON.stringify(searchObj);
+      //let searchStr = JSON.stringify(searchObj);
+      let searchStr = search.jsonToUrl(searchObj);
       return {
         name: searchObj.destination.name,
-        to: `/search/hotels?f=${searchStr}`,
+        to: `/search/hotels?${searchStr}`,
       };
     },
     getOffer() {
       let vue = this;
       vue.loaders.offer = true;
-      let query = search.get();
+      let query = search.getSearchObj();
       if(query.destination?.code)
         query['giataIdList']=[query.destination.code];
       $fetch("/api/engine/offer/get", {
@@ -514,12 +516,13 @@ export default {
       this.current_page = 1;
       this.getOffer();
     },
+    searchData() {
+      this.getHotel();
+      this.getOffer();
+    }
   },
-
   mounted() {
-    this.searchData = search.get();
-    this.getHotel();
-    this.getOffer();
+    this.searchData = search.getSearchObj();
   },
   setup() {
     const config = useRuntimeConfig();

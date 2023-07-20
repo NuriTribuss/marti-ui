@@ -65,7 +65,7 @@ content.value = translate(res.value.data.translate, useCookie("store-language").
 
 onMounted(() => {
 
-    let query  = search.get();
+    let query  = search.getSearchObj();
     query['destination'] = {
       code : res.value.data.zone_code,
       type : 'country', 

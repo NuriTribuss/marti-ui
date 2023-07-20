@@ -96,7 +96,8 @@ export default {
           name : destination.name
         }
 
-        location.href= '/search/hotels?f='+JSON.stringify(this.filters)
+        //location.href= '/search/hotels?f='+JSON.stringify(this.filters)
+        location.href= '/search/hotels?'+search.jsonToUrl(this.filters)
 
     },
 

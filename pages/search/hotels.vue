@@ -81,7 +81,8 @@ export default {
     getResult() {
 
        let vue = this;
-       let searchData = search.get(); 
+       //let searchData = search.get(); 
+       let searchData = search.getSearchObj();
 
        vue.error = false;
        vue.loader.hotels = true;
@@ -145,8 +146,10 @@ export default {
         'code' : id ,
         'type' : 'hotel'
       };
+      this.searchData = search.createHotelQuery(this.searchData);
 
-      location.href = '/hotel/'+sef+'?f='+ JSON.stringify(this.searchData)
+      //location.href = '/hotel/'+sef+'?f='+ JSON.stringify(this.searchData)
+      location.href = '/hotel/'+sef+'?'+ search.jsonToUrl(this.searchData)
      // this.$router.push({ path: '/hotel/'+sef, query: { f: JSON.stringify(this.searchData)} })
     },
   },
@@ -160,7 +163,8 @@ export default {
   },
   
   mounted() {
-    this.searchData = search.get();
+    //this.searchData = search.get();
+    this.searchData = search.getSearchObj();
     this.getResult()
     
   },

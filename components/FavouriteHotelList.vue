@@ -1,7 +1,9 @@
 <template>
     <div class="container" v-show="loader">
         <!-- <LoaderLanding v-if="likedHotels?.length > 0"/> -->
-        <span v-if="!likedHotels || likedHotels?.length == 0">{{ $t('hotels.liked_empty') }}</span>
+          <div v-if="!likedHotels || likedHotels?.length == 0" class="alert alert-secondary" role="alert">
+            {{ $t('hotels.liked_empty') }}
+          </div>
     </div>
     <client-only>
         <ul>    

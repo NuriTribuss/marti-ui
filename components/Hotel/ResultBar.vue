@@ -93,7 +93,8 @@ export default {
   methods : {
     set(){
       this.searchData.sort = this.value;
-      location.href = '/search/hotels?f='+JSON.stringify(this.searchData)
+      //location.href = '/search/hotels?f='+JSON.stringify(this.searchData)
+      location.href = '/search/hotels?'+search.jsonToUrl(this.searchData)
     },
     reset(key){
       if(key){
@@ -113,7 +114,10 @@ export default {
          delete this.searchData['transfer'];
          this.searchData['keywordList'] = [];
       }
-      this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.searchData)} })
+      //this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.searchData)} })
+      let params = search.jsonToUrl(this.searchData).toString();
+      let paramsJson = JSON.parse('{"' + params.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+      this.$router.push({ path: this.$route.path, query: paramsJson})
     },
     getLabel(key,value){
       
@@ -154,12 +158,12 @@ export default {
   },
   watch: {
     '$route.query'() {
-        this.searchData = search.get();
+        this.searchData = search.getSearchObj();
     }
      
   },
   mounted(){
-    this.searchData = search.get();
+    this.searchData = search.getSearchObj();
     this.value = this.searchData.sort  || this.value;
   }
 }

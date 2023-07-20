@@ -259,7 +259,7 @@ export default {
     getHotel() {
 
        let vue = this;
-       let params = search.get();
+       let params = search.getSearchObj();
 
        $fetch("/api/engine/halal-booking/get-hotel",{ method: 'POST', body: params }).then(function(result){
          

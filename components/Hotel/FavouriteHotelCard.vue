@@ -37,14 +37,13 @@ export default {
   },
   methods:{
     removeFav(e){
-      console.log("removed");
       this.removed=true;
       e.preventDefault()
       this.$emit("removeFav",this.hotel);
     },
     searchHotel(id, sef) {
       if(this.removed){return;}
-        let query2  = search.get();
+        let query2  = search.getSearchObj();
         query2['destination'] = {
             'code': id,
             'type': 'hotel'
@@ -58,7 +57,8 @@ export default {
             "start": dayjs().add(5, 'day').format('YYYY-MM-DD'),
             "end": dayjs().add(65, 'day').format('YYYY-MM-DD')
         };
-        location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2)
+        //location.href = '/hotel/'+sef+'?f='+ JSON.stringify(query2)
+        location.href = '/hotel/'+sef+'?'+ search.jsonToUrl(query2)
         query2['giataIdList']= [];
         query2['date']={ 
             "start": dayjs().add(5, 'day').format('YYYY-MM-DD'),

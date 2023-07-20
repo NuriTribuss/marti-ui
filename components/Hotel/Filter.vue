@@ -255,7 +255,11 @@ export default {
   methods : {
     set(key){
       this.searchData[key] = this.filter[key];
-      this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.filter)} })
+      //this.$router.push({ path: this.$route.path, query: { f: JSON.stringify(this.filter)} })
+       let params = search.jsonToUrl(this.filter).toString();
+       let paramsJson = JSON.parse('{"' + params.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) })
+      this.$router.push({ path: this.$route.path, query: paramsJson})
+      //this.$router.push({ path: this.$route.path, query: search.urlParamsToJson(this.filter)})
     }
   },
   watch: {
@@ -268,7 +272,7 @@ export default {
      
   },
   mounted() {
-    this.filter = search.get();
+    this.filter = search.getSearchObj();
   },
 };
 </script>

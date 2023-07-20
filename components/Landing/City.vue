@@ -65,7 +65,7 @@
   
   onMounted(() => {
   
-      let query  = search.get();
+      let query  = search.getSearchObj();
       query['destination'] = {
         code : res.value.data.zone_code,
         type : 'hotel', 
