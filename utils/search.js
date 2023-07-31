@@ -50,7 +50,7 @@ export default {
         return paramsJson;
     },
 
-    jsonToUrl(jsonObj){
+    jsonToUrl(jsonObj,clearFilter=false){
         //const jsonObj = JSON.parse(jsonStr);
         let data ={};
         if (jsonObj.hasOwnProperty("destination")) {
@@ -106,13 +106,16 @@ export default {
                 data.children = jsonObj["children"].map(x=>x.jahre).toString();
             }
         }
+        if (jsonObj.hasOwnProperty("duration")) {
+            data.duration = jsonObj["duration"];
+        }
+        if(clearFilter){
+            return new URLSearchParams(data);
+        }
         if (jsonObj.hasOwnProperty("keywordList")) {
             if(jsonObj["keywordList"].length > 0){
                 data.keywordList = jsonObj["keywordList"].toString();
             }
-        }
-        if (jsonObj.hasOwnProperty("duration")) {
-            data.duration = jsonObj["duration"];
         }
         if (jsonObj.hasOwnProperty("giataIdList")) {
             if(jsonObj["giataIdList"].length > 0){
@@ -168,8 +171,9 @@ export default {
     },
 
 
-    getSearchObj(){
+    getSearchObj(clearFilter=false){
         let urlParams = new URLSearchParams(window.location.search);
+        
         let jsonParams = this.default;
 
         let sf = urlParams.get('sf');
@@ -228,14 +232,19 @@ export default {
             jsonParams['children'] = childs;
         }
 
+        let duration = urlParams.get('duration');
+        if(duration){
+            jsonParams['duration'] = duration;
+        }
+
+        if(clearFilter){
+            return jsonParams;
+        }
+
+
         let keywordList = urlParams.get('keywordList');
         if(keywordList){
             jsonParams['keywordList'] = keywordList.split(",");;
-        }
-
-        let duration = urlParams.get('duration');
-        if(duration){
-            jsonParams['sf'] = duration;
         }
 
         let giataIdList = urlParams.get('giataIdList');
@@ -309,7 +318,6 @@ export default {
         if(priceMax){
             jsonParams['priceMax'] = priceMax;
         }
-
         return jsonParams;
     },
 
