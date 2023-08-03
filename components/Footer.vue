@@ -251,9 +251,9 @@
 
   <!-- Optional -->
   <template #message>
-    <b>title!</b> <br />
-    We use cookies to ensure you get the best experience on our website.
-    <a href="/datenschutz" target="_blank">Learn More...</a>
+    <b>{{$t("footer.cookie_policy_title")}}</b> <br />
+    {{ $t("footer.cookie_policy_desc")}}
+    <a href="/datenschutz" target="_blank"> <b>{{ $t("common.show_more") }}...</b></a>
   </template>
 
   <!-- Optional -->
