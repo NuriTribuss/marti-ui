@@ -257,10 +257,10 @@
   </template>
 
   <!-- Optional -->
-  <template #declineContent>Opt Out</template>
+  <template #declineContent>{{ $t("footer.cookie_reject")}}</template>
 
   <!-- Optional -->
-  <template #acceptContent>Got It!</template>
+  <template #acceptContent>{{ $t("footer.cookie_accept")}}</template>
 </vue-cookie-accept-decline>
 </template>
 

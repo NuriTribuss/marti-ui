@@ -82,7 +82,9 @@
         "privacy_policy": "Datenschutzbestimmung",
         "copyright": "Copyright © 1999 - 2023 Marti Reisen. All rights reserved",
         "cookie_policy_title": "Diese Seite verwendet Cookies",
-        "cookie_policy_desc": "Diese Seite nutzt Website-Tracking-Technologien von Dritten, um ihre Dienste anzubieten, stetig zu verbessern und Werbung entsprechend den Interessen der Nutzer anzuzeigen."
+        "cookie_policy_desc": "Diese Seite nutzt Website-Tracking-Technologien von Dritten, um ihre Dienste anzubieten, stetig zu verbessern und Werbung entsprechend den Interessen der Nutzer anzuzeigen.",
+        "cookie_accept": "Akzeptieren",
+        "cookie_reject": "Ablehnen"
     },
     
     "search" : {

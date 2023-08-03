@@ -82,7 +82,9 @@
         "privacy_policy": "Gizlilik Politikası",
         "copyright": "Copyright © 1999 - 2023 Marti Reisen. All rights reserved",
         "cookie_policy_title": "Bu sayfa çerezleri kullanır",
-        "cookie_policy_desc": "Bu sayfa, kullanıcıların hizmetlerini sunmak, sürekli olarak iyileştirmek ve kullanıcıların ilgi alanlarına uygun reklamlar göstermek amacıyla web sitesi izleme teknolojilerini kullanmaktadır."
+        "cookie_policy_desc": "Bu sayfa, kullanıcıların hizmetlerini sunmak, sürekli olarak iyileştirmek ve kullanıcıların ilgi alanlarına uygun reklamlar göstermek amacıyla web sitesi izleme teknolojilerini kullanmaktadır.",
+        "cookie_accept": "Kabul et",
+        "cookie_reject": "Reddet"
     },
     
     "search" : {	  				
