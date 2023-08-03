@@ -62,8 +62,8 @@ export default {
             data.sf = jsonObj["sf"];
         }
         if (jsonObj.hasOwnProperty("date")) {
-            let start = jsonObj["sf"]["start"];
-            let end = jsonObj["sf"]["end"];
+            let start = jsonObj["date"]["start"];
+            let end = jsonObj["date"]["end"];
             if(start)
             {
                 data.startdate = start;

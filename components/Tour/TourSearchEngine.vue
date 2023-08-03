@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="col-lg-2 btn-box">
-              <button v-if="isTour_slug || isIndex"
+              <button v-if="isTour_slug || isIndex || !isTour"
                 @click="doSearchTour"
                 class="
                   theme-btn theme-btn-orange
@@ -53,7 +53,7 @@
                 "
                 >{{ $t('tour.search_offers') }}
               </button>
-              <button v-if="isTour_slug || isIndex"
+              <button v-if="isTour_slug || isIndex || !isTour"
               @click="doSearchTour"
                 class="
                   theme-btn theme-btn-orange

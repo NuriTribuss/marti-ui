@@ -1154,7 +1154,7 @@ export default {
     },
     getCrumbObject(hotelObj, crumbType) {
       let searchObj = this.search;
-      let urlPrefix = "/search/hotels?f=";
+      let urlPrefix = "/search/hotels?";
       switch (crumbType) {
         case "region":
           searchObj.destination.code = hotelObj.location.region.code;
@@ -1172,14 +1172,16 @@ export default {
           searchObj.destination.code = hotelObj.giata.hotelId;
           searchObj.destination.type = crumbType;
           //urlPrefix = `/hotel/${hotelObj.name_sef}?f=`
-          urlPrefix = `/hotel/${hotelObj.giata.hotelName}?f=`
-          let searchStr = JSON.stringify(searchObj);
+          urlPrefix = `/hotel/${hotelObj.giata.hotelName}?`
+          let searchStr = search.jsonToUrl(searchObj);
+          //let searchStr = JSON.stringify(searchObj);
           return {
             name: hotelObj.giata.hotelName,
             to: urlPrefix + searchStr,
           };
       }
-      let searchStr = JSON.stringify(searchObj);
+      //let searchStr = JSON.stringify(searchObj);
+      let searchStr = search.jsonToUrl(searchObj);
       return {
         name: searchObj.destination.name,
         to: urlPrefix + searchStr,

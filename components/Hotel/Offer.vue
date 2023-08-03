@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-if="!removedCard">
   <div class="card my-2 testimonial-card"  v-if="!detail && loader == false">
     <div class="card-body d-flex row" >     
       <div class="py-0 py-lg-2 ps-4 col-6 col-lg-2 border-end border-info mb-3 mb-lg-4 mb-lg-0" v-if="offer.flightOffer">
@@ -81,6 +81,7 @@ export default {
       detail : false,
       activeOffer : null,
       is_available  : null,
+      removedCard: false,
       check_offer_result: {
         error: false,
         message: "",
@@ -116,8 +117,11 @@ export default {
         this.check_offer_result.error = res.data.error;
         this.check_offer_result.message = res.data.message;
         //          :href="'/booking/checkout?code='+offer.code"
-       
-      });
+        if(this.index == 0 && this.check_offer_result.error)
+        {
+          this.removedCard = true;
+        }
+      });      
     },
 
     go(code){

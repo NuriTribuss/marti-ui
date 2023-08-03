@@ -9,7 +9,7 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       :pagination="{ clickable: true }"
-      :breakpoints="{ 1024: { slidesPerView: 4 } }"
+      :breakpoints="{ 1024: { slidesPerView: 5 } }"
     >
       <swiper-slide
         class="full-width-slide-item"
@@ -70,8 +70,8 @@ export default {
   mounted(){
     for(var i = 0 ; i < this.images.length; i++) {
       let image = this.images[i];
-      this.images[i] = this.resize(image,"500");
-      this.largeImages.push(this.resize(image,"1000"))
+      this.images[i] = this.resize(image,"400");
+      this.largeImages.push(this.resize(image,"800"))
     }
   },
   setup() {

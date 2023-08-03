@@ -231,6 +231,37 @@
       <i class="la la-arrow-up"></i>
     </button>
   </footer>
+  <vue-cookie-accept-decline
+  :debug="false"
+  :disableDecline="false"
+  :showPostponeButton="false"
+  @clicked-accept="cookieClickedAccept"
+  @clicked-decline="cookieClickedDecline"
+  @clicked-postpone="cookieClickedPostpone"
+  @removed-cookie="cookieRemovedCookie"
+  @status="cookieStatus"
+  elementId="myPanel1"
+  position="bottom"
+  ref="myPanel1"
+  transitionName="slideFromBottom"
+  type="bar"
+>
+  <!-- Optional -->
+  <template #postponeContent>&times;</template>
+
+  <!-- Optional -->
+  <template #message>
+    <b>title!</b> <br />
+    We use cookies to ensure you get the best experience on our website.
+    <a href="/datenschutz" target="_blank">Learn More...</a>
+  </template>
+
+  <!-- Optional -->
+  <template #declineContent>Opt Out</template>
+
+  <!-- Optional -->
+  <template #acceptContent>Got It!</template>
+</vue-cookie-accept-decline>
 </template>
 
 <script setup>
@@ -238,6 +269,8 @@ import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import VueCookieAcceptDecline from 'vue-cookie-accept-decline';
+import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css';
 const subscriber_successfull = computed(() => t("user.subscriber_successfull"));
 const subscriber_exists = computed(() => t("user.subscriber_exists"));
 const email_is_not_valid = computed(() => t("user.subscriber_email_not_valid"));
@@ -298,3 +331,9 @@ onMounted(() => {
   }
 });
 </script>
+<style scoped>
+.cookie__bar{
+  background-color: #000845e3;
+  color: azure;
+}
+</style>
