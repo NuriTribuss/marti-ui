@@ -55,7 +55,7 @@ export default {
         let data ={};
         if (jsonObj.hasOwnProperty("destination")) {
             if(jsonObj["destination"]["name"]){
-                data.destination = jsonObj["destination"]["name"];
+                data.destination = encodeURIComponent(jsonObj["destination"]["name"]);
             }            
         }
         if (jsonObj.hasOwnProperty("sf")) {

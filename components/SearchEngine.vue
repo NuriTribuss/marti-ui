@@ -268,7 +268,7 @@ export default {
 
     search(){
        this.createFilter();
-       this.filters.destination.name = encodeURIComponent(this.filters.destination.name);
+       this.filters.destination.name = this.filters.destination.name; //encodeURIComponent();
        const searchQuery = search.jsonToUrl(this.filters,true);
        //location.href= this.url+'?f='+JSON.stringify(this.filters)
        location.href= this.url+'?'+searchQuery
