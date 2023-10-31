@@ -35,8 +35,7 @@
 </div> -->
   </template>
 <script>
-
-export default ({
-    props : ['step']
-})
+export default {
+    props: ['step'],
+};
 </script>

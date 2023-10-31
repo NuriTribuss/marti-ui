@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumb v-if="record" :title="record.data.translate[0].name" :steps="['Marti Reisen bietet einen 24/7 Kundensupport an']" />
+  <BreadCrumb v-if="record" :title="record.data.translate[0].name" :steps="['24 Stunden für Sie da.']" />
   <section class="about-area padding-bottom-90px my-5 overflow-hidden">
     <div class="container">
       <div class="row">
@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="col-lg-3 col-8 ">
-                <div><b>Tel :</b> {{ item.phone}}</div>
+                <div><b>Tel :</b> <a :href="'tel:'+ item.phone">{{ item.phone}}</a></div>
                 <div><b>Fax :</b> {{ item.fax}}</div>
               </div>
               <div class="col-lg-2 col-4 ">
@@ -53,9 +53,10 @@ const { data: branches } = await useFetch(`/api/crm/branch?limit=50&sort=sort_nu
   pick: ["data"],
 });
 
+
 const { data: record } = await useFetch(`/api/content/page/64`, {
   pick: ["data"],
 });
 
-
+console.log( branches , record)
 </script> 

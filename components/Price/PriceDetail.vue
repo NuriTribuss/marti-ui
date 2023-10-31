@@ -1,6 +1,6 @@
 <script> 
 
-export default ({
+export default {
 
     props: ['total_price','price_per_person','price_per_person_diff','traveller_list'],
     data: function () {
@@ -41,7 +41,7 @@ export default ({
             })
        }
     }
-})
+};
 </script>
 
 <template>

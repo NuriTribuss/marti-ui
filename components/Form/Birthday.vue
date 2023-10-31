@@ -33,7 +33,7 @@
 <script> 
 import { useVuelidate } from '@vuelidate/core'
 import { required, numeric } from '@vuelidate/validators'
-export default ({
+export default {
 
     props: ['value','children','item_id','max','checkoutclicked'],
     data: function () {
@@ -159,5 +159,5 @@ export default ({
         this.months    = this.range(1,13);
     },
     setup: () => ({ v$: useVuelidate() }),
-})
+};
 </script>
