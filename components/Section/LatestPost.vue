@@ -1,13 +1,5 @@
 <template>
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h2>h2</h2>
-                </div>
-            </div>
-        </div>
-    </section>
+
   <section class="blog-area padding-top-30px padding-bottom-90px">
     <div class="container">
         <div class="row">
