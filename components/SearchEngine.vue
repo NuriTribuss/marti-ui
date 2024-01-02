@@ -232,13 +232,13 @@ export default {
       }
      
       $fetch(
-        `/api/engine/search/suggest/` + this.query
+        `https://webapi.martireisen.at/api/engine/search/suggest/` + this.query
       ).then((res) => {
         this.source.regions = res.data;
       });
 
       $fetch(
-        `/api/engine/search/get/`, { method : "POST" , body : { q: this.query , type : 'pauschal'} }
+        `https://webapi.martireisen.at/api/engine/search/get/`, { method : "POST" , body : { q: this.query , type : 'pauschal'} }
       ).then((res) => {
         this.source.hotels = res.data.response.giataHotelList;
       });
@@ -247,7 +247,7 @@ export default {
 
     loadFavourites(){
        $fetch(
-        `/api/engine/search/favourites`
+        `https://webapi.martireisen.at/api/engine/search/favourites`
       ).then((res) => {
         this.source.favourites = res.data;
       });

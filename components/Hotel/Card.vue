@@ -102,7 +102,7 @@ export default {
       return this.hotel.offerList ? this.hotel.offerList[0] : null;
     },
     image(){
-      return this.hotel.mediaData.pictureUrl?.replace('150','400');
+      return this.hotel.mediaData.pictureUrl?.replace('150','300');
     },
     favHotels: {
       get() {

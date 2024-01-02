@@ -70,8 +70,8 @@ export default {
   mounted(){
     for(var i = 0 ; i < this.images.length; i++) {
       let image = this.images[i];
-      this.images[i] = this.resize(image,"400");
-      this.largeImages.push(this.resize(image,"800"))
+      this.images[i] = this.resize(image,"300");
+      this.largeImages.push(this.resize(image,"300"))
     }
   },
   setup() {

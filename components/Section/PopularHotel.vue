@@ -132,7 +132,7 @@ export default {
       return this.hotel.offerList ? this.hotel.offerList[0] : null;
     },
     image(hotel){
-      return hotel.mediaData.pictureUrl.replace('150','400');
+      return hotel.mediaData.pictureUrl.replace('150','300');
     }
   },
   
