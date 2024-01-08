@@ -1,4 +1,5 @@
 <template>
+    <div class="container-fluid">
     <div class="row">
         <section class="blog-area padding-top-30px">
             <div class="container">
@@ -41,6 +42,8 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end blog-area -->
+    </div>
+    
     </div>
 </template>
 

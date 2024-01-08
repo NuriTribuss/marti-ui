@@ -83,6 +83,7 @@
     </section>
 
     <LandingPopularHotelList ref="hotelList"/>
+    <LandingPopularTourList ref="tourList"/>
 
    <!-- <SectionPopularHotel />-->
     <SectionHolidayTypes />

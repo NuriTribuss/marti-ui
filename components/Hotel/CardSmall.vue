@@ -1,5 +1,5 @@
 <template>
-  <div class="card-item card-item-list d-block">
+  <div class="card-item card-item-list d-block shadow-lg">
     <div class="card-img">
       <a  href="javascript:;" @click="go(hotel.giata.hotelId,hotel.name_sef)" class="d-block">
        <img  v-bind:src="image" alt="hotel-img" />
