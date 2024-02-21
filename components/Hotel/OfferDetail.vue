@@ -129,7 +129,7 @@
          <div class=" ">
            <div class="d-flex justify-content-between w-100 font-size-18  mt-3 mb-2 my-lg-4" >
             <div class="">{{ $t('offer.amount')}}</div>
-            <div v-if="!check_offer_result.error" class="font-weight-bold">€ {{ $n(active_offer.totalPrice.value) }}</div>
+            <div v-if="!check_offer_result.error" class="font-weight-bold">€ {{ $n(offer.totalPrice.value) }}</div>
            </div>
           <div>
             <div v-if="check_offer_result.error" class="alert alert-danger" role="alert">{{ check_offer_result.message }}</div>
