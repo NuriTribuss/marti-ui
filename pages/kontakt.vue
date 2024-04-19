@@ -58,5 +58,4 @@ const { data: record } = await useFetch(`/api/content/page/64`, {
   pick: ["data"],
 });
 
-console.log( branches , record)
 </script> 

@@ -22,9 +22,9 @@ const FbPixel = {
                     track_data: data
                 } 
             }).then((r)=> {
-                console.log('FB Conversion API: Worked For The ' + type + '.');
+                 
             }).catch((e)=> {
-                console.log('FB Conversion API: Error!');
+                 
             });
         }
         

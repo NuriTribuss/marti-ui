@@ -433,7 +433,7 @@ export default {
         try {
           vue.$pixel.product(vue.hotel);
         } catch (e) {
-          console.log(e);
+           
         }
 
         try {
@@ -445,7 +445,7 @@ export default {
             //  price: vue.hotel.price,
           });
         } catch (e) {
-          console.log(e);
+           
         }
       });
     },

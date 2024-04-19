@@ -137,13 +137,13 @@ onMounted(() => {
         }
         $pixel.complete(orderData);
     }catch(e) {
-        console.log(e)
+         
     }
 
     try {
         $dataLayer.complete(booking._rawValue.data);
     }catch(e) {
-        console.log(e)
+         
     }
 })
 

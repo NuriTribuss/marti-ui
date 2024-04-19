@@ -115,7 +115,7 @@ export default {
           try {
             vue.$pixel.search(result.data.response.hotelList.map((item) => { return item.giata.hotelId}),searchData.destination.name)
           }catch (e) {
-            console.log(e)
+             
           }
 
           // dataLayer search
@@ -131,7 +131,7 @@ export default {
             })
             vue.$dataLayer.search(obj)
           }catch (e) {
-            console.log(e)
+             
           }
       })
     },

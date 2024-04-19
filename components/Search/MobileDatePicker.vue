@@ -80,7 +80,6 @@ export default {
 
       let diff = Math.round((end - start) / (1000 * 60 * 60 * 24));
       diff = diff +1;
-      console.log(diff,'---',duration,'---',end,'---',start,'---');
       if(Number.isInteger(diff) && diff < parseInt(duration)) {
         this.diff = diff;
         this.modal.show();
@@ -110,7 +109,7 @@ export default {
         backdrop:false
       })
     } catch (error) {
-      console.log(error);
+       
     }
     
   },

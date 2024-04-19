@@ -26,9 +26,9 @@ export default ({
     },
     mounted(){
         this.searchObj = search.getSearchObj(); 
-        console.log(this.searchObj);
+         
         this.searchUrl = search.jsonToUrl(this.searchObj);
-        console.log(this.searchUrl);
+         
     }
 
 })
@@ -53,9 +53,7 @@ export default {
     },
     mounted() {
         this.searchObj = search.getSearchObj();
-        console.log(this.searchObj);
         this.searchUrl = search.jsonToUrl(this.searchObj);
-        console.log(this.searchUrl);
     },
 };
 </script>

@@ -996,7 +996,7 @@ export default {
               vue.step_new.push({ name: "Bestätigung" });
             } 
           }catch (e) {
-            console.log(e)
+             
           }
       })
 
@@ -1008,7 +1008,7 @@ export default {
             currency: "EUR",
           });
         } catch (e) {
-          console.log(e);
+           
         }
 
         // Facebook Pixel checkout
@@ -1027,7 +1027,7 @@ export default {
             departure_date: this.offer.commonOffer.travelDate.fromDate,
           });
         } catch (e) {
-          console.log(e);
+           
         }
       });
     },
@@ -1081,7 +1081,7 @@ export default {
         this.search.children = this.search.children || [];
         return true;
       } catch (e) {
-        console.log(e);
+         
       }
 
       return false;

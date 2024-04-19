@@ -10,7 +10,6 @@
      
    <!--- <NotFound v-if="meta.data == false" />--> 
   </div>
-
 </template>
 
 <script setup>
@@ -21,6 +20,7 @@ let params = route.params.slug.filter(n => n)
 const { data: meta } = await useFetch(`/api/meta/fetch?q=`+params.join('/'), {
   pick: ["data"],
 });
+
 if(meta?._rawValue?.data.type == 'affilate'){
     if(meta?._rawValue?.data.route.startsWith('/tour')){
       navigateTo(meta?._rawValue?.data.route);
@@ -30,7 +30,6 @@ if(meta?._rawValue?.data.type == 'affilate'){
     }
 }
 else if(meta?._rawValue?.data.type == 'affilatelink'){
-    //console.log(meta?._rawValue?.data.route)
     navigateTo(meta?._rawValue?.data.redirect_value);
 }
 
