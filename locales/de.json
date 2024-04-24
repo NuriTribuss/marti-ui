@@ -22,7 +22,9 @@
         "more" : "Mehr",
         "show_less" : "Zeige weniger",
         "share" : "Teilen",
-        "search_result" : "Suchergebnisse"
+        "search_result" : "Suchergebnisse",
+        "male":"Herr",
+        "female":"Frau"
     }, 
     "header" : {
         "about_us": "Über Uns",

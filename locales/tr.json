@@ -22,7 +22,9 @@
         "more" : "Devamı",
         "show_less" : "Daha Az Göster",
         "share" : "Paylaş",
-        "search_result" : "Arama Sonuçları"
+        "search_result" : "Arama Sonuçları",
+        "male":"Bayım",
+        "female":"Kadın"
 	},
     "header" : {	  				
         "about_us" : "Hakkımızda",

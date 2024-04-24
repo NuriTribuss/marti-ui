@@ -112,7 +112,6 @@
             v-on:change="set('room')" />
           <label :for="'r' + index">{{ $t('search.room' + (index + 1)) }}</label>
         </div>
-        <!-- $t('search.room' + (index + 1)) -->
         <a class="btn-text" role="button">
           <span class="show-more" @click="loadMore.roomType = true"
             v-show="!loadMore.roomType && resource_data.roomTypeList.length > 5">{{ $t('common.show_more') }} <i
