@@ -24,7 +24,8 @@
         "share" : "Teilen",
         "search_result" : "Suchergebnisse",
         "male":"Herr",
-        "female":"Frau"
+        "female":"Frau",
+        "starting":"ab"
     }, 
     "header" : {
         "about_us": "Über Uns",
