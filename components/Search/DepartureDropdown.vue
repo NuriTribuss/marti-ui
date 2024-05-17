@@ -10,7 +10,7 @@
       <div class="row overflow-auto" style="height:310px;">
         <div class="col-12" v-for="(land, index) in airports" :key="index">
           <div v-if="land.items.length > 0">
-            <button class="btn-light btn w-100 text-start font-weight-bold">{{ $t(land.name) }}</button>
+            <button class="btn-light btn w-100 text-start font-weight-bold">{{ $t("country." + land.name) }}</button>
             <div class="btn font-size-14 w-100 rounded text-start" v-for="(option, subindex) in land.items"
               :key="subindex" :class="{ 'theme-btn-orange text-white': selected.indexOf(option.code) > -1 }"
               @click="select(option)">
@@ -45,7 +45,7 @@ export default {
         this.selectedNames.splice(index, 1);
       } else {
         this.selected.push(airport.code);
-        this.selectedNames.push(this.$t(airport.name));
+        this.selectedNames.push(this.$t("country." + airport.name));
       }
       this.setDeparture();
     },
@@ -55,12 +55,33 @@ export default {
     closeDropdown() {
       let dropdown = new bootstrap.Dropdown('#departure-dropdown');
       dropdown.hide();
+    },
+    initializeSelectedNames() {
+      this.selectedNames = this.selected.map(code => {
+        for (let country of this.airports) {
+          let option = country.items.find(item => item.code === code);
+          if (option) {
+            return this.$t("country." + option.name); // Benutze den Namen ohne Übersetzung
+          }
+        }
+        return code; // Fallback: Falls kein Name gefunden wird, benutze den Code selbst
+      });
     }
   },
   mounted() {
     if (this.value.code != '') {
       this.selected = this.value.code.split(',');
-      this.selectedNames = this.value.name.split(',').map(name => this.$t(name));
+
+      if (this.airports.length > 0) {
+        this.initializeSelectedNames();
+      }
+    }
+  },
+  watch: {
+    airports(newAirports) {
+      if (newAirports.length > 0 && this.selected.length > 0) {
+        this.initializeSelectedNames();
+      }
     }
   }
 };
