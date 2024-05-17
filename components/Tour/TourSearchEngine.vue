@@ -27,10 +27,11 @@
                 <input type="text" autocomplete="off" autofocus class="form-control d-block d-lg-block font-size-16"
                   id="destination_input" :value="filterList.destination"
                   :placeholder="$t('tour.rotate_and_city_select')" data-bs-toggle="dropdown" />
+
                 <SearchCommonDropDown v-if="!$isMobile" class="desktop-dropdown" @select="select_destination"
-                  :data="destination_list_data" />
+                  :data="destination_list_data.map(x => ({ title: $t('Tour.' + x.value), value: x.value }))" />
                 <SearchCommonDropDownMobile v-if="$isMobile" class="mobile-dropdown" @select="select_destination"
-                  :data="destination_list_data" />
+                  :data="destination_list_data.map(x => ({ title: $t('Tour.' + x.value), value: x.value }))" />
               </div>
             </div>
           </div>

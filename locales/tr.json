@@ -31,6 +31,16 @@
         "Basel": "Basel",
         "Genf": "Cenevre"
     },
+    "Tour": {
+        "Hallstatt": "Hallstatt",
+        "Sarajevo": "Saraybosna",
+        "Prag": "Prag",
+        "Budapest": "Budapeşte",
+        "Bratislava & Parndorf": "Bratislava & Parndorf",
+        "Ljubjana & Bleder See": "Lübliyana & Bled Gölü",
+        "Cesky Krumlov": "Çeský Krumlov",
+        "Venedik": "Venedik"
+      },
     "common" : {
         "Bestätigung": "Onayla",
 		"warning" : "Dikkat",
