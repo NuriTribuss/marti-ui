@@ -340,7 +340,7 @@
     "offer.coupon_code_success": "Gutscheinecode applied",
     "offer.coupon_code_discount": "Discount",
     "offer.conditions": "Geschäftsbedingungen",
-    "offer.condition1": "Ich habe die Allgemeinen Geschäftsbedingungen des Reiseveranstalters, die <a href=\"https://www.martireisen.at/datenschutz\">Datenschutzerklärung</a> und Allgemeinen Vermittlungsbedingungen von <a href=\"https://www.martireisen.at/allgmeine-geschaeftsbedingungen\">Martireisen.at</a> Tribus Business GmbH gelesen und für alle Reisenden akzeptiert. Die Pass- und Visavorschriften der einzelnen Reiseteilnehmer für das Zielland habe ich zur Kenntnis genommen. Zugleich erkenne ich diese für alle Reiseteilnehmer an.",
+    "offer.condition1": "Ich habe die Allgemeinen Geschäftsbedingungen des <a href='{url}'>Reiseveranstalters</a>, die <a href=\"https://www.martireisen.at/datenschutz\">Datenschutzerklärung</a> und Allgemeinen Vermittlungsbedingungen von <a href=\"https://www.martireisen.at/allgmeine-geschaeftsbedingungen\">Martireisen.at</a> Tribus Business GmbH gelesen und für alle Reisenden akzeptiert. Die Pass- und Visavorschriften der einzelnen Reiseteilnehmer für das Zielland habe ich zur Kenntnis genommen. Zugleich erkenne ich diese für alle Reiseteilnehmer an.",
     "offer.condition2": "Ich kann jederzeit vor Reisebeginn gegen Zahlung einer angemessenen Entschädigung oder ggf. einer vom Veranstalter verlangten Entschädigungspauschale vom Vertrag zurücktreten.",
     "offer.condition3": "Ich habe alle Daten überprüft und bestätige diese hiermit, bevor ich die Reise durch Anklicken des untenstehenden Buttons kostenpflichtig buche.",
     "offer.payment.title": "Zahlungsart",

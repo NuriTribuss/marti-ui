@@ -461,7 +461,10 @@
                 <input id="aggregment" ref="bookingForm.aggregment" type="checkbox" v-model="bookingForm.aggregment"
                   :true-value="1" :false-value="''" />
                 <label for="aggregment" class="font-size-12">
-                  <div class="mb-2" v-html="$t('offer.condition1')"></div>
+                  <div class="mb-2" v-html="$t('offer.condition1', {
+    url: offer.commonOffer.hotelOffer.hotel.tourOperator
+      .agb,
+  })"></div>
                   <p class="mb-2">{{ $t("offer.condition2") }}</p>
                   <p>{{ $t("offer.condition3") }}</p>
                 </label>
@@ -472,16 +475,8 @@
                   * {{ $t("booking.form.req.aggregment") }}
                 </div>
               </div>
-              <div class="custom-checkbox mt-4">
-                <input id="tour_operator" type="checkbox" :true-value="1" :false-value="0" />
-                <label for="tour_operator" class="font-size-12">
-                  <p class="mb-2" v-html="$t('offer.tourOperator.aggregment', {
-    url: offer.commonOffer.hotelOffer.hotel.tourOperator
-      .agb,
-  })
-    "></p>
-                </label>
-              </div>
+
+
             </div>
           </div>
           <div class="form-box p-3" v-if="offer">
