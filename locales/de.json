@@ -32,6 +32,7 @@
     "Genf": "Genf"
     },
     "common" : {
+        "Bestätigung": "Bestätigung",
         "warning": "Warnung",
         "success": "Erfolgreich",
         "payment_methods": "Zahlungsmöglichkeiten",

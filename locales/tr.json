@@ -32,6 +32,7 @@
         "Genf": "Cenevre"
     },
     "common" : {
+        "Bestätigung": "Onayla",
 		"warning" : "Dikkat",
         "success" : "Başarılı!",
         "payment_methods" : "Ödeme Seçenekleri",
