@@ -17,7 +17,8 @@
             ">
           <label>{{ $t('search.adult_dropdown') }}</label>
           <div class="qtyBtn d-flex align-items-center">
-            <div class="qtyDec" @click="filter.adults > 1 ? filter.adults-- : null">
+            <div class="qtyDec"
+              @click="filter.adults > 1 || (filter.children.length > 0 && filter.adults > 0) ? filter.adults-- : null">
               <i class="la la-minus"></i>
             </div>
             <input type="text" name="adult_number" v-model="filter.adults" />
@@ -35,7 +36,11 @@
             ">
           <label>{{ $t('search.children') }}</label>
           <div class="qtyBtn d-flex align-items-center">
-            <div class="qtyDec" @click="filter.children.pop()">
+            <div class="qtyDec" @click="() => {
+        filter.children.pop()
+        if (filter.adults == 0 && filter.children.length == 0)
+          filter.adults++;
+      }">
               <i class="la la-minus"></i>
             </div>
             <input type="text" name="child_number" :value="filter.children.length" />
@@ -54,7 +59,7 @@
         </div>
       </div>
       <div class="modal-footer justify-content-center d-flex d-lg-none">
-        <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter_accept')}}</button>
+        <button class="btn theme-btn-orange px-4" @click="closeDropdown()">{{ $t('search.filter_accept') }}</button>
       </div>
     </div>
   </div>
