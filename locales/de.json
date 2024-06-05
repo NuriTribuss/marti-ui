@@ -378,15 +378,16 @@
     "bookingForm.personal.city": "Städtenamen eingeben",
     "bookingForm.personal.gender": "Geschlecht eingeben",
     "bookingForm.comment": "Kommentar",
-    "bookingForm":{
-        "traveller_gender_required":"geder require de",
-        "traveller_name_required": "name require de",
-        "traveller_surname_required": "surname require de",
-        "traveller_birthday_required": "birthday rquire de",
-        "children_birthday_required" : "birthday rquire de",
-        "traveller_birthday_mustBeDate": "birthday is not valid de",
-        "children_birthday_mustBeDate": "birthday is not valid de"
-    },
+    "bookingForm": {
+        "traveller_gender_required": "Geschlecht ist erforderlich",
+        "traveller_name_required": "Vorname ist erforderlich",
+        "traveller_surname_required": "Nachname ist erforderlich",
+        "traveller_birthday_required": "Geburtsdatum ist erforderlich",
+        "children_birthday_required": "Geburtsdatum ist erforderlich",
+        "traveller_birthday_mustBeDate": "Geburtsdatum ist nicht gültig",
+        "children_birthday_mustBeDate": "Geburtsdatum ist nicht gültig",
+        "phone_invalid": "Ungültige Telefonnummer. Bitte geben Sie eine gültige Telefonnummer ein."
+      },
     "booking.form.req.aggregment": "Bitte kreuzen Sie dieses Feld an",
     "booking.traveller.e_name": "Passagiernamen eingeben",
     "booking.traveller.e_surname": "Bitte geben Sie den Nachnamen des Reisenden an",

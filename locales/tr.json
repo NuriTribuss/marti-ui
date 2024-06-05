@@ -379,15 +379,16 @@
         "bookingForm.personal.city" : "Şehir isimlerini girin",
         "bookingForm.personal.gender" : "Cinsiyet",
         "bookingForm.comment": "Yorum",
-        "bookingForm":{
-            "traveller_gender_required":"geder require tr",
-            "traveller_name_required": "name require tr",
-            "traveller_surname_required": "surname require tr",
-            "traveller_birthday_required": "birthday rquire tr",
-            "children_birthday_required" : "birthday rquire tr",
-            "traveller_birthday_mustBeDate": "birthday is not valid tr",
-            "children_birthday_mustBeDate": "birthday is not valid tr"
-        },
+        "bookingForm": {
+            "traveller_gender_required": "Geschlecht ist erforderlich",
+            "traveller_name_required": "Vorname ist erforderlich",
+            "traveller_surname_required": "Nachname ist erforderlich",
+            "traveller_birthday_required": "Geburtsdatum ist erforderlich",
+            "children_birthday_required": "Geburtsdatum ist erforderlich",
+            "traveller_birthday_mustBeDate": "Geburtsdatum ist nicht gültig",
+            "children_birthday_mustBeDate": "Geburtsdatum ist nicht gültig",
+            "phone_invalid": "Ungültige Telefonnummer. Bitte geben Sie eine gültige Telefonnummer ein."
+          },
         "booking.form.req.aggregment" : "Lütfen bu alanı kontrol edin",
         "booking.traveller.e_name" : "Yolcu İsimleri girin",
         "booking.traveller.e_surname" : "Lütfen yolcu soyisimlerini girin",
