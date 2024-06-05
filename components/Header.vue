@@ -220,18 +220,82 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
-import { useStore } from 'vuex'
+
+import { ref, computed, watch, onMounted } from 'vue';
+import { useStore } from 'vuex';
 const config = useRuntimeConfig();
 const language = useCookie("store-language");
 const currency = useCookie("currency");
 const store = useStore();
 let renderFavouriteHotelList = ref(false);
-const likedHotels = computed(() => store.getters.likedHotelsList)
-const changeLanguage = (param) => {
-  language.value = param;
-  location.reload();
+const likedHotels = computed(() => store.getters.likedHotelsList);
+
+const fetchMenuData = async (lang) => {
+  const { data, error } = await useFetch(
+    `/api/front/menu?hl=${lang || 'de'}`,
+    { pick: ["data"] }
+  );
+  if (error.value) {
+    console.error("Error fetching menu data:", error.value);
+    return [];
+  }
+  return data.value?.data || [];
 };
+
+const findUrlInMenu = (url, menu) => {
+  for (let item of menu) {
+    if (item.translate.url === url) {
+      return item;
+    }
+    if (item.children && item.children.length > 0) {
+      for (let child of item.children) {
+        if (child.translate.url === url) {
+          return child;
+        }
+      }
+    }
+  }
+  return null;
+};
+
+const findEquivalentUrl = (sourceItemId, targetMenu) => {
+  for (let item of targetMenu) {
+    if (item.id === sourceItemId) {
+      return item.translate.url;
+    }
+    if (item.children && item.children.length > 0) {
+      for (let child of item.children) {
+        if (child.id === sourceItemId) {
+          return child.translate.url;
+        }
+      }
+    }
+  }
+  return null;
+};
+
+const changeLanguage = async (param) => {
+  const currentPath = window.location.pathname;
+
+  const [menuDe, menuTr] = await Promise.all([
+    fetchMenuData('de'),
+    fetchMenuData('tr')
+  ]);
+
+  const sourceMenu = language.value === 'de' ? menuDe : menuTr;
+  const targetMenu = language.value === 'de' ? menuTr : menuDe;
+  const sourceItem = findUrlInMenu(currentPath, sourceMenu);
+  const newUrl = sourceItem ? findEquivalentUrl(sourceItem.id, targetMenu) : null;
+
+  language.value = param;
+  if (newUrl) {
+    window.location.href = newUrl;
+  } else {
+    location.reload();
+  }
+};
+
+
 const changeCurrency = (param) => {
   currency.value = param;
   location.reload();
